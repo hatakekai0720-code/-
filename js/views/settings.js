@@ -151,7 +151,7 @@ function streetsCard() {
   // 画面を離れたらリスナーを外す（カードが DOM から外れたら）
   const card = h('div', { class: 'card stack' },
     h('label', { class: 'row', style: 'gap:10px;cursor:pointer' }, h('span', { class: 'grow' }, '街路地図を自動ダウンロード'), sw),
-    h('p', { class: 'small muted' }, 'ロケ地の周辺（半径約 2.5km）の街路地図を、アプリの操作を止めずに裏で 1 件ずつ保存します。保存した場所はズーム 10 以上で街路を表示し、16 まで拡大できます。Wi-Fi での利用をおすすめします。'),
+    h('p', { class: 'small muted' }, '市街地のロケ地の周辺（半径約 1km）の街路地図を、アプリの操作を止めずに裏で 1 件ずつ保存します。保存した場所はズーム 10 以上で街路を表示し、16 まで拡大できます。Wi-Fi での利用をおすすめします。'),
     meter, line, count, storage,
     h('button', { type: 'button', class: 'btn danger', onclick: async () => {
       if (!(await confirmSheet('街路地図を全削除', '保存した街路地図をすべて削除します。地図は国境・県境だけの表示に戻ります。', '全削除', true))) return;

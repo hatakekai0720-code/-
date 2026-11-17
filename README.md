@@ -65,7 +65,7 @@ python3 -m http.server 8000
 
 ```sh
 node tests/analyzer.test.mjs   # 画像解析と推定レシピ（合成画像で検証）
-node tests/map.test.mjs        # 距離計算・ロケ地データ
+node tests/map.test.mjs        # 距離計算・ロケ地データ（必須項目・座標・出典）・クラスタ
 node tests/lessons.test.mjs    # 講座データ・練習用レシピ
 node tests/sw.test.mjs         # Service Worker のキャッシュ一覧・外部 URL が無いこと
 node tests/streets.test.mjs    # 街路地図のダウンロード計画・範囲判定・PMTiles の Range 読み込み
@@ -95,7 +95,7 @@ js/analyzer.js           画像解析
 js/translator.js         解析結果 → 推定レシピ（冒頭の RULES 表で調整）
 js/views/                各画面
 data/lessons.json        講座 全 50 回
-data/locations.json      ロケ地 18 件
+data/locations.json      ロケ地（出典 URL つき）
 data/recipes-seed.json   初期レシピ
 data/countries-50m.json  国境データ（world-atlas / Natural Earth）
 data/countries-10m.json  国境・海岸線 10m（ズーム 5 以上）
@@ -104,6 +104,7 @@ data/places-10m.json     主要都市名（ズーム 6 以上）
 data/streets/            ロケ地周辺の街路地図 PMTiles（scripts/extract-streets.sh で作成。プリキャッシュしない）
 js/analyze-worker.js     全ピクセル解析の Web Worker
 js/streets.js            街路地図のダウンロードと読み出し
+js/cluster.js            地図のピンのクラスタと地域・国の絞り込み
 vendor/                  Leaflet・topojson-client・pmtiles・protomaps-leaflet
 scripts/                 データ作成用スクリプト（アプリの実行には不要）
 icons/                   アプリアイコン

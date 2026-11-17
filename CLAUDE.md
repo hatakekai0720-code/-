@@ -28,11 +28,13 @@
 - `js/app.js` ルーティング（ハッシュ）と下部ナビ / `js/store.js` 保存・移行・エクスポート / `js/xt3.js` パラメータ定義
 - `js/analyzer.js` 画像解析（全ピクセル。`Accumulator` で統計を累積、`tilePlan`/`analyzeTiled` で最大 4MP のタイルに分けて読む）/ `js/analyze-worker.js` 解析用 Worker（OffscreenCanvas。無ければ `views/analyze.js` がメインスレッドで 0.5MP ずつ await しながら処理）/ `js/translator.js` 推定レシピ（ルール表は冒頭）
 - `js/geo.js` 距離・日付変更線・都市名ラベルの間引き（`pickLabels`）
+- `js/cluster.js` 地図のピンのクラスタ（自前実装。ズームごとにワールドピクセル座標で貪欲法、半径 44px、件数で 3 段階）・放射状展開（`spiderOffsets`）・地域/国の絞り込み（`facetCounts`/`filterLocations`）。ロケ地とマイピンは別クラスタ。描画は単独ピン = Canvas の circleMarker、クラスタ = divIcon
 - `js/streets.js` 街路地図: `data/streets/index.json` を見て裏で 1 件ずつ Cache Storage `xt3cine-streets` に保存（sha256 で更新判定・中断再開）、`BlobSource` でキャッシュ済みファイルから PMTiles の Range を切り出す。SW はこのキャッシュを消さない
 - `js/views/*` 各画面 / `js/ui/*` 共通部品・テーマ / `js/pwa.js` SW 登録と更新通知
 - 地図のズーム: 〜 国境 50m / 4〜 県・州の境界（`data/admin1-10m.json`）/ 5〜 国境・海岸線 10m（`data/countries-10m.json`）/ 6〜 都市名（`data/places-10m.json`）/ 通常の最大 8。ダウンロード済みのロケ地付近だけ 10〜 街路（`vendor/protomaps-leaflet` + `vendor/pmtiles`）、最大 16
-- `data/lessons.json` 講座50回 / `data/locations.json` ロケ地18件 / `data/countries-50m.json` 地図（Natural Earth 由来）
-- `scripts/build-natural-earth.sh` Natural Earth データの再生成 / `scripts/extract-streets.sh` 街路データの切り出し（ロケ地を増やしたら再実行。要 pmtiles CLI と build.protomaps.com への接続）
+- `data/lessons.json` 講座50回 / `data/countries-50m.json` 地図（Natural Earth 由来）
+- `data/locations.json` ロケ地（必須: id・作品情報・place/city/country・region（asia / middle-east / europe / north-america / latin-america / africa / oceania）・lat/lng（小数4桁）・confidence（出典2件以上で high、1件で medium）・streets（市街地なら true）・scene/look（自分の言葉で）・sources（撮影地点を確認できる https の出典 URL。外部 URL はここだけ許可。アプリは表示するだけで通信しない）・recipe）。追加は出典で撮影地点を確認できたものだけ
+- `scripts/build-natural-earth.sh` Natural Earth データの再生成 / `scripts/extract-streets.sh` 街路データの切り出し（`streets: true` のロケ地だけ、半径約 1km・ズーム 10〜15。合計が 500MB を超えそうなら止まる。ロケ地を増やしたら再実行。要 pmtiles CLI と build.protomaps.com への接続）
 - 設定 `settings.streetsAuto === false` で街路の自動ダウンロードをオフ（未設定 = オン。スキーマのバージョンは変えていない）
 
 ## 未確認事項
