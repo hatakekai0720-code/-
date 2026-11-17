@@ -2091,6 +2091,406 @@
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 0, "b": -2 },
         "highlight": -1, "shadow": 0, "color": 0, "sharpness": -1, "nr": -3,
         "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["公園", "日中", "人物"] }
+    },
+    {
+      "id": "shining-st-mary-lake",
+      "title": "シャイニング", "titleEn": "The Shining", "year": 1980, "director": "スタンリー・キューブリック",
+      "place": "セント・メアリー湖（ゴーイング・トゥ・ザ・サン・ロード）", "city": "グレイシャー国立公園", "country": "アメリカ", "region": "north-america",
+      "lat": 48.674, "lng": -113.5865, "confidence": "high", "streets": false,
+      "scene": "冒頭、山の湖と小島を越えて、一台の車を空から追い続ける長い空撮。",
+      "look": "湖の深い青緑と山の影。冷たく不穏な澄んだ色。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Saint_Mary_Lake",
+        "https://idyllopuspress.com/idyllopus/film/sh_stmarys.htm"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 7000 }, "wbShift": { "r": -2, "b": 3 },
+        "highlight": -1, "shadow": 2, "color": -2, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["湖", "山", "空撮"] }
+    },
+    {
+      "id": "goonies-haystack-rock",
+      "title": "グーニーズ", "titleEn": "The Goonies", "year": 1985, "director": "リチャード・ドナー",
+      "place": "ヘイスタック・ロック（キャノンビーチ）", "city": "キャノンビーチ", "country": "アメリカ", "region": "north-america",
+      "lat": 45.8841, "lng": -123.9686, "confidence": "high", "streets": true,
+      "scene": "子どもたちの冒険の舞台になる海辺。巨大な岩を背に浜辺を車が走り、近くに隠れ家のレストランが建てられた。",
+      "look": "霧の灰色と濡れた砂、緑の岬。湿った北の海辺の色。",
+      "sources": [
+        "https://www.atlasofwonders.com/2022/07/where-was-the-goonies-filmed.html",
+        "https://www.locationshub.com/blog/2014/7/29/3-movies-you-might-not-know-were-filmed-at-cannon-beach"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
+        "highlight": -1, "shadow": 1, "color": -1, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["海", "霧", "冒険"] }
+    },
+    {
+      "id": "cuckoos-nest-oregon-state-hospital",
+      "title": "カッコーの巣の上で", "titleEn": "One Flew Over the Cuckoo's Nest", "year": 1975, "director": "ミロス・フォアマン",
+      "place": "オレゴン州立病院", "city": "セーラム", "country": "アメリカ", "region": "north-america",
+      "lat": 44.9372, "lng": -123.0071, "confidence": "high", "streets": true,
+      "scene": "刑務所から精神病院へ移された男が、管理された病棟に騒ぎを起こす。実際の病院で撮影された。",
+      "look": "病棟の白と淡い緑、蛍光灯の平坦な光。冷たく閉じた色。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/One_Flew_Over_the_Cuckoo%27s_Nest_(film)",
+        "https://oregonencyclopedia.org/articles/one-flew-over-the-cuckoos-nest-film/"
+      ],
+      "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
+        "wb": { "mode": "fluorescent2", "kelvin": null}, "wbShift": { "r": 1, "b": -1 },
+        "highlight": -1, "shadow": -1, "color": -2, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["室内", "病院", "70年代"] }
+    },
+    {
+      "id": "stand-by-me-lake-britton-bridge",
+      "title": "スタンド・バイ・ミー", "titleEn": "Stand by Me", "year": 1986, "director": "ロブ・ライナー",
+      "place": "レイク・ブリットン橋", "city": "マッカーサー・バーニー滝州立公園", "country": "アメリカ", "region": "north-america",
+      "lat": 41.033, "lng": -121.6525, "confidence": "high", "streets": false,
+      "scene": "線路づたいに旅する少年たちが、高い鉄橋の上で迫る列車から必死に逃げる。",
+      "look": "夏の乾いた緑と湖の青、日に焼けた色。懐かしく暖かい。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/McArthur%E2%80%93Burney_Falls_Memorial_State_Park",
+        "https://www.ijpr.org/post/it-was-northern-california-railroad-trestle-makes-movie-history"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 2, "b": -3 },
+        "highlight": 0, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["夏", "橋", "青春"] }
+    },
+    {
+      "id": "sleepless-in-seattle-houseboat",
+      "title": "めぐり逢えたら", "titleEn": "Sleepless in Seattle", "year": 1993, "director": "ノーラ・エフロン",
+      "place": "レイク・ユニオンのハウスボート", "city": "シアトル", "country": "アメリカ", "region": "north-america",
+      "lat": 47.6418, "lng": -122.3398, "confidence": "high", "streets": true,
+      "scene": "妻を亡くした建築家と息子が暮らす湖上の家。窓の外に水面と街が広がる。",
+      "look": "湖の灰青と木の家の暖色。雨の多い街のしっとりした色。",
+      "sources": [
+        "https://iamnotastalker.com/2010/04/02/the-sleepless-in-seattle-houseboat",
+        "https://movie-locations.com/movies/s/Sleepless-In-Seattle.php"
+      ],
+      "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 1, "b": -1 },
+        "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["湖", "住宅", "雨"] }
+    },
+    {
+      "id": "napoleon-dynamite-preston-high",
+      "title": "ナポレオン・ダイナマイト", "titleEn": "Napoleon Dynamite", "year": 2004, "director": "ジャレッド・ヘス",
+      "place": "プレストン高校", "city": "プレストン", "country": "アメリカ", "region": "north-america",
+      "lat": 42.095, "lng": -111.8737, "confidence": "high", "streets": true,
+      "scene": "風変わりな高校生ナポレオンが通う田舎町の高校。監督の母校でもある。",
+      "look": "乾いた黄色、色あせたベージュとオレンジ。とぼけた温かい色。",
+      "sources": [
+        "https://movie-locations.com/movies/n/Napoleon-Dynamite.php",
+        "https://www.fox13now.com/entertainment/20-years-of-napoleon-dynamite-a-look-back-at-the-cult-classic-and-small-idaho-town-where-it-was-filmed"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6200 }, "wbShift": { "r": 3, "b": -5 },
+        "highlight": -1, "shadow": -1, "color": 0, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["学校", "田舎町", "日中"] }
+    },
+    {
+      "id": "oceans-eleven-bellagio-fountains",
+      "title": "オーシャンズ11", "titleEn": "Ocean's Eleven", "year": 2001, "director": "スティーブン・ソダーバーグ",
+      "place": "ベラージオの噴水", "city": "ラスベガス", "country": "アメリカ", "region": "north-america",
+      "lat": 36.1126, "lng": -115.1739, "confidence": "high", "streets": true,
+      "scene": "大仕事を終えた仲間たちが、夜の噴水の前に並んで眺め、ひとりずつ去っていく。",
+      "look": "噴水のライトアップの白と夜の金色。華やかで暖かい夜。",
+      "sources": [
+        "https://nevadafilm.com/scene-in-nevada-oceans-eleven/amp",
+        "https://thecinemaholic.com/oceans-eleven-filming-locations"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4300 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 0, "color": 1, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "噴水", "街"] }
+    },
+    {
+      "id": "parasite-jahamun-stairs",
+      "title": "パラサイト 半地下の家族", "titleEn": "Parasite", "year": 2019, "director": "ポン・ジュノ",
+      "place": "紫霞門トンネル脇の階段", "city": "ソウル", "country": "韓国", "region": "asia",
+      "lat": 37.5915, "lng": 126.9665, "confidence": "high", "streets": true,
+      "scene": "豪雨の夜、一家が高台の邸宅から自宅のある低地へ、長い階段を駆け下りる。",
+      "look": "雨の夜の青緑と街灯の橙。濡れた黒の深いコントラスト。",
+      "sources": [
+        "https://amp.cnn.com/cnn/travel/article/parasite-movie-filming-locations-seoul",
+        "https://www.koreajoongangdaily.com/lifestyle/where-parasite-comes-to-life-a-visit-to-each-of-the-awardwinning-films-iconic-filming-locations/11212971"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 2, "color": 2, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "雨", "階段"] }
+    },
+    {
+      "id": "in-the-mood-for-love-goldfinch",
+      "title": "花様年華", "titleEn": "In the Mood for Love", "year": 2000, "director": "ウォン・カーウァイ",
+      "place": "金雀餐廳（ゴールドフィンチ・レストラン、蘭芳道）", "city": "香港", "country": "香港", "region": "asia",
+      "lat": 22.2789, "lng": 114.1834, "confidence": "high", "streets": true,
+      "scene": "隣人同士のふたりが向かい合って洋食をとる老舗の洋食店。何度も訪れる場所になる。",
+      "look": "赤いブースと暗い木、琥珀の照明。深く濃い色。",
+      "sources": [
+        "https://www.tatlerasia.com/lifestyle/entertainment/hong-kong-wong-kar-wai-movie-location",
+        "https://www.scmp.com/article/976427/goldfinch-restaurant"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 4, "b": -3 },
+        "highlight": -1, "shadow": 1, "color": 2, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "レストラン", "夜"] }
+    },
+    {
+      "id": "infernal-affairs-north-point-rooftop",
+      "title": "インファナル・アフェア", "titleEn": "Infernal Affairs", "year": 2002, "director": "アンドリュー・ラウ、アラン・マック",
+      "place": "北角政府合署の屋上", "city": "香港", "country": "香港", "region": "asia",
+      "lat": 22.2918, "lng": 114.1983, "confidence": "high", "streets": true,
+      "scene": "潜入捜査官と上司が密会し、最後にふたりの潜入者が対峙するビルの屋上。",
+      "look": "曇り空の冷たい青、ビル群の灰色。クールで硬い色。",
+      "sources": [
+        "https://www.cathaypacific.com/cx/en_AU/inspiration/hong-kong/infernal-affairs-filmed-hong-kong.html",
+        "https://www.amexessentials.com/top-hong-kong-filming-locations/"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
+        "highlight": -1, "shadow": 2, "color": -1, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["屋上", "街", "サスペンス"] }
+    },
+    {
+      "id": "city-of-sadness-jiufen",
+      "title": "悲情城市", "titleEn": "A City of Sadness", "year": 1989, "director": "ホウ・シャオシェン",
+      "place": "九份", "city": "新北", "country": "台湾", "region": "asia",
+      "lat": 25.1093, "lng": 121.8446, "confidence": "high", "streets": true,
+      "scene": "戦後の動乱期を生きる一家の物語。山の斜面に家が重なる旧鉱山町で撮影され、町が再び注目されるきっかけになった。",
+      "look": "霧の山と瓦屋根、赤い提灯。湿ったしっとりした色。",
+      "sources": [
+        "https://www.chinadaily.com.cn/cndy/2016-02/27/content_23663511.htm",
+        "https://taiwan-scene.com/2024/02/05/the-taiwan-of-hou-hsiao-hsien-and-edward-yang/"
+      ],
+      "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["街", "霧", "山"] }
+    },
+    {
+      "id": "last-emperor-forbidden-city",
+      "title": "ラストエンペラー", "titleEn": "The Last Emperor", "year": 1987, "director": "ベルナルド・ベルトルッチ",
+      "place": "紫禁城（太和殿）", "city": "北京", "country": "中国", "region": "asia",
+      "lat": 39.9154, "lng": 116.3908, "confidence": "high", "streets": true,
+      "scene": "幼い皇帝の即位から始まる物語。実際の宮殿の中で、許可を得て撮影が行われた。",
+      "look": "朱の柱と黄色の瓦、金色の装飾。豊かで重厚な色。",
+      "sources": [
+        "https://britannica.com/topic/The%2DLast%2DEmperor%2Dfilm%2Dby%2DBertolucci",
+        "https://www.dga.org/craft/dgaq/issues/0801-spring-2008/shot-to-remember-the-last-emperor"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": 1, "shadow": 1, "color": 2, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["宮殿", "歴史", "日中"] }
+    },
+    {
+      "id": "crouching-tiger-anji-bamboo",
+      "title": "グリーン・デスティニー", "titleEn": "Crouching Tiger, Hidden Dragon", "year": 2000, "director": "アン・リー",
+      "place": "安吉の竹林（中国大竹海）", "city": "安吉", "country": "中国", "region": "asia",
+      "lat": 30.505, "lng": 119.59, "confidence": "high", "streets": false,
+      "scene": "剣士と若い女剣客が、しなる竹の梢の上を飛び移りながら戦う。",
+      "look": "竹の緑一色の世界。柔らかい拡散光で、緑の濃淡が美しい。",
+      "sources": [
+        "https://www.chinadaily.com.cn/travel/2016-09/21/content_26848513.htm",
+        "https://archive.shine.cn/feature/Heaven-in-the-hometown-of-bamboo/shdaily.shtml"
+      ],
+      "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": -1, "b": -1 },
+        "highlight": -1, "shadow": 0, "color": 1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["竹林", "緑", "アクション"] }
+    },
+    {
+      "id": "the-beach-maya-bay",
+      "title": "ザ・ビーチ", "titleEn": "The Beach", "year": 2000, "director": "ダニー・ボイル",
+      "place": "マヤ・ベイ（ピピ・レ島）", "city": "クラビ", "country": "タイ", "region": "asia",
+      "lat": 7.6779, "lng": 98.766, "confidence": "high", "streets": false,
+      "scene": "旅人たちが隠れ住む、断崖に囲まれた楽園の入り江。",
+      "look": "エメラルドの海と白砂、緑の断崖。強い日差しで鮮烈。",
+      "sources": [
+        "https://www.movie-locations.com/movies/b/Beach.php",
+        "https://almostginger.com/the-beach-filming-locations-in-thailand/"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 1, "b": -1 },
+        "highlight": 0, "shadow": 1, "color": 3, "sharpness": 0, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "島", "夏"] }
+    },
+    {
+      "id": "golden-gun-khao-phing-kan",
+      "title": "007／黄金銃を持つ男", "titleEn": "The Man with the Golden Gun", "year": 1974, "director": "ガイ・ハミルトン",
+      "place": "カオ・ピン・カン（ジェームズ・ボンド島）", "city": "パンガー", "country": "タイ", "region": "asia",
+      "lat": 8.2746, "lng": 98.5013, "confidence": "high", "streets": false,
+      "scene": "殺し屋スカラマンガの隠れ家がある島。沖に立つ細い岩の柱が、秘密兵器の装置を隠す。",
+      "look": "翡翠色の海と石灰岩の岩山。70 年代の鮮やかな色。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Khao_Phing_Kan",
+        "https://www.movie-locations.com/movies/m/Man-With-The-Golden-Gun.php"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 1, "b": -1 },
+        "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "島", "岩"] }
+    },
+    {
+      "id": "tomb-raider-ta-prohm",
+      "title": "トゥームレイダー", "titleEn": "Lara Croft: Tomb Raider", "year": 2001, "director": "サイモン・ウェスト",
+      "place": "タ・プローム", "city": "シェムリアップ", "country": "カンボジア", "region": "asia",
+      "lat": 13.435, "lng": 103.889, "confidence": "high", "streets": false,
+      "scene": "ララが遺跡を探索する場面。巨大な樹の根が石の回廊をのみ込んだ寺院で撮影された。",
+      "look": "苔の緑と灰色の石、木漏れ日。湿った熱帯の色。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Ta_Prohm",
+        "https://www.movie-locations.com/movies/l/Lara-Croft-Tomb-Raider.php"
+      ],
+      "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 0, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["遺跡", "森", "冒険"] }
+    },
+    {
+      "id": "crazy-rich-asians-newton-food-centre",
+      "title": "クレイジー・リッチ！", "titleEn": "Crazy Rich Asians", "year": 2018, "director": "ジョン・M・チュウ",
+      "place": "ニュートン・フードセンター", "city": "シンガポール", "country": "シンガポール", "region": "asia",
+      "lat": 1.312, "lng": 103.8396, "confidence": "high", "streets": true,
+      "scene": "シンガポールに着いたレイチェルが、友人たちと屋台街で最初の食事を楽しむ。",
+      "look": "屋台の電球と料理の湯気、夜の暖色。にぎやかで濃い色。",
+      "sources": [
+        "https://theculturetrip.com/asia/singapore/articles/7-singapore-locations-filmed-in-crazy-rich-asians",
+        "https://guide.michelin.com/en/article/features/crazy-rich-asians-movie-food-styling"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 0, "color": 2, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "屋台", "食"] }
+    },
+    {
+      "id": "slumdog-millionaire-cst",
+      "title": "スラムドッグ＄ミリオネア", "titleEn": "Slumdog Millionaire", "year": 2008, "director": "ダニー・ボイル",
+      "place": "チャトラパティ・シヴァージー・ターミナス駅", "city": "ムンバイ", "country": "インド", "region": "asia",
+      "lat": 18.9398, "lng": 72.8355, "confidence": "high", "streets": true,
+      "scene": "エンドロールで、主人公たちと大勢の人々が駅のホームで踊る。",
+      "look": "ホームの黄色い光と人々の色鮮やかな服。熱気のある暖色。",
+      "sources": [
+        "https://cinestaan.com/listicles/2015/nov/26/190/mumbai-hamari-jaan",
+        "https://dnaindia.com/entertainment/report-salaam-slum-children-of-mumbai-loveleen-1221102/amp"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["駅", "群衆", "ダンス"] }
+    },
+    {
+      "id": "life-of-pi-botanical-garden",
+      "title": "ライフ・オブ・パイ", "titleEn": "Life of Pi", "year": 2012, "director": "アン・リー",
+      "place": "ポンディシェリ植物園（劇中の動物園）", "city": "ポンディシェリ", "country": "インド", "region": "asia",
+      "lat": 11.935, "lng": 79.8204, "confidence": "high", "streets": true,
+      "scene": "少年パイの父が営む動物園として使われた植物園。家族の穏やかな日々が描かれる。",
+      "look": "熱帯植物の濃い緑と花の色。明るく豊かな色。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Life_of_Pi_(film)",
+        "https://emanuellevy.com/review/life-of-pi-lees-spectacle-locations"
+      ],
+      "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 0, "b": -2 },
+        "highlight": -1, "shadow": 0, "color": 2, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["庭園", "緑", "家族"] }
+    },
+    {
+      "id": "ghost-protocol-burj-khalifa",
+      "title": "ミッション:インポッシブル／ゴースト・プロトコル", "titleEn": "Mission: Impossible – Ghost Protocol", "year": 2011, "director": "ブラッド・バード",
+      "place": "ブルジュ・ハリファ", "city": "ドバイ", "country": "アラブ首長国連邦", "region": "middle-east",
+      "lat": 25.1972, "lng": 55.2744, "confidence": "high", "streets": true,
+      "scene": "イーサンが世界一高いビルのガラス壁面を、吸着グローブだけで登っていく。実際のビルの外壁でも撮影された。",
+      "look": "砂漠の白っぽい空とガラスの青。めまいのする高所の冷たい色。",
+      "sources": [
+        "https://www.thenational.ae/uae/tom-cruise-s-burj-khalifa-stunts-revealed-in-new-clips-1.426608",
+        "https://www.cinemablend.com/movies/brad-bird-shooting-burj-khalifa-scene-tom-cruise-mission-impossible-ghost-protocol"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": -2, "b": 3 },
+        "highlight": 0, "shadow": 1, "color": -2, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["建築", "高所", "アクション"] }
+    },
+    {
+      "id": "last-crusade-petra-treasury",
+      "title": "インディ・ジョーンズ／最後の聖戦", "titleEn": "Indiana Jones and the Last Crusade", "year": 1989, "director": "スティーヴン・スピルバーグ",
+      "place": "ペトラ遺跡 エル・ハズネ", "city": "ペトラ", "country": "ヨルダン", "region": "middle-east",
+      "lat": 30.3222, "lng": 35.4516, "confidence": "high", "streets": false,
+      "scene": "聖杯が眠る神殿の入口として、狭い峡谷の先に岩を彫った建物が現れる。",
+      "look": "バラ色の砂岩と深い影。暖かく乾いた色。",
+      "sources": [
+        "https://www.discovermagazine.com/4-famous-archeological-sites-that-appeared-in-major-films-46823",
+        "https://www.nationalgeographicla.com/viajes/2023/06/11-destinos-para-explorar-como-indiana-jones"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 4, "b": -4 },
+        "highlight": 0, "shadow": 2, "color": 1, "sharpness": 1, "nr": -3,
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["遺跡", "砂漠", "冒険"] }
+    },
+    {
+      "id": "skyfall-varda-viaduct",
+      "title": "007 スカイフォール", "titleEn": "Skyfall", "year": 2012, "director": "サム・メンデス",
+      "place": "ヴァルダ鉄橋", "city": "アダナ県", "country": "トルコ", "region": "middle-east",
+      "lat": 37.41, "lng": 35.005, "confidence": "high", "streets": false,
+      "scene": "走る列車の屋根の上でボンドが敵と格闘し、高い鉄橋から川へ落ちる冒頭の場面。",
+      "look": "乾いた山の黄土色と青空。強い日差しで硬い色。",
+      "sources": [
+        "https://hurriyetdailynews.com/adanas-breathtaking-varda-railway-bridge-earns-popularity-after-skyfall-61573",
+        "https://www.thelocationguide.com/2012/11/skyfalls-callum-mcdougall-takes-james-bond-on-location-to-turkey/"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 3, "b": -3 },
+        "highlight": 0, "shadow": 2, "color": 0, "sharpness": 1, "nr": -3,
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["橋", "列車", "アクション"] }
+    },
+    {
+      "id": "notting-hill-blue-door",
+      "title": "ノッティングヒルの恋人", "titleEn": "Notting Hill", "year": 1999, "director": "ロジャー・ミッシェル",
+      "place": "青いドアの家（280 Westbourne Park Rd）", "city": "ロンドン", "country": "イギリス", "region": "europe",
+      "lat": 51.5178, "lng": -0.2026, "confidence": "high", "streets": true,
+      "scene": "書店主ウィリアムが暮らす家。青いドアの前に記者たちが押し寄せる。",
+      "look": "青いドアと白い壁、ロンドンの柔らかな曇り光。明るく品のある色。",
+      "sources": [
+        "https://www.timeout.com/london/news/london-on-screen-the-blue-door-from-notting-hill-101917",
+        "https://movie-locations.com/movies/n/Notting-Hill.php"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 0, "b": 1 },
+        "highlight": -2, "shadow": -2, "color": 1, "sharpness": -1, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["住宅", "街", "日中"] }
+    },
+    {
+      "id": "bridget-jones-borough-market",
+      "title": "ブリジット・ジョーンズの日記", "titleEn": "Bridget Jones's Diary", "year": 2001, "director": "シャロン・マグワイア",
+      "place": "バラ・マーケット脇のフラット（Bedale St）", "city": "ロンドン", "country": "イギリス", "region": "europe",
+      "lat": 51.5056, "lng": -0.0905, "confidence": "high", "streets": true,
+      "scene": "ブリジットが暮らす、市場の高架脇にあるパブの上の部屋。外観をここで撮影した。",
+      "look": "レンガの赤と曇り空、街灯の黄。少し温かいロンドンの色。",
+      "sources": [
+        "https://www.timeout.com/london/news/london-on-screen-bridget-joness-flat-022718",
+        "https://movie-locations.com/movies/b/Bridget-Jones-Diary.php"
+      ],
+      "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["街", "住宅", "冬"] }
+    },
+    {
+      "id": "clockwork-orange-southmere-lake",
+      "title": "時計じかけのオレンジ", "titleEn": "A Clockwork Orange", "year": 1971, "director": "スタンリー・キューブリック",
+      "place": "テムズミードのサウスミア湖", "city": "ロンドン", "country": "イギリス", "region": "europe",
+      "lat": 51.4995, "lng": 0.1225, "confidence": "high", "streets": true,
+      "scene": "アレックスが仲間を湖へ突き落とす、コンクリートの集合住宅に囲まれた人工湖のほとり。",
+      "look": "コンクリートの灰色と冷たい水面。無機質で硬い色。",
+      "sources": [
+        "https://bfi.org.uk/features/how-london-has-changed-stanley-kubrick-clockwork-orange",
+        "https://atlasobscura.com/places/southmere-lake"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
+        "highlight": -1, "shadow": 1, "color": -2, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["建築", "湖", "70年代"] }
     }
   ]
 }
