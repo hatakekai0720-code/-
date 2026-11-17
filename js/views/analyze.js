@@ -3,13 +3,67 @@
 import { h, toast } from '../ui/dom.js';
 import { paramSummary } from '../ui/recipe-ui.js';
 import { themeColors } from '../ui/theme.js';
-import { analyze, fitSize } from '../analyzer.js';
+import { analyzeTiled, canvasReader, fitSize } from '../analyzer.js';
 import { estimate, buildRecipe, toneCurves, curvesText } from '../translator.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
 
 // 画面を切り替えても直前の結果を残す（メモリのみ。リロードで消える）
-let last = null; // { canvas, result, est, pick, fileName }
+let last = null; // { canvas, result, est, pick, fileName, mode, ms }
+
+const MAIN_TILE_AREA = 524_288;
+
+/** Worker + OffscreenCanvas で解析できる環境か */
+function workerCapable() {
+  try { return typeof Worker === 'function' && typeof OffscreenCanvas === 'function' && !!new OffscreenCanvas(1, 1).getContext('2d'); }
+  catch { return false; }
+}
+
+/**
+ * 全ピクセル解析のジョブ。Worker が使えればそこで、使えなければメインスレッドでタイルごとに await しながら処理する。
+ * @returns {{ promise: Promise<{result, mode}>, cancel: () => void }}
+ */
+function startAnalysis(img, file, onProgress) {
+  let cancelled = false, worker = null, reject = null;
+  const ctrl = { aborted: false };
+  const mainThread = async (source) => {
+    const read = canvasReader(source, (w, h) => h_canvas(w, h));
+    const result = await analyzeTiled(read, source.width, source.height, {
+      // メインスレッドではタイルを小さく（0.5MP ≒ 数十 ms）して、1 タイルごとに描画・操作を譲る
+      maxArea: MAIN_TILE_AREA, onProgress, signal: ctrl, yieldFn: () => new Promise((r) => setTimeout(r, 0)),
+    });
+    return { result, mode: 'main' };
+  };
+  const viaWorker = () => new Promise((resolve, rej) => {
+    reject = rej;
+    worker = new Worker(new URL('../analyze-worker.js', import.meta.url), { type: 'module' });
+    worker.onmessage = (e) => {
+      const m = e.data;
+      if (m.type === 'progress') onProgress(m.done, m.total);
+      else if (m.type === 'done') { worker.terminate(); resolve({ result: m.result, mode: 'worker' }); }
+      else if (m.type === 'error') { worker.terminate(); rej(new Error(m.message)); }
+    };
+    worker.onerror = (e) => { e.preventDefault?.(); worker.terminate(); rej(new Error('worker')); };
+    worker.postMessage({ bitmap: img }, [img]); // ImageBitmap は Worker に移す（メインスレッドからは消える）
+  });
+  const promise = (async () => {
+    if (workerCapable() && typeof ImageBitmap === 'function' && img instanceof ImageBitmap) {
+      try { return await viaWorker(); }
+      catch (err) {
+        if (cancelled) throw err;
+        // Worker 内で失敗したとき（module worker 非対応など）は、もう一度デコードしてメインスレッドで解析する
+        const again = await decode(file);
+        try { return await mainThread(again); } finally { again.close?.(); }
+      }
+    }
+    try { return await mainThread(img); } finally { img.close?.(); }
+  })();
+  return {
+    promise,
+    cancel: () => { cancelled = true; ctrl.aborted = true; if (worker) { worker.terminate(); reject?.(Object.assign(new Error('キャンセルしました'), { name: 'AbortError' })); } },
+  };
+}
+const h_canvas = (w, h) => { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; };
 
 async function decode(file) {
   if ('createImageBitmap' in window) {
@@ -58,19 +112,40 @@ export function render(root) {
   const out = h('div', { class: 'stack' });
   root.append(drop, fileInput, out);
 
+  let job = null;
   async function load(file) {
-    out.replaceChildren(h('p', { class: 'muted' }, '解析中…'));
+    job?.cancel(); job = null;
+    const bar = h('span');
+    const meter = h('div', { class: 'progress', role: 'progressbar', 'aria-label': '解析の進捗', 'aria-valuemin': '0', 'aria-valuemax': '100', 'aria-valuenow': '0' }, bar);
+    const label = h('span', { class: 'num small muted grow' }, '読み込み中…');
+    const cancelBtn = h('button', { type: 'button', class: 'btn', onclick: () => job?.cancel() }, 'キャンセル');
+    out.replaceChildren(h('div', { class: 'card stack', style: 'gap:8px' }, h('div', null, '全ピクセルを解析中'), meter, h('div', { class: 'row' }, label, cancelBtn)));
+    const t0 = performance.now();
+    let mine = null;
     try {
       const img = await decode(file);
       const { width, height } = fitSize(img.width, img.height);
       const canvas = h('canvas', { class: 'preview', width, height });
-      const g = canvas.getContext('2d', { willReadFrequently: true });
-      g.drawImage(img, 0, 0, width, height);
-      img.close?.();
-      const result = analyze(g.getImageData(0, 0, width, height).data, width, height);
-      last = { canvas, result, est: estimate(result), pick: 0, fileName: file.name.replace(/\.[^.]+$/, '') };
+      canvas.getContext('2d').drawImage(img, 0, 0, width, height); // 表示用は縮小のまま
+      const fileName = file.name.replace(/\.[^.]+$/, '');
+      mine = job = startAnalysis(img, file, (done, total) => {
+        const p = total ? done / total * 100 : 0;
+        bar.style.width = `${p}%`; meter.setAttribute('aria-valuenow', String(Math.round(p)));
+        label.textContent = `${(done / 1e6).toFixed(1)} / ${(total / 1e6).toFixed(1)} MP（${Math.round(p)}%）`;
+      });
+      const { result, mode } = await mine.promise;
+      if (job !== mine) return;
+      job = null;
+      last = { canvas, result, est: estimate(result), pick: 0, fileName, mode, ms: performance.now() - t0 };
       show();
-    } catch {
+    } catch (err) {
+      if (mine && job !== mine) return; // 別の画像に切り替わった
+      job = null;
+      if (err?.name === 'AbortError') {
+        toast('解析をキャンセルしました');
+        if (last) show(); else out.replaceChildren();
+        return;
+      }
       out.replaceChildren(h('div', { class: 'notice' }, 'この画像は読み込めませんでした。JPEG / PNG / WebP などをお試しください。'));
     }
   }
@@ -86,7 +161,9 @@ export function render(root) {
 
     out.replaceChildren(
       h('div', { class: 'preview-wrap' }, canvas),
-      h('div', { class: 'small muted num' }, `${a.width}×${a.height}px で解析`),
+      h('div', { class: 'small muted' }, h('span', { class: 'num' }, `${a.width}×${a.height}px`), ' の全 ',
+        h('span', { class: 'num' }, a.pixels.toLocaleString('en-US')), ' ピクセルを解析',
+        last.mode ? h('span', { class: 'num' }, `（${last.mode === 'worker' ? 'Worker' : 'メインスレッド'}・${(last.ms / 1000).toFixed(1)} 秒）`) : null),
       h('div', { class: 'section-title' }, 'ヒストグラム'),
       h('div', { class: 'card' }, hist, h('div', { class: 'hist-scale num small muted' }, h('span', null, '0'), h('span', null, '128'), h('span', null, '255'))),
       h('div', { class: 'section-title' }, '輝度'),
@@ -152,5 +229,5 @@ export function render(root) {
   const onTheme = () => { const c = out.querySelector('.hist'); if (c && last) drawHistogram(c, last.result.hist); };
   const mo = new MutationObserver(onTheme);
   mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-  return () => mo.disconnect();
+  return () => { mo.disconnect(); job?.cancel(); job = null; };
 }

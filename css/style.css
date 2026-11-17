@@ -301,3 +301,7 @@ mark.verify { background: none; color: var(--danger); font-weight: 600; white-sp
   background: var(--card); border: 1px solid var(--accent); border-radius: 6px; }
 .update-banner .btn { min-height: 40px; padding: 0 10px; }
 body.fullscreen .update-banner { bottom: calc(env(safe-area-inset-bottom) + 8px); }
+
+/* 進捗バー（画像解析・街路地図のダウンロード） */
+.progress { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.progress > span { display: block; height: 100%; width: 0; background: var(--accent-bg); transition: width .15s linear; }

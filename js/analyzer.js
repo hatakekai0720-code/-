@@ -2,7 +2,7 @@
 // DOM に依存しないので Node でも数値テストできる（tests/analyzer.test.mjs）。
 // 解析結果は数値だけを返し、画像そのものはどこにも保存しない。
 
-export const ANALYZE_MAX_EDGE = 800;
+export const ANALYZE_MAX_EDGE = 800; // 表示用プレビューの長辺（解析そのものは全ピクセルで行う）
 export const CLIP = { black: 2, white: 253 }; // 輝度がこの値以下 / 以上を黒つぶれ / 白飛びとみなす
 
 // sRGB (0-255) → リニア
@@ -46,76 +46,162 @@ function percentile(hist, total, p) {
 }
 
 /**
+ * 統計の累積器。画像を帯（タイル）に分けて順に add() し、最後に result() で解析結果を得る。
+ * ピクセルを保持しないので、26MP の画像でもメモリは一定（輝度ビンごとのリニア RGB 合計を持つことで、
+ * シャドウ / ハイライト（輝度の下位・上位 25%）の平均色も 1 パスで正確に出せる）。
+ */
+export class Accumulator {
+  constructor() {
+    this.n = 0;
+    this.histR = new Uint32Array(256); this.histG = new Uint32Array(256); this.histB = new Uint32Array(256); this.histL = new Uint32Array(256);
+    this.binLin = new Float64Array(256 * 3); // 輝度ビンごとのリニア RGB 合計
+    this.sumChroma = 0; this.sumSatHsv = 0; this.skin = 0; this.sumLum = 0; this.sumLum2 = 0; this.sumA = 0; this.sumB = 0;
+  }
+
+  /** @param {Uint8ClampedArray|Uint8Array} data RGBA。count を省略すると data 全体 */
+  add(data, count = data.length >> 2) {
+    const { histR, histG, histB, histL, binLin } = this;
+    let sumChroma = 0, sumSatHsv = 0, skin = 0, sumLum = 0, sumLum2 = 0, sumA = 0, sumB = 0;
+    for (let i = 0, p = 0; i < count; i++, p += 4) {
+      const r = data[p], g = data[p + 1], b = data[p + 2];
+      histR[r]++; histG[g]++; histB[b]++;
+      const y = Math.round(0.2126 * r + 0.7152 * g + 0.0722 * b);
+      histL[y]++; sumLum += y; sumLum2 += y * y;
+      const rl = LIN[r], gl = LIN[g], bl = LIN[b];
+      const k = y * 3;
+      binLin[k] += rl; binLin[k + 1] += gl; binLin[k + 2] += bl;
+      const mx = r > g ? (r > b ? r : b) : (g > b ? g : b), mn = r < g ? (r < b ? r : b) : (g < b ? g : b);
+      if (mx === mn) continue; // 無彩色は彩度 0
+      sumSatHsv += (mx - mn) / mx;
+      const [L, a, bb] = linToLab(rl, gl, bl);
+      const c = Math.hypot(a, bb);
+      sumChroma += c; sumA += a; sumB += bb;
+      // 肌色域のおおまかな判定（Lab の色相 35〜75°、中程度の彩度と明るさ）
+      if (c >= 12 && c <= 45 && L >= 30 && L <= 88) {
+        const hue = Math.atan2(bb, a) * 180 / Math.PI;
+        if (hue >= 35 && hue <= 75) skin++;
+      }
+    }
+    this.n += count;
+    this.sumChroma += sumChroma; this.sumSatHsv += sumSatHsv; this.skin += skin;
+    this.sumLum += sumLum; this.sumLum2 += sumLum2; this.sumA += sumA; this.sumB += sumB;
+    return this;
+  }
+
+  /** 累積した統計から解析結果（数値のみ）を作る。width / height は表示用 */
+  result(width, height) {
+    const { n, histL, binLin } = this;
+    if (!n) throw new Error('画像データが空です');
+    const pct = (p) => percentile(histL, n, p);
+    const p5 = pct(0.05), p25 = pct(0.25), p50 = pct(0.5), p75 = pct(0.75), p95 = pct(0.95);
+
+    // シャドウ = 輝度 p25 以下、ハイライト = p75 以上、全体 = すべてのビン
+    const zoneSum = (from, to) => {
+      const s = [0, 0, 0, 0];
+      for (let y = from; y <= to; y++) { s[0] += binLin[y * 3]; s[1] += binLin[y * 3 + 1]; s[2] += binLin[y * 3 + 2]; s[3] += histL[y]; }
+      return s;
+    };
+    const zone = (s) => {
+      const lin = [s[0] / s[3], s[1] / s[3], s[2] / s[3]];
+      const [L, a, b] = linToLab(...lin);
+      return { L, a, b, rgb: lin.map(toSrgb), ...describeCast(L, a, b) };
+    };
+
+    let clipB = 0, clipW = 0;
+    for (let i = 0; i <= CLIP.black; i++) clipB += histL[i];
+    for (let i = CLIP.white; i < 256; i++) clipW += histL[i];
+    const mean = this.sumLum / n;
+    const { sumChroma, sumA, sumB } = this;
+
+    return {
+      width, height, pixels: n,
+      hist: { r: this.histR, g: this.histG, b: this.histB, l: histL },
+      clipBlack: clipB / n * 100, clipWhite: clipW / n * 100,
+      p5, p50, p95,
+      contrast: p95 - p5,                                  // コントラスト指標（0〜255）
+      lumaStd: Math.sqrt(Math.max(0, this.sumLum2 / n - mean * mean)),
+      meanLuma: mean,
+      chroma: sumChroma / n,                               // 平均彩度（Lab C*）
+      saturation: this.sumSatHsv / n * 100,                // 平均彩度（HSV S, %）
+      skinRatio: this.skin / n,
+      // 色相のそろい具合（0〜1）。1 に近いほど画像全体が 1 色に染まっている（セピア調・調色モノクロ）
+      hueConsistency: sumChroma > 0 ? Math.hypot(sumA, sumB) / sumChroma : 0,
+      meanA: sumA / n, meanB: sumB / n,
+      meanHue: (Math.atan2(sumB, sumA) * 180 / Math.PI + 360) % 360,
+      shadows: zone(zoneSum(0, p25)),
+      highlights: zone(zoneSum(p75, 255)),
+      overall: zone(zoneSum(0, 255)),
+    };
+  }
+}
+
+/**
  * @param {Uint8ClampedArray|Uint8Array} data RGBA
  * @returns 解析結果（数値のみ）
  */
 export function analyze(data, width, height) {
   const n = width * height;
   if (!n || data.length < n * 4) throw new Error('画像データが空です');
-  const histR = new Uint32Array(256), histG = new Uint32Array(256), histB = new Uint32Array(256), histL = new Uint32Array(256);
-  const lum = new Uint8Array(n);
-  let sumChroma = 0, sumSatHsv = 0, skin = 0, sumLum = 0, sumLum2 = 0, sumA = 0, sumB = 0;
-  const all = [0, 0, 0];
+  return new Accumulator().add(data, n).result(width, height);
+}
 
-  for (let i = 0, p = 0; i < n; i++, p += 4) {
-    const r = data[p], g = data[p + 1], b = data[p + 2];
-    histR[r]++; histG[g]++; histB[b]++;
-    const y = Math.round(0.2126 * r + 0.7152 * g + 0.0722 * b);
-    lum[i] = y; histL[y]++; sumLum += y; sumLum2 += y * y;
-    const rl = LIN[r], gl = LIN[g], bl = LIN[b];
-    all[0] += rl; all[1] += gl; all[2] += bl;
-    const mx = Math.max(r, g, b), mn = Math.min(r, g, b);
-    sumSatHsv += mx ? (mx - mn) / mx : 0;
-    if (mx === mn) continue; // 無彩色は彩度 0
-    const [L, a, bb] = linToLab(rl, gl, bl);
-    const c = Math.hypot(a, bb);
-    sumChroma += c; sumA += a; sumB += bb;
-    // 肌色域のおおまかな判定（Lab の色相 35〜75°、中程度の彩度と明るさ）
-    if (c >= 12 && c <= 45 && L >= 30 && L <= 88) {
-      const hue = Math.atan2(bb, a) * 180 / Math.PI;
-      if (hue >= 35 && hue <= 75) skin++;
+/* ---- 全ピクセル解析（タイル分割） ---- */
+
+// iOS Safari の Canvas は面積 16,777,216px（4096²）が上限で、端末によってはもっと小さい。
+// 余裕を見て 1 タイル 4MP・一辺 4096px までに収める。
+export const TILE_MAX_AREA = 4_194_304;
+export const TILE_MAX_EDGE = 4096;
+
+/** 画像をタイル（横帯。幅が広すぎるときは縦にも分割）に分ける。各タイルは {x, y, w, h} */
+export function tilePlan(width, height, maxArea = TILE_MAX_AREA, maxEdge = TILE_MAX_EDGE) {
+  if (!(width > 0 && height > 0)) throw new Error('画像サイズが不正です');
+  const tw = Math.min(width, maxEdge);
+  const th = Math.max(1, Math.min(height, maxEdge, Math.floor(maxArea / tw)));
+  const tiles = [];
+  for (let y = 0; y < height; y += th) for (let x = 0; x < width; x += tw) tiles.push({ x, y, w: Math.min(tw, width - x), h: Math.min(th, height - y) });
+  return tiles;
+}
+
+export class AbortError extends Error { constructor() { super('キャンセルしました'); this.name = 'AbortError'; } }
+
+/**
+ * 全ピクセルをタイルごとに読み込んで解析する（DOM 非依存）。
+ * @param {(x:number, y:number, w:number, h:number) => (Uint8ClampedArray|Promise<Uint8ClampedArray>)} read タイルの RGBA を返す
+ * @param {object} [opt]
+ * @param {(done:number, total:number) => void} [opt.onProgress] 解析済みピクセル数
+ * @param {{aborted:boolean}} [opt.signal] AbortSignal など。true になったら AbortError
+ * @param {() => Promise<void>} [opt.yieldFn] タイルごとに呼ぶ（メインスレッドで描画を譲るため）
+ */
+export async function analyzeTiled(read, width, height, opt = {}) {
+  const { onProgress, signal, yieldFn, maxArea, maxEdge } = opt;
+  const acc = new Accumulator();
+  const total = width * height;
+  let done = 0;
+  onProgress?.(0, total);
+  for (const t of tilePlan(width, height, maxArea, maxEdge)) {
+    if (signal?.aborted) throw new AbortError();
+    const data = await read(t.x, t.y, t.w, t.h);
+    if (signal?.aborted) throw new AbortError();
+    acc.add(data, t.w * t.h);
+    done += t.w * t.h;
+    onProgress?.(done, total);
+    if (yieldFn) await yieldFn();
+  }
+  return acc.result(width, height);
+}
+
+/** Canvas 2D コンテキストを使うタイル読み込み関数（Worker の OffscreenCanvas / メインスレッドの canvas 共通） */
+export function canvasReader(source, makeCanvas) {
+  let canvas = null, g = null;
+  return (x, y, w, h) => {
+    if (!canvas || canvas.width < w || canvas.height < h) {
+      canvas = makeCanvas(w, h);
+      g = canvas.getContext('2d', { willReadFrequently: true });
     }
-  }
-
-  const pct = (p) => percentile(histL, n, p);
-  const p5 = pct(0.05), p25 = pct(0.25), p50 = pct(0.5), p75 = pct(0.75), p95 = pct(0.95);
-
-  // シャドウ = 輝度下位 25%、ハイライト = 上位 25%
-  const sh = [0, 0, 0, 0], hi = [0, 0, 0, 0];
-  for (let i = 0, p = 0; i < n; i++, p += 4) {
-    const y = lum[i];
-    if (y <= p25) { sh[0] += LIN[data[p]]; sh[1] += LIN[data[p + 1]]; sh[2] += LIN[data[p + 2]]; sh[3]++; }
-    if (y >= p75) { hi[0] += LIN[data[p]]; hi[1] += LIN[data[p + 1]]; hi[2] += LIN[data[p + 2]]; hi[3]++; }
-  }
-  const zone = (s, count) => {
-    const lin = [s[0] / count, s[1] / count, s[2] / count];
-    const [L, a, b] = linToLab(...lin);
-    return { L, a, b, rgb: lin.map(toSrgb), ...describeCast(L, a, b) };
-  };
-
-  let clipB = 0, clipW = 0;
-  for (let i = 0; i <= CLIP.black; i++) clipB += histL[i];
-  for (let i = CLIP.white; i < 256; i++) clipW += histL[i];
-  const mean = sumLum / n;
-
-  return {
-    width, height, pixels: n,
-    hist: { r: histR, g: histG, b: histB, l: histL },
-    clipBlack: clipB / n * 100, clipWhite: clipW / n * 100,
-    p5, p50, p95,
-    contrast: p95 - p5,                                  // コントラスト指標（0〜255）
-    lumaStd: Math.sqrt(Math.max(0, sumLum2 / n - mean * mean)),
-    meanLuma: mean,
-    chroma: sumChroma / n,                               // 平均彩度（Lab C*）
-    saturation: sumSatHsv / n * 100,                     // 平均彩度（HSV S, %）
-    skinRatio: skin / n,
-    // 色相のそろい具合（0〜1）。1 に近いほど画像全体が 1 色に染まっている（セピア調・調色モノクロ）
-    hueConsistency: sumChroma > 0 ? Math.hypot(sumA, sumB) / sumChroma : 0,
-    meanA: sumA / n, meanB: sumB / n,
-    meanHue: (Math.atan2(sumB, sumA) * 180 / Math.PI + 360) % 360,
-    shadows: zone(sh, sh[3]),
-    highlights: zone(hi, hi[3]),
-    overall: zone(all, n),
+    g.clearRect(0, 0, w, h);
+    // ソース矩形で必要な範囲だけを等倍で描く（縮小しない）
+    g.drawImage(source, x, y, w, h, 0, 0, w, h);
+    return g.getImageData(0, 0, w, h).data;
   };
 }
 
