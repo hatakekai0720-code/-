@@ -2,6 +2,7 @@
 import * as store from './store.js';
 import { closeSheets, toast } from './ui/dom.js';
 import { applyTheme } from './ui/theme.js';
+import { initPwa } from './pwa.js';
 import * as compare from './views/compare.js';
 import * as analyze from './views/analyze.js';
 import * as recipes from './views/recipes.js';
@@ -73,3 +74,4 @@ if (boot.corrupt) toast('保存データが壊れていたため初期化しま�
 await store.seedIfNeeded();
 window.addEventListener('hashchange', route);
 route();
+initPwa();

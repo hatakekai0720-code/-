@@ -294,3 +294,10 @@ button.q-cell { cursor: pointer; }
 .steps li::marker { font-family: var(--mono); color: var(--accent); }
 .mission { background: var(--card); border: 1px solid var(--line); border-left: 2px solid var(--accent-bg); border-radius: 4px; padding: 12px; }
 mark.verify { background: none; color: var(--danger); font-weight: 600; white-space: nowrap; }
+
+/* ---- update banner ---- */
+.update-banner { position: fixed; left: 8px; right: 8px; z-index: 70; bottom: calc(var(--tab-h) + env(safe-area-inset-bottom) + 8px);
+  max-width: 560px; margin: 0 auto; display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 12px; font-size: 14px;
+  background: var(--card); border: 1px solid var(--accent); border-radius: 6px; }
+.update-banner .btn { min-height: 40px; padding: 0 10px; }
+body.fullscreen .update-banner { bottom: calc(env(safe-area-inset-bottom) + 8px); }

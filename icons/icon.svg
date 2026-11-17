@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#0a0a0a"/>
+  <!-- 絞り羽根を模した 6 角形の開口と外周リング（マスカブル用に中心 80% の安全領域内に収める） -->
+  <g transform="translate(256 256)" fill="none" stroke-linejoin="round">
+    <circle r="150" stroke="#2a2a2a" stroke-width="10"/>
+    <circle r="150" stroke="#f59e0b" stroke-width="10" stroke-dasharray="78 16" transform="rotate(-90)"/>
+    <g stroke="#f3f4f6" stroke-width="9">
+      <path d="M0-112 L97-56 L97 56 L0 112 L-97 56 L-97-56 Z"/>
+      <path d="M0-112 L42 8 M97-56 L-15 30 M97 56 L-27-22 M0 112 L-42-8 M-97 56 L15-30 M-97-56 L27 22"/>
+    </g>
+    <circle r="22" fill="#f59e0b" stroke="none"/>
+  </g>
+</svg>

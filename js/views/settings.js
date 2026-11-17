@@ -2,6 +2,7 @@
 import { h, toast, sheet, confirmSheet, select } from '../ui/dom.js';
 import { applyTheme, THEMES } from '../ui/theme.js';
 import * as store from '../store.js';
+import { offlineStatus, checkForUpdate } from '../pwa.js';
 
 export function render(root) {
   const redraw = () => { root.replaceChildren(); render(root); };
@@ -68,6 +69,8 @@ export function render(root) {
     h('div', { class: 'card stack' },
       h('p', { class: 'small muted' }, '16 マスの並びは Qメニュー表示の「並び替え」で入れ替えられます。'),
       h('button', { type: 'button', class: 'btn', onclick: () => { store.setSetting('qmenuOrder', undefined); toast('初期配置に戻しました'); } }, '並びを初期配置に戻す')),
+    h('div', { class: 'section-title' }, 'オフライン'),
+    offlineCard(),
     h('div', { class: 'section-title' }, '危険な操作'),
     h('div', { class: 'card' },
       h('button', { type: 'button', class: 'btn danger block', onclick: async () => {
@@ -75,4 +78,28 @@ export function render(root) {
           store.resetAll(); applyTheme(); toast('削除しました'); redraw();
         }
       } }, '全データを削除')));
+}
+
+function offlineCard() {
+  const status = h('div', { class: 'small' }, '確認中…');
+  const btn = h('button', { type: 'button', class: 'btn', onclick: async () => {
+    if (!navigator.onLine) return toast('オフラインのため確認できません');
+    btn.disabled = true;
+    try {
+      const r = await checkForUpdate();
+      toast({ found: '新しいバージョンがあります', installing: '新しいバージョンを準備しています', latest: '最新です', none: '確認できませんでした' }[r]);
+    } catch { toast('確認できませんでした'); }
+    btn.disabled = false; refresh();
+  } }, '更新を確認');
+  const refresh = () => offlineStatus().then((s) => {
+    if (!s.supported) { status.replaceChildren('このブラウザはオフライン機能に対応していません。'); btn.hidden = true; return; }
+    status.replaceChildren(...[
+      h('div', null, s.ready ? h('span', { style: 'color:var(--accent)' }, '● オフラインで使えます') : h('span', { class: 'muted' }, '○ オフライン用データを準備中（一度再読み込みすると完了します）')),
+      s.cache ? h('div', { class: 'muted num' }, s.cache) : null,
+      s.waiting ? h('div', null, '新しいバージョンが待機中です') : null].filter(Boolean));
+  });
+  refresh();
+  return h('div', { class: 'card stack' }, status,
+    h('p', { class: 'small muted' }, 'アプリのファイル（地図データ・講座を含む）を端末に保存し、機内モードでも全機能を使えます。写真は保存しません。'),
+    btn);
 }
