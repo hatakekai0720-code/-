@@ -4063,151 +4063,251 @@
       "id": "ghost-protocol-burj-khalifa",
       "title": "ミッション:インポッシブル／ゴースト・プロトコル", "titleEn": "Mission: Impossible – Ghost Protocol", "year": 2011, "director": "ブラッド・バード",
       "place": "ブルジュ・ハリファ", "city": "ドバイ", "country": "アラブ首長国連邦", "region": "middle-east",
-      "lat": 25.1972, "lng": 55.2744, "confidence": "high", "streets": true,
+      "lat": 25.1972, "lng": 55.2744, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "イーサンが世界一高いビルのガラス壁面を、吸着グローブだけで登っていく。実際のビルの外壁でも撮影された。",
       "look": "砂漠の白っぽい空とガラスの青。めまいのする高所の冷たい色。",
       "sources": [
         "https://www.thenational.ae/uae/tom-cruise-s-burj-khalifa-stunts-revealed-in-new-clips-1.426608",
-        "https://www.cinemablend.com/movies/brad-bird-shooting-burj-khalifa-scene-tom-cruise-mission-impossible-ghost-protocol"
+        "https://www.cinemablend.com/movies/brad-bird-shooting-burj-khalifa-scene-tom-cruise-mission-impossible-ghost-protocol",
+        "https://eiga.com/movie/55154/",
+        "https://www.allcinema.net/cinema/340335"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": 0, "shadow": 1, "color": -2, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["建築", "高所", "アクション"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["建築", "高所", "アクション"] },
+      "cinematographer": "ロバート・エルスウィット", "genre": null,
+      "cast": [{ "name": "トム・クルーズ", "role": "イーサン・ハント" }, { "name": "ジェレミー・レナー", "role": null }, { "name": "サイモン・ペッグ", "role": null }],
+      "production": null, "distributor": { "original": null, "japan": "パラマウント" },
+      "synopsis": "クレムリン爆破の濡れ衣を着せられたIMF。組織の後ろ盾を失ったイーサン・ハントと仲間たちが、核戦争を企む男を追う。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [24], "palette": ["#d8c49a", "#ece8e0", "#2f5d8a", "#2b3a42", "#6f7f7a"],
+      "links": { "eigacom": "https://eiga.com/movie/55154/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "last-crusade-petra-treasury",
       "title": "インディ・ジョーンズ／最後の聖戦", "titleEn": "Indiana Jones and the Last Crusade", "year": 1989, "director": "スティーヴン・スピルバーグ",
       "place": "ペトラ遺跡 エル・ハズネ", "city": "ペトラ", "country": "ヨルダン", "region": "middle-east",
-      "lat": 30.3222, "lng": 35.4516, "confidence": "high", "streets": false,
+      "lat": 30.3222, "lng": 35.4516, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "聖杯が眠る神殿の入口として、狭い峡谷の先に岩を彫った建物が現れる。",
       "look": "バラ色の砂岩と深い影。暖かく乾いた色。",
       "sources": [
         "https://www.discovermagazine.com/4-famous-archeological-sites-that-appeared-in-major-films-46823",
-        "https://www.nationalgeographicla.com/viajes/2023/06/11-destinos-para-explorar-como-indiana-jones"
+        "https://www.nationalgeographicla.com/viajes/2023/06/11-destinos-para-explorar-como-indiana-jones",
+        "https://eiga.com/movie/42519/",
+        "https://movie.jorudan.co.jp/film/00828/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 4, "b": -4 },
         "highlight": 0, "shadow": 2, "color": 1, "sharpness": 1, "nr": -3,
-        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["遺跡", "砂漠", "冒険"] }
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["遺跡", "砂漠", "冒険"] },
+      "cinematographer": "ダグラス・スローカム", "genre": null,
+      "cast": [{ "name": "ハリソン・フォード", "role": "インディ" }, { "name": "ショーン・コネリー", "role": "ヘンリー" }, { "name": "デンホルム・エリオット", "role": "マーカス・ブロディ" }],
+      "production": null, "distributor": { "original": null, "japan": "UIP" },
+      "synopsis": "聖杯の研究中に行方不明になった父を探して、考古学者インディがヴェネツィアから中東へ向かう。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [22, 31], "palette": ["#d8c49a", "#141414", "#13365c", "#2e7d4f", "#e0b23a"],
+      "links": { "eigacom": "https://eiga.com/movie/42519/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "skyfall-varda-viaduct",
       "title": "007 スカイフォール", "titleEn": "Skyfall", "year": 2012, "director": "サム・メンデス",
       "place": "ヴァルダ鉄橋", "city": "アダナ県", "country": "トルコ", "region": "middle-east",
-      "lat": 37.41, "lng": 35.005, "confidence": "high", "streets": false,
+      "lat": 37.41, "lng": 35.005, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "走る列車の屋根の上でボンドが敵と格闘し、高い鉄橋から川へ落ちる冒頭の場面。",
       "look": "乾いた山の黄土色と青空。強い日差しで硬い色。",
       "sources": [
         "https://hurriyetdailynews.com/adanas-breathtaking-varda-railway-bridge-earns-popularity-after-skyfall-61573",
-        "https://www.thelocationguide.com/2012/11/skyfalls-callum-mcdougall-takes-james-bond-on-location-to-turkey/"
+        "https://www.thelocationguide.com/2012/11/skyfalls-callum-mcdougall-takes-james-bond-on-location-to-turkey/",
+        "https://eiga.com/movie/56381/",
+        "https://tcm.com/tcmdb/title/869414/wd"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 3, "b": -3 },
         "highlight": 0, "shadow": 2, "color": 0, "sharpness": 1, "nr": -3,
-        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["橋", "列車", "アクション"] }
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["橋", "列車", "アクション"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ダニエル・クレイグ", "role": "ジェームズ・ボンド" }, { "name": "ジュディ・デンチ", "role": "M" }, { "name": "ハビエル・バルデム", "role": "ラウル・シルヴァ" }],
+      "production": null, "distributor": { "original": "ソニー・ピクチャーズ・リリーシング", "japan": null },
+      "synopsis": "任務中に消息を絶ったボンドが、MI6本部の爆破事件を機に復帰。Mの過去に関わる敵と対峙する。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [15, 24], "palette": ["#d8c49a", "#e0c048", "#7a5a3a", "#2f5d8a", "#13365c"],
+      "links": { "eigacom": "https://eiga.com/movie/56381/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "notting-hill-blue-door",
       "title": "ノッティングヒルの恋人", "titleEn": "Notting Hill", "year": 1999, "director": "ロジャー・ミッシェル",
       "place": "青いドアの家（280 Westbourne Park Rd）", "city": "ロンドン", "country": "イギリス", "region": "europe",
-      "lat": 51.5178, "lng": -0.2026, "confidence": "high", "streets": true,
+      "lat": 51.5178, "lng": -0.2026, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "書店主ウィリアムが暮らす家。青いドアの前に記者たちが押し寄せる。",
       "look": "青いドアと白い壁、ロンドンの柔らかな曇り光。明るく品のある色。",
       "sources": [
         "https://www.timeout.com/london/news/london-on-screen-the-blue-door-from-notting-hill-101917",
-        "https://movie-locations.com/movies/n/Notting-Hill.php"
+        "https://movie-locations.com/movies/n/Notting-Hill.php",
+        "https://eiga.com/movie/47694/",
+        "https://movie.jorudan.co.jp/film/31517/"
       ],
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 0, "b": 1 },
         "highlight": -2, "shadow": -2, "color": 1, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["住宅", "街", "日中"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["住宅", "街", "日中"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ジュリア・ロバーツ", "role": "アナ・スコット" }, { "name": "ヒュー・グラント", "role": "ウィリアム" }, { "name": "リス・エヴァンス", "role": "スパイク" }],
+      "production": null, "distributor": { "original": null, "japan": "松竹、ギャガ・ヒューマックス" },
+      "synopsis": "ロンドンのノッティングヒルで旅行書の専門店を営むウィリアム。ある日、店にハリウッドの人気女優アナが訪れる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": "曇り",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": "個人の住宅です。敷地や玄関先に入らず、公道から短時間で。住人や近所の迷惑にならないように。",
+      "lessons": [32], "palette": ["#2f5d8a", "#ece8e0", "#8a8a88", "#f3e3d6", "#e7b8a8"],
+      "links": { "eigacom": "https://eiga.com/movie/47694/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "bridget-jones-borough-market",
       "title": "ブリジット・ジョーンズの日記", "titleEn": "Bridget Jones's Diary", "year": 2001, "director": "シャロン・マグワイア",
       "place": "バラ・マーケット脇のフラット（Bedale St）", "city": "ロンドン", "country": "イギリス", "region": "europe",
-      "lat": 51.5056, "lng": -0.0905, "confidence": "high", "streets": true,
+      "lat": 51.5056, "lng": -0.0905, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ブリジットが暮らす、市場の高架脇にあるパブの上の部屋。外観をここで撮影した。",
       "look": "レンガの赤と曇り空、街灯の黄。少し温かいロンドンの色。",
       "sources": [
         "https://www.timeout.com/london/news/london-on-screen-bridget-joness-flat-022718",
-        "https://movie-locations.com/movies/b/Bridget-Jones-Diary.php"
+        "https://movie-locations.com/movies/b/Bridget-Jones-Diary.php",
+        "https://eiga.com/movie/26856/",
+        "https://www.allcinema.net/cinema/235071",
+        "https://movie.jorudan.co.jp/film/32537/"
       ],
       "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["街", "住宅", "冬"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["街", "住宅", "冬"] },
+      "cinematographer": "スチュアート・ドライバーグ", "genre": null,
+      "cast": [{ "name": "レニー・ゼルウィガー", "role": "ブリジット・ジョーンズ" }, { "name": "ヒュー・グラント", "role": "ダニエル・クリーヴァー" }, { "name": "コリン・ファース", "role": "マーク・ダーシー" }],
+      "production": null, "distributor": { "original": "ユニヴァーサル", "japan": "UIP" },
+      "synopsis": "ロンドンの出版社で働く32歳のブリジット。日記をつけて自分を変えようと決意し、二人の男性のあいだで揺れる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": "曇り",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#7a5a3a", "#b8322a", "#8a8a88", "#e0c048", "#3a4246"],
+      "links": { "eigacom": "https://eiga.com/movie/26856/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "clockwork-orange-southmere-lake",
       "title": "時計じかけのオレンジ", "titleEn": "A Clockwork Orange", "year": 1971, "director": "スタンリー・キューブリック",
       "place": "テムズミードのサウスミア湖", "city": "ロンドン", "country": "イギリス", "region": "europe",
-      "lat": 51.4995, "lng": 0.1225, "confidence": "high", "streets": true,
+      "lat": 51.4995, "lng": 0.1225, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "アレックスが仲間を湖へ突き落とす、コンクリートの集合住宅に囲まれた人工湖のほとり。",
       "look": "コンクリートの灰色と冷たい水面。無機質で硬い色。",
       "sources": [
         "https://bfi.org.uk/features/how-london-has-changed-stanley-kubrick-clockwork-orange",
-        "https://atlasobscura.com/places/southmere-lake"
+        "https://atlasobscura.com/places/southmere-lake",
+        "https://eiga.com/movie/21144/",
+        "https://movie.jorudan.co.jp/film/06347/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": -1, "shadow": 1, "color": -2, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["建築", "湖", "70年代"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["建築", "湖", "70年代"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "マルコム・マクダウェル", "role": "アレックス" }, { "name": "パトリック・マギー", "role": "アレクサンダー" }, { "name": "ウォーレン・クラーク", "role": "ディム" }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース映画" },
+      "synopsis": "近未来のロンドン。暴力に明け暮れる少年アレックスが逮捕され、政府の矯正治療の被験者になる。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [29, 19, 31], "palette": ["#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
+      "links": { "eigacom": "https://eiga.com/movie/21144/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "harry-potter-leadenhall-market",
       "title": "ハリー・ポッターと賢者の石", "titleEn": "Harry Potter and the Philosopher's Stone", "year": 2001, "director": "クリス・コロンバス",
       "place": "レドンホール・マーケット（漏れ鍋の入口）", "city": "ロンドン", "country": "イギリス", "region": "europe",
-      "lat": 51.5128, "lng": -0.0835, "confidence": "high", "streets": true,
+      "lat": 51.5128, "lng": -0.0835, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ハリーとハグリッドが魔法界の酒場「漏れ鍋」へ入る。ガラス屋根のアーケードの小道にある店の扉が入口になった。",
       "look": "ガラス屋根から落ちる柔らかい光、深い赤と金の装飾。",
       "sources": [
         "https://leadenhallmarket.co.uk/?p=181",
-        "https://timeout.com/london/news/london-on-screen-the-leaky-cauldron-from-harry-potter-and-the-philosophers-stone-070318"
+        "https://timeout.com/london/news/london-on-screen-the-leaky-cauldron-from-harry-potter-and-the-philosophers-stone-070318",
+        "https://thetv.jp/program/0000033852/",
+        "https://virtualgorillaplus.com/movie/harry-potter-and-the-philosophers-stone-actors/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 2, "b": -3 },
         "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["アーケード", "街", "ファンタジー"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["アーケード", "街", "ファンタジー"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ダニエル・ラドクリフ", "role": "ハリー・ポッター" }, { "name": "ルパート・グリント", "role": "ロン・ウィーズリー" }, { "name": "エマ・ワトソン", "role": "ハーマイオニー" }],
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "11歳の誕生日に、自分が魔法使いだと知ったハリー。ホグワーツ魔法魔術学校に入学し、ロンやハーマイオニーと出会う。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [15], "palette": ["#b8322a", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "paddington-chalcot-crescent",
       "title": "パディントン", "titleEn": "Paddington", "year": 2014, "director": "ポール・キング",
       "place": "チャルコット・クレセント（ウィンザー・ガーデンズ）", "city": "ロンドン", "country": "イギリス", "region": "europe",
-      "lat": 51.5417, "lng": -0.1555, "confidence": "high", "streets": true,
+      "lat": 51.5417, "lng": -0.1555, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ペルーから来たクマを迎え入れるブラウン家がある、色とりどりの家が並ぶ通り。",
       "look": "パステルの家並みと青空。明るく可愛らしい色。",
       "sources": [
         "https://content.filmfixer.co.uk/2017/11/06/paddingtons-back-home-chalcot-crescent/",
-        "https://movie-locations.com/movies/p/Paddington.php"
+        "https://movie-locations.com/movies/p/Paddington.php",
+        "https://movie.jorudan.co.jp/film/84449/",
+        "https://realsound.jp/movie/2016/01/post-750_2.html"
       ],
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
         "highlight": -2, "shadow": -2, "color": 2, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["住宅", "街", "家族"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["住宅", "街", "家族"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ベン・ウィショー", "role": "パディントン（声）" }, { "name": "ヒュー・ボネヴィル", "role": null }, { "name": "サリー・ホーキンス", "role": null }],
+      "production": null, "distributor": { "original": null, "japan": "キノフィルムズ" },
+      "synopsis": "ペルーの森から一人でロンドンにやってきた礼儀正しいクマ。ブラウン家に迎えられ、新しいわが家を探す。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [15], "palette": ["#2f5d8a", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "harry-potter-alnwick-castle",
       "title": "ハリー・ポッターと賢者の石", "titleEn": "Harry Potter and the Philosopher's Stone", "year": 2001, "director": "クリス・コロンバス",
       "place": "アニック城（外郭）", "city": "アニック", "country": "イギリス", "region": "europe",
-      "lat": 55.4157, "lng": -1.7058, "confidence": "high", "streets": true,
+      "lat": 55.4157, "lng": -1.7058, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ホグワーツの生徒たちが初めてほうきで飛ぶ授業を受ける城の中庭。",
       "look": "石の城壁と芝の緑、曇り空の柔らかい光。",
       "sources": [
         "https://www.alnwickcastle.com/explore/on-screen/harry-potter",
-        "https://www.imdb.com/title/tt0241527/locations"
+        "https://www.imdb.com/title/tt0241527/locations",
+        "https://thetv.jp/program/0000033852/",
+        "https://virtualgorillaplus.com/movie/harry-potter-and-the-philosophers-stone-actors/"
       ],
       "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 0, "b": -2 },
         "highlight": -1, "shadow": 0, "color": 0, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["城", "日中", "ファンタジー"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["城", "日中", "ファンタジー"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ダニエル・ラドクリフ", "role": "ハリー・ポッター" }, { "name": "ルパート・グリント", "role": "ロン・ウィーズリー" }, { "name": "エマ・ワトソン", "role": "ハーマイオニー" }],
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "11歳の誕生日に、自分が魔法使いだと知ったハリー。ホグワーツ魔法魔術学校に入学し、ロンやハーマイオニーと出会う。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": "曇り",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#5a8a4f", "#8a8a88", "#2d3e3a", "#5f7d6b", "#c7a27c"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "chamber-of-secrets-glenfinnan-viaduct",
       "title": "ハリー・ポッターと秘密の部屋", "titleEn": "Harry Potter and the Chamber of Secrets", "year": 2002, "director": "クリス・コロンバス",
       "place": "グレンフィナン高架橋", "city": "グレンフィナン", "country": "イギリス", "region": "europe",
-      "lat": 56.8763, "lng": -5.4318, "confidence": "high", "streets": false,
+      "lat": 56.8763, "lng": -5.4318, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "空飛ぶ車に乗ったハリーとロンが、学校へ向かう蒸気機関車を追って弧を描く高架橋のそばを飛ぶ。",
       "look": "ハイランドの緑の山と灰色の空、石造りのアーチ。",
       "sources": [
@@ -4217,13 +4317,22 @@
       "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 0, "b": -2 },
         "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["橋", "山", "鉄道"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["橋", "山", "鉄道"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "ホグワーツの2年生になったハリー。校内で生徒が次々と石にされる事件が起き、「秘密の部屋」の謎を追う。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": "曇り",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": null,
+      "lessons": [17, 15, 31], "palette": ["#5a8a4f", "#8a8a88", "#2d3e3a", "#5f7d6b", "#c7a27c"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "trainspotting-princes-street",
       "title": "トレインスポッティング", "titleEn": "Trainspotting", "year": 1996, "director": "ダニー・ボイル",
       "place": "プリンセス・ストリート", "city": "エディンバラ", "country": "イギリス", "region": "europe",
-      "lat": 55.9526, "lng": -3.1985, "confidence": "high", "streets": true,
+      "lat": 55.9526, "lng": -3.1985, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "冒頭、万引きした若者たちが警備員に追われて大通りを全力で駆け下りる。",
       "look": "灰色の街と強いコントラスト、少し緑がかった色。荒々しい 90 年代。",
       "sources": [
@@ -4233,29 +4342,49 @@
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -1, "b": -1 },
         "highlight": -1, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["街", "朝", "疾走"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["街", "朝", "疾走"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "エディンバラでヘロインに溺れる青年レントンと仲間たち。抜け出そうとしては引き戻される日々を描く。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "朝", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日の出から 1 時間" },
+      "visitNotes": null,
+      "lessons": [29, 15], "palette": ["#8a8a88", "#5a8a4f", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "skyfall-glen-etive",
       "title": "007 スカイフォール", "titleEn": "Skyfall", "year": 2012, "director": "サム・メンデス",
       "place": "グレン・エティブ（ダルネスへの道）", "city": "ハイランド", "country": "イギリス", "region": "europe",
-      "lat": 56.638, "lng": -4.9, "confidence": "high", "streets": false,
+      "lat": 56.638, "lng": -4.9, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "ボンドが M を連れて故郷へ向かう途中、車を止めて霧の山々を見つめる。",
       "look": "霧に包まれた山の灰緑、冷たく沈んだ色。",
       "sources": [
         "https://www.visitscotland.com/places-to-go/film-tv/skyfall",
-        "https://www.thejamesbonddossier.com/films/skyfall/locations.htm"
+        "https://www.thejamesbonddossier.com/films/skyfall/locations.htm",
+        "https://eiga.com/movie/56381/",
+        "https://tcm.com/tcmdb/title/869414/wd"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": -1, "shadow": 1, "color": -2, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["山", "霧", "車"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["山", "霧", "車"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ダニエル・クレイグ", "role": "ジェームズ・ボンド" }, { "name": "ジュディ・デンチ", "role": "M" }, { "name": "ハビエル・バルデム", "role": "ラウル・シルヴァ" }],
+      "production": null, "distributor": { "original": "ソニー・ピクチャーズ・リリーシング", "japan": null },
+      "synopsis": "任務中に消息を絶ったボンドが、MI6本部の爆破事件を機に復帰。Mの過去に関わる敵と対峙する。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": "霧",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [15, 31], "palette": ["#8a8a88", "#5a8a4f", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": "https://eiga.com/movie/56381/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "da-vinci-code-rosslyn-chapel",
       "title": "ダ・ヴィンチ・コード", "titleEn": "The Da Vinci Code", "year": 2006, "director": "ロン・ハワード",
       "place": "ロスリン礼拝堂", "city": "ロスリン", "country": "イギリス", "region": "europe",
-      "lat": 55.8555, "lng": -3.1602, "confidence": "high", "streets": false,
+      "lat": 55.8555, "lng": -3.1602, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "謎を追うふたりが最後にたどり着く、彫刻に覆われた古い礼拝堂。",
       "look": "暗い石と蝋燭の暖色、細かな彫刻の影。",
       "sources": [
@@ -4265,13 +4394,22 @@
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -1, "shadow": 1, "color": -1, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["教会", "室内", "ミステリー"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["教会", "室内", "ミステリー"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "ルーヴル美術館で殺害された館長が残した暗号。宗教象徴学者ラングドンと暗号解読官ソフィーが、その謎を追う。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [22, 24], "palette": ["#141414", "#1d2a30", "#3f5b5e", "#8a9b8f", "#c8b28a"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "force-awakens-skellig-michael",
       "title": "スター・ウォーズ／フォースの覚醒", "titleEn": "Star Wars: The Force Awakens", "year": 2015, "director": "J・J・エイブラムス",
       "place": "スケリッグ・マイケル", "city": "ケリー州", "country": "アイルランド", "region": "europe",
-      "lat": 51.7712, "lng": -10.5395, "confidence": "high", "streets": false,
+      "lat": 51.7712, "lng": -10.5395, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "最後の場面で、レイが海に浮かぶ岩山の石段を登り、隠れ住む伝説の人物と向き合う。",
       "look": "深い緑の苔と灰色の岩、荒れた海。冷たく神秘的な色。",
       "sources": [
@@ -4281,13 +4419,22 @@
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -1, "b": 2 },
         "highlight": -1, "shadow": 2, "color": -2, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["島", "海", "SF"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["島", "海", "SF"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "帝国の崩壊からおよそ30年。砂漠の惑星で暮らす少女レイが、ドロイドBB-8との出会いから戦いに巻き込まれていく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [18, 31], "palette": ["#5a8a4f", "#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "banshees-inisherin-achill",
       "title": "イニシェリン島の精霊", "titleEn": "The Banshees of Inisherin", "year": 2022, "director": "マーティン・マクドナー",
       "place": "アキル島 クラウモア（パブのセットがあった場所）", "city": "メイヨー州", "country": "アイルランド", "region": "europe",
-      "lat": 53.882, "lng": -9.99, "confidence": "high", "streets": false,
+      "lat": 53.882, "lng": -9.99, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "島の男ふたりの友情が突然終わる物語。崖の上にパブのセットが建てられ、撮影後に撤去された。",
       "look": "草の緑と石垣、曇り空。くすんだ素朴な色。",
       "sources": [
@@ -4297,13 +4444,22 @@
       "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 0, "b": -2 },
         "highlight": -1, "shadow": 0, "color": -1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["島", "曇り", "風景"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["島", "曇り", "風景"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "1923年、アイルランドの小島。パードリックは親友コルムから突然絶交を告げられ、理由がわからず戸惑う。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": "曇り",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": null,
+      "lessons": [31], "palette": ["#5a8a4f", "#8a8a88", "#2d3e3a", "#5f7d6b", "#c7a27c"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "midnight-in-paris-saint-etienne-du-mont",
       "title": "ミッドナイト・イン・パリ", "titleEn": "Midnight in Paris", "year": 2011, "director": "ウディ・アレン",
       "place": "サンテティエンヌ・デュ・モン教会の階段", "city": "パリ", "country": "フランス", "region": "europe",
-      "lat": 48.8463, "lng": 2.348, "confidence": "high", "streets": true,
+      "lat": 48.8463, "lng": 2.348, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "真夜中、教会の階段に座るギルの前に古い車が現れ、1920 年代のパリへ連れて行く。",
       "look": "夜の石畳と街灯の黄金色。暖かくノスタルジックな夜。",
       "sources": [
@@ -4313,13 +4469,22 @@
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 4, "b": -5 },
         "highlight": -1, "shadow": 0, "color": 1, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "教会", "街"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "教会", "街"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "婚約者とパリを訪れた脚本家ギル。真夜中の街角でクラシックカーに乗ると、憧れの1920年代のパリに迷い込む。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
+      "lessons": [42, 22, 18], "palette": ["#c9a04a", "#e0c048", "#1d2a30", "#3f5b5e", "#8a9b8f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "breathless-champs-elysees",
       "title": "勝手にしやがれ", "titleEn": "Breathless", "year": 1960, "director": "ジャン＝リュック・ゴダール",
       "place": "シャンゼリゼ通り（ベリ通りの角付近）", "city": "パリ", "country": "フランス", "region": "europe",
-      "lat": 48.8716, "lng": 2.3035, "confidence": "high", "streets": true,
+      "lat": 48.8716, "lng": 2.3035, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "新聞を売り歩くパトリシアに、ミシェルが通りで声をかける。手持ちカメラでの街頭撮影。",
       "look": "白黒の明るい街頭、自然光の軽やかな階調。",
       "sources": [
@@ -4329,13 +4494,22 @@
       "recipe": { "filmSim": "monochrome", "monoFilter": "none", "dr": "dr200", "grain": "strong", "colorChrome": "off",
         "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": 1, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["モノクロ", "街", "人物"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["モノクロ", "街", "人物"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "車を盗み、警官を撃ってしまったミシェル。パリでアメリカ人の留学生パトリシアと逃亡の日々を過ごす。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "53mm（XF35mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [20, 29, 15], "palette": ["#141414", "#424242", "#7f7f7f", "#bdbdbd", "#efefef"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "last-tango-bir-hakeim",
       "title": "ラストタンゴ・イン・パリ", "titleEn": "Last Tango in Paris", "year": 1972, "director": "ベルナルド・ベルトルッチ",
       "place": "ビル・アケム橋", "city": "パリ", "country": "フランス", "region": "europe",
-      "lat": 48.8555, "lng": 2.2876, "confidence": "high", "streets": true,
+      "lat": 48.8555, "lng": 2.2876, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "冒頭、高架鉄道の下の歩道で、見知らぬ男女がすれ違う。",
       "look": "冬の柔らかい橙の光、くすんだ青。暖かく濁った色。",
       "sources": [
@@ -4345,13 +4519,22 @@
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4500 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -2, "shadow": 0, "color": 0, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["橋", "冬", "街"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["橋", "冬", "街"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "パリの空き部屋で偶然出会った中年の米国人ポールと若い女性ジャンヌ。名前も告げずに逢瀬を重ねる。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [22, 15], "palette": ["#e07a3a", "#2f5d8a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "before-sunset-shakespeare-and-company",
       "title": "ビフォア・サンセット", "titleEn": "Before Sunset", "year": 2004, "director": "リチャード・リンクレイター",
       "place": "シェイクスピア・アンド・カンパニー書店", "city": "パリ", "country": "フランス", "region": "europe",
-      "lat": 48.8526, "lng": 2.3471, "confidence": "high", "streets": true,
+      "lat": 48.8526, "lng": 2.3471, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "作家になったジェシーのサイン会に、9 年ぶりにセリーヌが現れる。",
       "look": "本の背表紙の色と午後の柔らかい光。自然で温かい色。",
       "sources": [
@@ -4361,13 +4544,22 @@
       "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["書店", "室内", "人物"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["書店", "室内", "人物"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "ウィーンでの一夜から9年。作家になったジェシーはパリの書店でセリーヌと再会し、日が沈むまでの短い時間を過ごす。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [15], "palette": ["#3a4246", "#7d8a86", "#c4b4a0", "#e2d9cc", "#9a7a66"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "da-vinci-code-louvre",
       "title": "ダ・ヴィンチ・コード", "titleEn": "The Da Vinci Code", "year": 2006, "director": "ロン・ハワード",
       "place": "ルーヴル美術館 ピラミッド", "city": "パリ", "country": "フランス", "region": "europe",
-      "lat": 48.8611, "lng": 2.3358, "confidence": "high", "streets": true,
+      "lat": 48.8611, "lng": 2.3358, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "館長の死をきっかけに謎解きが始まる美術館。夜のガラスのピラミッドが印象的。",
       "look": "夜のピラミッドの青白い光と石の金色。",
       "sources": [
@@ -4377,13 +4569,22 @@
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 4500 }, "wbShift": { "r": 1, "b": -2 },
         "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "美術館", "ミステリー"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "美術館", "ミステリー"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "ルーヴル美術館で殺害された館長が残した暗号。宗教象徴学者ラングドンと暗号解読官ソフィーが、その謎を追う。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
+      "lessons": [42, 24], "palette": ["#2f5d8a", "#ece8e0", "#c9a04a", "#1d2a30", "#3f5b5e"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "umbrellas-of-cherbourg-rue-du-port",
       "title": "シェルブールの雨傘", "titleEn": "The Umbrellas of Cherbourg", "year": 1964, "director": "ジャック・ドゥミ",
       "place": "傘店の建物（13 Rue du Port）", "city": "シェルブール", "country": "フランス", "region": "europe",
-      "lat": 49.6408, "lng": -1.6243, "confidence": "high", "streets": true,
+      "lat": 49.6408, "lng": -1.6243, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ヒロインと母が営む傘の店。全編が歌で進む恋の物語の中心になる。",
       "look": "ピンクや青に塗り分けた壁と色とりどりの傘。強いパステル。",
       "sources": [
@@ -4393,13 +4594,22 @@
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
         "highlight": -2, "shadow": -2, "color": 3, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["店", "雨", "ミュージカル"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["店", "雨", "ミュージカル"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "港町シェルブールの傘店の娘ジュヌヴィエーヴと、自動車整備工のギイ。すべてのせりふを歌で綴る恋の物語。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": "雨",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [41], "palette": ["#e8a0b0", "#2f5d8a", "#f3e3d6", "#e7b8a8", "#9cc2cf"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "young-girls-rochefort-place-colbert",
       "title": "ロシュフォールの恋人たち", "titleEn": "The Young Girls of Rochefort", "year": 1967, "director": "ジャック・ドゥミ",
       "place": "コルベール広場", "city": "ロシュフォール", "country": "フランス", "region": "europe",
-      "lat": 45.9373, "lng": -0.9612, "confidence": "high", "streets": true,
+      "lat": 45.9373, "lng": -0.9612, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "双子の姉妹が暮らす港町の広場で、人々が歌い踊る。撮影のために周囲の建物の壁が塗り直された。",
       "look": "白い壁と原色の衣装、明るい夏の光。軽やかなパステル。",
       "sources": [
@@ -4409,13 +4619,22 @@
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
         "highlight": -2, "shadow": -2, "color": 2, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["広場", "夏", "ミュージカル"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["広場", "夏", "ミュージカル"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "港町ロシュフォールに暮らす双子の姉妹デルフィーヌとソランジュ。祭りの週末、運命の人を探して街を歌い踊る。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#ece8e0", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "a-man-and-a-woman-deauville",
       "title": "男と女", "titleEn": "A Man and a Woman", "year": 1966, "director": "クロード・ルルーシュ",
       "place": "ドーヴィルの浜辺", "city": "ドーヴィル", "country": "フランス", "region": "europe",
-      "lat": 49.3612, "lng": 0.0712, "confidence": "high", "streets": true,
+      "lat": 49.3612, "lng": 0.0712, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "子どもを寄宿学校に預ける男女が出会い、冬の浜辺を犬と歩く。",
       "look": "セピアや青に染めた白黒とカラーの切り替え。冬の海の淡い光。",
       "sources": [
@@ -4425,13 +4644,22 @@
       "recipe": { "filmSim": "sepia", "monoFilter": null, "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": -1, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["海", "冬", "セピア"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["海", "冬", "セピア"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "子どもを同じ寄宿学校に預ける、妻を亡くしたレーサーと夫を亡くした女性。ドーヴィルの浜辺で二人は惹かれ合う。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [20, 15, 31], "palette": ["#2a1d12", "#5e432b", "#94704c", "#c9a982", "#efe0c6"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "dunkirk-malo-les-bains",
       "title": "ダンケルク", "titleEn": "Dunkirk", "year": 2017, "director": "クリストファー・ノーラン",
       "place": "マロ・レ・バンの浜辺と東の防波堤", "city": "ダンケルク", "country": "フランス", "region": "europe",
-      "lat": 51.0545, "lng": 2.376, "confidence": "high", "streets": true,
+      "lat": 51.0545, "lng": 2.376, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "撤退を待つ兵士が長い列をつくる浜辺と防波堤。実際の撤退が行われた浜で撮影された。",
       "look": "曇天の灰青と砂の色、低彩度。冷たく張りつめた色。",
       "sources": [
@@ -4441,13 +4669,22 @@
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": -1, "shadow": 1, "color": -3, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["海", "戦争", "曇り"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["海", "戦争", "曇り"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "1940年、フランス北部の浜辺に追い詰められた英仏の兵士たち。陸・海・空の三つの視点から救出作戦を描く。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": "曇り",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": "足場が不安定な場所です。立入禁止の表示や規制情報を事前に確認してください。",
+      "lessons": [31, 24], "palette": ["#8a8a88", "#2f5d8a", "#d8c49a", "#2b3a42", "#6f7f7a"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "in-bruges-belfry",
       "title": "ヒットマンズ・レクイエム", "titleEn": "In Bruges", "year": 2008, "director": "マーティン・マクドナー",
       "place": "鐘楼（ベルフォート）", "city": "ブルージュ", "country": "ベルギー", "region": "europe",
-      "lat": 51.2085, "lng": 3.2248, "confidence": "high", "streets": true,
+      "lat": 51.2085, "lng": 3.2248, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "身を隠すことになった殺し屋ふたりが、中世の町の鐘楼に登る。",
       "look": "冬のレンガの赤茶と灰色の空。くすんだ中世の色。",
       "sources": [
@@ -4457,7 +4694,16 @@
       "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5200 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["街", "冬", "塔"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["街", "冬", "塔"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "ロンドンで仕事をしくじった殺し屋のレイとケン。ボスの命令で、ベルギーの古都ブルージュに身を潜める。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": "曇り",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#7a5a3a", "#b8322a", "#8a8a88", "#3a4246", "#7d8a86"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "fault-in-our-stars-leidsegracht",
