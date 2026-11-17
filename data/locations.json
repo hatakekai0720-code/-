@@ -678,400 +678,670 @@
       "id": "you-only-live-twice-himeji-castle",
       "title": "007は二度死ぬ", "titleEn": "You Only Live Twice", "year": 1967, "director": "ルイス・ギルバート",
       "place": "姫路城", "city": "姫路", "country": "日本", "region": "asia",
-      "lat": 34.8394, "lng": 134.6939, "confidence": "high", "streets": true,
+      "lat": 34.8394, "lng": 134.6939, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "忍者の訓練所として使われる白い城。石垣の前で忍者たちが一斉に技を披露する。",
       "look": "白壁と青空、くっきりした原色。60 年代のカラーフィルムらしい鮮やかさ。",
       "sources": [
         "https://movie-locations.com/movies/y/You-Only-Live-Twice.php",
-        "https://www.imdb.com/title/tt0062512/locations"
+        "https://www.imdb.com/title/tt0062512/locations",
+        "https://eiga.com/movie/46181/",
+        "https://www.allcinema.net/cinema/14178",
+        "https://thetv.jp/program/0000016860/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": 1, "shadow": 1, "color": 3, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["日中", "城", "旅"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["日中", "城", "旅"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ショーン・コネリー", "role": "ジェームズ・ボンド" }, { "name": "丹波哲郎", "role": "タイガー田中" }, { "name": "浜美枝", "role": "キッシー鈴木" }],
+      "production": null, "distributor": { "original": null, "japan": "ユナイテッド・アーティスツ" },
+      "synopsis": "宇宙船が次々と消える事件を追い、ジェームズ・ボンドが日本へ。日本の諜報機関と組み、巨大な陰謀に迫る。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [45], "palette": ["#ece8e0", "#2f5d8a", "#13365c", "#2e7d4f", "#e0b23a"],
+      "links": { "eigacom": "https://eiga.com/movie/46181/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "you-only-live-twice-new-otani",
       "title": "007は二度死ぬ", "titleEn": "You Only Live Twice", "year": 1967, "director": "ルイス・ギルバート",
       "place": "ホテルニューオータニ", "city": "東京", "country": "日本", "region": "asia",
-      "lat": 35.6797, "lng": 139.7337, "confidence": "high", "streets": true,
+      "lat": 35.6797, "lng": 139.7337, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "悪役の会社「大里化学」の本社ビルとして登場する、当時最新の高層ホテル。ボンドが潜入し、撃ち合いになる。",
       "look": "モダン建築の白とガラスの青。明るくクリーンな昼の色。",
       "sources": [
         "https://movie-locations.com/movies/y/You-Only-Live-Twice.php",
-        "https://tokyofox.net/2011/11/27/tokyo-filming-locations-pt-i-you-only-live-twice-updated-2/"
+        "https://tokyofox.net/2011/11/27/tokyo-filming-locations-pt-i-you-only-live-twice-updated-2/",
+        "https://eiga.com/movie/46181/",
+        "https://www.allcinema.net/cinema/14178",
+        "https://thetv.jp/program/0000016860/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": 1, "shadow": 1, "color": 2, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["建築", "街", "日中"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["建築", "街", "日中"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ショーン・コネリー", "role": "ジェームズ・ボンド" }, { "name": "丹波哲郎", "role": "タイガー田中" }, { "name": "浜美枝", "role": "キッシー鈴木" }],
+      "production": null, "distributor": { "original": null, "japan": "ユナイテッド・アーティスツ" },
+      "synopsis": "宇宙船が次々と消える事件を追い、ジェームズ・ボンドが日本へ。日本の諜報機関と組み、巨大な陰謀に迫る。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [32], "palette": ["#ece8e0", "#2f5d8a", "#13365c", "#2e7d4f", "#e0b23a"],
+      "links": { "eigacom": "https://eiga.com/movie/46181/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "you-only-live-twice-akime",
       "title": "007は二度死ぬ", "titleEn": "You Only Live Twice", "year": 1967, "director": "ルイス・ギルバート",
       "place": "坊津町秋目の漁村", "city": "南さつま", "country": "日本", "region": "asia",
-      "lat": 31.334, "lng": 130.225, "confidence": "high", "streets": false,
+      "lat": 31.334, "lng": 130.225, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "ボンドが漁師に扮して暮らす海辺の村。入り江と小さな港が、物語後半の舞台になる。",
       "look": "深い青の海と緑の山。晴天の強い日差しで鮮やか。",
       "sources": [
         "https://huntingbond.com/akime/",
-        "https://jamesbond007.se/eng/event/50-arsjubileum_man_lever_bara_tva_ganger_film"
+        "https://jamesbond007.se/eng/event/50-arsjubileum_man_lever_bara_tva_ganger_film",
+        "https://eiga.com/movie/46181/",
+        "https://www.allcinema.net/cinema/14178",
+        "https://thetv.jp/program/0000016860/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 1, "b": -1 },
         "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "日中", "旅"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "日中", "旅"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ショーン・コネリー", "role": "ジェームズ・ボンド" }, { "name": "丹波哲郎", "role": "タイガー田中" }, { "name": "浜美枝", "role": "キッシー鈴木" }],
+      "production": null, "distributor": { "original": null, "japan": "ユナイテッド・アーティスツ" },
+      "synopsis": "宇宙船が次々と消える事件を追い、ジェームズ・ボンドが日本へ。日本の諜報機関と組み、巨大な陰謀に迫る。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [31], "palette": ["#2f5d8a", "#5a8a4f", "#13365c", "#2e7d4f", "#e0b23a"],
+      "links": { "eigacom": "https://eiga.com/movie/46181/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "you-only-live-twice-shinmoedake",
       "title": "007は二度死ぬ", "titleEn": "You Only Live Twice", "year": 1967, "director": "ルイス・ギルバート",
       "place": "新燃岳（霧島連山）", "city": "霧島", "country": "日本", "region": "asia",
-      "lat": 31.9093, "lng": 130.8863, "confidence": "high", "streets": false,
+      "lat": 31.9093, "lng": 130.8863, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "悪の組織の秘密基地が隠された火山として外観が撮られた。火口湖をヘリが飛ぶ空撮が印象的。",
       "look": "荒々しい火山の茶と火口湖の青緑。空気の澄んだ硬い光。",
       "sources": [
         "https://www.imdb.com/title/tt0062512/locations",
-        "https://sixtiescity.net/Bond/YOLTwice.htm"
+        "https://sixtiescity.net/Bond/YOLTwice.htm",
+        "https://eiga.com/movie/46181/",
+        "https://www.allcinema.net/cinema/14178",
+        "https://thetv.jp/program/0000016860/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 3, "b": -3 },
         "highlight": 0, "shadow": 2, "color": 1, "sharpness": 1, "nr": -3,
-        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["風景", "山", "日中"] }
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["風景", "山", "日中"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ショーン・コネリー", "role": "ジェームズ・ボンド" }, { "name": "丹波哲郎", "role": "タイガー田中" }, { "name": "浜美枝", "role": "キッシー鈴木" }],
+      "production": null, "distributor": { "original": null, "japan": "ユナイテッド・アーティスツ" },
+      "synopsis": "宇宙船が次々と消える事件を追い、ジェームズ・ボンドが日本へ。日本の諜報機関と組み、巨大な陰謀に迫る。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "足場が不安定な場所です。立入禁止の表示や規制情報を事前に確認してください。",
+      "lessons": [31, 24], "palette": ["#7a5a3a", "#2a7f80", "#2f5d8a", "#5a8a4f", "#13365c"],
+      "links": { "eigacom": "https://eiga.com/movie/46181/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "departures-kappo-obata",
       "title": "おくりびと", "titleEn": "Departures", "year": 2008, "director": "滝田洋二郎",
       "place": "旧割烹小幡（日和山 小幡楼）", "city": "酒田", "country": "日本", "region": "asia",
-      "lat": 38.9226, "lng": 139.8258, "confidence": "high", "streets": true,
+      "lat": 38.9226, "lng": 139.8258, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "主人公が勤める納棺の会社「NK エージェント」の社屋として使われた古い洋館。",
       "look": "雪国の曇り空と古い木造の褐色。落ち着いた低彩度。",
       "sources": [
         "https://www.tohokukanko.jp/attractions/detail_1009803.html",
-        "https://www.gltjp.com/ja/directory/item/12610/"
+        "https://www.gltjp.com/ja/directory/item/12610/",
+        "https://eiga.com/movie/53337/",
+        "https://movie.jorudan.co.jp/film/39331/"
       ],
       "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 1, "b": -1 },
         "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["建築", "曇り", "街"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["建築", "曇り", "街"] },
+      "cinematographer": "浜田毅", "genre": null,
+      "cast": [{ "name": "本木雅弘", "role": "小林大悟" }, { "name": "広末涼子", "role": "美香" }, { "name": "山崎努", "role": "佐々木" }],
+      "production": null, "distributor": { "original": "松竹", "japan": "松竹" },
+      "synopsis": "楽団が解散し、故郷の山形へ戻ったチェロ奏者の大悟。求人広告で見つけた仕事は、亡くなった人を棺に納める納棺師だった。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": "曇り",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#ece8e0", "#8a8a88", "#7a5a3a", "#3a4246", "#7d8a86"],
+      "links": { "eigacom": "https://eiga.com/movie/53337/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "our-little-sister-gokurakuji-station",
       "title": "海街diary", "titleEn": "Our Little Sister", "year": 2015, "director": "是枝裕和",
       "place": "江ノ電 極楽寺駅", "city": "鎌倉", "country": "日本", "region": "asia",
-      "lat": 35.3101, "lng": 139.5309, "confidence": "high", "streets": true,
+      "lat": 35.3101, "lng": 139.5309, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "四姉妹が暮らす鎌倉の日常に登場する小さな木造駅。季節の花と江ノ電が穏やかな時間を映す。",
       "look": "淡い緑と木の色、やわらかな日差し。明るく透明感のある色。",
       "sources": [
         "https://tabi-mag.jp/kn0498/",
-        "https://allabout.co.jp/gm/gc/465076/2"
+        "https://allabout.co.jp/gm/gc/465076/2",
+        "https://natalie.mu/eiga/film/165422",
+        "https://movie.jorudan.co.jp/film/82034/"
       ],
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
         "highlight": -2, "shadow": -2, "color": 1, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["日中", "駅", "街"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["日中", "駅", "街"] },
+      "cinematographer": null, "genre": null, "committee": true,
+      "cast": [{ "name": "綾瀬はるか", "role": "幸" }, { "name": "長澤まさみ", "role": "佳乃" }, { "name": "広瀬すず", "role": "すず" }],
+      "production": null, "distributor": { "original": "東宝、ギャガ", "japan": "東宝、ギャガ" },
+      "synopsis": "鎌倉の古い家で暮らす三姉妹が、父の葬儀で腹違いの妹すずと出会う。四人で暮らし始めた一年を季節とともに描く。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。 列車や利用者の妨げにならないように。線路やホームの端には近づかないこと。",
+      "lessons": [32], "palette": ["#5a8a4f", "#7a5a3a", "#f3e3d6", "#e7b8a8", "#9cc2cf"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "tora-san-shibamata-sando",
       "title": "男はつらいよ", "titleEn": "Tora-san, Our Lovable Tramp", "year": 1969, "director": "山田洋次",
       "place": "柴又帝釈天 参道", "city": "東京", "country": "日本", "region": "asia",
-      "lat": 35.7579, "lng": 139.878, "confidence": "high", "streets": true,
+      "lat": 35.7579, "lng": 139.878, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "寅さんの実家の団子屋がある門前の商店街。旅から帰った寅さんが騒動を起こす、シリーズの原点。",
       "look": "昭和の商店街の木の色とのれん。暖かく少しくすんだ色調。",
       "sources": [
         "https://www.keisei.co.jp/keisei/short_trip/area/shibamata_yagiri.php",
-        "https://tabi-mag.jp/tk1095/"
+        "https://tabi-mag.jp/tk1095/",
+        "https://eiga.com/movie/35273/",
+        "https://thetv.jp/program/0000027708/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5900 }, "wbShift": { "r": 3, "b": -5 },
         "highlight": -1, "shadow": -1, "color": -2, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["日中", "街", "昭和"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["日中", "街", "昭和"] },
+      "cinematographer": "高羽哲夫", "genre": null,
+      "cast": [{ "name": "渥美清", "role": "車寅次郎" }, { "name": "倍賞千恵子", "role": "さくら" }, { "name": "光本幸子", "role": "坪内冬子" }],
+      "production": null, "distributor": { "original": "松竹", "japan": "松竹" },
+      "synopsis": "二十年ぶりに柴又へ帰ってきたテキ屋の寅次郎。騒動を起こしては家族を困らせ、美しい人に恋をしてはまた旅に出る。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [22, 29, 17], "palette": ["#7a5a3a", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
+      "links": { "eigacom": "https://eiga.com/movie/35273/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "lost-in-translation-heian-shrine",
       "title": "ロスト・イン・トランスレーション", "titleEn": "Lost in Translation", "year": 2003, "director": "ソフィア・コッポラ",
       "place": "平安神宮 神苑", "city": "京都", "country": "日本", "region": "asia",
-      "lat": 35.0162, "lng": 135.783, "confidence": "high", "streets": true,
+      "lat": 35.0162, "lng": 135.783, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ひとりで京都を訪れたシャーロットが、池の飛び石を渡りおみくじを結ぶ。都会の喧騒から離れた静かな時間。",
       "look": "池の緑と朱の社殿。曇り日のフラットな光でしっとり。",
       "sources": [
         "https://tokyofox.net/2022/03/15/kyoto-filming-locations-lost-in-translation-2003/",
-        "https://gobackpacking.com/heian-shrine-lost-in-translation/"
+        "https://gobackpacking.com/heian-shrine-lost-in-translation/",
+        "https://eiga.com/movie/1507/"
       ],
       "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 0, "b": -2 },
         "highlight": -1, "shadow": 0, "color": 0, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["寺社", "日中", "旅"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["寺社", "日中", "旅"] },
+      "cinematographer": "ランス・アコード", "genre": null,
+      "cast": [{ "name": "ビル・マーレイ", "role": "ボブ・ハリス" }, { "name": "スカーレット・ヨハンソン", "role": "シャーロット" }, { "name": "ジョヴァンニ・リビシ", "role": "ジョン" }],
+      "production": null, "distributor": { "original": null, "japan": "東北新社" },
+      "synopsis": "東京のホテルで眠れない夜を過ごす落ち目の米国人俳優と、夫に置き去りにされた若い女性。言葉の通じない街で、二人は短い友情を育んでいく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": "曇り",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
+      "lessons": [45], "palette": ["#5a8a4f", "#b8322a", "#8a8a88", "#2d3e3a", "#5f7d6b"],
+      "links": { "eigacom": "https://eiga.com/movie/1507/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "lost-in-translation-shibuya-crossing",
       "title": "ロスト・イン・トランスレーション", "titleEn": "Lost in Translation", "year": 2003, "director": "ソフィア・コッポラ",
       "place": "渋谷スクランブル交差点", "city": "東京", "country": "日本", "region": "asia",
-      "lat": 35.6595, "lng": 139.7005, "confidence": "high", "streets": true,
+      "lat": 35.6595, "lng": 139.7005, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "シャーロットが傘の群れの中を歩く巨大な交差点。人の波と大型ビジョンが、異国での孤独を際立たせる。",
       "look": "雨の夕方の青と看板の光。低コントラストでにじむような色。",
       "sources": [
         "https://www.movie-locations.com/movies/l/Lost-In-Translation.php",
-        "https://tokyofox.net/2011/11/29/tokyo-filming-locations-pt-ii-lost-in-translation-updated"
+        "https://tokyofox.net/2011/11/29/tokyo-filming-locations-pt-ii-lost-in-translation-updated",
+        "https://eiga.com/movie/1507/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 3800 }, "wbShift": { "r": 1, "b": -2 },
         "highlight": -2, "shadow": 1, "color": 1, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "街", "雨"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "街", "雨"] },
+      "cinematographer": "ランス・アコード", "genre": null,
+      "cast": [{ "name": "ビル・マーレイ", "role": "ボブ・ハリス" }, { "name": "スカーレット・ヨハンソン", "role": "シャーロット" }, { "name": "ジョヴァンニ・リビシ", "role": "ジョン" }],
+      "production": null, "distributor": { "original": null, "japan": "東北新社" },
+      "synopsis": "東京のホテルで眠れない夜を過ごす落ち目の米国人俳優と、夫に置き去りにされた若い女性。言葉の通じない街で、二人は短い友情を育んでいく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夕方", "weather": "雨",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前の 1 時間" },
+      "visitNotes": null,
+      "lessons": [41, 13], "palette": ["#2f5d8a", "#1d2a30", "#3f5b5e", "#8a9b8f", "#c8b28a"],
+      "links": { "eigacom": "https://eiga.com/movie/1507/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "lost-in-translation-karaoke-kan",
       "title": "ロスト・イン・トランスレーション", "titleEn": "Lost in Translation", "year": 2003, "director": "ソフィア・コッポラ",
       "place": "カラオケ館 渋谷本店", "city": "東京", "country": "日本", "region": "asia",
-      "lat": 35.6606, "lng": 139.6982, "confidence": "high", "streets": true,
+      "lat": 35.6606, "lng": 139.6982, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ボブとシャーロットが仲間とカラオケで夜を過ごす個室。ふたりの距離が縮まる場面。",
       "look": "ピンクと紫の照明、肌に乗るマゼンタ。暗く粒子の目立つ室内。",
       "sources": [
         "https://tokyocheapo.com/place/karaoke-kan-shibuya-lost-in-translation-branch",
-        "https://timeout.com/tokyo/things-to-do/karaoke-kan-shibuya"
+        "https://timeout.com/tokyo/things-to-do/karaoke-kan-shibuya",
+        "https://eiga.com/movie/1507/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 4, "b": -1 },
         "highlight": -1, "shadow": 0, "color": 2, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "室内", "人物"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "室内", "人物"] },
+      "cinematographer": "ランス・アコード", "genre": null,
+      "cast": [{ "name": "ビル・マーレイ", "role": "ボブ・ハリス" }, { "name": "スカーレット・ヨハンソン", "role": "シャーロット" }, { "name": "ジョヴァンニ・リビシ", "role": "ジョン" }],
+      "production": null, "distributor": { "original": null, "japan": "東北新社" },
+      "synopsis": "東京のホテルで眠れない夜を過ごす落ち目の米国人俳優と、夫に置き去りにされた若い女性。言葉の通じない街で、二人は短い友情を育んでいく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [42, 24], "palette": ["#e8a0b0", "#7a5a9a", "#d8a888", "#d9488f", "#1d2a30"],
+      "links": { "eigacom": "https://eiga.com/movie/1507/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "lost-in-translation-nanzenji",
       "title": "ロスト・イン・トランスレーション", "titleEn": "Lost in Translation", "year": 2003, "director": "ソフィア・コッポラ",
       "place": "南禅寺 三門", "city": "京都", "country": "日本", "region": "asia",
-      "lat": 35.0113, "lng": 135.7932, "confidence": "high", "streets": true,
+      "lat": 35.0113, "lng": 135.7932, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "シャーロットが寺の境内で花嫁行列に出会う。大きな木造の門と白無垢の対比が美しい。",
       "look": "木の褐色と白、曇り空のやわらかい光。控えめな彩度。",
       "sources": [
         "https://thecinemaholic.com/where-was-lost-in-translation-filmed",
-        "https://tokyofox.net/2022/03/15/kyoto-filming-locations-lost-in-translation-2003/"
+        "https://tokyofox.net/2022/03/15/kyoto-filming-locations-lost-in-translation-2003/",
+        "https://eiga.com/movie/1507/"
       ],
       "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 1, "b": -1 },
         "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["寺社", "日中", "旅"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["寺社", "日中", "旅"] },
+      "cinematographer": "ランス・アコード", "genre": null,
+      "cast": [{ "name": "ビル・マーレイ", "role": "ボブ・ハリス" }, { "name": "スカーレット・ヨハンソン", "role": "シャーロット" }, { "name": "ジョヴァンニ・リビシ", "role": "ジョン" }],
+      "production": null, "distributor": { "original": null, "japan": "東北新社" },
+      "synopsis": "東京のホテルで眠れない夜を過ごす落ち目の米国人俳優と、夫に置き去りにされた若い女性。言葉の通じない街で、二人は短い友情を育んでいく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": "曇り",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
+      "lessons": [17], "palette": ["#7a5a3a", "#ece8e0", "#8a8a88", "#3a4246", "#7d8a86"],
+      "links": { "eigacom": "https://eiga.com/movie/1507/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "love-letter-otaru-nyk",
       "title": "Love Letter", "titleEn": "Love Letter", "year": 1995, "director": "岩井俊二",
       "place": "旧日本郵船 小樽支店（劇中の図書館）", "city": "小樽", "country": "日本", "region": "asia",
-      "lat": 43.204, "lng": 141.0035, "confidence": "high", "streets": true,
+      "lat": 43.204, "lng": 141.0035, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "もうひとりの「藤井樹」が勤める図書館として使われた石造りの建物。雪の小樽で、過去の記憶がよみがえる。",
       "look": "雪の白と石の灰色、わずかに青い冬の光。透明感のある淡い色。",
       "sources": [
         "https://www.cotaru.co/post/otaru-love-letter-locations",
-        "https://www.city.otaru.lg.jp/docs/2020100900015/file_contents/koukaizoudo.pdf"
+        "https://www.city.otaru.lg.jp/docs/2020100900015/file_contents/koukaizoudo.pdf",
+        "https://thetv.jp/program/0000965394/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": -2, "shadow": 1, "color": -1, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["雪", "冬", "建築"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["雪", "冬", "建築"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "中山美穂", "role": "渡辺博子／藤井樹" }, { "name": "豊川悦司", "role": "秋葉茂" }],
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "婚約者を山の事故で亡くした博子が、彼の中学時代の住所に手紙を出すと、届くはずのない返事が小樽から届く。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": "雪",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
+      "lessons": [24], "palette": ["#ece8e0", "#8a8a88", "#2f5d8a", "#2b3a42", "#6f7f7a"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "exchange-students-misode-tenmangu",
       "title": "転校生", "titleEn": "I Are You, You Am Me", "year": 1982, "director": "大林宣彦",
       "place": "御袖天満宮の石段", "city": "尾道", "country": "日本", "region": "asia",
-      "lat": 34.4108, "lng": 133.199, "confidence": "high", "streets": true,
+      "lat": 34.4108, "lng": 133.199, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "中学生の男女が長い石段を転げ落ち、心と体が入れ替わる。物語の始まりの場所。",
       "look": "夏の緑と石段の灰色。やや色あせた 80 年代のフィルムの色。",
       "sources": [
         "https://tabi-mag.jp/hm0054/",
-        "https://press.moviewalker.jp/news/article/1005002/p3"
+        "https://press.moviewalker.jp/news/article/1005002/p3",
+        "https://eiga.com/movie/37980/",
+        "https://movie.jorudan.co.jp/film/17173/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5900 }, "wbShift": { "r": 3, "b": -5 },
         "highlight": -1, "shadow": -1, "color": -1, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["日中", "坂", "夏"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["日中", "坂", "夏"] },
+      "cinematographer": "阪本善尚", "genre": null,
+      "cast": [{ "name": "尾美としのり", "role": null }, { "name": "小林聡美", "role": null }],
+      "production": null, "distributor": { "original": "松竹", "japan": "松竹" },
+      "synopsis": "尾道の中学生、一夫と一美。神社の石段から転げ落ちた拍子に、二人の心と体が入れ替わってしまう青春映画。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
+      "lessons": [22, 29, 18], "palette": ["#5a8a4f", "#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": "https://eiga.com/movie/37980/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "girl-who-leapt-takehara",
       "title": "時をかける少女", "titleEn": "The Little Girl Who Conquered Time", "year": 1983, "director": "大林宣彦",
       "place": "西方寺 普明閣（たけはら町並み保存地区）", "city": "竹原", "country": "日本", "region": "asia",
-      "lat": 34.3436, "lng": 132.9095, "confidence": "high", "streets": true,
+      "lat": 34.3436, "lng": 132.9095, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "時間を跳ぶ少女の物語の舞台になった古い町並み。高台の堂から瓦屋根の連なりを見下ろす。",
       "look": "瓦の灰色と白壁、落ち着いた夕方の光。淡くノスタルジック。",
       "sources": [
         "https://www.arukikata.co.jp/webmagazine/235552/",
-        "https://www.mlit.go.jp/tagengo-db/R2-01721.html"
+        "https://www.mlit.go.jp/tagengo-db/R2-01721.html",
+        "https://thetv.jp/program/0000019508/",
+        "https://www.allcinema.net/cinema/pdf/86153"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 3, "b": -5 },
         "highlight": -1, "shadow": -1, "color": -2, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["街", "日中", "昭和"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["街", "日中", "昭和"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "原田知世", "role": "芳山和子" }, { "name": "高柳良一", "role": "深町一夫" }, { "name": "尾美としのり", "role": "堀川吾朗" }],
+      "production": null, "distributor": { "original": "東映", "japan": "東映" },
+      "synopsis": "高校生の芳山和子は、理科室で嗅いだラベンダーの香りをきっかけに、時間を飛び越える不思議な体験をするようになる。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "夕方", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "日没前の 1 時間" },
+      "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
+      "lessons": [13, 22, 29], "palette": ["#8a8a88", "#ece8e0", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "crying-out-love-aji-breakwater",
       "title": "世界の中心で、愛をさけぶ", "titleEn": "Crying Out Love, in the Center of the World", "year": 2004, "director": "行定勲",
       "place": "庵治漁港 王の下沖防波堤", "city": "高松", "country": "日本", "region": "asia",
-      "lat": 34.3746, "lng": 134.1603, "confidence": "high", "streets": false,
+      "lat": 34.3746, "lng": 134.1603, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "高校生のサクとアキが夕日を眺めて語り合う長い防波堤。サクがここを走る場面も知られる。",
       "look": "夕日の橙と海の青灰。逆光で柔らかく、少しかすんだ色。",
       "sources": [
         "https://tabi-mag.jp/ka0142/",
-        "https://www.toretabi.jp/zipangclub/page/meisaku004.html"
+        "https://www.toretabi.jp/zipangclub/page/meisaku004.html",
+        "https://thetv.jp/program/0000001662/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 7200 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["夕方", "海", "人物"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["夕方", "海", "人物"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "大沢たかお", "role": "朔太郎" }, { "name": "柴咲コウ", "role": "律子" }, { "name": "長澤まさみ", "role": "亜紀" }],
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "婚約者の失踪をきっかけに故郷の町へ戻った朔太郎。高校時代に愛した同級生・亜紀と過ごした日々を思い出していく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夕方", "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前の 1 時間" },
+      "visitNotes": "足場が不安定な場所です。立入禁止の表示や規制情報を事前に確認してください。",
+      "lessons": [13, 31], "palette": ["#e07a3a", "#2f5d8a", "#8a8a88", "#2b3a42", "#6f7f7a"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "kamikaze-girls-ushiku-daibutsu",
       "title": "下妻物語", "titleEn": "Kamikaze Girls", "year": 2004, "director": "中島哲也",
       "place": "牛久大仏", "city": "牛久", "country": "日本", "region": "asia",
-      "lat": 35.9825, "lng": 140.221, "confidence": "medium", "streets": false,
+      "lat": 35.9825, "lng": 140.221, "confidence": "medium", "spotSources": 1, "streets": false,
       "scene": "田んぼの向こうに巨大な大仏がそびえる茨城の風景。冒頭の場面や終盤の決闘の背景になる。",
       "look": "青空と田園の緑、白っぽい大仏。ポップで鮮やかな色。",
       "sources": [
-        "https://kawaiikakkoiisugoi.com/tallest-buddha-statue-world-ushiku-daibutsu/34068"
+        "https://kawaiikakkoiisugoi.com/tallest-buddha-statue-world-ushiku-daibutsu/34068",
+        "https://www.fashion-press.net/movies/15106",
+        "https://jfdb.jp/en/title/202"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 1, "b": -1 },
         "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["日中", "田園", "ポップ"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["日中", "田園", "ポップ"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "深田恭子", "role": "竜ヶ崎桃子" }, { "name": "土屋アンナ", "role": "白百合イチゴ" }],
+      "production": null, "distributor": { "original": "東宝", "japan": "東宝" },
+      "synopsis": "ロリータ服を愛する桃子と、特攻服のヤンキー少女イチコ。茨城の田舎町で出会った正反対の二人の、奇妙な友情を描く。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#2f5d8a", "#5a8a4f", "#ece8e0", "#13365c", "#2e7d4f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "after-the-storm-asahigaoka-danchi",
       "title": "海よりもまだ深く", "titleEn": "After the Storm", "year": 2016, "director": "是枝裕和",
       "place": "旭が丘団地", "city": "清瀬", "country": "日本", "region": "asia",
-      "lat": 35.785, "lng": 139.509, "confidence": "high", "streets": true,
+      "lat": 35.785, "lng": 139.509, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "売れない作家の良多が母を訪ねる古い団地。台風の夜、元家族がひと晩をここで過ごす。監督自身が育った団地でもある。",
       "look": "団地の灰色と植え込みの緑。曇天のフラットな光で淡い色。",
       "sources": [
         "https://www.tv-tokyo.co.jp/adomachi/backnumber/20220806/143052.html",
-        "https://www.walkerplus.com/article/90224/"
+        "https://www.walkerplus.com/article/90224/",
+        "https://ciatr.jp/topics/106431",
+        "https://thetv.jp/program/0000921287/"
       ],
       "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 1, "b": -1 },
         "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["曇り", "団地", "日常"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["曇り", "団地", "日常"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "阿部寛", "role": "篠田良多" }, { "name": "真木よう子", "role": "白石響子" }, { "name": "樹木希林", "role": "篠田淑子" }],
+      "production": null, "distributor": { "original": "ギャガ", "japan": "ギャガ" },
+      "synopsis": "15年前に文学賞を取ったきりの作家で、今は探偵の良多。台風の夜、団地の母の家で、別れた妻と息子と一晩を過ごす。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": "曇り",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [42], "palette": ["#8a8a88", "#5a8a4f", "#3a4246", "#7d8a86", "#c4b4a0"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "wolverine-zojoji",
       "title": "ウルヴァリン：SAMURAI", "titleEn": "The Wolverine", "year": 2013, "director": "ジェームズ・マンゴールド",
       "place": "増上寺", "city": "東京", "country": "日本", "region": "asia",
-      "lat": 35.6575, "lng": 139.7482, "confidence": "high", "streets": true,
+      "lat": 35.6575, "lng": 139.7482, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "実業家ヤシダの葬儀が行われる寺。参列者に紛れた刺客との乱闘が境内で始まる。",
       "look": "雨上がりの灰色の空と黒い喪服、寺の朱。コントラスト強め。",
       "sources": [
         "https://tokyofox.net/2013/05/27/tokyo-daytripper-zojoji-temple-a-k-a-the-wolverine-temple/",
-        "https://movie-locations.com/movies/w/Wolverine.php"
+        "https://movie-locations.com/movies/w/Wolverine.php",
+        "https://eiga.com/movie/77469/",
+        "https://movie.jorudan.co.jp/film/71273/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr200", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 320〜1600", "exposureNote": "-1/3EV", "tags": ["寺社", "雨", "アクション"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "-1/3EV", "tags": ["寺社", "雨", "アクション"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ヒュー・ジャックマン", "role": "ローガン（ウルヴァリン）" }, { "name": "TAO", "role": "マリコ" }, { "name": "真田広之", "role": null }],
+      "production": null, "distributor": { "original": null, "japan": "20世紀フォックス映画" },
+      "synopsis": "旧知の日本人実業家に招かれて東京へ来たウルヴァリン。後継者争いに巻き込まれ、孫娘マリコを守るために戦うことになる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": "雨",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
+      "lessons": [41, 22], "palette": ["#8a8a88", "#141414", "#b8322a", "#1d2a30", "#3f5b5e"],
+      "links": { "eigacom": "https://eiga.com/movie/77469/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "wolverine-tomonoura",
       "title": "ウルヴァリン：SAMURAI", "titleEn": "The Wolverine", "year": 2013, "director": "ジェームズ・マンゴールド",
       "place": "鞆の浦", "city": "福山", "country": "日本", "region": "asia",
-      "lat": 34.3832, "lng": 133.3818, "confidence": "high", "streets": true,
+      "lat": 34.3832, "lng": 133.3818, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "逃亡中のローガンとマリコが身を隠す港町。古い町並みと常夜燈のある港が登場する。",
       "look": "港の青灰と木造家屋の褐色。しっとりした曇りの色。",
       "sources": [
         "https://tokyofox.net/2015/05/17/hiroshima-ken-2015-pt-vi-tomonoura-the-wolverine-filming-locations/",
-        "https://visittomonoura.com/2020/01/5348/?lang=en"
+        "https://visittomonoura.com/2020/01/5348/?lang=en",
+        "https://eiga.com/movie/77469/",
+        "https://movie.jorudan.co.jp/film/71273/"
       ],
       "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 1, "b": -1 },
         "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["港", "街", "旅"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["港", "街", "旅"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ヒュー・ジャックマン", "role": "ローガン（ウルヴァリン）" }, { "name": "TAO", "role": "マリコ" }, { "name": "真田広之", "role": null }],
+      "production": null, "distributor": { "original": null, "japan": "20世紀フォックス映画" },
+      "synopsis": "旧知の日本人実業家に招かれて東京へ来たウルヴァリン。後継者争いに巻き込まれ、孫娘マリコを守るために戦うことになる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": "曇り",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [42], "palette": ["#2f5d8a", "#8a8a88", "#7a5a3a", "#3a4246", "#7d8a86"],
+      "links": { "eigacom": "https://eiga.com/movie/77469/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "chihayafuru-omi-jingu",
       "title": "ちはやふる 上の句", "titleEn": "Chihayafuru Part 1", "year": 2016, "director": "小泉徳宏",
       "place": "近江神宮", "city": "大津", "country": "日本", "region": "asia",
-      "lat": 35.0286, "lng": 135.8578, "confidence": "high", "streets": true,
+      "lat": 35.0286, "lng": 135.8578, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "競技かるたの聖地とされる神社。朱塗りの楼門と、全国大会が開かれる会館が物語を彩る。",
       "look": "楼門の朱と森の緑、明るい日差し。爽やかで鮮やか。",
       "sources": [
         "https://www.mlit.go.jp/tagengo-db/common/001557483.pdf",
-        "https://co-trip.jp/post/400184"
+        "https://co-trip.jp/post/400184",
+        "https://movie.jorudan.co.jp/film/84560/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 1, "b": -1 },
         "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["寺社", "日中", "青春"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["寺社", "日中", "青春"] },
+      "cinematographer": null, "genre": null, "committee": true,
+      "cast": [{ "name": "広瀬すず", "role": "綾瀬千早" }, { "name": "野村周平", "role": "真島太一" }, { "name": "真剣佑", "role": "綿谷新" }],
+      "production": null, "distributor": { "original": "東宝", "japan": "東宝" },
+      "synopsis": "競技かるたに夢中な高校生の千早が、幼なじみの太一とかるた部を作り、仲間を集めて全国大会を目指す。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
+      "lessons": [17], "palette": ["#b8322a", "#2f4a32", "#5a8a4f", "#13365c", "#2e7d4f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "poppoya-ikutora-station",
       "title": "鉄道員（ぽっぽや）", "titleEn": "Poppoya", "year": 1999, "director": "降旗康男",
       "place": "幾寅駅（劇中の幌舞駅）", "city": "南富良野", "country": "日本", "region": "asia",
-      "lat": 43.1627, "lng": 142.5745, "confidence": "high", "streets": false,
+      "lat": 43.1627, "lng": 142.5745, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "廃線を前にした終着駅で、駅長の乙松がひとり雪の中に立ち続ける。",
       "look": "雪の白と木造駅舎の茶、冷たい青い影。静かな低彩度。",
       "sources": [
         "https://toyokeizai.net/articles/-/738610",
-        "https://www.hokkaido-np.co.jp/movies/detail/5293775639001/"
+        "https://www.hokkaido-np.co.jp/movies/detail/5293775639001/",
+        "https://www.allcinema.net/cinema/159522",
+        "https://movie.jorudan.co.jp/film/31599/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 7000 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": -1, "shadow": 1, "color": -2, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["雪", "駅", "冬"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["雪", "駅", "冬"] },
+      "cinematographer": "木村大作", "genre": null,
+      "cast": [{ "name": "高倉健", "role": "佐藤乙松" }, { "name": "大竹しのぶ", "role": "佐藤静枝" }, { "name": "広末涼子", "role": "セーラー服の少女" }],
+      "production": null, "distributor": { "original": "東映", "japan": "東映" },
+      "synopsis": "北海道の廃線間近の終着駅を、一人で守り続けてきた駅長の乙松。定年を前にした冬、駅に不思議な少女が現れる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": "雪",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": "列車や利用者の妨げにならないように。線路やホームの端には近づかないこと。",
+      "lessons": [24], "palette": ["#ece8e0", "#7a5a3a", "#2f5d8a", "#141414", "#2b3a42"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "yellow-handkerchief-yubari",
       "title": "幸福の黄色いハンカチ", "titleEn": "The Yellow Handkerchief", "year": 1977, "director": "山田洋次",
       "place": "幸福の黄色いハンカチ想い出ひろば", "city": "夕張", "country": "日本", "region": "asia",
-      "lat": 43.0762, "lng": 141.995, "confidence": "high", "streets": false,
+      "lat": 43.0762, "lng": 141.995, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "出所した男が妻の待つ炭鉱住宅へ向かう。軒先にはためく黄色いハンカチが物語の結末を告げる。",
       "look": "青空と黄色の鮮やかな対比。70 年代のフィルムらしい少し色あせた色。",
       "sources": [
         "https://rurubu.jp/andmore/spot/80000946",
-        "https://trafficnews.jp/post/81016/2"
+        "https://trafficnews.jp/post/81016/2",
+        "https://thetv.jp/program/0000016655/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5900 }, "wbShift": { "r": 3, "b": -5 },
         "highlight": -1, "shadow": -1, "color": 0, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["日中", "昭和", "旅"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["日中", "昭和", "旅"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "高倉健", "role": "島勇作" }, { "name": "倍賞千恵子", "role": "島光枝" }, { "name": "武田鉄矢", "role": "花田欽也" }],
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "出所したばかりの男が、北海道を車で旅する若い男女に同乗する。彼には、妻との約束を確かめに行くという目的があった。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [22, 29], "palette": ["#2f5d8a", "#e0c048", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "rebirth-nakayama-senmaida",
       "title": "八日目の蝉", "titleEn": "Rebirth", "year": 2011, "director": "成島出",
       "place": "中山千枚田", "city": "小豆島", "country": "日本", "region": "asia",
-      "lat": 34.5042, "lng": 134.2439, "confidence": "high", "streets": false,
+      "lat": 34.5042, "lng": 134.2439, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "逃亡中の希和子と幼い薫が暮らした島の棚田。たいまつを手に田を歩く虫送りの行事が描かれる。",
       "look": "棚田の緑と夕暮れの炎の橙。湿り気のある柔らかい色。",
       "sources": [
         "https://www.value-press.com/pressrelease/123758",
-        "https://tabi-mag.jp/ka0150/"
+        "https://tabi-mag.jp/ka0150/",
+        "https://thetv.jp/program/0000045771/",
+        "https://jfdb.jp/en/title/2701"
       ],
       "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 0, "b": -2 },
         "highlight": -1, "shadow": 0, "color": 0, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["田園", "夕方", "祭"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["田園", "夕方", "祭"] },
+      "cinematographer": "藤澤順一", "genre": null,
+      "cast": [{ "name": "井上真央", "role": "秋山恵理菜／薫" }, { "name": "永作博美", "role": "野々宮希和子" }, { "name": "小池栄子", "role": "安藤千草" }],
+      "production": null, "distributor": { "original": "松竹", "japan": "松竹" },
+      "synopsis": "不倫相手の赤ん坊を連れ去り、四年間わが子として育てた希和子。大人になった娘・恵理菜がその過去と向き合う物語と交互に描く。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夕方", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前の 1 時間" },
+      "visitNotes": null,
+      "lessons": [13], "palette": ["#5a8a4f", "#e07a3a", "#2d3e3a", "#5f7d6b", "#c7a27c"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "twenty-four-eyes-misaki-bunkyojo",
       "title": "二十四の瞳", "titleEn": "Twenty-Four Eyes", "year": 1954, "director": "木下惠介",
       "place": "岬の分教場（旧苗羽小学校田浦分校）", "city": "小豆島", "country": "日本", "region": "asia",
-      "lat": 34.4745, "lng": 134.3105, "confidence": "high", "streets": false,
+      "lat": 34.4745, "lng": 134.3105, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "海辺の小さな分校に新任の女性教師が赴任し、12 人の子どもたちと過ごす。木造校舎が今も残る。",
       "look": "白黒の柔らかな階調。海からの光で明るく穏やか。",
       "sources": [
         "https://tabi-mag.jp/ka0136/",
-        "https://iko-yo.net/facilities/41943"
+        "https://iko-yo.net/facilities/41943",
+        "https://eiga.com/movie/38410/"
       ],
       "recipe": { "filmSim": "monochrome", "monoFilter": "none", "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": -1, "shadow": 0, "color": 0, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["モノクロ", "学校", "海"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["モノクロ", "学校", "海"] },
+      "cinematographer": "楠田浩之", "genre": null,
+      "cast": [{ "name": "高峰秀子", "role": "大石先生" }],
+      "production": null, "distributor": { "original": "松竹", "japan": "松竹" },
+      "synopsis": "昭和初期、瀬戸内の島の分教場に赴任した大石先生と12人の子どもたち。戦争へ向かう時代のなかで結ばれた絆を描く。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": "足場が不安定な場所です。立入禁止の表示や規制情報を事前に確認してください。",
+      "lessons": [20, 31], "palette": ["#141414", "#424242", "#7f7f7f", "#bdbdbd", "#efefef"],
+      "links": { "eigacom": "https://eiga.com/movie/38410/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "norwegian-wood-tonomine",
       "title": "ノルウェイの森", "titleEn": "Norwegian Wood", "year": 2010, "director": "トラン・アン・ユン",
       "place": "砥峰高原", "city": "神河", "country": "日本", "region": "asia",
-      "lat": 35.096, "lng": 134.742, "confidence": "high", "streets": false,
+      "lat": 35.096, "lng": 134.742, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "ワタナベと直子が風にそよぐ草原を長く歩く。ゆっくり移動するカメラが感情の揺れを映す。",
       "look": "ススキの金色と若草の緑、曇り空。淡く湿った色。",
       "sources": [
         "https://www.guidoor.jp/places/5628",
-        "https://www.walkerplus.com/article/154267/"
+        "https://www.walkerplus.com/article/154267/",
+        "https://eiga.com/movie/53950/",
+        "https://movie.jorudan.co.jp/film/41407/"
       ],
       "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 0, "b": -2 },
         "highlight": -1, "shadow": 0, "color": -1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["草原", "風景", "人物"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["草原", "風景", "人物"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "松山ケンイチ", "role": "ワタナベ" }, { "name": "菊地凛子", "role": "直子" }, { "name": "水原希子", "role": "緑" }],
+      "production": null, "distributor": { "original": "東宝", "japan": "東宝" },
+      "synopsis": "1960年代末の東京。親友を失った大学生ワタナベが、心を病んだ直子と、快活な緑とのあいだで揺れ動く。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": "曇り",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": null,
+      "lessons": [31], "palette": ["#c9a04a", "#5a8a4f", "#8a8a88", "#2d3e3a", "#5f7d6b"],
+      "links": { "eigacom": "https://eiga.com/movie/53950/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "station-mashike",
