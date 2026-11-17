@@ -2022,401 +2022,679 @@
       "id": "paterson-great-falls",
       "title": "パターソン", "titleEn": "Paterson", "year": 2016, "director": "ジム・ジャームッシュ",
       "place": "グレート・フォールズ", "city": "パターソン", "country": "アメリカ", "region": "north-america",
-      "lat": 40.9156, "lng": -74.181, "confidence": "high", "streets": true,
+      "lat": 40.9156, "lng": -74.181, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "バス運転手で詩を書くパターソンが、昼休みに座る滝の前のベンチ。",
       "look": "秋の曇り空と水しぶきの白。落ち着いた低彩度。",
       "sources": [
         "https://en.wikipedia.org/wiki/Paterson_(film)",
-        "https://njmonthly.com/articles/jersey-living/film-television/jarmuschs-love-letter-paterson/"
+        "https://njmonthly.com/articles/jersey-living/film-television/jarmuschs-love-letter-paterson/",
+        "https://eiga.com/movie/86003/",
+        "https://movie.jorudan.co.jp/film/87978/"
       ],
       "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 1, "b": -1 },
         "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["滝", "秋", "日常"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["滝", "秋", "日常"] },
+      "cinematographer": "フレデリック・エルムス", "genre": null,
+      "cast": [{ "name": "アダム・ドライバー", "role": "パターソン" }, { "name": "ゴルシフテ・ファラハニ", "role": null }, { "name": "永瀬正敏", "role": null }],
+      "production": null, "distributor": { "original": null, "japan": "ロングライド" },
+      "synopsis": "ニュージャージー州パターソンに住むバス運転手のパターソン。ノートに詩を書きつける、ある一週間の日々を描く。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": "曇り",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#8a8a88", "#ece8e0", "#3a4246", "#7d8a86", "#c4b4a0"],
+      "links": { "eigacom": "https://eiga.com/movie/86003/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "la-la-land-angels-flight",
       "title": "ラ・ラ・ランド", "titleEn": "La La Land", "year": 2016, "director": "デイミアン・チャゼル",
       "place": "エンジェルズ・フライト", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
-      "lat": 34.0515, "lng": -118.2498, "confidence": "high", "streets": true,
+      "lat": 34.0515, "lng": -118.2498, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ミアとセバスチャンが短いケーブルカーに乗る。ふたりの幸せな日々を描く場面のひとつ。",
       "look": "オレンジの車体と夜の街の青。原色を生かした鮮やかな色。",
       "sources": [
         "https://www.discoverlosangeles.com/things-to-do/the-best-places-to-experience-la-la-land-in-los-angeles",
-        "https://movie-locations.com/movies/l/La-La-Land.php"
+        "https://movie-locations.com/movies/l/La-La-Land.php",
+        "https://eiga.com/movie/82024/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4800 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": 1, "shadow": 1, "color": 3, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["夜", "街", "乗り物"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["夜", "街", "乗り物"] },
+      "cinematographer": "リヌス・サンドグレン", "genre": null,
+      "cast": [{ "name": "エマ・ストーン", "role": "ミア" }, { "name": "ライアン・ゴズリング", "role": "セバスチャン" }],
+      "production": null, "distributor": { "original": null, "japan": "ギャガ、ポニーキャニオン" },
+      "synopsis": "ロサンゼルスで女優を目指すミアと、ジャズの店を開く夢を持つピアニストのセブ。夢と恋のあいだで揺れる二人のミュージカル。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [42], "palette": ["#e07a3a", "#2f5d8a", "#13365c", "#2e7d4f", "#e0b23a"],
+      "links": { "eigacom": "https://eiga.com/movie/82024/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "la-la-land-hermosa-pier",
       "title": "ラ・ラ・ランド", "titleEn": "La La Land", "year": 2016, "director": "デイミアン・チャゼル",
       "place": "ハーモサビーチ・ピア", "city": "ハーモサビーチ", "country": "アメリカ", "region": "north-america",
-      "lat": 33.8619, "lng": -118.4036, "confidence": "high", "streets": true,
+      "lat": 33.8619, "lng": -118.4036, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "セバスチャンが夕暮れの桟橋をひとり歩き、歌い踊る。",
       "look": "マジックアワーの紫と橙。空のグラデーションを生かす。",
       "sources": [
         "https://www.hmdb.org/m.asp?m=205495",
-        "https://www.cbsnews.com/losangeles/news/15-memorable-l-a-locations-featured-in-la-la-land"
+        "https://www.cbsnews.com/losangeles/news/15-memorable-l-a-locations-featured-in-la-la-land",
+        "https://eiga.com/movie/82024/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6800 }, "wbShift": { "r": 3, "b": -1 },
         "highlight": -1, "shadow": 1, "color": 2, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["夕方", "海", "マジックアワー"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["夕方", "海", "マジックアワー"] },
+      "cinematographer": "リヌス・サンドグレン", "genre": null,
+      "cast": [{ "name": "エマ・ストーン", "role": "ミア" }, { "name": "ライアン・ゴズリング", "role": "セバスチャン" }],
+      "production": null, "distributor": { "original": null, "japan": "ギャガ、ポニーキャニオン" },
+      "synopsis": "ロサンゼルスで女優を目指すミアと、ジャズの店を開く夢を持つピアニストのセブ。夢と恋のあいだで揺れる二人のミュージカル。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "マジックアワー", "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没前後の 30 分" },
+      "visitNotes": null,
+      "lessons": [13, 15, 31], "palette": ["#7a5a9a", "#e07a3a", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": "https://eiga.com/movie/82024/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "500-days-of-summer-angels-knoll",
       "title": "(500)日のサマー", "titleEn": "(500) Days of Summer", "year": 2009, "director": "マーク・ウェブ",
       "place": "エンジェルズ・ノール（現在は閉鎖）", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
-      "lat": 34.0518, "lng": -118.2506, "confidence": "high", "streets": true,
+      "lat": 34.0518, "lng": -118.2506, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "建築好きのトムがお気に入りのベンチから街のビルを眺める丘の公園。",
       "look": "淡い青と黄、レトロな色合わせ。柔らかい日差し。",
       "sources": [
         "https://discoverlosangeles.com/things-to-do/los-angeles-locations-featured-in-500-days-of-summer",
-        "https://iamnotastalker.com/2010/04/15/the-500-days-of-summer-bench"
+        "https://iamnotastalker.com/2010/04/15/the-500-days-of-summer-bench",
+        "https://eiga.com/movie/54686/",
+        "https://movie.jorudan.co.jp/film/40592/"
       ],
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 1, "b": 1 },
         "highlight": -2, "shadow": -2, "color": 1, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["公園", "日中", "街"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["公園", "日中", "街"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ジョセフ・ゴードン＝レヴィット", "role": "トム" }, { "name": "ズーイー・デシャネル", "role": "サマー" }, { "name": "クロエ・グレース・モレッツ", "role": "レイチェル" }],
+      "production": null, "distributor": { "original": null, "japan": "20世紀フォックス映画" },
+      "synopsis": "グリーティングカード会社で働くトムが、運命の恋を信じない同僚サマーに恋をした500日を、時間を行き来しながら描く。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "現在は閉鎖されています。立ち入らず、外から眺めるだけにしてください。",
+      "lessons": [32], "palette": ["#8fb8d8", "#2f5d8a", "#e0c048", "#f3e3d6", "#e7b8a8"],
+      "links": { "eigacom": "https://eiga.com/movie/54686/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "pretty-woman-beverly-wilshire",
       "title": "プリティ・ウーマン", "titleEn": "Pretty Woman", "year": 1990, "director": "ゲイリー・マーシャル",
       "place": "ビバリー・ウィルシャー・ホテル（外観）", "city": "ビバリーヒルズ", "country": "アメリカ", "region": "north-america",
-      "lat": 34.0672, "lng": -118.4007, "confidence": "high", "streets": true,
+      "lat": 34.0672, "lng": -118.4007, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "実業家エドワードが滞在する高級ホテル。ヴィヴィアンが初めて足を踏み入れ、場違いさに戸惑う。",
       "look": "明るい日差しと白い外壁、ヤシの緑。華やかで暖かい色。",
       "sources": [
         "https://historichotelsthenandnow.com/beverlywilshirebeverlyhills.html",
-        "https://www.lamag.com/culturefiles/pretty-woman-30-years/"
+        "https://www.lamag.com/culturefiles/pretty-woman-30-years/",
+        "https://eiga.com/movie/27103/",
+        "https://thetv.jp/program/0000031975/",
+        "https://www.allcinema.net/cinema/20486"
       ],
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 2, "b": -3 },
         "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["ホテル", "日中", "街"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["ホテル", "日中", "街"] },
+      "cinematographer": "チャールズ・ミンスキー", "genre": null,
+      "cast": [{ "name": "リチャード・ギア", "role": "エドワード・ルイス" }, { "name": "ジュリア・ロバーツ", "role": "ビビアン・ウォード" }, { "name": "ラルフ・ベラミー", "role": "ジェームズ・モース" }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース" },
+      "synopsis": "ロサンゼルスに出張中の実業家エドワードが、街で出会った女性ビビアンと一週間の約束を交わし、互いに変わっていく。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [32], "palette": ["#ece8e0", "#5a8a4f", "#f3e3d6", "#e7b8a8", "#9cc2cf"],
+      "links": { "eigacom": "https://eiga.com/movie/27103/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "back-to-the-future-gamble-house",
       "title": "バック・トゥ・ザ・フューチャー", "titleEn": "Back to the Future", "year": 1985, "director": "ロバート・ゼメキス",
       "place": "ギャンブル・ハウス（ドクの家の外観）", "city": "パサデナ", "country": "アメリカ", "region": "north-america",
-      "lat": 34.152, "lng": -118.1605, "confidence": "high", "streets": true,
+      "lat": 34.152, "lng": -118.1605, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "1955 年のドクが住む木造の屋敷。マーティが過去で頼る相手を訪ねる。",
       "look": "木の褐色と庭の緑、昼の穏やかな光。暖かく懐かしい色。",
       "sources": [
         "https://www.discoverlosangeles.com/things-to-do/go-back-to-the-future-with-these-la-film-locations",
-        "https://laist.com/news/entertainment/back-to-the-future-locations"
+        "https://laist.com/news/entertainment/back-to-the-future-locations",
+        "https://eiga.com/movie/47965/",
+        "https://thetv.jp/program/0000019930/",
+        "https://www.weblio.jp/content/bttf"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -3 },
         "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["住宅", "建築", "日中"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["住宅", "建築", "日中"] },
+      "cinematographer": "ディーン・カンディ", "genre": "SF",
+      "cast": [{ "name": "マイケル・J・フォックス", "role": "マーティ・マクフライ" }, { "name": "クリストファー・ロイド", "role": "ドク" }, { "name": "リー・トンプソン", "role": "ロレイン・マクフライ" }],
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "1985年の高校生マーティが、科学者ドクの発明したタイムマシンで1955年へ。若き日の両親と出会ってしまう。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "個人の住宅です。敷地や玄関先に入らず、公道から短時間で。住人や近所の迷惑にならないように。",
+      "lessons": [32], "palette": ["#7a5a3a", "#5a8a4f", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": "https://eiga.com/movie/47965/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "back-to-the-future-puente-hills-mall",
       "title": "バック・トゥ・ザ・フューチャー", "titleEn": "Back to the Future", "year": 1985, "director": "ロバート・ゼメキス",
       "place": "プエンテ・ヒルズ・モール（劇中のツイン・パインズ・モール）", "city": "シティ・オブ・インダストリー", "country": "アメリカ", "region": "north-america",
-      "lat": 33.9926, "lng": -117.929, "confidence": "high", "streets": true,
+      "lat": 33.9926, "lng": -117.929, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "深夜の駐車場で、ドクが改造した車のタイムトラベル実験をマーティに見せる。",
       "look": "夜の駐車場のナトリウム灯と青い影。80 年代らしい硬い夜景。",
       "sources": [
         "https://www.discoverlosangeles.com/things-to-do/go-back-to-the-future-with-these-la-film-locations",
-        "https://laist.com/news/entertainment/back-to-the-future-locations"
+        "https://laist.com/news/entertainment/back-to-the-future-locations",
+        "https://eiga.com/movie/47965/",
+        "https://thetv.jp/program/0000019930/",
+        "https://www.weblio.jp/content/bttf"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 4000 }, "wbShift": { "r": 1, "b": -2 },
         "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "駐車場", "SF"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "駐車場", "SF"] },
+      "cinematographer": "ディーン・カンディ", "genre": "SF",
+      "cast": [{ "name": "マイケル・J・フォックス", "role": "マーティ・マクフライ" }, { "name": "クリストファー・ロイド", "role": "ドク" }, { "name": "リー・トンプソン", "role": "ロレイン・マクフライ" }],
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "1985年の高校生マーティが、科学者ドクの発明したタイムマシンで1955年へ。若き日の両親と出会ってしまう。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [42, 24], "palette": ["#2f5d8a", "#141414", "#1d2a30", "#3f5b5e", "#8a9b8f"],
+      "links": { "eigacom": "https://eiga.com/movie/47965/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "blade-runner-union-station",
       "title": "ブレードランナー", "titleEn": "Blade Runner", "year": 1982, "director": "リドリー・スコット",
       "place": "ロサンゼルス・ユニオン駅（劇中の警察署）", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
-      "lat": 34.0562, "lng": -118.2365, "confidence": "high", "streets": true,
+      "lat": 34.0562, "lng": -118.2365, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "デッカードが連れて来られる警察署として使われた駅舎。高い天井と巨大な窓が近未来の役所に見える。",
       "look": "窓からの光の筋と煙、暗い琥珀色。重く湿った空気感。",
       "sources": [
         "https://brmovie.com/Locations/Police_Station.htm",
-        "https://www.timeout.com/los-angeles/things-to-do/blade-runner-filming-locations-in-l-a-that-you-can-visit"
+        "https://www.timeout.com/los-angeles/things-to-do/blade-runner-filming-locations-in-l-a-that-you-can-visit",
+        "https://eiga.com/movie/26947/",
+        "https://movie.jorudan.co.jp/film/07988/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -1, "shadow": 2, "color": -1, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-2/3EV", "tags": ["室内", "建築", "SF"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-2/3EV", "tags": ["室内", "建築", "SF"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ハリソン・フォード", "role": "デッカード" }, { "name": "ルトガー・ハウアー", "role": "ロイ・バッティ" }, { "name": "ショーン・ヤング", "role": "レイチェル" }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース映画" },
+      "synopsis": "2019年のロサンゼルス。人間そっくりの人造人間レプリカントを追う捜査官デッカードが、逃亡した4体を追跡する。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": "列車や利用者の妨げにならないように。線路やホームの端には近づかないこと。",
+      "lessons": [22, 17], "palette": ["#c98a3a", "#1d2a30", "#3f5b5e", "#8a9b8f", "#c8b28a"],
+      "links": { "eigacom": "https://eiga.com/movie/26947/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "once-upon-a-time-in-hollywood-musso-frank",
       "title": "ワンス・アポン・ア・タイム・イン・ハリウッド", "titleEn": "Once Upon a Time in Hollywood", "year": 2019, "director": "クエンティン・タランティーノ",
       "place": "ムッソ＆フランク・グリル", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
-      "lat": 34.1016, "lng": -118.3355, "confidence": "high", "streets": true,
+      "lat": 34.1016, "lng": -118.3355, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "落ち目の俳優リックが映画プロデューサーと会う老舗レストラン。撮影は数日間、実際の店内で行われた。",
       "look": "赤い革張りの席と木の壁、暖かい照明。60 年代末の濃い色。",
       "sources": [
         "https://afar.com/magazine/once-upon-a-time-in-hollywood-filming-locations-you-can-visit-in-los-angeles",
-        "https://www.thelocationguide.com/?p=166775"
+        "https://www.thelocationguide.com/?p=166775",
+        "https://eiga.com/movie/89421/",
+        "https://lp.p.pia.jp/event/movie/31056/index.html"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 4, "b": -4 },
         "highlight": -1, "shadow": 0, "color": 1, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "レストラン", "昼"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "レストラン", "昼"] },
+      "cinematographer": "ロバート・リチャードソン", "genre": null,
+      "cast": [{ "name": "レオナルド・ディカプリオ", "role": "リック・ダルトン" }, { "name": "ブラッド・ピット", "role": "クリフ・ブース" }, { "name": "マーゴット・ロビー", "role": "シャロン・テート" }],
+      "production": null, "distributor": { "original": null, "japan": "ソニー・ピクチャーズエンタテインメント" },
+      "synopsis": "1969年のハリウッド。落ち目のテレビ俳優リックとスタント代役のクリフ、隣に越してきた女優シャロン・テートの日々。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [22, 24], "palette": ["#b8322a", "#7a5a3a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
+      "links": { "eigacom": "https://eiga.com/movie/89421/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "die-hard-fox-plaza",
       "title": "ダイ・ハード", "titleEn": "Die Hard", "year": 1988, "director": "ジョン・マクティアナン",
       "place": "フォックス・プラザ（劇中のナカトミ・プラザ）", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
-      "lat": 34.0554, "lng": -118.4113, "confidence": "high", "streets": true,
+      "lat": 34.0554, "lng": -118.4113, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "クリスマス・イブの夜、テロリストに占拠された高層ビル。外観と一部の階がこのビルで撮影された。",
       "look": "夜のビルの冷たい青と、オフィスの蛍光灯。爆発の橙が差す。",
       "sources": [
         "https://en.wikipedia.org/wiki/2121_Avenue_of_the_Stars",
-        "https://movie-locations.com/movies/d/Die-Hard.php"
+        "https://movie-locations.com/movies/d/Die-Hard.php",
+        "https://movie.jorudan.co.jp/film/05687/",
+        "https://www.allcinema.net/cinema/13780"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -1, "shadow": 1, "color": 2, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "建築", "アクション"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "建築", "アクション"] },
+      "cinematographer": "ヤン・デ・ボン", "genre": null,
+      "cast": [{ "name": "ブルース・ウィリス", "role": "ジョン・マクレーン" }, { "name": "アラン・リックマン", "role": "ハンス・グルーバー" }, { "name": "ボニー・ベデリア", "role": "ホリー" }],
+      "production": null, "distributor": { "original": null, "japan": "20世紀フォックス映画" },
+      "synopsis": "クリスマス・イブ、別居中の妻を訪ねてロサンゼルスの高層ビルに来たNY市警のマクレーン。そのビルがテロリストに占拠される。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [42, 22], "palette": ["#2f5d8a", "#e07a3a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "et-lonzo-street",
       "title": "E.T.", "titleEn": "E.T. the Extra-Terrestrial", "year": 1982, "director": "スティーヴン・スピルバーグ",
       "place": "エリオットの家（7121 Lonzo St）", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
-      "lat": 34.26, "lng": -118.287, "confidence": "high", "streets": true,
+      "lat": 34.26, "lng": -118.287, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "少年エリオットが宇宙人をかくまう郊外の家。山を背にした住宅地にある。",
       "look": "夕方の逆光と霧、暖かい室内灯。柔らかい郊外の色。",
       "sources": [
         "https://www.iamnotastalker.com/2010/09/16/the-e-t-house",
-        "https://movie-locations.com/movies/e/ET.php"
+        "https://movie-locations.com/movies/e/ET.php",
+        "https://movie.jorudan.co.jp/film/00675/",
+        "https://virtualgorillaplus.com/movie/et-actors/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["住宅", "夕方", "SF"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["住宅", "夕方", "SF"] },
+      "cinematographer": "アレン・ダヴュー", "genre": null,
+      "cast": [{ "name": "ヘンリー・トーマス", "role": "エリオット" }, { "name": "ロバート・マクノートン", "role": "マイケル" }, { "name": "ディー・ウォーレス", "role": null }],
+      "production": null, "distributor": { "original": "ユニヴァーサル", "japan": "CIC" },
+      "synopsis": "地球に取り残された異星人と、郊外の住宅地に住む少年エリオット。きょうだいと力を合わせ、彼を故郷へ帰そうとする。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "夕方", "weather": "霧",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前の 1 時間" },
+      "visitNotes": "個人の住宅です。敷地や玄関先に入らず、公道から短時間で。住人や近所の迷惑にならないように。",
+      "lessons": [13, 24], "palette": ["#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4", "#8a5a44"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "top-gun-kansas-city-barbeque",
       "title": "トップガン", "titleEn": "Top Gun", "year": 1986, "director": "トニー・スコット",
       "place": "カンザス・シティ・バーベキュー", "city": "サンディエゴ", "country": "アメリカ", "region": "north-america",
-      "lat": 32.7085, "lng": -117.1677, "confidence": "high", "streets": true,
+      "lat": 32.7085, "lng": -117.1677, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "パイロット仲間のたまり場のバー。ピアノを囲んでみんなで歌う場面がここで撮られ、ピアノは今も店にある。",
       "look": "バーの暖色の電球と木の色。夕方の金色の光。",
       "sources": [
         "https://timesofsandiego.com/arts/2018/05/13/barbecue-restaurant-where-top-gun-scenes-filmed-celebrates-35th-year/",
-        "https://www.sdmts.com/rider-info/rider-insider/let-mts-be-your-wingman-these-top-gun-filming-locations"
+        "https://www.sdmts.com/rider-info/rider-insider/let-mts-be-your-wingman-these-top-gun-filming-locations",
+        "https://eiga.com/movie/21197/",
+        "https://www.allcinema.net/cinema/15997"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4500 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -1, "shadow": 0, "color": 1, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "バー", "夕方"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "バー", "夕方"] },
+      "cinematographer": "ジェフリー・キンボール", "genre": null,
+      "cast": [{ "name": "トム・クルーズ", "role": "マーヴェリック" }, { "name": "ケリー・マクギリス", "role": "チャーリー・ブラックウッド" }, { "name": "ヴァル・キルマー", "role": "アイスマン" }],
+      "production": null, "distributor": { "original": "パラマウント・ピクチャーズ", "japan": "UIP" },
+      "synopsis": "海軍の戦闘機パイロット養成学校に選ばれたマーヴェリック。相棒グースとともに、ライバルたちと腕を競う。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "夕方", "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没前の 1 時間" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [13, 22, 15], "palette": ["#c98a3a", "#7a5a3a", "#c9a04a", "#1d2a30", "#3f5b5e"],
+      "links": { "eigacom": "https://eiga.com/movie/21197/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "some-like-it-hot-hotel-del-coronado",
       "title": "お熱いのがお好き", "titleEn": "Some Like It Hot", "year": 1959, "director": "ビリー・ワイルダー",
       "place": "ホテル・デル・コロナド", "city": "コロナド", "country": "アメリカ", "region": "north-america",
-      "lat": 32.6808, "lng": -117.1785, "confidence": "high", "streets": true,
+      "lat": 32.6808, "lng": -117.1785, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "女装した楽団員ふたりが逃げ込む海辺のリゾートホテル。劇中ではフロリダの設定で、外観の場面をここで撮影した。",
       "look": "白黒の明るい浜辺と白いホテル。軽やかな高めのキー。",
       "sources": [
         "https://hoteldel.com/press/like-hot-filmed-hotel-del-coronado/",
-        "https://www.movie-locations.com/movies/s/Some-Like-It-Hot.php"
+        "https://www.movie-locations.com/movies/s/Some-Like-It-Hot.php",
+        "https://www.allcinema.net/cinema/3261",
+        "https://movie.jorudan.co.jp/film/01245/"
       ],
       "recipe": { "filmSim": "acros", "monoFilter": "ye", "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": 0, "shadow": 0, "color": 0, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["モノクロ", "海", "ホテル"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["モノクロ", "海", "ホテル"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "トニー・カーティス", "role": "ジョー" }, { "name": "ジャック・レモン", "role": "ジェリー" }, { "name": "マリリン・モンロー", "role": "シュガー" }],
+      "production": null, "distributor": { "original": "ユナイテッド・アーティスツ", "japan": "ユナイテッド・アーティスツ" },
+      "synopsis": "禁酒法時代のシカゴでギャングの抗争を目撃したバンドマン二人。女装して女性楽団に紛れ込み、フロリダへ逃げる。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [20, 31], "palette": ["#0f0f0f", "#3c3c3c", "#7a7a7a", "#b5b5b5", "#ececec"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "sideways-hitching-post",
       "title": "サイドウェイ", "titleEn": "Sideways", "year": 2004, "director": "アレクサンダー・ペイン",
       "place": "ヒッチング・ポスト II", "city": "ビュエルトン", "country": "アメリカ", "region": "north-america",
-      "lat": 34.6136, "lng": -120.1882, "confidence": "high", "streets": true,
+      "lat": 34.6136, "lng": -120.1882, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ワイン好きのマイルスが通うステーキハウス。ウェイトレスのマヤと親しくなる。",
       "look": "ワインの赤と夕方の金色、柔らかい室内灯。温かく落ち着いた色。",
       "sources": [
         "https://www.hitchingpost2.com/sideways.html",
-        "https://movie-locations.com/movies/s/Sideways.php"
+        "https://movie-locations.com/movies/s/Sideways.php",
+        "https://eiga.com/movie/1171/",
+        "https://movie.jorudan.co.jp/film/36276/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 2, "b": -3 },
         "highlight": 0, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["室内", "レストラン", "旅"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["室内", "レストラン", "旅"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ポール・ジアマッティ", "role": "マイルス" }, { "name": "トーマス・ヘイデン・チャーチ", "role": "ジャック" }, { "name": "ヴァージニア・マドセン", "role": "マヤ" }],
+      "production": null, "distributor": { "original": null, "japan": "20世紀フォックス映画" },
+      "synopsis": "小説家志望の教師マイルスと、結婚を目前にした友人ジャック。カリフォルニアのワイン産地を巡る一週間の旅。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夕方", "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前の 1 時間" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [13], "palette": ["#b8322a", "#c9a04a", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": "https://eiga.com/movie/1171/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "bagdad-cafe-newberry-springs",
       "title": "バグダッド・カフェ", "titleEn": "Bagdad Cafe", "year": 1987, "director": "パーシー・アドロン",
       "place": "バグダッド・カフェ（撮影当時のサイドワインダー・カフェ）", "city": "ニューベリー・スプリングス", "country": "アメリカ", "region": "north-america",
-      "lat": 34.8213, "lng": -116.6885, "confidence": "high", "streets": false,
+      "lat": 34.8213, "lng": -116.6885, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "砂漠の道ばたの寂れたカフェ兼モーテル。ドイツから来た女性が、店の人々と心を通わせていく。",
       "look": "黄色い空と強いマゼンタや緑。極端な色づけの砂漠。",
       "sources": [
         "https://www.atlasobscura.com/places/bagdad-cafe-newberry-springs",
-        "https://movie-locations.com/movies/b/Bagdad-Cafe.php"
+        "https://movie-locations.com/movies/b/Bagdad-Cafe.php",
+        "https://movie.jorudan.co.jp/film/11957/",
+        "https://www.acmi.net.au/works/81430--bagdad-cafe-out-of-rosenheim/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 5, "b": -6 },
         "highlight": 0, "shadow": 2, "color": 3, "sharpness": 1, "nr": -3,
-        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["砂漠", "夕方", "ロードムービー"] }
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["砂漠", "夕方", "ロードムービー"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "マリアンネ・ゼーゲブレヒト", "role": "ジャスミン" }, { "name": "CCH・パウンダー", "role": "ブレンダ" }, { "name": "ジャック・パランス", "role": "ルーディ" }],
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "砂漠のモーテルに迷い込んだドイツ人女性ジャスミン。不機嫌な女主人ブレンダとのあいだに、少しずつ友情が芽生えていく。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "夕方", "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没前の 1 時間" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [13, 22, 29], "palette": ["#e0c048", "#d9488f", "#5a8a4f", "#d8c49a", "#13365c"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "vertigo-legion-of-honor",
       "title": "めまい", "titleEn": "Vertigo", "year": 1958, "director": "アルフレッド・ヒッチコック",
       "place": "リージョン・オブ・オナー美術館", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
-      "lat": 37.7845, "lng": -122.5008, "confidence": "high", "streets": false,
+      "lat": 37.7845, "lng": -122.5008, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "尾行されるマデリンが、ひとりの女性の肖像画の前に長く座り込む美術館の展示室。",
       "look": "淡い緑がかった光と静かな展示室。夢のようにかすむ色。",
       "sources": [
         "https://hitchcock.zone/wiki/Palace_of_the_Legion_of_Honor",
-        "https://www.movie-locations.com/movies/v/Vertigo.php"
+        "https://www.movie-locations.com/movies/v/Vertigo.php",
+        "https://eiga.com/movie/29916/",
+        "https://www.allcinema.net/cinema/23363"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": -1, "b": 1 },
         "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["美術館", "室内", "日中"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["美術館", "室内", "日中"] },
+      "cinematographer": "ロバート・バークス", "genre": null,
+      "cast": [{ "name": "ジェームズ・スチュワート", "role": "ジョン・“スコティ”・ファーガソン" }, { "name": "キム・ノヴァク", "role": "マデリン／ジュディ" }, { "name": "バーバラ・ベル・ゲデス", "role": "ミッジ" }],
+      "production": null, "distributor": { "original": null, "japan": "パラマウント" },
+      "synopsis": "高所恐怖症で警察を辞めた元刑事スコティ。旧友から妻マデリンの尾行を頼まれ、彼女の謎めいた行動に引き込まれていく。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
+      "lessons": [32], "palette": ["#5a8a4f", "#13365c", "#2e7d4f", "#e0b23a", "#c8402e"],
+      "links": { "eigacom": "https://eiga.com/movie/29916/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "vertigo-mission-dolores",
       "title": "めまい", "titleEn": "Vertigo", "year": 1958, "director": "アルフレッド・ヒッチコック",
       "place": "ミッション・ドロレス", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
-      "lat": 37.7643, "lng": -122.4269, "confidence": "high", "streets": true,
+      "lat": 37.7643, "lng": -122.4269, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "マデリンが訪れる古い教会の墓地。霧のような光の中、ある女性の墓の前に立つ。",
       "look": "白く飛んだ柔らかい光と墓地の緑。ソフトフォーカスの夢見るような色。",
       "sources": [
         "https://hitchcock.zone/wiki/Mission_Dolores",
-        "https://reelsf.com/vertigo-1958"
+        "https://reelsf.com/vertigo-1958",
+        "https://eiga.com/movie/29916/",
+        "https://www.allcinema.net/cinema/23363"
       ],
       "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 0, "b": -2 },
         "highlight": -2, "shadow": 0, "color": 0, "sharpness": -3, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["教会", "墓地", "日中"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["教会", "墓地", "日中"] },
+      "cinematographer": "ロバート・バークス", "genre": null,
+      "cast": [{ "name": "ジェームズ・スチュワート", "role": "ジョン・“スコティ”・ファーガソン" }, { "name": "キム・ノヴァク", "role": "マデリン／ジュディ" }, { "name": "バーバラ・ベル・ゲデス", "role": "ミッジ" }],
+      "production": null, "distributor": { "original": null, "japan": "パラマウント" },
+      "synopsis": "高所恐怖症で警察を辞めた元刑事スコティ。旧友から妻マデリンの尾行を頼まれ、彼女の謎めいた行動に引き込まれていく。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "霧",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
+      "lessons": [32], "palette": ["#ece8e0", "#5a8a4f", "#2d3e3a", "#5f7d6b", "#c7a27c"],
+      "links": { "eigacom": "https://eiga.com/movie/29916/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "bullitt-taylor-filbert",
       "title": "ブリット", "titleEn": "Bullitt", "year": 1968, "director": "ピーター・イエーツ",
       "place": "テイラー通りとフィルバート通りの交差点（ラシアン・ヒル）", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
-      "lat": 37.8018, "lng": -122.414, "confidence": "high", "streets": true,
+      "lat": 37.8018, "lng": -122.414, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "2 台の車が急な坂を跳ねながら走り抜ける有名なカーチェイス。",
       "look": "曇り空の灰色とくすんだ車の緑。粒子の荒い 60 年代の色。",
       "sources": [
         "https://www.movie-locations.com/movies/b/Bullitt.php",
-        "https://projects.sfchronicle.com/2020/movie-car-chases"
+        "https://projects.sfchronicle.com/2020/movie-car-chases",
+        "https://eiga.com/movie/48904/",
+        "https://movie.jorudan.co.jp/film/07955/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 3, "b": -5 },
         "highlight": -1, "shadow": 1, "color": -2, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["坂", "車", "アクション"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["坂", "車", "アクション"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "スティーブ・マックイーン", "role": "フランク・ブリット" }, { "name": "ロバート・ヴォーン", "role": "ウォルター・チャルマース" }, { "name": "ジャクリーン・ビセット", "role": null }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース映画" },
+      "synopsis": "証人の護衛を任されたサンフランシスコ市警のブリット刑事。襲撃事件の裏を追い、坂の街で激しい追跡を繰り広げる。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": "曇り",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": null,
+      "lessons": [22, 29, 18], "palette": ["#8a8a88", "#5a8a4f", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": "https://eiga.com/movie/48904/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "mrs-doubtfire-steiner-street",
       "title": "ミセス・ダウト", "titleEn": "Mrs. Doubtfire", "year": 1993, "director": "クリス・コロンバス",
       "place": "2640 Steiner St（ヒラード家）", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
-      "lat": 37.7937, "lng": -122.4364, "confidence": "high", "streets": true,
+      "lat": 37.7937, "lng": -122.4364, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "離婚した父親が家政婦に変装して通う一家の家。外観はこの角の家で撮られた。",
       "look": "明るい日差しと白い家、パステルの街並み。やさしく明るい色。",
       "sources": [
         "https://movie-locations.com/movies/m/Mrs-Doubtfire.php",
-        "https://movielocationsguide.com/mrs-doubtfire/filming-locations/doubtfire-house"
+        "https://movielocationsguide.com/mrs-doubtfire/filming-locations/doubtfire-house",
+        "https://eiga.com/movie/49875/",
+        "https://movie.jorudan.co.jp/film/10771/",
+        "https://www.allcinema.net/cinema/22797"
       ],
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
         "highlight": -2, "shadow": -2, "color": 0, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["住宅", "日中", "坂"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["住宅", "日中", "坂"] },
+      "cinematographer": "ドナルド・M・マッカルパイン", "genre": null,
+      "cast": [{ "name": "ロビン・ウィリアムズ", "role": "ダニエル" }, { "name": "サリー・フィールド", "role": "ミランダ" }, { "name": "ピアース・ブロスナン", "role": "スチュ" }],
+      "production": ["ブルー・ウルフ・プロ"], "distributor": { "original": null, "japan": "20世紀フォックス" },
+      "synopsis": "離婚して子どもたちに会えなくなった父ダニエル。年配の女性家政婦に変装し、元妻の家に雇われる。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "個人の住宅です。敷地や玄関先に入らず、公道から短時間で。住人や近所の迷惑にならないように。",
+      "lessons": [32], "palette": ["#ece8e0", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
+      "links": { "eigacom": "https://eiga.com/movie/49875/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "the-rock-alcatraz",
       "title": "ザ・ロック", "titleEn": "The Rock", "year": 1996, "director": "マイケル・ベイ",
       "place": "アルカトラズ島", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
-      "lat": 37.8267, "lng": -122.423, "confidence": "high", "streets": false,
+      "lat": 37.8267, "lng": -122.423, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "元兵士たちが観光客を人質に立てこもる旧刑務所の島。撮影の大半が島内で行われた。",
       "look": "強いティールとオレンジ、硬い逆光。コントラストの高いアクションの色。",
       "sources": [
         "https://www.movie-locations.com/movies/r/Rock-1996.php",
-        "https://www.thenationalnews.com/arts/the-rock-and-roles-movies-filmed-at-alcatraz-1.299041"
+        "https://www.thenationalnews.com/arts/the-rock-and-roles-movies-filmed-at-alcatraz-1.299041",
+        "https://eiga.com/movie/44968/",
+        "https://thetv.jp/program/0000025563/",
+        "https://www.allcinema.net/cinema/51226"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr200", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -1, "shadow": 2, "color": 2, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 320〜1600", "exposureNote": "-1/3EV", "tags": ["島", "アクション", "日中"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "-1/3EV", "tags": ["島", "アクション", "日中"] },
+      "cinematographer": "ジョン・シュワルツマン", "genre": null,
+      "cast": [{ "name": "ショーン・コネリー", "role": "パトリック・メーソン" }, { "name": "ニコラス・ケイジ", "role": "スタンリー・グッドスピード" }, { "name": "エド・ハリス", "role": "フランシス・X・ハメル" }],
+      "production": null, "distributor": { "original": null, "japan": "ブエナ・ビスタ" },
+      "synopsis": "化学兵器を手にした将軍がアルカトラズ島を占拠。化学兵器の専門家と、かつて島から脱獄した男が島へ潜入する。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [22, 31], "palette": ["#2a7f80", "#e07a3a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
+      "links": { "eigacom": "https://eiga.com/movie/44968/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "milk-castro-theatre",
       "title": "ミルク", "titleEn": "Milk", "year": 2008, "director": "ガス・ヴァン・サント",
       "place": "カストロ・シアター", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
-      "lat": 37.762, "lng": -122.4348, "confidence": "high", "streets": true,
+      "lat": 37.762, "lng": -122.4348, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ハーヴェイ・ミルクが活動の拠点にしたカストロ通り。映画館の屋上からも撮影された。",
       "look": "70 年代の色あせた暖色とネオンの看板。粒子のある記録映像風。",
       "sources": [
         "https://cinematreasures.org/blog/2008/2/4/milk-filming-benefits-the-castro",
-        "https://www.broadwayworld.com/bwwtv/article/Photo-Flash-MILK-Premiere-at-San-Franciscos-Castro-Theatre-20010101"
+        "https://www.broadwayworld.com/bwwtv/article/Photo-Flash-MILK-Premiere-at-San-Franciscos-Castro-Theatre-20010101",
+        "https://eiga.com/movie/53227/",
+        "https://movie.jorudan.co.jp/film/39949/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 3, "b": -5 },
         "highlight": -1, "shadow": -1, "color": -2, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["街", "70年代", "人物"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["街", "70年代", "人物"] },
+      "cinematographer": "ハリス・サビデス", "genre": null,
+      "cast": [{ "name": "ショーン・ペン", "role": "ハーヴィー・ミルク" }, { "name": "ジェームズ・フランコ", "role": "スコット・スミス" }, { "name": "ジョシュ・ブローリン", "role": "ダン・ホワイト" }],
+      "production": null, "distributor": { "original": null, "japan": "ピックス" },
+      "synopsis": "1970年代のサンフランシスコ。カストロ通りでカメラ店を営むハーヴィー・ミルクが、市政委員を目指して立ち上がる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "53mm（XF35mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
+      "lessons": [28, 22, 29], "palette": ["#ff4f9a", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
+      "links": { "eigacom": "https://eiga.com/movie/53227/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "the-conversation-union-square",
       "title": "カンバセーション…盗聴…", "titleEn": "The Conversation", "year": 1974, "director": "フランシス・フォード・コッポラ",
       "place": "ユニオン・スクエア", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
-      "lat": 37.788, "lng": -122.4075, "confidence": "high", "streets": true,
+      "lat": 37.788, "lng": -122.4075, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "昼休みの人でにぎわう広場で、盗聴の専門家がある男女の会話を録音する冒頭の場面。",
       "look": "冬の昼の低い日差しと人混み。くすんだ 70 年代の色。",
       "sources": [
         "https://catalog.afi.com/Film/53857-THE-CONVERSATION",
-        "https://reelsf.com/the-conversation-1974"
+        "https://reelsf.com/the-conversation-1974",
+        "https://eiga.com/movie/43561/",
+        "https://cinemaview.in/ja/movies/592"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 3, "b": -5 },
         "highlight": -1, "shadow": -1, "color": -1, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["広場", "日中", "街"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["広場", "日中", "街"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ジーン・ハックマン", "role": "ハリー・コール" }, { "name": "ジョン・カザール", "role": "スタン" }, { "name": "アレン・ガーフィールド", "role": "バーニー・モラン" }],
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "盗聴のプロ、ハリー・コール。ユニオン・スクエアで録音した若い男女の会話に、彼は不穏な意味を聞き取ってしまう。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [22, 29, 17], "palette": ["#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4", "#8a5a44"],
+      "links": { "eigacom": "https://eiga.com/movie/43561/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "dark-knight-lower-wacker",
       "title": "ダークナイト", "titleEn": "The Dark Knight", "year": 2008, "director": "クリストファー・ノーラン",
       "place": "ロウワー・ワッカー・ドライブ", "city": "シカゴ", "country": "アメリカ", "region": "north-america",
-      "lat": 41.8868, "lng": -87.6323, "confidence": "high", "streets": true,
+      "lat": 41.8868, "lng": -87.6323, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "地下道路で護送車がジョーカーの一味に襲われ、バットマンが追う。",
       "look": "ナトリウム灯の橙と冷たい影。高コントラストの夜の地下。",
       "sources": [
         "https://en.wikipedia.org/wiki/Wacker_Drive",
-        "https://thecinemaholic.com/where-did-the-shooting-of-the-dark-knight-take-place"
+        "https://thecinemaholic.com/where-did-the-shooting-of-the-dark-knight-take-place",
+        "https://eiga.com/movie/53214/",
+        "https://movie.jorudan.co.jp/film/39069/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -1, "shadow": 2, "color": 2, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "トンネル", "アクション"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "トンネル", "アクション"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "クリスチャン・ベール", "role": "ブルース・ウェイン／バットマン" }, { "name": "ヒース・レジャー", "role": "ジョーカー" }, { "name": "アーロン・エッカート", "role": "ハービー" }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース映画" },
+      "synopsis": "ゴッサム・シティで犯罪と戦うバットマンの前に、混沌をもたらす犯罪者ジョーカーが現れる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [42, 22, 15], "palette": ["#e07a3a", "#141414", "#1d2a30", "#3f5b5e", "#8a9b8f"],
+      "links": { "eigacom": "https://eiga.com/movie/53214/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "ferris-bueller-art-institute",
       "title": "フェリスはある朝突然に", "titleEn": "Ferris Bueller's Day Off", "year": 1986, "director": "ジョン・ヒューズ",
       "place": "シカゴ美術館", "city": "シカゴ", "country": "アメリカ", "region": "north-america",
-      "lat": 41.8796, "lng": -87.6237, "confidence": "high", "streets": true,
+      "lat": 41.8796, "lng": -87.6237, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "学校をさぼった 3 人が美術館を巡る。点描画の前で、ひとりが絵の細部に引き込まれていく。",
       "look": "展示室の柔らかな光と絵画の色。明るく穏やか。",
       "sources": [
         "https://www.imdb.com/title/tt0091042/locations",
-        "https://movie-locations.com/movies/f/Ferris-Buellers-Day-Off.php"
+        "https://movie-locations.com/movies/f/Ferris-Buellers-Day-Off.php",
+        "https://eiga.com/movie/48645/",
+        "https://movie.jorudan.co.jp/film/07726/"
       ],
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
         "highlight": -2, "shadow": -2, "color": 0, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["美術館", "室内", "青春"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["美術館", "室内", "青春"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "マシュー・ブロデリック", "role": "フェリス" }, { "name": "アラン・ラック", "role": "キャメロン" }, { "name": "ミア・サーラ", "role": "スローアン" }],
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "仮病で学校を休んだ高校生フェリスが、親友と恋人を連れ出し、シカゴの街で最高の一日を過ごす。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
+      "lessons": [32], "palette": ["#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0", "#7a8a9a"],
+      "links": { "eigacom": "https://eiga.com/movie/48645/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "home-alone-winnetka-house",
       "title": "ホーム・アローン", "titleEn": "Home Alone", "year": 1990, "director": "クリス・コロンバス",
       "place": "マカリスター家（671 Lincoln Ave）", "city": "ウィネトカ", "country": "アメリカ", "region": "north-america",
-      "lat": 42.1097, "lng": -87.7334, "confidence": "high", "streets": true,
+      "lat": 42.1097, "lng": -87.7334, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "家族に置き去りにされた少年が、泥棒から家を守る。外観と一部の室内がこの家で撮られた。",
       "look": "赤レンガと雪、クリスマスの赤と緑。暖かい室内の光。",
       "sources": [
         "https://www.atlasofwonders.com/2023/01/home-alone-house-location.html",
-        "https://movie-locations.com/movies/h/Home-Alone.php"
+        "https://movie-locations.com/movies/h/Home-Alone.php",
+        "https://eiga.com/movie/49303/",
+        "https://movie.jorudan.co.jp/film/08178/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -1, "shadow": 0, "color": 2, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜3200", "exposureNote": "-1/3EV", "tags": ["冬", "住宅", "クリスマス"] }
+        "isoNote": "ISO 1600〜3200", "exposureNote": "-1/3EV", "tags": ["冬", "住宅", "クリスマス"] },
+      "cinematographer": "ジュリオ・マカット", "genre": null,
+      "cast": [{ "name": "マコーレー・カルキン", "role": "ケビン" }, { "name": "ジョー・ペシ", "role": "ハリー" }, { "name": "ダニエル・スターン", "role": "マーブ" }],
+      "production": null, "distributor": { "original": null, "japan": "20世紀フォックス" },
+      "synopsis": "クリスマス休暇の旅行で家に置き忘れられた8歳のケビン。留守宅を狙う二人組の泥棒を、手作りの仕掛けで迎え撃つ。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": "個人の住宅です。敷地や玄関先に入らず、公道から短時間で。住人や近所の迷惑にならないように。",
+      "lessons": [22, 24], "palette": ["#b8322a", "#7a5a3a", "#ece8e0", "#5a8a4f", "#1d2a30"],
+      "links": { "eigacom": "https://eiga.com/movie/49303/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "blues-brothers-daley-plaza",
