@@ -26,8 +26,10 @@ test('表示形式', () => {
 
 const data = JSON.parse(readFileSync(new URL('../data/locations.json', import.meta.url)));
 const locs = data.locations;
-test('ロケ地: 15〜20 件、複数地域に分散', () => {
-  assert.ok(locs.length >= 15 && locs.length <= 20, `${locs.length} 件`);
+export const REGIONS = ['asia', 'middle-east', 'europe', 'north-america', 'latin-america', 'africa', 'oceania'];
+test('ロケ地: 15 件以上、複数地域に分散、地域は定義済みのもの', () => {
+  assert.ok(locs.length >= 15, `${locs.length} 件`);
+  for (const l of locs) assert.ok(REGIONS.includes(l.region), `${l.id}.region = ${l.region}`);
   const regions = new Set(locs.map((l) => l.region));
   for (const r of ['asia', 'europe', 'north-america']) assert.ok(regions.has(r), r);
 });
@@ -39,8 +41,23 @@ test('ロケ地: 必須項目・座標・confidence・ID 重複なし', () => {
     assert.ok(Math.abs(l.lat) <= 90 && Math.abs(l.lng) <= 180, `${l.id} 座標`);
     assert.ok(['high', 'medium'].includes(l.confidence), `${l.id}.confidence`);
     assert.ok(!ids.has(l.id), `重複 ${l.id}`); ids.add(l.id);
-    assert.ok(!/\.(jpe?g|png|webp|gif)|https?:/i.test(JSON.stringify(l)), `${l.id} に画像や URL が含まれる`);
+    const { sources, ...rest } = l;
+    assert.ok(!/\.(jpe?g|png|webp|gif)|https?:/i.test(JSON.stringify(rest)), `${l.id} に画像や URL が含まれる（出典 sources 以外）`);
+    assert.equal(typeof l.streets, 'boolean', `${l.id}.streets`);
+    assert.ok(/^-?\d+(\.\d{1,4})?$/.test(String(l.lat)) && /^-?\d+(\.\d{1,4})?$/.test(String(l.lng)), `${l.id} 座標は小数 4 桁まで`);
   }
+});
+test('ロケ地: 出典 sources は 1 件以上の https URL（重複なし）、confidence は件数と一致', () => {
+  for (const l of locs) {
+    assert.ok(Array.isArray(l.sources) && l.sources.length >= 1, `${l.id} に出典がない`);
+    assert.equal(new Set(l.sources).size, l.sources.length, `${l.id} の出典が重複`);
+    for (const u of l.sources) assert.ok(/^https:\/\/[^\s/]+\.[^\s/]+\/\S*$/.test(u) && !/\.(jpe?g|png|webp|gif)(\?|$)/i.test(u), `${l.id}: ${u}`);
+    assert.equal(l.confidence, l.sources.length >= 2 ? 'high' : 'medium', `${l.id}.confidence`);
+  }
+});
+test('ロケ地: 同じ作品・同じ場所の重複がない', () => {
+  const keys = locs.map((l) => `${l.titleEn}|${l.lat}|${l.lng}`);
+  assert.equal(new Set(keys).size, keys.length);
 });
 test('ロケ地: 推定レシピはすべて xt3.js の範囲内', () => {
   for (const l of locs) assert.deepEqual(validateRecipe(locationRecipe(l)), [], l.id);

@@ -40,7 +40,9 @@ test('街路データ（data/streets/）は ASSETS に入れない', () => {
 test('外部ドメインの URL を含まない（コード・HTML・CSS・データ）', () => {
   const files = required.filter((p) => /\.(js|css|html|json|webmanifest)$/.test(p) && !p.startsWith('vendor/'));
   for (const f of files) {
-    const text = readFileSync(join(root, f), 'utf8');
+    let text = readFileSync(join(root, f), 'utf8');
+    // ロケ地の出典（sources）は表示するだけで、アプリは通信しない
+    if (f === 'data/locations.json') text = JSON.stringify(JSON.parse(text).locations.map(({ sources, ...l }) => l));
     assert.ok(!/https?:\/\//.test(text.replace(/http:\/\/www\.w3\.org\/2000\/svg/g, '')), `${f} に外部 URL があります`);
   }
 });

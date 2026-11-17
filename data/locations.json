@@ -6,9 +6,13 @@
       "id": "lost-in-translation-park-hyatt",
       "title": "ロスト・イン・トランスレーション", "titleEn": "Lost in Translation", "year": 2003, "director": "ソフィア・コッポラ",
       "place": "パーク ハイアット 東京（新宿パークタワー）", "city": "東京", "country": "日本", "region": "asia",
-      "lat": 35.6856, "lng": 139.6906, "confidence": "high",
+      "lat": 35.6856, "lng": 139.6906, "confidence": "high", "streets": true,
       "scene": "主人公 2 人が滞在する高層ホテル。客室の窓から見下ろす新宿の夜景と、バーの暖かい間接照明が、眠れない夜の孤独を描く。",
       "look": "夜景の青と室内のタングステンの琥珀。低めのコントラストで柔らかい。",
+      "sources": [
+        "https://www.focusfeatures.com/article/film-locations_japan_lost-in-translation",
+        "https://www.movie-locations.com/movies/l/Lost-In-Translation.php"
+      ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4000 }, "wbShift": { "r": 2, "b": -3 },
         "highlight": -1, "shadow": -1, "color": 0, "sharpness": -2, "nr": -4,
@@ -18,11 +22,15 @@
       "id": "chungking-express-escalator",
       "title": "恋する惑星", "titleEn": "Chungking Express", "year": 1994, "director": "ウォン・カーウァイ",
       "place": "セントラル〜ミッドレベル・エスカレーター", "city": "香港", "country": "香港", "region": "asia",
-      "lat": 22.2823, "lng": 114.1548, "confidence": "high",
+      "lat": 22.2823, "lng": 114.1548, "confidence": "high", "streets": true,
       "scene": "後半の物語で、フェイが通う警官 663 号の部屋はこの長い屋外エスカレーター沿い。手持ちカメラとコマ落としの速い映像。",
       "look": "蛍光灯の緑、看板の赤と黄。粒子が強く、色はにじむように濃い。",
+      "sources": [
+        "https://www.timeout.com/hong-kong/film/then-and-now-iconic-locations-from-wong-kar-wais-chungking-express",
+        "https://en.wikipedia.org/wiki/Central%E2%80%93Mid-Levels_escalator"
+      ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "strong", "colorChrome": "strong",
-        "wb": { "mode": "fluorescent1", "kelvin": null }, "wbShift": { "r": 1, "b": -2 },
+        "wb": { "mode": "fluorescent1", "kelvin": null}, "wbShift": { "r": 1, "b": -2 },
         "highlight": 1, "shadow": 2, "color": 2, "sharpness": -1, "nr": -4,
         "isoNote": "ISO 1600〜6400", "exposureNote": "-2/3EV", "tags": ["夜", "街", "23mm"] }
     },
@@ -30,35 +38,47 @@
       "id": "in-the-mood-for-love-angkor-wat",
       "title": "花様年華", "titleEn": "In the Mood for Love", "year": 2000, "director": "ウォン・カーウァイ",
       "place": "アンコール・ワット", "city": "シェムリアップ", "country": "カンボジア", "region": "asia",
-      "lat": 13.4125, "lng": 103.8670, "confidence": "high",
+      "lat": 13.4125, "lng": 103.867, "confidence": "high", "streets": false,
       "scene": "終盤、チャウが遺跡の壁の穴に秘密をささやいて封じる場面。全編の濃密な室内劇から一転した、静かな石の空間。",
       "look": "石の灰色と苔の緑。落ち着いた暖色で、影は深い。",
+      "sources": [
+        "https://www.criterion.com/current/posts/197-in-the-mood-for-love",
+        "https://www.sensesofcinema.com/2010/cteq/in-the-mood-for-love/"
+      ],
       "recipe": { "filmSim": "eterna", "dr": "dr200", "grain": "weak", "colorChrome": "strong",
-        "wb": { "mode": "shade", "kelvin": null }, "wbShift": { "r": 2, "b": -2 },
+        "wb": { "mode": "shade", "kelvin": null}, "wbShift": { "r": 2, "b": -2 },
         "highlight": 0, "shadow": 2, "color": 1, "sharpness": -1, "nr": -3,
         "isoNote": "ISO 320〜1600", "exposureNote": "-2/3EV", "tags": ["旅", "日中", "35mm"] }
     },
     {
       "id": "tokyo-story-onomichi",
       "title": "東京物語", "titleEn": "Tokyo Story", "year": 1953, "director": "小津安二郎",
-      "place": "尾道の市街（寺と坂の町）", "city": "尾道", "country": "日本", "region": "asia",
-      "lat": 34.4089, "lng": 133.2050, "confidence": "medium",
+      "place": "浄土寺（尾道）", "city": "尾道", "country": "日本", "region": "asia",
+      "lat": 34.4094, "lng": 133.2106, "confidence": "high", "streets": true,
       "scene": "老夫婦が暮らす町として冒頭と結末に登場。低い位置に据えた固定カメラで、瀬戸内の穏やかな朝を映す。モノクロ作品。",
       "look": "モノクロ。中間調が豊かで、コントラストは穏やか。",
+      "sources": [
+        "https://web-japan.org/trends/11_food/jfd131028.html",
+        "https://jl-db.nfaj.go.jp/en/location/340200053/"
+      ],
       "recipe": { "filmSim": "acros", "monoFilter": "ye", "monoWC": 1, "dr": "dr200", "grain": "weak", "colorChrome": "off",
-        "wb": { "mode": "auto", "kelvin": null }, "wbShift": { "r": 0, "b": 0 },
+        "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": -1, "shadow": 0, "color": 0, "sharpness": 0, "nr": -2,
         "isoNote": "ISO 320〜800", "exposureNote": "+1/3EV", "tags": ["モノクロ", "日中", "50mm"] }
     },
     {
       "id": "lawrence-of-arabia-wadi-rum",
       "title": "アラビアのロレンス", "titleEn": "Lawrence of Arabia", "year": 1962, "director": "デヴィッド・リーン",
-      "place": "ワディ・ラム", "city": "ワディ・ラム", "country": "ヨルダン", "region": "asia",
-      "lat": 29.5761, "lng": 35.4205, "confidence": "medium",
+      "place": "ワディ・ラム", "city": "ワディ・ラム", "country": "ヨルダン", "region": "middle-east",
+      "lat": 29.5761, "lng": 35.4205, "confidence": "high", "streets": false,
       "scene": "砂漠の行軍場面の撮影地のひとつ。赤い砂と巨大な岩山を、横長の画面いっぱいに映す。",
       "look": "赤茶の砂、濃い青空。強い日差しで高コントラスト。",
+      "sources": [
+        "https://movie-locations.com/movies/l/Lawrence-Of-Arabia.php",
+        "https://en.wikipedia.org/wiki/Wadi_Rum"
+      ],
       "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "off", "colorChrome": "strong",
-        "wb": { "mode": "daylight", "kelvin": null }, "wbShift": { "r": 2, "b": -1 },
+        "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 2, "b": -1 },
         "highlight": -1, "shadow": 1, "color": 0, "sharpness": 0, "nr": -2,
         "isoNote": "ISO 640〜", "exposureNote": "-1/3EV", "tags": ["風景", "日中", "16mm"] }
     },
@@ -66,9 +86,13 @@
       "id": "amelie-cafe-des-2-moulins",
       "title": "アメリ", "titleEn": "Amélie", "year": 2001, "director": "ジャン＝ピエール・ジュネ",
       "place": "カフェ・デ・ドゥ・ムーラン（ルピック通り）", "city": "パリ", "country": "フランス", "region": "europe",
-      "lat": 48.8849, "lng": 2.3336, "confidence": "high",
+      "lat": 48.8849, "lng": 2.3336, "confidence": "high", "streets": true,
       "scene": "アメリがウェイトレスとして働くモンマルトルのカフェ。",
       "look": "緑と赤が強い、暖かく濃い色調。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Caf%C3%A9_des_2_Moulins",
+        "https://faroutmagazine.co.uk/cafe-des-deux-moulins-inside-the-parisian-cafe-from-amelie/"
+      ],
       "recipe": { "filmSim": "velvia", "dr": "auto", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 4800 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -3,
@@ -78,11 +102,15 @@
       "id": "la-dolce-vita-trevi",
       "title": "甘い生活", "titleEn": "La Dolce Vita", "year": 1960, "director": "フェデリコ・フェリーニ",
       "place": "トレヴィの泉", "city": "ローマ", "country": "イタリア", "region": "europe",
-      "lat": 41.9009, "lng": 12.4833, "confidence": "high",
+      "lat": 41.9009, "lng": 12.4833, "confidence": "high", "streets": true,
       "scene": "夜のトレヴィの泉にシルヴィアが入っていく有名な場面。モノクロ作品。",
       "look": "モノクロ。夜の照明で白い大理石が浮かび、黒は深く締まる。",
+      "sources": [
+        "https://italyformovies.com/film-serie-tv-games/detail/6710/la-dolce-vita",
+        "https://www.througheternity.com/travel-guide/movie-locations-in-rome"
+      ],
       "recipe": { "filmSim": "acros", "monoFilter": "none", "monoWC": 0, "dr": "dr400", "grain": "strong", "colorChrome": "off",
-        "wb": { "mode": "auto", "kelvin": null }, "wbShift": { "r": 0, "b": 0 },
+        "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": 1, "shadow": 3, "color": 0, "sharpness": 0, "nr": -4,
         "isoNote": "ISO 1600〜6400", "exposureNote": "-1EV", "tags": ["モノクロ", "夜", "街"] }
     },
@@ -90,11 +118,15 @@
       "id": "roman-holiday-bocca-della-verita",
       "title": "ローマの休日", "titleEn": "Roman Holiday", "year": 1953, "director": "ウィリアム・ワイラー",
       "place": "真実の口（サンタ・マリア・イン・コスメディン教会）", "city": "ローマ", "country": "イタリア", "region": "europe",
-      "lat": 41.8881, "lng": 12.4816, "confidence": "high",
+      "lat": 41.8881, "lng": 12.4816, "confidence": "high", "streets": true,
       "scene": "ジョーが真実の口に手を入れてアンをからかう場面。モノクロ作品。",
       "look": "モノクロ。日中の柔らかい光で、肌の階調がなめらか。",
+      "sources": [
+        "https://www.movie-locations.com/movies/r/Roman-Holiday.php",
+        "https://www.imdb.com/title/tt0046250/locations"
+      ],
       "recipe": { "filmSim": "monochrome", "monoFilter": "ye", "monoWC": 1, "dr": "dr200", "grain": "weak", "colorChrome": "off",
-        "wb": { "mode": "auto", "kelvin": null }, "wbShift": { "r": 0, "b": 0 },
+        "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": -1, "shadow": 0, "color": 0, "sharpness": -1, "nr": -2,
         "isoNote": "ISO 320〜800", "exposureNote": "+1/3EV", "tags": ["モノクロ", "ポートレート", "日中"] }
     },
@@ -102,11 +134,15 @@
       "id": "the-third-man-riesenrad",
       "title": "第三の男", "titleEn": "The Third Man", "year": 1949, "director": "キャロル・リード",
       "place": "プラーター公園の大観覧車（ヴィーナー・リーゼンラート）", "city": "ウィーン", "country": "オーストリア", "region": "europe",
-      "lat": 48.2166, "lng": 16.3958, "confidence": "high",
+      "lat": 48.2166, "lng": 16.3958, "confidence": "high", "streets": true,
       "scene": "観覧車のゴンドラでハリー・ライムとホリーが対峙する場面。斜めに傾けた構図と強い陰影のモノクロ作品。",
       "look": "モノクロ。硬い光、深い影、高コントラスト。",
+      "sources": [
+        "https://www.visitingvienna.com/songsfilms/third-man-locations",
+        "https://lwlies.com/articles/on-location-the-third-man-vienna-harry-lime/"
+      ],
       "recipe": { "filmSim": "acros", "monoFilter": "r", "monoWC": -1, "dr": "dr100", "grain": "strong", "colorChrome": "off",
-        "wb": { "mode": "auto", "kelvin": null }, "wbShift": { "r": 0, "b": 0 },
+        "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": 3, "shadow": 4, "color": 0, "sharpness": 1, "nr": -4,
         "isoNote": "ISO 160〜3200", "exposureNote": "-2/3EV", "tags": ["モノクロ", "街", "23mm"] }
     },
@@ -114,11 +150,15 @@
       "id": "wings-of-desire-victory-column",
       "title": "ベルリン・天使の詩", "titleEn": "Wings of Desire", "year": 1987, "director": "ヴィム・ヴェンダース",
       "place": "ジーゲスゾイレ（戦勝記念塔）", "city": "ベルリン", "country": "ドイツ", "region": "europe",
-      "lat": 52.5145, "lng": 13.3501, "confidence": "high",
+      "lat": 52.5145, "lng": 13.3501, "confidence": "high", "streets": true,
       "scene": "天使ダミエルが塔の上の像に腰かけ、街を見下ろす。天使の視点の場面はモノクロで描かれる。",
       "look": "わずかに暖かいモノクロ。柔らかい曇天の光。",
+      "sources": [
+        "https://movie-locations.com/movies/w/Wings-Of-Desire.php",
+        "https://atlasobscura.com/places/berlin-victory-column"
+      ],
       "recipe": { "filmSim": "monochrome", "monoFilter": "none", "monoWC": 3, "dr": "dr200", "grain": "weak", "colorChrome": "off",
-        "wb": { "mode": "auto", "kelvin": null }, "wbShift": { "r": 0, "b": 0 },
+        "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": -1, "shadow": -1, "color": 0, "sharpness": -1, "nr": -2,
         "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["モノクロ", "街", "曇り"] }
     },
@@ -126,11 +166,15 @@
       "id": "call-me-by-your-name-crema",
       "title": "君の名前で僕を呼んで", "titleEn": "Call Me by Your Name", "year": 2017, "director": "ルカ・グァダニーノ",
       "place": "クレーマ旧市街（ドゥオーモ広場）", "city": "クレーマ", "country": "イタリア", "region": "europe",
-      "lat": 45.3626, "lng": 9.6854, "confidence": "high",
+      "lat": 45.3626, "lng": 9.6854, "confidence": "high", "streets": true,
       "scene": "1983 年夏の北イタリアを描く舞台の町。自転車で広場を抜ける場面など、町の中で多く撮影された。",
       "look": "明るく乾いた夏の光。暖かく、ハイライトは柔らか。",
+      "sources": [
+        "https://movie-locations.com/movies/c/Call-Me-By-Your-Name.php",
+        "https://www.italyformovies.com/film-serie-tv-games/detail/6627/call-me-by-your-name"
+      ],
       "recipe": { "filmSim": "pro-neg-std", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
-        "wb": { "mode": "daylight", "kelvin": null }, "wbShift": { "r": 2, "b": -3 },
+        "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 2, "b": -3 },
         "highlight": -1, "shadow": -1, "color": 1, "sharpness": -2, "nr": -3,
         "isoNote": "ISO 640〜1600", "exposureNote": "+1/3EV", "tags": ["日中", "旅", "ポートレート"] }
     },
@@ -138,9 +182,13 @@
       "id": "walter-mitty-seydisfjordur",
       "title": "LIFE!", "titleEn": "The Secret Life of Walter Mitty", "year": 2013, "director": "ベン・スティラー",
       "place": "セイジスフィヨルズル（峠からの道）", "city": "セイジスフィヨルズル", "country": "アイスランド", "region": "europe",
-      "lat": 65.2603, "lng": -14.0097, "confidence": "high",
+      "lat": 65.2603, "lng": -14.0097, "confidence": "high", "streets": true,
       "scene": "ウォルターがロングボードで峠道を下り、フィヨルドの町へ向かう場面。",
       "look": "冷たい青緑と苔の緑。澄んだ空気で彩度は控えめ。",
+      "sources": [
+        "https://guidetoiceland.is/de/island-blog/konstantin/filming-locations-of-secret-life-of-walter-mitty",
+        "https://www.travelagentcentral.com/iceland/walter-mitty-gives-iceland-its-first-leading-role-hollywood-blockbuster-44043"
+      ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": -1, "b": 1 },
         "highlight": -1, "shadow": 1, "color": 1, "sharpness": 0, "nr": -2,
@@ -150,9 +198,13 @@
       "id": "breakfast-at-tiffanys-fifth-avenue",
       "title": "ティファニーで朝食を", "titleEn": "Breakfast at Tiffany's", "year": 1961, "director": "ブレイク・エドワーズ",
       "place": "ティファニー本店（5 番街 57 丁目）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.7625, "lng": -73.9739, "confidence": "high",
+      "lat": 40.7625, "lng": -73.9739, "confidence": "high", "streets": true,
       "scene": "早朝、ホリーがショーウィンドウを眺めながらパンを食べる冒頭の場面。",
       "look": "早朝の青い空気と、淡く上品な色。",
+      "sources": [
+        "https://www.imdb.com/title/tt0054698/locations",
+        "https://nycinfilm.com/2023/12/12/breakfast-at-tiffanys-1961/"
+      ],
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 6200 }, "wbShift": { "r": 0, "b": 1 },
         "highlight": -1, "shadow": -1, "color": 1, "sharpness": -1, "nr": -2,
@@ -162,11 +214,15 @@
       "id": "manhattan-sutton-place",
       "title": "マンハッタン", "titleEn": "Manhattan", "year": 1979, "director": "ウディ・アレン",
       "place": "サットン・プレイス東端（クイーンズボロ橋を望むベンチ）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.7590, "lng": -73.9590, "confidence": "medium",
+      "lat": 40.759, "lng": -73.959, "confidence": "high", "streets": true,
       "scene": "夜明け前、2 人がベンチに座りクイーンズボロ橋を眺める場面。モノクロのシネマスコープ作品。",
       "look": "モノクロ。橋のシルエットと白み始めた空。",
+      "sources": [
+        "https://theculturetrip.com/north-america/usa/new-york/articles/awesome-nyc-film-locations-no-6-queensboro-bridge-manhattan",
+        "https://www.movie-locations.com/movies/m/Manhattan.php"
+      ],
       "recipe": { "filmSim": "acros", "monoFilter": "ye", "monoWC": 0, "dr": "dr400", "grain": "weak", "colorChrome": "off",
-        "wb": { "mode": "auto", "kelvin": null }, "wbShift": { "r": 0, "b": 0 },
+        "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": 0, "shadow": 2, "color": 0, "sharpness": 0, "nr": -3,
         "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["モノクロ", "朝", "街"] }
     },
@@ -174,9 +230,13 @@
       "id": "la-la-land-griffith-observatory",
       "title": "ラ・ラ・ランド", "titleEn": "La La Land", "year": 2016, "director": "デイミアン・チャゼル",
       "place": "グリフィス天文台", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
-      "lat": 34.1184, "lng": -118.3004, "confidence": "high",
+      "lat": 34.1184, "lng": -118.3004, "confidence": "high", "streets": false,
       "scene": "2 人が夜の天文台に忍び込み、プラネタリウムで宙に浮かんで踊る場面。",
       "look": "マジックアワーの紫と群青、街明かりの暖色。",
+      "sources": [
+        "https://thecinemaholic.com/where-was-la-la-land-filmed-all-filming-locations",
+        "https://www.atlasofwonders.com/2016/12/la-la-land-filming-locations.html"
+      ],
       "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 2, "b": 2 },
         "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -3,
@@ -186,9 +246,13 @@
       "id": "blade-runner-bradbury-building",
       "title": "ブレードランナー", "titleEn": "Blade Runner", "year": 1982, "director": "リドリー・スコット",
       "place": "ブラッドベリー・ビル", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
-      "lat": 34.0505, "lng": -118.2478, "confidence": "high",
+      "lat": 34.0505, "lng": -118.2478, "confidence": "high", "streets": true,
       "scene": "J・F・セバスチャンが住む建物。鉄の手すりと吹き抜けに、雨と探照灯の光が差し込む終盤の舞台。",
       "look": "青緑の闇とオレンジの光源。煙ったハイライト。",
+      "sources": [
+        "https://www.brmovie.com/Locations/Bradbury_Building.htm",
+        "https://movie-locations.com/movies/b/Blade-Runner.php"
+      ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 3600 }, "wbShift": { "r": 4, "b": -6 },
         "highlight": -1, "shadow": 2, "color": 2, "sharpness": -1, "nr": -4,
@@ -198,9 +262,13 @@
       "id": "vertigo-fort-point",
       "title": "めまい", "titleEn": "Vertigo", "year": 1958, "director": "アルフレッド・ヒッチコック",
       "place": "フォート・ポイント（ゴールデンゲートブリッジ南端の下）", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
-      "lat": 37.8106, "lng": -122.4771, "confidence": "high",
+      "lat": 37.8106, "lng": -122.4771, "confidence": "high", "streets": false,
       "scene": "マデリンがサンフランシスコ湾に身を投げ、スコッティが救い上げる場面。",
       "look": "霧がかった湾の灰緑と、赤い橋。",
+      "sources": [
+        "https://reelsf.com/reelsf/vertigo-fort-point",
+        "https://hitchcock.zone/wiki/Fort_Point"
+      ],
       "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 1, "b": -1 },
         "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -2,
@@ -210,13 +278,367 @@
       "id": "the-shining-timberline-lodge",
       "title": "シャイニング", "titleEn": "The Shining", "year": 1980, "director": "スタンリー・キューブリック",
       "place": "ティンバーライン・ロッジ（フッド山）", "city": "フッド山", "country": "アメリカ", "region": "north-america",
-      "lat": 45.3311, "lng": -121.7113, "confidence": "high",
+      "lat": 45.3311, "lng": -121.7113, "confidence": "high", "streets": false,
       "scene": "オーバールック・ホテルの外観として使われた山岳ロッジ。雪山に囲まれた孤立感。",
       "look": "雪の白と針葉樹の暗い緑。冷たく硬い光。",
+      "sources": [
+        "https://movie-locations.com/movies/s/Shining-1980.php",
+        "https://www.slashfilm.com/1799102/the-shining-filming-locations-explained"
+      ],
       "recipe": { "filmSim": "provia", "dr": "dr400", "grain": "off", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6800 }, "wbShift": { "r": -1, "b": 1 },
         "highlight": 0, "shadow": 1, "color": -1, "sharpness": 1, "nr": -2,
         "isoNote": "ISO 640〜", "exposureNote": "+2/3EV", "tags": ["風景", "雪", "23mm"] }
+    },
+    {
+      "id": "perfect-days-yoyogi-hachiman-toilet",
+      "title": "PERFECT DAYS", "titleEn": "Perfect Days", "year": 2023, "director": "ヴィム・ヴェンダース",
+      "place": "代々木八幡の公衆トイレ（THE TOKYO TOILET）", "city": "東京", "country": "日本", "region": "asia",
+      "lat": 35.6688, "lng": 139.6866, "confidence": "high", "streets": true,
+      "scene": "清掃員の平山が毎日磨く公衆トイレのひとつ。神社の森を背にしたきのこ形の小屋で、木漏れ日の昼休みとつながる場所。",
+      "look": "木漏れ日の緑と白い壁。やわらかく明るい日中光で、色は控えめ。",
+      "sources": [
+        "https://japanspecialist.com/w/a-tour-of-tokyo-s-public-toilets-from-the-movie-perfect-days",
+        "https://tokyofox.net/2024/02/29/the-modern-arty-toilets-featured-in-the-movie-perfect-days-2023/"
+      ],
+      "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 1, "b": -1 },
+        "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["日中", "街", "緑"] }
+    },
+    {
+      "id": "perfect-days-sakurabashi",
+      "title": "PERFECT DAYS", "titleEn": "Perfect Days", "year": 2023, "director": "ヴィム・ヴェンダース",
+      "place": "桜橋（隅田川）", "city": "東京", "country": "日本", "region": "asia",
+      "lat": 35.7155, "lng": 139.8019, "confidence": "medium", "streets": true,
+      "scene": "平山が自転車で渡る X 字形の歩行者橋。休日の夕暮れや夜の川辺で、一日の終わりを静かに映す。",
+      "look": "川面の青と夕方の斜光。わずかに暖色に寄せた落ち着いた色。",
+      "sources": [
+        "https://voyapon.com/it/perfect-days-location-tokyo/"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6800 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["夕方", "街", "川"] }
+    },
+    {
+      "id": "perfect-days-asakusa-chikagai",
+      "title": "PERFECT DAYS", "titleEn": "Perfect Days", "year": 2023, "director": "ヴィム・ヴェンダース",
+      "place": "浅草地下街", "city": "東京", "country": "日本", "region": "asia",
+      "lat": 35.7108, "lng": 139.7972, "confidence": "high", "streets": true,
+      "scene": "仕事終わりの平山が通う、古い地下商店街の小さな飲み屋。低い天井と年季の入った看板が昭和の空気を残す。",
+      "look": "蛍光灯の緑がかった光と赤い看板。暗部は重く、粒子感がある。",
+      "sources": [
+        "https://voyapon.com/it/perfect-days-location-tokyo/",
+        "https://www.enjoytokyo.jp/article/201726/"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "fluorescent1", "kelvin": null}, "wbShift": { "r": 1, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "室内", "街"] }
+    },
+    {
+      "id": "drive-my-car-naka-incineration-plant",
+      "title": "ドライブ・マイ・カー", "titleEn": "Drive My Car", "year": 2021, "director": "濱口竜介",
+      "place": "広島市環境局 中工場", "city": "広島", "country": "日本", "region": "asia",
+      "lat": 34.372, "lng": 132.445, "confidence": "high", "streets": true,
+      "scene": "家福とドライバーのみさきが訪れるごみ処理工場。平和記念公園から続く軸線を通す吹き抜けの通路で、ふたりが言葉少なに海を見る。",
+      "look": "コンクリートのグレーと曇り空。彩度を抑えた冷たく端正な色。",
+      "sources": [
+        "https://www.pref.hiroshima.lg.jp/lab/topics/20220328/01/",
+        "https://www.city.hiroshima.lg.jp/shisei/kouhou/1004010/1027486/1004259/1004287.html"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
+        "highlight": -1, "shadow": 1, "color": -2, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["建築", "曇り", "街"] }
+    },
+    {
+      "id": "black-rain-dotonbori",
+      "title": "ブラック・レイン", "titleEn": "Black Rain", "year": 1989, "director": "リドリー・スコット",
+      "place": "道頓堀", "city": "大阪", "country": "日本", "region": "asia",
+      "lat": 34.6687, "lng": 135.5013, "confidence": "high", "streets": true,
+      "scene": "ニューヨークの刑事が大阪のネオン街で犯人を追う。看板の光と煙、濡れた路面が異国の夜の迷路をつくる。",
+      "look": "強いネオンの赤と青、黒く締まった影。逆光の煙で光がにじむ。",
+      "sources": [
+        "https://bfi-prog-notes.github.io/ridley%20scott%3Cbr%3Ebuilding%20cinematic%20worlds/2025/09/12/black-rain",
+        "https://movie-locations.com/movies/b/Black-Rain.php"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 3800 }, "wbShift": { "r": 1, "b": -2 },
+        "highlight": -1, "shadow": 2, "color": 2, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "街", "雨"] }
+    },
+    {
+      "id": "memoirs-of-a-geisha-fushimi-inari",
+      "title": "SAYURI", "titleEn": "Memoirs of a Geisha", "year": 2005, "director": "ロブ・マーシャル",
+      "place": "伏見稲荷大社 千本鳥居", "city": "京都", "country": "日本", "region": "asia",
+      "lat": 34.9671, "lng": 135.7795, "confidence": "high", "streets": true,
+      "scene": "幼い千代が朱色の鳥居のトンネルを駆け抜ける。連なる柱が光と影の縞をつくり、少女の願いを印象づける。",
+      "look": "鳥居の朱と木陰の深い緑。コントラスト強めで赤が際立つ。",
+      "sources": [
+        "https://www.imdb.com/title/tt0397535/locations",
+        "https://www.discoverkyoto.com/kyoto-voice/filming-locations-kyoto/"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": 1, "shadow": 1, "color": 3, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["日中", "寺社", "赤"] }
+    },
+    {
+      "id": "last-samurai-engyoji",
+      "title": "ラスト サムライ", "titleEn": "The Last Samurai", "year": 2003, "director": "エドワード・ズウィック",
+      "place": "書写山圓教寺", "city": "姫路", "country": "日本", "region": "asia",
+      "lat": 34.8895, "lng": 134.6605, "confidence": "high", "streets": false,
+      "scene": "勝元が暮らす山寺として登場。杉木立に囲まれた大きな木造の堂で、主人公が武士の生き方に触れていく。",
+      "look": "杉の深い緑と古材の茶。霧がかった柔らかい光で落ち着いた色。",
+      "sources": [
+        "https://www.movie-locations.com/movies/l/Last-Samurai.php",
+        "https://jl-db.nfaj.go.jp/en/location/280213001"
+      ],
+      "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 0, "b": -2 },
+        "highlight": -1, "shadow": 0, "color": 0, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["寺社", "緑", "日中"] }
+    },
+    {
+      "id": "you-only-live-twice-himeji-castle",
+      "title": "007は二度死ぬ", "titleEn": "You Only Live Twice", "year": 1967, "director": "ルイス・ギルバート",
+      "place": "姫路城", "city": "姫路", "country": "日本", "region": "asia",
+      "lat": 34.8394, "lng": 134.6939, "confidence": "high", "streets": true,
+      "scene": "忍者の訓練所として使われる白い城。石垣の前で忍者たちが一斉に技を披露する。",
+      "look": "白壁と青空、くっきりした原色。60 年代のカラーフィルムらしい鮮やかさ。",
+      "sources": [
+        "https://movie-locations.com/movies/y/You-Only-Live-Twice.php",
+        "https://www.imdb.com/title/tt0062512/locations"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": 1, "shadow": 1, "color": 3, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["日中", "城", "旅"] }
+    },
+    {
+      "id": "you-only-live-twice-new-otani",
+      "title": "007は二度死ぬ", "titleEn": "You Only Live Twice", "year": 1967, "director": "ルイス・ギルバート",
+      "place": "ホテルニューオータニ", "city": "東京", "country": "日本", "region": "asia",
+      "lat": 35.6797, "lng": 139.7337, "confidence": "high", "streets": true,
+      "scene": "悪役の会社「大里化学」の本社ビルとして登場する、当時最新の高層ホテル。ボンドが潜入し、撃ち合いになる。",
+      "look": "モダン建築の白とガラスの青。明るくクリーンな昼の色。",
+      "sources": [
+        "https://movie-locations.com/movies/y/You-Only-Live-Twice.php",
+        "https://tokyofox.net/2011/11/27/tokyo-filming-locations-pt-i-you-only-live-twice-updated-2/"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": 1, "shadow": 1, "color": 2, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["建築", "街", "日中"] }
+    },
+    {
+      "id": "you-only-live-twice-akime",
+      "title": "007は二度死ぬ", "titleEn": "You Only Live Twice", "year": 1967, "director": "ルイス・ギルバート",
+      "place": "坊津町秋目の漁村", "city": "南さつま", "country": "日本", "region": "asia",
+      "lat": 31.334, "lng": 130.225, "confidence": "high", "streets": false,
+      "scene": "ボンドが漁師に扮して暮らす海辺の村。入り江と小さな港が、物語後半の舞台になる。",
+      "look": "深い青の海と緑の山。晴天の強い日差しで鮮やか。",
+      "sources": [
+        "https://huntingbond.com/akime/",
+        "https://jamesbond007.se/eng/event/50-arsjubileum_man_lever_bara_tva_ganger_film"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 1, "b": -1 },
+        "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "日中", "旅"] }
+    },
+    {
+      "id": "you-only-live-twice-shinmoedake",
+      "title": "007は二度死ぬ", "titleEn": "You Only Live Twice", "year": 1967, "director": "ルイス・ギルバート",
+      "place": "新燃岳（霧島連山）", "city": "霧島", "country": "日本", "region": "asia",
+      "lat": 31.9093, "lng": 130.8863, "confidence": "high", "streets": false,
+      "scene": "悪の組織の秘密基地が隠された火山として外観が撮られた。火口湖をヘリが飛ぶ空撮が印象的。",
+      "look": "荒々しい火山の茶と火口湖の青緑。空気の澄んだ硬い光。",
+      "sources": [
+        "https://www.imdb.com/title/tt0062512/locations",
+        "https://sixtiescity.net/Bond/YOLTwice.htm"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 3, "b": -3 },
+        "highlight": 0, "shadow": 2, "color": 1, "sharpness": 1, "nr": -3,
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["風景", "山", "日中"] }
+    },
+    {
+      "id": "departures-kappo-obata",
+      "title": "おくりびと", "titleEn": "Departures", "year": 2008, "director": "滝田洋二郎",
+      "place": "旧割烹小幡（日和山 小幡楼）", "city": "酒田", "country": "日本", "region": "asia",
+      "lat": 38.9226, "lng": 139.8258, "confidence": "high", "streets": true,
+      "scene": "主人公が勤める納棺の会社「NK エージェント」の社屋として使われた古い洋館。",
+      "look": "雪国の曇り空と古い木造の褐色。落ち着いた低彩度。",
+      "sources": [
+        "https://www.tohokukanko.jp/attractions/detail_1009803.html",
+        "https://www.gltjp.com/ja/directory/item/12610/"
+      ],
+      "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 1, "b": -1 },
+        "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["建築", "曇り", "街"] }
+    },
+    {
+      "id": "our-little-sister-gokurakuji-station",
+      "title": "海街diary", "titleEn": "Our Little Sister", "year": 2015, "director": "是枝裕和",
+      "place": "江ノ電 極楽寺駅", "city": "鎌倉", "country": "日本", "region": "asia",
+      "lat": 35.3101, "lng": 139.5309, "confidence": "high", "streets": true,
+      "scene": "四姉妹が暮らす鎌倉の日常に登場する小さな木造駅。季節の花と江ノ電が穏やかな時間を映す。",
+      "look": "淡い緑と木の色、やわらかな日差し。明るく透明感のある色。",
+      "sources": [
+        "https://tabi-mag.jp/kn0498/",
+        "https://allabout.co.jp/gm/gc/465076/2"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
+        "highlight": -2, "shadow": -2, "color": 1, "sharpness": -1, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["日中", "駅", "街"] }
+    },
+    {
+      "id": "tora-san-shibamata-sando",
+      "title": "男はつらいよ", "titleEn": "Tora-san, Our Lovable Tramp", "year": 1969, "director": "山田洋次",
+      "place": "柴又帝釈天 参道", "city": "東京", "country": "日本", "region": "asia",
+      "lat": 35.7579, "lng": 139.878, "confidence": "high", "streets": true,
+      "scene": "寅さんの実家の団子屋がある門前の商店街。旅から帰った寅さんが騒動を起こす、シリーズの原点。",
+      "look": "昭和の商店街の木の色とのれん。暖かく少しくすんだ色調。",
+      "sources": [
+        "https://www.keisei.co.jp/keisei/short_trip/area/shibamata_yagiri.php",
+        "https://tabi-mag.jp/tk1095/"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5900 }, "wbShift": { "r": 3, "b": -5 },
+        "highlight": -1, "shadow": -1, "color": -2, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["日中", "街", "昭和"] }
+    },
+    {
+      "id": "lost-in-translation-heian-shrine",
+      "title": "ロスト・イン・トランスレーション", "titleEn": "Lost in Translation", "year": 2003, "director": "ソフィア・コッポラ",
+      "place": "平安神宮 神苑", "city": "京都", "country": "日本", "region": "asia",
+      "lat": 35.0162, "lng": 135.783, "confidence": "high", "streets": true,
+      "scene": "ひとりで京都を訪れたシャーロットが、池の飛び石を渡りおみくじを結ぶ。都会の喧騒から離れた静かな時間。",
+      "look": "池の緑と朱の社殿。曇り日のフラットな光でしっとり。",
+      "sources": [
+        "https://tokyofox.net/2022/03/15/kyoto-filming-locations-lost-in-translation-2003/",
+        "https://gobackpacking.com/heian-shrine-lost-in-translation/"
+      ],
+      "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 0, "b": -2 },
+        "highlight": -1, "shadow": 0, "color": 0, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["寺社", "日中", "旅"] }
+    },
+    {
+      "id": "lost-in-translation-shibuya-crossing",
+      "title": "ロスト・イン・トランスレーション", "titleEn": "Lost in Translation", "year": 2003, "director": "ソフィア・コッポラ",
+      "place": "渋谷スクランブル交差点", "city": "東京", "country": "日本", "region": "asia",
+      "lat": 35.6595, "lng": 139.7005, "confidence": "high", "streets": true,
+      "scene": "シャーロットが傘の群れの中を歩く巨大な交差点。人の波と大型ビジョンが、異国での孤独を際立たせる。",
+      "look": "雨の夕方の青と看板の光。低コントラストでにじむような色。",
+      "sources": [
+        "https://www.movie-locations.com/movies/l/Lost-In-Translation.php",
+        "https://tokyofox.net/2011/11/29/tokyo-filming-locations-pt-ii-lost-in-translation-updated"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 3800 }, "wbShift": { "r": 1, "b": -2 },
+        "highlight": -2, "shadow": 1, "color": 1, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "街", "雨"] }
+    },
+    {
+      "id": "lost-in-translation-karaoke-kan",
+      "title": "ロスト・イン・トランスレーション", "titleEn": "Lost in Translation", "year": 2003, "director": "ソフィア・コッポラ",
+      "place": "カラオケ館 渋谷本店", "city": "東京", "country": "日本", "region": "asia",
+      "lat": 35.6606, "lng": 139.6982, "confidence": "high", "streets": true,
+      "scene": "ボブとシャーロットが仲間とカラオケで夜を過ごす個室。ふたりの距離が縮まる場面。",
+      "look": "ピンクと紫の照明、肌に乗るマゼンタ。暗く粒子の目立つ室内。",
+      "sources": [
+        "https://tokyocheapo.com/place/karaoke-kan-shibuya-lost-in-translation-branch",
+        "https://timeout.com/tokyo/things-to-do/karaoke-kan-shibuya"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 4, "b": -1 },
+        "highlight": -1, "shadow": 0, "color": 2, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "室内", "人物"] }
+    },
+    {
+      "id": "lost-in-translation-nanzenji",
+      "title": "ロスト・イン・トランスレーション", "titleEn": "Lost in Translation", "year": 2003, "director": "ソフィア・コッポラ",
+      "place": "南禅寺 三門", "city": "京都", "country": "日本", "region": "asia",
+      "lat": 35.0113, "lng": 135.7932, "confidence": "high", "streets": true,
+      "scene": "シャーロットが寺の境内で花嫁行列に出会う。大きな木造の門と白無垢の対比が美しい。",
+      "look": "木の褐色と白、曇り空のやわらかい光。控えめな彩度。",
+      "sources": [
+        "https://thecinemaholic.com/where-was-lost-in-translation-filmed",
+        "https://tokyofox.net/2022/03/15/kyoto-filming-locations-lost-in-translation-2003/"
+      ],
+      "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 1, "b": -1 },
+        "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["寺社", "日中", "旅"] }
+    },
+    {
+      "id": "love-letter-otaru-nyk",
+      "title": "Love Letter", "titleEn": "Love Letter", "year": 1995, "director": "岩井俊二",
+      "place": "旧日本郵船 小樽支店", "city": "小樽", "country": "日本", "region": "asia",
+      "lat": 43.204, "lng": 141.0035, "confidence": "medium", "streets": true,
+      "scene": "雪の小樽で、もうひとりの「藤井樹」の物語が進む。石造りの古い建物が冬の町の記憶を映す。",
+      "look": "雪の白と石の灰色、わずかに青い冬の光。透明感のある淡い色。",
+      "sources": [
+        "https://www.cotaru.co/post/otaru-love-letter-locations"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
+        "highlight": -2, "shadow": 1, "color": -1, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["雪", "冬", "建築"] }
+    },
+    {
+      "id": "exchange-students-misode-tenmangu",
+      "title": "転校生", "titleEn": "I Are You, You Am Me", "year": 1982, "director": "大林宣彦",
+      "place": "御袖天満宮の石段", "city": "尾道", "country": "日本", "region": "asia",
+      "lat": 34.4108, "lng": 133.199, "confidence": "high", "streets": true,
+      "scene": "中学生の男女が長い石段を転げ落ち、心と体が入れ替わる。物語の始まりの場所。",
+      "look": "夏の緑と石段の灰色。やや色あせた 80 年代のフィルムの色。",
+      "sources": [
+        "https://tabi-mag.jp/hm0054/",
+        "https://press.moviewalker.jp/news/article/1005002/p3"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5900 }, "wbShift": { "r": 3, "b": -5 },
+        "highlight": -1, "shadow": -1, "color": -1, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["日中", "坂", "夏"] }
+    },
+    {
+      "id": "girl-who-leapt-takehara",
+      "title": "時をかける少女", "titleEn": "The Little Girl Who Conquered Time", "year": 1983, "director": "大林宣彦",
+      "place": "西方寺 普明閣（たけはら町並み保存地区）", "city": "竹原", "country": "日本", "region": "asia",
+      "lat": 34.3436, "lng": 132.9095, "confidence": "high", "streets": true,
+      "scene": "時間を跳ぶ少女の物語の舞台になった古い町並み。高台の堂から瓦屋根の連なりを見下ろす。",
+      "look": "瓦の灰色と白壁、落ち着いた夕方の光。淡くノスタルジック。",
+      "sources": [
+        "https://www.arukikata.co.jp/webmagazine/235552/",
+        "https://www.mlit.go.jp/tagengo-db/R2-01721.html"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 3, "b": -5 },
+        "highlight": -1, "shadow": -1, "color": -2, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["街", "日中", "昭和"] }
+    },
+    {
+      "id": "crying-out-love-aji-breakwater",
+      "title": "世界の中心で、愛をさけぶ", "titleEn": "Crying Out Love, in the Center of the World", "year": 2004, "director": "行定勲",
+      "place": "庵治漁港 王の下沖防波堤", "city": "高松", "country": "日本", "region": "asia",
+      "lat": 34.3746, "lng": 134.1603, "confidence": "high", "streets": false,
+      "scene": "高校生のサクとアキが夕日を眺めて語り合う長い防波堤。サクがここを走る場面も知られる。",
+      "look": "夕日の橙と海の青灰。逆光で柔らかく、少しかすんだ色。",
+      "sources": [
+        "https://tabi-mag.jp/ka0142/",
+        "https://www.toretabi.jp/zipangclub/page/meisaku004.html"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 7200 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["夕方", "海", "人物"] }
     }
   ]
 }
