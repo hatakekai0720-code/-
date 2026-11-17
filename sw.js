@@ -3,7 +3,7 @@
 // ・GitHub Pages では同じユーザーの全リポジトリが同一オリジンになるため、キャッシュ名は必ず xt3cine- で始め、
 //   削除するのも自分のキャッシュだけにする
 // ・ユーザーの画像はキャッシュしない（画像は fetch を通らず、ここに来ても ASSETS 以外は保存しない）
-const CACHE_VERSION = '2026-11-17.2';
+const CACHE_VERSION = '2026-11-17.3';
 const PREFIX = 'xt3cine-';
 const CACHE = `${PREFIX}${CACHE_VERSION}`;
 
@@ -37,6 +37,9 @@ const ASSETS = [
   './js/views/settings.js',
   './js/views/slots.js',
   './data/countries-50m.json',
+  './data/countries-10m.json',
+  './data/admin1-10m.json',
+  './data/places-10m.json',
   './data/lessons.json',
   './data/locations.json',
   './data/recipes-seed.json',

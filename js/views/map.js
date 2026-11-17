@@ -1,14 +1,16 @@
-// ④ 映画ロケ地ワールドマップ。Leaflet をタイル無しで使い、同梱の国境データだけを描く（外部通信なし）。
+// ④ 映画ロケ地ワールドマップ。Leaflet をタイル無しで使い、同梱の Natural Earth データだけを描く（外部通信なし）。
+// ズームで描くものを切り替える: 〜4.5 国境 50m / 4〜 県・州の境界線 / 5〜 国境・海岸線 10m / 6〜 主要都市名
 import { h, toast, sheet, confirmSheet, select } from '../ui/dom.js';
 import { paramSummary } from '../ui/recipe-ui.js';
 import { themeColors } from '../ui/theme.js';
-import { haversine, formatKm, formatLatLng, unwrapAntimeridian } from '../geo.js';
+import { haversine, formatKm, formatLatLng, unwrapAntimeridian, pickLabels } from '../geo.js';
 import { locationRecipe } from '../locations.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
 
 const CONF_LABEL = { high: '確度 高', medium: '確度 中' };
-const MIN_ZOOM = 1, MAX_ZOOM = 7; // 国・都市の位置が分かる程度まで
+const MIN_ZOOM = 1, MAX_ZOOM = 8; // 通常の最大ズーム（県・都市が分かる程度まで）
+export const LAYER_ZOOM = { admin1: 4, detail: 5, places: 6 }; // このズーム以上で表示
 
 /* ---- ライブラリとデータの読み込み（一度だけ） ---- */
 const loadScript = (src) => new Promise((resolve, reject) => {
@@ -31,6 +33,18 @@ function loadLibs() {
   libs.catch(() => { libs = null; });
   return libs;
 }
+// ズームしたときに初めて読み込む詳細データ（一度だけ）
+const detail = {};
+function loadDetail(key) {
+  const load = {
+    countries10m: () => fetch('data/countries-10m.json').then((r) => r.json()).then((t) => unwrapAntimeridian(window.topojson.feature(t, t.objects.countries))),
+    admin1: () => fetch('data/admin1-10m.json').then((r) => r.json()).then((t) => unwrapAntimeridian(window.topojson.feature(t, t.objects.admin1))),
+    places: () => fetch('data/places-10m.json').then((r) => r.json()).then((d) => d.places),
+  }[key];
+  detail[key] ??= load();
+  detail[key].catch(() => { delete detail[key]; });
+  return detail[key];
+}
 
 // 現在地はメモリだけに持つ（保存しない）
 let here = null;
@@ -52,6 +66,7 @@ export function render(root) {
     listEl);
 
   let map = null, L = null, locations = [], landLayer = null, pinLayer = null, hereLayer = null;
+  let land10Layer = null, adminLayer = null, labelLayer = null, places = null;
   const markers = new Map();
   let alive = true;
 
@@ -84,7 +99,11 @@ export function render(root) {
   function style() {
     const c = themeColors();
     mapEl.style.background = c.bg;
-    landLayer?.setStyle({ fillColor: c.card, fillOpacity: 1, color: c.line, weight: 1 });
+    const landStyle = { fillColor: c.card, fillOpacity: 1, color: c.line, weight: 1 };
+    landLayer?.setStyle(landStyle);
+    land10Layer?.setStyle(landStyle);
+    // 県・州の境界線は国境より目立たない細い破線
+    adminLayer?.setStyle({ color: c.muted, opacity: 0.35, weight: 0.6, dashArray: '3 3' });
     for (const [, m] of markers) m.setStyle(m.options.kind === 'loc'
       ? { color: c.bg, fillColor: c.accent, fillOpacity: 1, weight: 2 }
       : { color: c.accent, fillColor: c.bg, fillOpacity: 1, weight: 3 });
@@ -116,15 +135,69 @@ export function render(root) {
       preferCanvas: true, zoomSnap: 0.5, minZoom: MIN_ZOOM, maxZoom: MAX_ZOOM, worldCopyJump: true,
       maxBounds: [[-85, -400], [85, 400]], maxBoundsViscosity: 0.8,
       attributionControl: true, tapHold: true,
-    }).setView(saved ? [saved.lat, saved.lng] : [30, 60], saved ? saved.zoom : 1.5);
+    }).setView(saved ? [saved.lat, saved.lng] : [30, 60], saved ? Math.min(saved.zoom, MAX_ZOOM) : 1.5);
     map.attributionControl.setPrefix(false).addAttribution('Natural Earth');
-    landLayer = L.geoJSON(res.countries, { interactive: false }).addTo(map);
+    // 重なり順: 陸地（国境）→ 県・州の境界 →（街路）→ 都市名 → ピン
+    for (const [name, z] of [['ne-land', 200], ['ne-admin', 210], ['ne-labels', 390]]) map.createPane(name).style.zIndex = z;
+    map.getPane('ne-labels').style.pointerEvents = 'none';
+    renderers = { land: L.canvas({ pane: 'ne-land' }), admin: L.canvas({ pane: 'ne-admin' }) };
+    landLayer = L.geoJSON(res.countries, { interactive: false, renderer: renderers.land, pane: 'ne-land' }).addTo(map);
+    labelLayer = L.layerGroup([], { pane: 'ne-labels' });
     pinLayer = L.layerGroup().addTo(map);
     drawPins();
     if (here) showHere();
     map.on('contextmenu', (e) => addPin(e.latlng));
+    map.on('zoomend', updateLayers);
+    map.on('moveend', drawLabels);
+    updateLayers();
     map.on('moveend', () => { const c = map.getCenter(); store.setSetting('mapView', { lat: +c.lat.toFixed(4), lng: +c.lng.toFixed(4), zoom: map.getZoom() }); });
     drawList();
+  }
+
+  /* ---- ズームに応じた詳細レイヤー ---- */
+  let renderers = null;
+  function updateLayers() {
+    if (!map) return;
+    const z = map.getZoom();
+    // 国境・海岸線: ズーム 5 以上は 10m 版（読み込みが終わるまでは 50m 版のまま）
+    if (z >= LAYER_ZOOM.detail) {
+      loadDetail('countries10m').then((gj) => {
+        if (!alive || !map || map.getZoom() < LAYER_ZOOM.detail) return;
+        land10Layer ??= L.geoJSON(gj, { interactive: false, renderer: renderers.land, pane: 'ne-land' });
+        if (!map.hasLayer(land10Layer)) { land10Layer.addTo(map); landLayer.remove(); style(); }
+      }).catch(() => {});
+    } else if (land10Layer && map.hasLayer(land10Layer)) { landLayer.addTo(map); land10Layer.remove(); style(); }
+    // 県・州の境界線: ズーム 4 以上
+    if (z >= LAYER_ZOOM.admin1) {
+      loadDetail('admin1').then((gj) => {
+        if (!alive || !map || map.getZoom() < LAYER_ZOOM.admin1) return;
+        adminLayer ??= L.geoJSON(gj, { interactive: false, renderer: renderers.admin, pane: 'ne-admin' });
+        if (!map.hasLayer(adminLayer)) { adminLayer.addTo(map); style(); }
+      }).catch(() => {});
+    } else adminLayer?.remove();
+    // 都市名: ズーム 6 以上
+    if (z >= LAYER_ZOOM.places) {
+      loadDetail('places').then((p) => { places = p; if (alive) drawLabels(); }).catch(() => {});
+    } else drawLabels();
+  }
+
+  function drawLabels() {
+    if (!map || !labelLayer) return;
+    const z = map.getZoom();
+    labelLayer.clearLayers();
+    if (z < LAYER_ZOOM.places || !places) { labelLayer.remove(); return; }
+    const size = map.getSize();
+    const picked = pickLabels(places, (lat, lng) => map.latLngToContainerPoint([lat, lng]), {
+      zoom: z, width: size.x, height: size.y, centerLng: map.getCenter().lng, fontSize: 11,
+    });
+    for (const p of picked) {
+      const el = document.createElement('div');
+      el.className = `city-label${p.rank <= 2 ? ' major' : ''}`;
+      el.append(document.createElement('i'), Object.assign(document.createElement('span'), { textContent: p.name }));
+      el.title = p.nameEn;
+      L.marker([p.lat, p.lng], { icon: L.divIcon({ html: el, className: 'city-label-icon', iconSize: null, iconAnchor: [3, 7] }), interactive: false, keyboard: false, pane: 'ne-labels' }).addTo(labelLayer);
+    }
+    if (!map.hasLayer(labelLayer)) labelLayer.addTo(map);
   }
 
   function showHere() {

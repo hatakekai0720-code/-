@@ -1,0 +1,9 @@
+Natural Earth — public domain
+https://www.naturalearthdata.com/about/terms-of-use/
+
+data/admin1-10m.json  : ne_10m_admin_1_states_provinces_lines を mapshaper で簡略化（25%）した TopoJSON
+data/places-10m.json  : ne_10m_populated_places から位置・名前・表示ズーム・順位だけを抜き出したもの
+data/countries-10m.json: world-atlas@2.0.2（Natural Earth 10m 由来。ライセンスは world-atlas.LICENSE）
+作り直すときは scripts/build-natural-earth.sh を実行する。
+
+Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.
