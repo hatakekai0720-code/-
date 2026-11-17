@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { lessonRecipe, hasBody, rankOf, TOTAL } from '../js/lessons.js';
-import { validateRecipe } from '../js/xt3.js';
+import { validateRecipe, drWarning } from '../js/xt3.js';
 
 let count = 0;
 const test = (name, fn) => { fn(); count++; console.log('ok  ', name); };
@@ -30,7 +30,7 @@ test('本文がある回はスキーマどおり', () => {
     assert.ok(l.summary && l.theory && l.mission, `第${l.no}回`);
     assert.ok(Array.isArray(l.steps) && l.steps.length >= 3 && l.steps.every((s) => typeof s === 'string' && s), `第${l.no}回 steps`);
   }
-  for (const ch of [1, 2]) assert.ok(data.lessons.filter((l) => l.chapter === ch).every(hasBody), `第${ch}章は全回本文あり`);
+  for (const ch of [1, 2, 3]) assert.ok(data.lessons.filter((l) => l.chapter === ch).every(hasBody), `第${ch}章は全回本文あり`);
 });
 test('練習用レシピはすべて xt3.js の範囲内', () => {
   for (const l of data.lessons) {
@@ -38,6 +38,7 @@ test('練習用レシピはすべて xt3.js の範囲内', () => {
     if (!l.recipe) { assert.equal(r, null); continue; }
     assert.deepEqual(validateRecipe(r), [], `第${l.no}回`);
     assert.equal(r.source, 'lesson'); assert.equal(r.sourceRef, l.no);
+    assert.notEqual(drWarning(r)?.level, 'warn', `第${l.no}回: ${drWarning(r)?.text}`);
   }
 });
 test('X-T3 に無い機能をレシピ・手順として扱っていない', () => {

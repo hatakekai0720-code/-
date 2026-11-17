@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { haversine, formatKm, formatLatLng, unwrapAntimeridian } from '../js/geo.js';
 import { locationRecipe } from '../js/locations.js';
-import { validateRecipe } from '../js/xt3.js';
+import { validateRecipe, drWarning } from '../js/xt3.js';
 
 const near = (v, want, tol, msg) => assert.ok(Math.abs(v - want) <= tol, `${msg}: ${v} (期待 ${want}±${tol})`);
 let count = 0;
@@ -43,6 +43,7 @@ test('ロケ地: 必須項目・座標・confidence・ID 重複なし', () => {
 });
 test('ロケ地: 推定レシピはすべて xt3.js の範囲内', () => {
   for (const l of locs) assert.deepEqual(validateRecipe(locationRecipe(l)), [], l.id);
+  for (const l of locs) assert.notEqual(drWarning(locationRecipe(l))?.level, 'warn', l.id);
 });
 test('日付変更線をまたぐリングを連続化', () => {
   const g = { type: 'Feature', geometry: { type: 'Polygon', coordinates: [[[178, 0], [-178, 0], [-178, 2], [178, 2], [178, 0]]] } };
