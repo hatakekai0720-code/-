@@ -1,0 +1,18 @@
+{
+  "name": "X-T3 Cinematic Lab",
+  "short_name": "X-T3 Lab",
+  "description": "FUJIFILM X-T3 のレシピ管理・画像解析・ロケ地マップ・撮影講座。完全オフラインで動作します。",
+  "lang": "ja",
+  "start_url": "./#/analyze",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
