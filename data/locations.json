@@ -2491,6 +2491,406 @@
         "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": -1, "shadow": 1, "color": -2, "sharpness": 0, "nr": -3,
         "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["建築", "湖", "70年代"] }
+    },
+    {
+      "id": "harry-potter-leadenhall-market",
+      "title": "ハリー・ポッターと賢者の石", "titleEn": "Harry Potter and the Philosopher's Stone", "year": 2001, "director": "クリス・コロンバス",
+      "place": "レドンホール・マーケット（漏れ鍋の入口）", "city": "ロンドン", "country": "イギリス", "region": "europe",
+      "lat": 51.5128, "lng": -0.0835, "confidence": "high", "streets": true,
+      "scene": "ハリーとハグリッドが魔法界の酒場「漏れ鍋」へ入る。ガラス屋根のアーケードの小道にある店の扉が入口になった。",
+      "look": "ガラス屋根から落ちる柔らかい光、深い赤と金の装飾。",
+      "sources": [
+        "https://leadenhallmarket.co.uk/?p=181",
+        "https://timeout.com/london/news/london-on-screen-the-leaky-cauldron-from-harry-potter-and-the-philosophers-stone-070318"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 2, "b": -3 },
+        "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["アーケード", "街", "ファンタジー"] }
+    },
+    {
+      "id": "paddington-chalcot-crescent",
+      "title": "パディントン", "titleEn": "Paddington", "year": 2014, "director": "ポール・キング",
+      "place": "チャルコット・クレセント（ウィンザー・ガーデンズ）", "city": "ロンドン", "country": "イギリス", "region": "europe",
+      "lat": 51.5417, "lng": -0.1555, "confidence": "high", "streets": true,
+      "scene": "ペルーから来たクマを迎え入れるブラウン家がある、色とりどりの家が並ぶ通り。",
+      "look": "パステルの家並みと青空。明るく可愛らしい色。",
+      "sources": [
+        "https://content.filmfixer.co.uk/2017/11/06/paddingtons-back-home-chalcot-crescent/",
+        "https://movie-locations.com/movies/p/Paddington.php"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
+        "highlight": -2, "shadow": -2, "color": 2, "sharpness": -1, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["住宅", "街", "家族"] }
+    },
+    {
+      "id": "harry-potter-alnwick-castle",
+      "title": "ハリー・ポッターと賢者の石", "titleEn": "Harry Potter and the Philosopher's Stone", "year": 2001, "director": "クリス・コロンバス",
+      "place": "アニック城（外郭）", "city": "アニック", "country": "イギリス", "region": "europe",
+      "lat": 55.4157, "lng": -1.7058, "confidence": "high", "streets": true,
+      "scene": "ホグワーツの生徒たちが初めてほうきで飛ぶ授業を受ける城の中庭。",
+      "look": "石の城壁と芝の緑、曇り空の柔らかい光。",
+      "sources": [
+        "https://www.alnwickcastle.com/explore/on-screen/harry-potter",
+        "https://www.imdb.com/title/tt0241527/locations"
+      ],
+      "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 0, "b": -2 },
+        "highlight": -1, "shadow": 0, "color": 0, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["城", "日中", "ファンタジー"] }
+    },
+    {
+      "id": "chamber-of-secrets-glenfinnan-viaduct",
+      "title": "ハリー・ポッターと秘密の部屋", "titleEn": "Harry Potter and the Chamber of Secrets", "year": 2002, "director": "クリス・コロンバス",
+      "place": "グレンフィナン高架橋", "city": "グレンフィナン", "country": "イギリス", "region": "europe",
+      "lat": 56.8763, "lng": -5.4318, "confidence": "high", "streets": false,
+      "scene": "空飛ぶ車に乗ったハリーとロンが、学校へ向かう蒸気機関車を追って弧を描く高架橋のそばを飛ぶ。",
+      "look": "ハイランドの緑の山と灰色の空、石造りのアーチ。",
+      "sources": [
+        "https://www.belmond.com/ideas/articles/harry-potter-glenfinnan-viaduct",
+        "https://www.livebreathescotland.com/harry-potter-scotland/"
+      ],
+      "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 0, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["橋", "山", "鉄道"] }
+    },
+    {
+      "id": "trainspotting-princes-street",
+      "title": "トレインスポッティング", "titleEn": "Trainspotting", "year": 1996, "director": "ダニー・ボイル",
+      "place": "プリンセス・ストリート", "city": "エディンバラ", "country": "イギリス", "region": "europe",
+      "lat": 55.9526, "lng": -3.1985, "confidence": "high", "streets": true,
+      "scene": "冒頭、万引きした若者たちが警備員に追われて大通りを全力で駆け下りる。",
+      "look": "灰色の街と強いコントラスト、少し緑がかった色。荒々しい 90 年代。",
+      "sources": [
+        "https://www.filmedinburgh.org/Filmed-Here/Trainspotting",
+        "https://movie-locations.com/movies/t/Trainspotting.php"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -1, "b": -1 },
+        "highlight": -1, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["街", "朝", "疾走"] }
+    },
+    {
+      "id": "skyfall-glen-etive",
+      "title": "007 スカイフォール", "titleEn": "Skyfall", "year": 2012, "director": "サム・メンデス",
+      "place": "グレン・エティブ（ダルネスへの道）", "city": "ハイランド", "country": "イギリス", "region": "europe",
+      "lat": 56.638, "lng": -4.9, "confidence": "high", "streets": false,
+      "scene": "ボンドが M を連れて故郷へ向かう途中、車を止めて霧の山々を見つめる。",
+      "look": "霧に包まれた山の灰緑、冷たく沈んだ色。",
+      "sources": [
+        "https://www.visitscotland.com/places-to-go/film-tv/skyfall",
+        "https://www.thejamesbonddossier.com/films/skyfall/locations.htm"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
+        "highlight": -1, "shadow": 1, "color": -2, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["山", "霧", "車"] }
+    },
+    {
+      "id": "da-vinci-code-rosslyn-chapel",
+      "title": "ダ・ヴィンチ・コード", "titleEn": "The Da Vinci Code", "year": 2006, "director": "ロン・ハワード",
+      "place": "ロスリン礼拝堂", "city": "ロスリン", "country": "イギリス", "region": "europe",
+      "lat": 55.8555, "lng": -3.1602, "confidence": "high", "streets": false,
+      "scene": "謎を追うふたりが最後にたどり着く、彫刻に覆われた古い礼拝堂。",
+      "look": "暗い石と蝋燭の暖色、細かな彫刻の影。",
+      "sources": [
+        "https://www.rosslynchapel.com/about/the-da-vinci-code-at-rosslyn/",
+        "https://www.filmedinburgh.org/Filmed-Here/The-Da-Vinci-Code"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 1, "color": -1, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["教会", "室内", "ミステリー"] }
+    },
+    {
+      "id": "force-awakens-skellig-michael",
+      "title": "スター・ウォーズ／フォースの覚醒", "titleEn": "Star Wars: The Force Awakens", "year": 2015, "director": "J・J・エイブラムス",
+      "place": "スケリッグ・マイケル", "city": "ケリー州", "country": "アイルランド", "region": "europe",
+      "lat": 51.7712, "lng": -10.5395, "confidence": "high", "streets": false,
+      "scene": "最後の場面で、レイが海に浮かぶ岩山の石段を登り、隠れ住む伝説の人物と向き合う。",
+      "look": "深い緑の苔と灰色の岩、荒れた海。冷たく神秘的な色。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Skellig_Islands",
+        "https://irishtimes.com/culture/film/jj-abrams-can-t-believe-filming-allowed-on-skellig-michael-1.2484598"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -1, "b": 2 },
+        "highlight": -1, "shadow": 2, "color": -2, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["島", "海", "SF"] }
+    },
+    {
+      "id": "banshees-inisherin-achill",
+      "title": "イニシェリン島の精霊", "titleEn": "The Banshees of Inisherin", "year": 2022, "director": "マーティン・マクドナー",
+      "place": "アキル島 クラウモア（パブのセットがあった場所）", "city": "メイヨー州", "country": "アイルランド", "region": "europe",
+      "lat": 53.882, "lng": -9.99, "confidence": "high", "streets": false,
+      "scene": "島の男ふたりの友情が突然終わる物語。崖の上にパブのセットが建てられ、撮影後に撤去された。",
+      "look": "草の緑と石垣、曇り空。くすんだ素朴な色。",
+      "sources": [
+        "https://www.countryandtownhouse.com/travel/the-banshees-of-inisherin-filming-locations",
+        "https://www.discoverireland.ie/wild-atlantic-way/banshees-of-inisherin-filming-locations"
+      ],
+      "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 0, "b": -2 },
+        "highlight": -1, "shadow": 0, "color": -1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["島", "曇り", "風景"] }
+    },
+    {
+      "id": "midnight-in-paris-saint-etienne-du-mont",
+      "title": "ミッドナイト・イン・パリ", "titleEn": "Midnight in Paris", "year": 2011, "director": "ウディ・アレン",
+      "place": "サンテティエンヌ・デュ・モン教会の階段", "city": "パリ", "country": "フランス", "region": "europe",
+      "lat": 48.8463, "lng": 2.348, "confidence": "high", "streets": true,
+      "scene": "真夜中、教会の階段に座るギルの前に古い車が現れ、1920 年代のパリへ連れて行く。",
+      "look": "夜の石畳と街灯の黄金色。暖かくノスタルジックな夜。",
+      "sources": [
+        "https://www.thelocal.fr/20170328/the-ten-coolest-movie-scene-locations-in-paris",
+        "https://www.untappedcities.com/film-locations-10-highlights-from-woody-allens-midnight-in-paris/"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 4, "b": -5 },
+        "highlight": -1, "shadow": 0, "color": 1, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "教会", "街"] }
+    },
+    {
+      "id": "breathless-champs-elysees",
+      "title": "勝手にしやがれ", "titleEn": "Breathless", "year": 1960, "director": "ジャン＝リュック・ゴダール",
+      "place": "シャンゼリゼ通り（ベリ通りの角付近）", "city": "パリ", "country": "フランス", "region": "europe",
+      "lat": 48.8716, "lng": 2.3035, "confidence": "high", "streets": true,
+      "scene": "新聞を売り歩くパトリシアに、ミシェルが通りで声をかける。手持ちカメラでの街頭撮影。",
+      "look": "白黒の明るい街頭、自然光の軽やかな階調。",
+      "sources": [
+        "https://bfi.org.uk/features/locations-jean-luc-godard-breathless",
+        "https://bonjourparis.com/history/behind-scene-champs-elysees-breathless-and-beyond/"
+      ],
+      "recipe": { "filmSim": "monochrome", "monoFilter": "none", "dr": "dr200", "grain": "strong", "colorChrome": "off",
+        "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
+        "highlight": 1, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["モノクロ", "街", "人物"] }
+    },
+    {
+      "id": "last-tango-bir-hakeim",
+      "title": "ラストタンゴ・イン・パリ", "titleEn": "Last Tango in Paris", "year": 1972, "director": "ベルナルド・ベルトルッチ",
+      "place": "ビル・アケム橋", "city": "パリ", "country": "フランス", "region": "europe",
+      "lat": 48.8555, "lng": 2.2876, "confidence": "high", "streets": true,
+      "scene": "冒頭、高架鉄道の下の歩道で、見知らぬ男女がすれ違う。",
+      "look": "冬の柔らかい橙の光、くすんだ青。暖かく濁った色。",
+      "sources": [
+        "https://bernardobertolucci.org/cinquantanni-fa-a-parigi/?lang=en",
+        "https://www.movie-locations.com/movies/l/Last-Tango-In-Paris.php"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4500 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -2, "shadow": 0, "color": 0, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["橋", "冬", "街"] }
+    },
+    {
+      "id": "before-sunset-shakespeare-and-company",
+      "title": "ビフォア・サンセット", "titleEn": "Before Sunset", "year": 2004, "director": "リチャード・リンクレイター",
+      "place": "シェイクスピア・アンド・カンパニー書店", "city": "パリ", "country": "フランス", "region": "europe",
+      "lat": 48.8526, "lng": 2.3471, "confidence": "high", "streets": true,
+      "scene": "作家になったジェシーのサイン会に、9 年ぶりにセリーヌが現れる。",
+      "look": "本の背表紙の色と午後の柔らかい光。自然で温かい色。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Before_Sunset",
+        "https://movie-locations.com/movies/b/Before-Sunset.php"
+      ],
+      "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["書店", "室内", "人物"] }
+    },
+    {
+      "id": "da-vinci-code-louvre",
+      "title": "ダ・ヴィンチ・コード", "titleEn": "The Da Vinci Code", "year": 2006, "director": "ロン・ハワード",
+      "place": "ルーヴル美術館 ピラミッド", "city": "パリ", "country": "フランス", "region": "europe",
+      "lat": 48.8611, "lng": 2.3358, "confidence": "high", "streets": true,
+      "scene": "館長の死をきっかけに謎解きが始まる美術館。夜のガラスのピラミッドが印象的。",
+      "look": "夜のピラミッドの青白い光と石の金色。",
+      "sources": [
+        "https://www.movie-locations.com/movies/d/Da-Vinci-Code.php",
+        "https://en.wikipedia.org/wiki/The_Da_Vinci_Code_(film)"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 4500 }, "wbShift": { "r": 1, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "美術館", "ミステリー"] }
+    },
+    {
+      "id": "umbrellas-of-cherbourg-rue-du-port",
+      "title": "シェルブールの雨傘", "titleEn": "The Umbrellas of Cherbourg", "year": 1964, "director": "ジャック・ドゥミ",
+      "place": "傘店の建物（13 Rue du Port）", "city": "シェルブール", "country": "フランス", "region": "europe",
+      "lat": 49.6408, "lng": -1.6243, "confidence": "high", "streets": true,
+      "scene": "ヒロインと母が営む傘の店。全編が歌で進む恋の物語の中心になる。",
+      "look": "ピンクや青に塗り分けた壁と色とりどりの傘。強いパステル。",
+      "sources": [
+        "https://lwlies.com/articles/on-location-the-umbrellas-of-cherbourg-jacques-demy",
+        "https://www.reelstreets.com/films/umbrellas-of-cherbourg-the-les-parapluies-de-cherbourg/"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
+        "highlight": -2, "shadow": -2, "color": 3, "sharpness": -1, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["店", "雨", "ミュージカル"] }
+    },
+    {
+      "id": "young-girls-rochefort-place-colbert",
+      "title": "ロシュフォールの恋人たち", "titleEn": "The Young Girls of Rochefort", "year": 1967, "director": "ジャック・ドゥミ",
+      "place": "コルベール広場", "city": "ロシュフォール", "country": "フランス", "region": "europe",
+      "lat": 45.9373, "lng": -0.9612, "confidence": "high", "streets": true,
+      "scene": "双子の姉妹が暮らす港町の広場で、人々が歌い踊る。撮影のために周囲の建物の壁が塗り直された。",
+      "look": "白い壁と原色の衣装、明るい夏の光。軽やかなパステル。",
+      "sources": [
+        "https://www.lalibre.be/culture/cinema/2017/10/02/les-demoiselles-de-rochefort-ont-eu-50-ans-4MO2VLGKDRGIDJFIOMJVRAA6S4/",
+        "https://tcm.com/articles/international/1200602/the-young-girls-of-rochefort-1967"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
+        "highlight": -2, "shadow": -2, "color": 2, "sharpness": -1, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["広場", "夏", "ミュージカル"] }
+    },
+    {
+      "id": "a-man-and-a-woman-deauville",
+      "title": "男と女", "titleEn": "A Man and a Woman", "year": 1966, "director": "クロード・ルルーシュ",
+      "place": "ドーヴィルの浜辺", "city": "ドーヴィル", "country": "フランス", "region": "europe",
+      "lat": 49.3612, "lng": 0.0712, "confidence": "high", "streets": true,
+      "scene": "子どもを寄宿学校に預ける男女が出会い、冬の浜辺を犬と歩く。",
+      "look": "セピアや青に染めた白黒とカラーの切り替え。冬の海の淡い光。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/A_Man_and_a_Woman",
+        "https://en.normandie-tourisme.fr/ten-films-shot-in-normandy/"
+      ],
+      "recipe": { "filmSim": "sepia", "monoFilter": null, "dr": "dr200", "grain": "weak", "colorChrome": "off",
+        "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
+        "highlight": -1, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["海", "冬", "セピア"] }
+    },
+    {
+      "id": "dunkirk-malo-les-bains",
+      "title": "ダンケルク", "titleEn": "Dunkirk", "year": 2017, "director": "クリストファー・ノーラン",
+      "place": "マロ・レ・バンの浜辺と東の防波堤", "city": "ダンケルク", "country": "フランス", "region": "europe",
+      "lat": 51.0545, "lng": 2.376, "confidence": "high", "streets": true,
+      "scene": "撤退を待つ兵士が長い列をつくる浜辺と防波堤。実際の撤退が行われた浜で撮影された。",
+      "look": "曇天の灰青と砂の色、低彩度。冷たく張りつめた色。",
+      "sources": [
+        "https://www.completefrance.com/travel/holidays/locations-from-the-dunkirk-film-that-you-can-visit-6284136/",
+        "https://www.movie-locations.com/movies/d/Dunkirk-2017.php"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
+        "highlight": -1, "shadow": 1, "color": -3, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["海", "戦争", "曇り"] }
+    },
+    {
+      "id": "in-bruges-belfry",
+      "title": "ヒットマンズ・レクイエム", "titleEn": "In Bruges", "year": 2008, "director": "マーティン・マクドナー",
+      "place": "鐘楼（ベルフォート）", "city": "ブルージュ", "country": "ベルギー", "region": "europe",
+      "lat": 51.2085, "lng": 3.2248, "confidence": "high", "streets": true,
+      "scene": "身を隠すことになった殺し屋ふたりが、中世の町の鐘楼に登る。",
+      "look": "冬のレンガの赤茶と灰色の空。くすんだ中世の色。",
+      "sources": [
+        "https://screenflanders.be/en/locations/database/belfry/",
+        "https://www.movie-locations.com/movies/i/In-Bruges.php"
+      ],
+      "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5200 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["街", "冬", "塔"] }
+    },
+    {
+      "id": "fault-in-our-stars-leidsegracht",
+      "title": "きっと、星のせいじゃない。", "titleEn": "The Fault in Our Stars", "year": 2014, "director": "ジョシュ・ブーン",
+      "place": "ライツェグラハトのベンチ", "city": "アムステルダム", "country": "オランダ", "region": "europe",
+      "lat": 52.3683, "lng": 4.8858, "confidence": "high", "streets": true,
+      "scene": "アムステルダムを訪れたふたりが、運河沿いのベンチで大切な話をする。",
+      "look": "運河の緑と木漏れ日、柔らかい曇り光。淡くやさしい色。",
+      "sources": [
+        "https://www.solosophie.com/film-locations-the-fault-in-our-stars-in-amsterdam/",
+        "https://nltimes.nl/2014/07/01/adam-oks-fault-stars-bench"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
+        "highlight": -2, "shadow": -2, "color": 0, "sharpness": -1, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["運河", "街", "人物"] }
+    },
+    {
+      "id": "godfather-bar-vitelli",
+      "title": "ゴッドファーザー", "titleEn": "The Godfather", "year": 1972, "director": "フランシス・フォード・コッポラ",
+      "place": "バール・ヴィテッリ", "city": "サヴォカ", "country": "イタリア", "region": "europe",
+      "lat": 37.9555, "lng": 15.3396, "confidence": "high", "streets": false,
+      "scene": "シチリアに身を隠したマイケルが、店主にその娘との交際を申し込む丘の上の村のバール。",
+      "look": "強い日差しと白い石壁、黄土色の大地。乾いた暖色。",
+      "sources": [
+        "https://faroutmagazine.co.uk/visit-the-sicilian-filming-locations-the-godfather/",
+        "https://www.ctvnews.ca/entertainment/article/the-godfather-descended-on-a-tiny-sicilian-village-and-its-never-been-the-same/"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6200 }, "wbShift": { "r": 3, "b": -5 },
+        "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["村", "夏", "日中"] }
+    },
+    {
+      "id": "cinema-paradiso-palazzo-adriano",
+      "title": "ニュー・シネマ・パラダイス", "titleEn": "Cinema Paradiso", "year": 1988, "director": "ジュゼッペ・トルナトーレ",
+      "place": "パラッツォ・アドリアーノのウンベルト 1 世広場", "city": "パラッツォ・アドリアーノ", "country": "イタリア", "region": "europe",
+      "lat": 37.6818, "lng": 13.3784, "confidence": "high", "streets": false,
+      "scene": "少年トトが映写技師と出会う村の広場。映画館の正面はこの広場に建てたセットだった。",
+      "look": "乾いた石の黄色と夕方の柔らかい光。懐かしく温かい色。",
+      "sources": [
+        "https://movie-locations.com/movies/c/Cinema-Paradiso.php",
+        "https://italyformovies.com/film-serie-tv-games/detail/6903/cinema-paradiso"
+      ],
+      "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 2, "b": -3 },
+        "highlight": -1, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["広場", "村", "ノスタルジー"] }
+    },
+    {
+      "id": "malena-siracusa-piazza-duomo",
+      "title": "マレーナ", "titleEn": "Malèna", "year": 2000, "director": "ジュゼッペ・トルナトーレ",
+      "place": "シラクーサのドゥオーモ広場", "city": "シラクーサ", "country": "イタリア", "region": "europe",
+      "lat": 37.0596, "lng": 15.2934, "confidence": "high", "streets": true,
+      "scene": "町中の視線を集める女性が、白い石の広場を横切って歩く。少年がその姿を見つめる。",
+      "look": "白い大理石と夏の強い光。明るく暖かい色。",
+      "sources": [
+        "https://www.italyformovies.com/location/detail/18460/piazza-duomo-siracusa",
+        "https://www.davinotti.com/forum/location-verificate/malena-2000"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 2, "b": -3 },
+        "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["広場", "夏", "人物"] }
+    },
+    {
+      "id": "roman-holiday-spanish-steps",
+      "title": "ローマの休日", "titleEn": "Roman Holiday", "year": 1953, "director": "ウィリアム・ワイラー",
+      "place": "スペイン階段", "city": "ローマ", "country": "イタリア", "region": "europe",
+      "lat": 41.9058, "lng": 12.4823, "confidence": "high", "streets": true,
+      "scene": "髪を短く切った王女が、階段に座ってジェラートを食べ、新聞記者と再会する。",
+      "look": "白黒の明るい午後。柔らかな中間調。",
+      "sources": [
+        "https://www.bfi.org.uk/features/roman-holiday-rome-locations-audrey-hepburn-gregory-peck",
+        "https://movie-locations.com/movies/r/Roman-Holiday.php"
+      ],
+      "recipe": { "filmSim": "monochrome", "monoFilter": "none", "dr": "dr200", "grain": "weak", "colorChrome": "off",
+        "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
+        "highlight": 0, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["モノクロ", "階段", "日中"] }
+    },
+    {
+      "id": "great-beauty-acqua-paola",
+      "title": "グレート・ビューティー／追憶のローマ", "titleEn": "The Great Beauty", "year": 2013, "director": "パオロ・ソレンティーノ",
+      "place": "アックア・パオラの泉（ジャニコロの丘）", "city": "ローマ", "country": "イタリア", "region": "europe",
+      "lat": 41.8889, "lng": 12.4661, "confidence": "high", "streets": true,
+      "scene": "冒頭、丘の上の白い大噴水の前に観光客が集まり、カメラがゆっくりと漂う。",
+      "look": "大理石の白と午後の金色の光。豊かで華やかな色。",
+      "sources": [
+        "https://www.lonelyplanet.com/points-of-interest/fontana-dellacqua-paola/389943",
+        "https://www.italyformovies.com/location/detail/16119/fountain-of-acqua-paola-roma"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 3, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["噴水", "日中", "街"] }
     }
   ]
 }
