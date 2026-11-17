@@ -166,6 +166,7 @@ export function validateDb(obj) {
 function sanitizeSettings(s) {
   const out = {};
   if (s.seeded === true) out.seeded = true;
+  if (s.theme === 'light' || s.theme === 'dark') out.theme = s.theme;
   if (Array.isArray(s.qmenuOrder) && s.qmenuOrder.length === 16 && s.qmenuOrder.every((k) => typeof k === 'string' && k.length < 20)) out.qmenuOrder = [...s.qmenuOrder];
   return out;
 }

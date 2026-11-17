@@ -1,6 +1,8 @@
 // ルーティング（ハッシュ）と下部ナビ
 import * as store from './store.js';
 import { closeSheets, toast } from './ui/dom.js';
+import { applyTheme } from './ui/theme.js';
+import * as compare from './views/compare.js';
 import * as analyze from './views/analyze.js';
 import * as recipes from './views/recipes.js';
 import * as recipeDetail from './views/recipe-detail.js';
@@ -17,13 +19,14 @@ const ROUTES = [
   { re: /^\/recipes\/new$/, view: recipeEdit, tab: 'recipes', title: '新規レシピ', back: '#/recipes' },
   { re: /^\/recipes\/([^/]+)\/edit$/, view: recipeEdit, tab: 'recipes', title: 'レシピを編集', back: '#/recipes' },
   { re: /^\/recipes\/([^/]+)$/, view: recipeDetail, tab: 'recipes', title: 'レシピ詳細', back: '#/recipes' },
+  { re: /^\/compare$/, view: compare, tab: 'recipes', title: 'ビフォーアフター比較', back: '#/recipes' },
   { re: /^\/qmenu\/([^/]+)$/, view: qmenu, tab: 'recipes', title: 'Qメニュー', fullscreen: true },
   { re: /^\/map$/, view: map, tab: 'map', title: 'ロケ地マップ' },
   { re: /^\/academy$/, view: academy, tab: 'academy', title: '撮影講座' },
   { re: /^\/slots$/, view: slots, tab: 'slots', title: 'C1〜C7 スロット' },
-  { re: /^\/settings$/, view: settings, tab: null, title: '設定', back: '#/recipes' },
+  { re: /^\/settings$/, view: settings, tab: null, title: '設定', back: '#/analyze' },
 ];
-const DEFAULT = '#/recipes';
+const DEFAULT = '#/analyze';
 
 const viewEl = document.getElementById('view');
 const titleEl = document.getElementById('page-title');
@@ -63,6 +66,7 @@ function route() {
 }
 
 const boot = store.init();
+applyTheme();
 if (boot.corrupt) toast('保存データが壊れていたため初期化しました', 5000);
 await store.seedIfNeeded();
 window.addEventListener('hashchange', route);

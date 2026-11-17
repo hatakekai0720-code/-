@@ -1,5 +1,6 @@
 // 設定（ヘッダーの歯車）: エクスポート / インポート、保存容量、Qメニュー配置リセット
-import { h, toast, sheet, confirmSheet } from '../ui/dom.js';
+import { h, toast, sheet, confirmSheet, select } from '../ui/dom.js';
+import { applyTheme, THEMES } from '../ui/theme.js';
 import * as store from '../store.js';
 
 export function render(root) {
@@ -34,7 +35,7 @@ export function render(root) {
     const inc = res.db;
     const apply = (mode, close) => {
       const ok = store.importData(inc, mode);
-      close(); toast(ok ? 'インポートしました' : '保存できませんでした'); redraw();
+      close(); applyTheme(); toast(ok ? 'インポートしました' : '保存できませんでした'); redraw();
     };
     sheet('インポート方法を選択', (close) => [
       h('p', { class: 'muted small', style: 'margin-bottom:12px' }, 'ファイルの内容: レシピ ', h('span', { class: 'num' }, inc.recipes.length), ' 件 / ピン ', h('span', { class: 'num' }, inc.pins.length), ' 件 / 講座完了 ', h('span', { class: 'num' }, inc.academy.completed.length), ' 回'),
@@ -46,7 +47,12 @@ export function render(root) {
   } });
 
   root.append(
-    h('div', { class: 'section-title', style: 'margin-top:0' }, 'データ'),
+    h('div', { class: 'section-title', style: 'margin-top:0' }, '表示'),
+    h('div', { class: 'card' },
+      h('div', { class: 'field', style: 'padding-top:0' }, h('div', { class: 'label' }, 'テーマ'),
+        select(THEMES, store.getSetting('theme') || 'auto', (v) => { store.setSetting('theme', v === 'auto' ? undefined : v); applyTheme(); }, { 'aria-label': 'テーマ' }),
+        h('div', { class: 'hint' }, '「自動」は端末の設定に合わせます。Qメニュー表示は屋外での見やすさのため常にダークです。'))),
+    h('div', { class: 'section-title' }, 'データ'),
     h('div', { class: 'card stack' },
       h('p', { class: 'small muted' }, 'レシピ・スロット・ピン・講座の進捗を 1 つの JSON ファイルに書き出します。画像は含まれません。'),
       h('button', { type: 'button', class: 'btn', onclick: doExport }, 'エクスポート（JSON を保存）'),
@@ -55,8 +61,8 @@ export function render(root) {
     h('div', { class: 'section-title' }, '保存容量'),
     h('div', { class: 'card' },
       h('div', { class: 'num', style: 'font-size:18px' }, `${(u.bytes / 1024).toFixed(1)} KB`, h('span', { class: 'muted', style: 'font-size:13px' }, ` / 約 ${(u.quota / 1024 / 1024).toFixed(0)} MB（${(u.ratio * 100).toFixed(2)}%）`)),
-      h('div', { style: 'height:4px;background:#2a2a2a;border-radius:2px;margin-top:8px;overflow:hidden' },
-        h('div', { style: `height:100%;width:${Math.min(100, Math.max(u.bytes ? 1 : 0, u.ratio * 100))}%;background:#f59e0b` })),
+      h('div', { style: 'height:4px;background:var(--line);border-radius:2px;margin-top:8px;overflow:hidden' },
+        h('div', { style: `height:100%;width:${Math.min(100, Math.max(u.bytes ? 1 : 0, u.ratio * 100))}%;background:var(--accent-bg)` })),
       h('p', { class: 'small muted', style: 'margin-top:8px' }, 'レシピ ', h('span', { class: 'num' }, store.recipes().length), ' 件。上限はブラウザによって異なる目安です。')),
     h('div', { class: 'section-title' }, 'Qメニュー'),
     h('div', { class: 'card stack' },
@@ -66,7 +72,7 @@ export function render(root) {
     h('div', { class: 'card' },
       h('button', { type: 'button', class: 'btn danger block', onclick: async () => {
         if (await confirmSheet('全データを削除', 'レシピ・スロット・ピン・進捗をすべて削除します。元に戻せません。先にエクスポートしておくことをおすすめします。', '全て削除', true)) {
-          store.resetAll(); toast('削除しました'); redraw();
+          store.resetAll(); applyTheme(); toast('削除しました'); redraw();
         }
       } }, '全データを削除')));
 }

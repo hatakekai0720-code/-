@@ -44,6 +44,8 @@ export function render(root) {
     h('div', { style: 'margin-bottom:8px' },
       select([{ id: '', label: 'すべてのフィルムシミュレーション' }, ...X.FILM_SIMS], state.film, (v) => { state.film = v; draw(); }, { 'aria-label': 'フィルムシミュレーションで絞り込み' })),
     allTags.length ? tagRow : null,
-    count, list);
+    count, list,
+    h('div', { class: 'section-title' }, 'ツール'),
+    h('a', { class: 'btn block', href: '#/compare' }, 'ビフォーアフター比較（2 枚の画像を見比べる）'));
   draw();
 }
