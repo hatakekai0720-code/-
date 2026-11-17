@@ -4709,7 +4709,7 @@
       "id": "fault-in-our-stars-leidsegracht",
       "title": "きっと、星のせいじゃない。", "titleEn": "The Fault in Our Stars", "year": 2014, "director": "ジョシュ・ブーン",
       "place": "ライツェグラハトのベンチ", "city": "アムステルダム", "country": "オランダ", "region": "europe",
-      "lat": 52.3683, "lng": 4.8858, "confidence": "high", "streets": true,
+      "lat": 52.3683, "lng": 4.8858, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "アムステルダムを訪れたふたりが、運河沿いのベンチで大切な話をする。",
       "look": "運河の緑と木漏れ日、柔らかい曇り光。淡くやさしい色。",
       "sources": [
@@ -4719,29 +4719,49 @@
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
         "highlight": -2, "shadow": -2, "color": 0, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["運河", "街", "人物"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["運河", "街", "人物"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "病を抱える16歳のヘイゼルが、患者の会で出会ったガスと恋に落ち、好きな小説の作者に会うためアムステルダムへ向かう。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": "曇り",
+      "guide": { "focal": "53mm（XF35mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": null,
+      "lessons": [33], "palette": ["#5a8a4f", "#7a5a3a", "#8a8a88", "#f3e3d6", "#e7b8a8"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "godfather-bar-vitelli",
       "title": "ゴッドファーザー", "titleEn": "The Godfather", "year": 1972, "director": "フランシス・フォード・コッポラ",
       "place": "バール・ヴィテッリ", "city": "サヴォカ", "country": "イタリア", "region": "europe",
-      "lat": 37.9555, "lng": 15.3396, "confidence": "high", "streets": false,
+      "lat": 37.9555, "lng": 15.3396, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "シチリアに身を隠したマイケルが、店主にその娘との交際を申し込む丘の上の村のバール。",
       "look": "強い日差しと白い石壁、黄土色の大地。乾いた暖色。",
       "sources": [
         "https://faroutmagazine.co.uk/visit-the-sicilian-filming-locations-the-godfather/",
-        "https://www.ctvnews.ca/entertainment/article/the-godfather-descended-on-a-tiny-sicilian-village-and-its-never-been-the-same/"
+        "https://www.ctvnews.ca/entertainment/article/the-godfather-descended-on-a-tiny-sicilian-village-and-its-never-been-the-same/",
+        "https://eiga.com/movie/44529/",
+        "https://www.britannica.com/topic/The-Godfather-film-by-Coppola"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6200 }, "wbShift": { "r": 3, "b": -5 },
         "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["村", "夏", "日中"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["村", "夏", "日中"] },
+      "cinematographer": "ゴードン・ウィリス", "genre": null,
+      "cast": [{ "name": "マーロン・ブランド", "role": "ビトー・コルレオーネ" }, { "name": "アル・パチーノ", "role": "マイケル・コルレオーネ" }, { "name": "ジェームズ・カーン", "role": null }],
+      "production": null, "distributor": { "original": "パラマウント・ピクチャーズ", "japan": null },
+      "synopsis": "ニューヨークのマフィア、コルレオーネ家。ドンのヴィトーが襲われたことで、堅気だった三男マイケルが一家の争いに引き込まれる。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [22], "palette": ["#ece8e0", "#e0c048", "#7a5a3a", "#d8c49a", "#2b3a42"],
+      "links": { "eigacom": "https://eiga.com/movie/44529/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "cinema-paradiso-palazzo-adriano",
       "title": "ニュー・シネマ・パラダイス", "titleEn": "Cinema Paradiso", "year": 1988, "director": "ジュゼッペ・トルナトーレ",
       "place": "パラッツォ・アドリアーノのウンベルト 1 世広場", "city": "パラッツォ・アドリアーノ", "country": "イタリア", "region": "europe",
-      "lat": 37.6818, "lng": 13.3784, "confidence": "high", "streets": false,
+      "lat": 37.6818, "lng": 13.3784, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "少年トトが映写技師と出会う村の広場。映画館の正面はこの広場に建てたセットだった。",
       "look": "乾いた石の黄色と夕方の柔らかい光。懐かしく温かい色。",
       "sources": [
@@ -4751,13 +4771,22 @@
       "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 2, "b": -3 },
         "highlight": -1, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["広場", "村", "ノスタルジー"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["広場", "村", "ノスタルジー"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "シチリアの小さな村の映画館パラダイス座。映写技師アルフレードと少年トトの友情を、大人になったトトが振り返る。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "夕方", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前の 1 時間" },
+      "visitNotes": null,
+      "lessons": [13], "palette": ["#d8c49a", "#e0c048", "#3a4246", "#7d8a86", "#c4b4a0"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "malena-siracusa-piazza-duomo",
       "title": "マレーナ", "titleEn": "Malèna", "year": 2000, "director": "ジュゼッペ・トルナトーレ",
       "place": "シラクーサのドゥオーモ広場", "city": "シラクーサ", "country": "イタリア", "region": "europe",
-      "lat": 37.0596, "lng": 15.2934, "confidence": "high", "streets": true,
+      "lat": 37.0596, "lng": 15.2934, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "町中の視線を集める女性が、白い石の広場を横切って歩く。少年がその姿を見つめる。",
       "look": "白い大理石と夏の強い光。明るく暖かい色。",
       "sources": [
@@ -4767,29 +4796,49 @@
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 2, "b": -3 },
         "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["広場", "夏", "人物"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["広場", "夏", "人物"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "第二次大戦下のシチリアの町。少年レナートは、夫が出征中の美しい女性マレーナに憧れ、彼女を見つめ続ける。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": "晴れ",
+      "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [33], "palette": ["#ece8e0", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "roman-holiday-spanish-steps",
       "title": "ローマの休日", "titleEn": "Roman Holiday", "year": 1953, "director": "ウィリアム・ワイラー",
       "place": "スペイン階段", "city": "ローマ", "country": "イタリア", "region": "europe",
-      "lat": 41.9058, "lng": 12.4823, "confidence": "high", "streets": true,
+      "lat": 41.9058, "lng": 12.4823, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "髪を短く切った王女が、階段に座ってジェラートを食べ、新聞記者と再会する。",
       "look": "白黒の明るい午後。柔らかな中間調。",
       "sources": [
         "https://www.bfi.org.uk/features/roman-holiday-rome-locations-audrey-hepburn-gregory-peck",
-        "https://movie-locations.com/movies/r/Roman-Holiday.php"
+        "https://movie-locations.com/movies/r/Roman-Holiday.php",
+        "https://www.allcinema.net/cinema/pdf/25599",
+        "https://movie.jorudan.co.jp/film/09840/"
       ],
       "recipe": { "filmSim": "monochrome", "monoFilter": "none", "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": 0, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["モノクロ", "階段", "日中"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["モノクロ", "階段", "日中"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "オードリー・ヘプバーン", "role": "アン王女" }, { "name": "グレゴリー・ペック", "role": "ジョー・ブラドリー" }, { "name": "エディ・アルバート", "role": "カメラマン" }],
+      "production": null, "distributor": { "original": null, "japan": "パラマウント" },
+      "synopsis": "公務に疲れたある国の王女が、ローマで宿舎を抜け出す。新聞記者と出会い、一日だけの自由な休日を過ごす。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [20, 18], "palette": ["#141414", "#424242", "#7f7f7f", "#bdbdbd", "#efefef"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "great-beauty-acqua-paola",
       "title": "グレート・ビューティー／追憶のローマ", "titleEn": "The Great Beauty", "year": 2013, "director": "パオロ・ソレンティーノ",
       "place": "アックア・パオラの泉（ジャニコロの丘）", "city": "ローマ", "country": "イタリア", "region": "europe",
-      "lat": 41.8889, "lng": 12.4661, "confidence": "high", "streets": true,
+      "lat": 41.8889, "lng": 12.4661, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "冒頭、丘の上の白い大噴水の前に観光客が集まり、カメラがゆっくりと漂う。",
       "look": "大理石の白と午後の金色の光。豊かで華やかな色。",
       "sources": [
@@ -4799,13 +4848,22 @@
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": -1, "shadow": 1, "color": 3, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["噴水", "日中", "街"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["噴水", "日中", "街"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "65歳の誕生日を迎えたローマの作家ジェップ。華やかな夜遊びの日々のなかで、失われた美を探してローマをさまよう。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#ece8e0", "#c9a04a", "#13365c", "#2e7d4f", "#e0b23a"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "talented-mr-ripley-corricella",
       "title": "リプリー", "titleEn": "The Talented Mr. Ripley", "year": 1999, "director": "アンソニー・ミンゲラ",
       "place": "マリーナ・ディ・コリチェッラ（劇中のモンジベッロ）", "city": "プローチダ島", "country": "イタリア", "region": "europe",
-      "lat": 40.76, "lng": 14.0277, "confidence": "high", "streets": true,
+      "lat": 40.76, "lng": 14.0277, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "富豪の息子ディッキーが暮らす南イタリアの港町。色とりどりの家が並ぶ港をスクーターで走る。",
       "look": "パステルの家並みと深い青の海、50 年代の強い日差し。",
       "sources": [
@@ -4815,13 +4873,22 @@
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 1, "b": -1 },
         "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["港", "夏", "50年代"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["港", "夏", "50年代"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "1950年代。富豪の頼みで、イタリアにいる放蕩息子ディッキーを連れ戻しに来たトム・リプリーが、彼の暮らしに魅せられていく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#2f5d8a", "#13365c", "#2e7d4f", "#e0b23a", "#c8402e"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "death-in-venice-hotel-des-bains",
       "title": "ベニスに死す", "titleEn": "Death in Venice", "year": 1971, "director": "ルキノ・ヴィスコンティ",
       "place": "オテル・デ・バン（閉館）", "city": "ヴェネツィア", "country": "イタリア", "region": "europe",
-      "lat": 45.4085, "lng": 12.3706, "confidence": "high", "streets": true,
+      "lat": 45.4085, "lng": 12.3706, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "静養に来た作曲家が滞在するリド島の豪華ホテル。浜辺で美しい少年を見つめ続ける。",
       "look": "霞んだ夏の浜辺、白い服と淡い光。ソフトで退廃的な色。",
       "sources": [
@@ -4831,13 +4898,22 @@
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -1 },
         "highlight": -2, "shadow": -2, "color": 1, "sharpness": -3, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["ホテル", "海", "夏"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["ホテル", "海", "夏"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "静養に訪れたヴェネツィアのホテルで、老作曲家アッシェンバッハは美しい少年タジオに心を奪われる。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [31], "palette": ["#ece8e0", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "no-time-to-die-matera",
       "title": "007／ノー・タイム・トゥ・ダイ", "titleEn": "No Time to Die", "year": 2021, "director": "キャリー・ジョージ・フクナガ",
       "place": "マテーラ旧市街のサン・ジョヴァンニ・バッティスタ広場", "city": "マテーラ", "country": "イタリア", "region": "europe",
-      "lat": 40.6678, "lng": 16.605, "confidence": "high", "streets": true,
+      "lat": 40.6678, "lng": 16.605, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ボンドが敵に囲まれ、車の機関銃で応戦しながら広場で回転する。石造りの洞窟住居の町が舞台。",
       "look": "石灰岩の黄白色と強い日差し、深い影。乾いた暖色。",
       "sources": [
@@ -4847,13 +4923,22 @@
       "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -3 },
         "highlight": 0, "shadow": 2, "color": 1, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["街", "石造り", "アクション"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["街", "石造り", "アクション"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "MI6を離れ、ジャマイカで静かに暮らすボンド。そこへ旧友のCIA工作員が助けを求めてやってくる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#8a8a88", "#e0c048", "#ece8e0", "#141414", "#d8c49a"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "room-with-a-view-piazza-della-signoria",
       "title": "眺めのいい部屋", "titleEn": "A Room with a View", "year": 1985, "director": "ジェームズ・アイヴォリー",
       "place": "シニョリーア広場（ネプチューンの噴水付近）", "city": "フィレンツェ", "country": "イタリア", "region": "europe",
-      "lat": 43.7696, "lng": 11.2558, "confidence": "high", "streets": true,
+      "lat": 43.7696, "lng": 11.2558, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "旅行中の英国の令嬢ルーシーが、広場で喧嘩を目撃して気を失い、青年ジョージに助けられる。",
       "look": "石の広場の黄土色と柔らかい午後の光。上品で温かい色。",
       "sources": [
@@ -4863,13 +4948,22 @@
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 2, "b": -3 },
         "highlight": -1, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["広場", "旅", "人物"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["広場", "旅", "人物"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "20世紀初め、フィレンツェを旅する英国の令嬢ルーシーが、自由な考えを持つ青年ジョージと出会う。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "53mm（XF35mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [33], "palette": ["#e0c048", "#7a5a3a", "#d8c49a", "#f3e3d6", "#e7b8a8"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "good-bad-ugly-sad-hill",
       "title": "続・夕陽のガンマン", "titleEn": "The Good, the Bad and the Ugly", "year": 1966, "director": "セルジオ・レオーネ",
       "place": "サッド・ヒル墓地", "city": "ブルゴス県", "country": "スペイン", "region": "europe",
-      "lat": 41.982, "lng": -3.441, "confidence": "high", "streets": false,
+      "lat": 41.982, "lng": -3.441, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "三人のガンマンが円形の墓地の中央で向かい合う決闘。撮影のために造られた墓地が、今は有志により復元されている。",
       "look": "乾いた土の黄と青空、日焼けした色。高コントラスト。",
       "sources": [
@@ -4879,29 +4973,49 @@
       "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "strong", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 4, "b": -5 },
         "highlight": 0, "shadow": 2, "color": 1, "sharpness": 1, "nr": -3,
-        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["荒野", "西部劇", "日中"] }
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["荒野", "西部劇", "日中"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "南北戦争下のアメリカ西部。三人のならず者が、ある墓地に埋められた金貨をめぐって争う。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [22, 29, 31], "palette": ["#d8c49a", "#7a5a3a", "#e0c048", "#2f5d8a", "#13365c"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "lawrence-of-arabia-plaza-de-espana",
       "title": "アラビアのロレンス", "titleEn": "Lawrence of Arabia", "year": 1962, "director": "デヴィッド・リーン",
       "place": "スペイン広場（劇中のカイロ）", "city": "セビリア", "country": "スペイン", "region": "europe",
-      "lat": 37.3772, "lng": -5.9869, "confidence": "high", "streets": true,
+      "lat": 37.3772, "lng": -5.9869, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "カイロの英国軍司令部として使われた半円形の広場の建物群。",
       "look": "れんがの赤茶と陶板の青、強い日差し。乾いた暖色。",
       "sources": [
         "https://andaluciadestinodecine.com/en/localizacion/plaza-de-espana/",
-        "https://www.europeanfilmawards.eu/seville-plaza-de-espana/"
+        "https://www.europeanfilmawards.eu/seville-plaza-de-espana/",
+        "https://eiga.com/movie/42205/",
+        "https://thetv.jp/program/0000029165/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 3, "b": -3 },
         "highlight": 0, "shadow": 2, "color": 1, "sharpness": 1, "nr": -3,
-        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["建築", "広場", "日中"] }
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["建築", "広場", "日中"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ピーター・オトゥール", "role": "T・E・ロレンス" }, { "name": "オマー・シャリフ", "role": "アリ" }, { "name": "アレック・ギネス", "role": "ファイサル王子" }],
+      "production": null, "distributor": { "original": null, "japan": "コロムビア" },
+      "synopsis": "第一次大戦下、英国軍の若い将校ロレンスがアラブの部族をまとめ、砂漠を越えてオスマン帝国軍に挑む。実在の人物を描く大作。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [24], "palette": ["#b8322a", "#7a5a3a", "#2f5d8a", "#d8c49a", "#13365c"],
+      "links": { "eigacom": "https://eiga.com/movie/42205/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "vicky-cristina-park-guell",
       "title": "それでも恋するバルセロナ", "titleEn": "Vicky Cristina Barcelona", "year": 2008, "director": "ウディ・アレン",
       "place": "グエル公園（ドラゴンの階段）", "city": "バルセロナ", "country": "スペイン", "region": "europe",
-      "lat": 41.4134, "lng": 2.1527, "confidence": "high", "streets": true,
+      "lat": 41.4134, "lng": 2.1527, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "夏のバルセロナで、旅行者のヴィッキーと画家が再会する公園の階段。",
       "look": "黄みがかった暖かい夏の光、モザイクの色。全体に琥珀色。",
       "sources": [
@@ -4911,13 +5025,22 @@
       "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 4, "b": -5 },
         "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["公園", "夏", "旅"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["公園", "夏", "旅"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "バルセロナで夏を過ごす親友のヴィッキーとクリスティーナが、魅力的な画家フアン・アントニオと出会う。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [22, 18], "palette": ["#e0c048", "#c98a3a", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "grand-budapest-gorlitzer-warenhaus",
       "title": "グランド・ブダペスト・ホテル", "titleEn": "The Grand Budapest Hotel", "year": 2014, "director": "ウェス・アンダーソン",
       "place": "ゲルリッツ百貨店", "city": "ゲルリッツ", "country": "ドイツ", "region": "europe",
-      "lat": 51.1523, "lng": 14.9849, "confidence": "high", "streets": true,
+      "lat": 51.1523, "lng": 14.9849, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "閉店していた古い百貨店の吹き抜けが、ホテルのロビーとして飾り付けられた。",
       "look": "ピンクと赤、金の装飾。左右対称の画面に合うキャンディのような色。",
       "sources": [
@@ -4927,13 +5050,22 @@
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 3, "b": -1 },
         "highlight": -2, "shadow": -2, "color": 3, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["室内", "ホテル", "ポップ"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["室内", "ホテル", "ポップ"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "東欧の架空の国の名門ホテル。コンシェルジュのグスタヴ・Hとベルボーイのゼロが、一枚の名画をめぐる騒動に巻き込まれる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#e8a0b0", "#b8322a", "#f3e3d6", "#e7b8a8", "#9cc2cf"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "good-bye-lenin-karl-marx-allee",
       "title": "グッバイ、レーニン！", "titleEn": "Good Bye, Lenin!", "year": 2003, "director": "ヴォルフガング・ベッカー",
       "place": "カール・マルクス・アレー（シュトラウスベルガー広場）", "city": "ベルリン", "country": "ドイツ", "region": "europe",
-      "lat": 52.518, "lng": 13.4285, "confidence": "high", "streets": true,
+      "lat": 52.518, "lng": 13.4285, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "東ドイツが消えたことを母に隠そうとする青年の物語。社会主義建築の大通りと周辺の集合住宅で撮影された。",
       "look": "くすんだ黄と灰色、少し色あせた東ドイツの色。",
       "sources": [
@@ -4943,13 +5075,22 @@
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 3, "b": -5 },
         "highlight": -1, "shadow": -1, "color": -1, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["街", "建築", "ノスタルジー"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["街", "建築", "ノスタルジー"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "東ベルリン。長い昏睡から目覚めた母を気づかい、息子アレックスは壁の崩壊を隠して、東ドイツが続いているように見せようとする。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [22, 29, 15], "palette": ["#e0c048", "#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "run-lola-run-oberbaum-bridge",
       "title": "ラン・ローラ・ラン", "titleEn": "Run Lola Run", "year": 1998, "director": "トム・ティクヴァ",
       "place": "オーバーバウム橋", "city": "ベルリン", "country": "ドイツ", "region": "europe",
-      "lat": 52.5017, "lng": 13.4457, "confidence": "high", "streets": true,
+      "lat": 52.5017, "lng": 13.4457, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "恋人を救うため 20 分で大金を集めようと、赤い髪のローラが二階建ての橋を走り抜ける。",
       "look": "赤い髪と緑のジャケット、原色の強い対比。テンポの速い高彩度。",
       "sources": [
@@ -4959,13 +5100,22 @@
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 1, "b": -1 },
         "highlight": 0, "shadow": 2, "color": 3, "sharpness": 0, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["橋", "疾走", "街"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["橋", "疾走", "街"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "ベルリン。恋人マニがなくした大金を20分で用意するため、ローラが街を走る。物語は三つの展開で描かれる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [15], "palette": ["#b8322a", "#5a8a4f", "#13365c", "#2e7d4f", "#e0b23a"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "sound-of-music-mirabell-gardens",
       "title": "サウンド・オブ・ミュージック", "titleEn": "The Sound of Music", "year": 1965, "director": "ロバート・ワイズ",
       "place": "ミラベル庭園（ペガサスの噴水と階段）", "city": "ザルツブルク", "country": "オーストリア", "region": "europe",
-      "lat": 47.8056, "lng": 13.0419, "confidence": "high", "streets": true,
+      "lat": 47.8056, "lng": 13.0419, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "家庭教師のマリアと子どもたちが歌いながら庭園を巡り、階段で歌の最後を迎える。",
       "look": "花壇の鮮やかな色と緑、晴れた空。明るい 60 年代のカラー。",
       "sources": [
@@ -4975,13 +5125,22 @@
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": 1, "shadow": 1, "color": 2, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["庭園", "ミュージカル", "日中"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["庭園", "ミュージカル", "日中"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "修道女見習いのマリアが、トラップ大佐の7人の子どもの家庭教師に。歌を通して家族の心をほどいていく。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [18], "palette": ["#5a8a4f", "#13365c", "#2e7d4f", "#e0b23a", "#c8402e"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "ohmss-piz-gloria",
       "title": "女王陛下の007", "titleEn": "On Her Majesty's Secret Service", "year": 1969, "director": "ピーター・R・ハント",
       "place": "ピッツ・グロリア（シルトホルン山頂）", "city": "ミューレン", "country": "スイス", "region": "europe",
-      "lat": 46.558, "lng": 7.8352, "confidence": "high", "streets": false,
+      "lat": 46.558, "lng": 7.8352, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "悪役が研究所を構える雪山の山頂の建物。ボンドが潜入し、スキーでの追跡劇へ続く。",
       "look": "雪の白と澄んだ青空、強い反射光。",
       "sources": [
@@ -4991,13 +5150,22 @@
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": 0, "shadow": 1, "color": -2, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "+2/3EV", "tags": ["雪", "山", "アクション"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "+2/3EV", "tags": ["雪", "山", "アクション"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "宿敵ブロフェルドの行方を追うボンドが、スイスの山頂にある研究所に身分を偽って潜入する。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "雪",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [19, 31], "palette": ["#ece8e0", "#2f5d8a", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "mission-impossible-charles-bridge",
       "title": "ミッション:インポッシブル", "titleEn": "Mission: Impossible", "year": 1996, "director": "ブライアン・デ・パルマ",
       "place": "カレル橋", "city": "プラハ", "country": "チェコ", "region": "europe",
-      "lat": 50.0865, "lng": 14.4114, "confidence": "high", "streets": true,
+      "lat": 50.0865, "lng": 14.4114, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "作戦が失敗した夜、チームのリーダーが石の橋から川へ落ちる。",
       "look": "夜の石橋と街灯の黄、川の暗い青。冷たいサスペンスの色。",
       "sources": [
@@ -5007,13 +5175,22 @@
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 4300 }, "wbShift": { "r": 1, "b": -2 },
         "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "橋", "サスペンス"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "橋", "サスペンス"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "東欧での作戦が失敗し、ただ一人生き残ったイーサン・ハント。裏切り者の疑いを晴らすため、真相を追う。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [42, 15], "palette": ["#e0c048", "#2f5d8a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "kamome-diner-kahvila-suomi",
       "title": "かもめ食堂", "titleEn": "Kamome Diner", "year": 2006, "director": "荻上直子",
       "place": "カハヴィラ・スオミ（現 Ravintola KAMOME）", "city": "ヘルシンキ", "country": "フィンランド", "region": "europe",
-      "lat": 60.1597, "lng": 24.9412, "confidence": "high", "streets": true,
+      "lat": 60.1597, "lng": 24.9412, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "日本人女性サチエがヘルシンキで開いた小さな食堂。客の来ない日々から、少しずつ人が集まってくる。",
       "look": "白い店内と木の家具、北欧の淡い光。明るく穏やかなパステル。",
       "sources": [
@@ -5023,13 +5200,22 @@
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 2, "b": -1 },
         "highlight": -2, "shadow": -2, "color": 0, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["室内", "食", "北欧"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["室内", "食", "北欧"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "ヘルシンキで小さな食堂を開いたサチエ。客の来ない店に、旅先で出会った日本人女性たちが集まってくる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#ece8e0", "#7a5a3a", "#f3e3d6", "#e7b8a8", "#9cc2cf"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "fallout-preikestolen",
       "title": "ミッション:インポッシブル／フォールアウト", "titleEn": "Mission: Impossible – Fallout", "year": 2018, "director": "クリストファー・マッカリー",
       "place": "プレーケストーレン", "city": "ローガラン", "country": "ノルウェー", "region": "europe",
-      "lat": 58.9864, "lng": 6.1903, "confidence": "high", "streets": false,
+      "lat": 58.9864, "lng": 6.1903, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "クライマックスで、ヘリから落ちたイーサンが切り立った岩の台地の縁にぶら下がる。劇中ではカシミールの設定。",
       "look": "灰色の岩とフィヨルドの深い青。冷たく雄大な色。",
       "sources": [
@@ -5039,13 +5225,22 @@
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": -1, "shadow": 2, "color": -1, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["崖", "フィヨルド", "アクション"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["崖", "フィヨルド", "アクション"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "盗まれたプルトニウムの回収に失敗したイーサン・ハント。CIAの監視役ウォーカーとともに、核テロを阻止しようとする。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [31, 24], "palette": ["#8a8a88", "#2f5d8a", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "interstellar-svinafellsjokull",
       "title": "インターステラー", "titleEn": "Interstellar", "year": 2014, "director": "クリストファー・ノーラン",
       "place": "スヴィナフェルスヨークトル氷河", "city": "ヴァトナヨークトル国立公園", "country": "アイスランド", "region": "europe",
-      "lat": 64.0073, "lng": -16.879, "confidence": "high", "streets": false,
+      "lat": 64.0073, "lng": -16.879, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "探査チームが降り立つ、凍りついた雲と氷に覆われた惑星の地表。",
       "look": "氷の白と灰色、冷たい青。ほぼ無彩色の世界。",
       "sources": [
@@ -5055,13 +5250,22 @@
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 7500 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": -1, "shadow": 1, "color": -3, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["氷河", "SF", "風景"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["氷河", "SF", "風景"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "砂嵐と食糧難で人類が滅びかけた近未来。元パイロットのクーパーは、新たな居住地を探す宇宙の旅に出る。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [31, 24], "palette": ["#ece8e0", "#8a8a88", "#2f5d8a", "#2b3a42", "#6f7f7a"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "mamma-mia-agios-ioannis-kastri",
       "title": "マンマ・ミーア！", "titleEn": "Mamma Mia!", "year": 2008, "director": "フィリダ・ロイド",
       "place": "アギオス・ヨアニス・カストリ礼拝堂", "city": "スコペロス島", "country": "ギリシャ", "region": "europe",
-      "lat": 39.177, "lng": 23.6207, "confidence": "high", "streets": false,
+      "lat": 39.177, "lng": 23.6207, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "岩の上の小さな礼拝堂へ続く長い石段を、結婚式の一行が登っていく。",
       "look": "エーゲ海の青と白い礼拝堂、松の緑。明るく鮮やか。",
       "sources": [
@@ -5071,13 +5275,22 @@
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 1, "b": -1 },
         "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "教会", "夏"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "教会", "夏"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "ギリシャの島のホテルで育ったソフィ。結婚式を前に、母の昔の日記から父親候補の三人を見つけ、こっそり招待する。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [18, 31], "palette": ["#2f5d8a", "#ece8e0", "#5a8a4f", "#13365c", "#2e7d4f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "big-blue-agia-anna",
       "title": "グラン・ブルー", "titleEn": "The Big Blue", "year": 1988, "director": "リュック・ベッソン",
       "place": "アモルゴス島 アギア・アンナ", "city": "アモルゴス島", "country": "ギリシャ", "region": "europe",
-      "lat": 36.8207, "lng": 25.901, "confidence": "high", "streets": false,
+      "lat": 36.8207, "lng": 25.901, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "少年時代のふたりが素潜りを競う、断崖の下の透明な入り江。",
       "look": "深い群青とターコイズ、白い岩。海と空が溶け合う青一色。",
       "sources": [
@@ -5087,7 +5300,16 @@
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": -2, "b": 3 },
         "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "夏", "青"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "夏", "青"] },
+      "cinematographer": null, "genre": null,
+      "cast": null,
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "素潜りに人生を捧げる二人の男、ジャックとエンゾ。地中海の青い海で、少年時代からのライバルとして記録を競う。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [31], "palette": ["#2f5d8a", "#ece8e0", "#13365c", "#2e7d4f", "#e0b23a"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     }
   ]
 }
