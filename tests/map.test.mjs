@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { haversine, formatKm, formatLatLng, unwrapAntimeridian, wrapLngNear, labelWidth, pickLabels } from '../js/geo.js';
 import { statSync } from 'node:fs';
+import { clusterPoints, maxSpread, spiderOffsets, sizeTier, facetCounts, filterLocations, CLUSTER_RADIUS, REGION_LABELS } from '../js/cluster.js';
 import { locationRecipe } from '../js/locations.js';
 import { validateRecipe, drWarning } from '../js/xt3.js';
 
@@ -114,5 +115,73 @@ test('地図データ: 10m 国境・県州境界・都市名がそろい、合�
   assert.ok(tokyo && tokyo[4] <= 6, '東京はズーム 6 で表示される');
   const total = ['countries-10m.json', 'admin1-10m.json', 'places-10m.json'].reduce((s, f) => s + size(f), 0);
   assert.ok(total < 6e6, `${(total / 1e6).toFixed(1)} MB`);
+});
+/* ---- ピンのクラスタ ---- */
+const flat = (lat, lng) => ({ x: lng * 10, y: -lat * 10 }); // 1° = 10px の簡易投影
+test('クラスタ: 半径内はまとめ、離れた点は別。すべての点がちょうど 1 回ずつ含まれる', () => {
+  const pts = [
+    { id: 'a', lat: 0, lng: 0 }, { id: 'b', lat: 0, lng: 1 }, { id: 'c', lat: 1, lng: 0 },   // 互いに 10〜14px
+    { id: 'd', lat: 0, lng: 20 },                                                         // 200px 先
+    { id: 'e', lat: 30, lng: 30 }, { id: 'f', lat: 30, lng: 30 },                          // 同じ地点
+  ];
+  const cs = clusterPoints(pts, flat, 44);
+  assert.deepEqual(cs.map((c) => c.members.map((m) => m.id).sort().join('')).sort(), ['abc', 'd', 'ef']);
+  assert.equal(cs.reduce((s, c) => s + c.count, 0), pts.length);
+  const abc = cs.find((c) => c.count === 3);
+  assert.deepEqual(abc.bounds, [0, 0, 1, 1], '[南, 西, 北, 東]');
+  near(abc.lat, 1 / 3, 1e-9, '中心の緯度'); near(abc.lng, 1 / 3, 1e-9, '中心の経度');
+  assert.deepEqual(clusterPoints([], flat), []);
+});
+test('クラスタ: 実データ（ロケ地全件）でも、すべてのズームで重複・漏れなし', () => {
+  const merc = (z) => (lat, lng) => { const s = 256 * 2 ** z; const r = lat * Math.PI / 180; return { x: (lng + 180) / 360 * s, y: (1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2 * s }; };
+  for (const z of [1, 3, 5, 8, 12, 16]) {
+    const cs = clusterPoints(locs, merc(z));
+    const ids = cs.flatMap((c) => c.members.map((m) => m.id));
+    assert.equal(ids.length, locs.length, `z${z}`); assert.equal(new Set(ids).size, locs.length, `z${z} 重複`);
+    for (const c of cs) for (const m of c.members) {
+      const a = merc(z)(m.lat, m.lng), o = merc(z)(c.members[0].lat, c.members[0].lng);
+      assert.ok(Math.hypot(a.x - o.x, a.y - o.y) <= CLUSTER_RADIUS + 1e-6, `z${z} 半径外の点が混ざっている`);
+    }
+  }
+  assert.ok(clusterPoints(locs, merc(1)).length < locs.length / 4, 'ズームアウトでは十分にまとまる');
+});
+test('クラスタ: 2000 点でも速い（スマホでカクつかない目安 50ms 未満）', () => {
+  let seed = 3; const rnd = () => (seed = (seed * 1103515245 + 12345) % 2147483648) / 2147483648;
+  const pts = Array.from({ length: 2000 }, (_, i) => ({ id: i, lat: rnd() * 140 - 70, lng: rnd() * 360 - 180 }));
+  const t = performance.now(); const cs = clusterPoints(pts, flat); const ms = performance.now() - t;
+  assert.equal(cs.reduce((s, c) => s + c.count, 0), 2000);
+  assert.ok(ms < 50, `${ms.toFixed(1)}ms`);
+});
+test('クラスタの大きさは件数で 3 段階', () => {
+  assert.deepEqual([1, 2, 9, 10, 49, 50, 500].map(sizeTier), [0, 0, 0, 1, 1, 2, 2]);
+});
+test('最大ズームでも重なるか（maxSpread）と放射状の展開位置', () => {
+  assert.equal(maxSpread([{ lat: 1, lng: 1 }, { lat: 1, lng: 1 }], flat), 0);
+  near(maxSpread([{ lat: 0, lng: 0 }, { lat: 0, lng: 3 }, { lat: 4, lng: 0 }], flat), 50, 1e-9, '最大距離');
+  for (const n of [1, 2, 3, 8, 9, 20, 60]) {
+    const o = spiderOffsets(n, 26);
+    assert.equal(o.length, n);
+    let min = Infinity;
+    for (let i = 0; i < n; i++) {
+      assert.ok(Math.hypot(o[i].x, o[i].y) >= 26, `n=${n}: 中心に近すぎる`);
+      for (let j = i + 1; j < n; j++) min = Math.min(min, Math.hypot(o[i].x - o[j].x, o[i].y - o[j].y));
+    }
+    if (n > 1) assert.ok(min >= 26 * 0.9, `n=${n}: ピン同士が重なる（最小 ${min.toFixed(1)}px）`);
+  }
+  assert.deepEqual(spiderOffsets(0), []);
+});
+test('地域・国の絞り込みと件数', () => {
+  const f = facetCounts(locs);
+  assert.equal(f.total, locs.length);
+  assert.equal(f.regions.reduce((s, r) => s + r.count, 0), locs.length);
+  assert.equal(f.countries.reduce((s, c) => s + c.count, 0), locs.length);
+  for (const r of f.regions) assert.equal(r.label, REGION_LABELS[r.id]);
+  for (let i = 1; i < f.countries.length; i++) assert.ok(f.countries[i - 1].count >= f.countries[i].count, '国は件数の多い順');
+  const eu = facetCounts(locs, 'europe');
+  assert.equal(eu.countries.reduce((s, c) => s + c.count, 0), filterLocations(locs, { region: 'europe' }).length);
+  const jp = filterLocations(locs, { country: '日本' });
+  assert.ok(jp.length > 0 && jp.every((l) => l.country === '日本'));
+  assert.equal(filterLocations(locs, { region: 'europe', country: '日本' }).length, 0);
+  assert.equal(filterLocations(locs).length, locs.length);
 });
 console.log(`\n${count} 件のテストに合格`);

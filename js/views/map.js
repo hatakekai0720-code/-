@@ -9,6 +9,7 @@ import { locationRecipe } from '../locations.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
 import * as streets from '../streets.js';
+import { clusterPoints, maxSpread, spiderOffsets, sizeTier, facetCounts, filterLocations, CLUSTER_RADIUS, CLUSTER_SIZES } from '../cluster.js';
 
 const CONF_LABEL = { high: '確度 高', medium: '確度 中' };
 const MIN_ZOOM = 1, MAX_ZOOM = 8; // 通常の最大ズーム（県・都市が分かる程度まで）
@@ -57,6 +58,8 @@ function loadStreetLibs() {
 }
 const WORLD_BOUNDS = [[-85, -400], [85, 400]];
 
+const hostOf = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return u; } };
+
 // 現在地はメモリだけに持つ（保存しない）
 let here = null;
 
@@ -66,11 +69,14 @@ export function render(root) {
   const listEl = h('div', { class: 'stack', style: 'gap:6px' });
   const locBtn = h('button', { type: 'button', class: 'btn', onclick: locate }, '現在地');
   const filter = { kind: 'all' };
+  const geo = { region: 'all', country: 'all' }; // ロケ地の地域・国の絞り込み（メモリのみ）
+  const facetEl = h('div', { class: 'stack facets', style: 'gap:8px;margin:12px 0 4px' });
 
   root.append(
     h('div', { class: 'map-wrap' }, mapEl, h('div', { class: 'map-loading muted small' }, '地図を読み込み中…')),
     h('div', { class: 'row', style: 'margin:8px 0' }, locBtn, h('div', { class: 'grow small muted' }, '長押し（PC は右クリック）でピンを追加')),
     status,
+    facetEl,
     h('div', { class: 'row', style: 'margin:14px 0 8px' },
       h('div', { class: 'section-title grow', style: 'margin:0' }, '近い順'),
       h('div', { style: 'width:150px' }, select([{ id: 'all', label: 'すべて' }, { id: 'loc', label: 'ロケ地' }, { id: 'pin', label: 'マイピン' }], filter.kind, (v) => { filter.kind = v; drawList(); }, { 'aria-label': '一覧の絞り込み' }))),
@@ -85,7 +91,7 @@ export function render(root) {
   /* ---- 一覧 ---- */
   function entries() {
     const items = [
-      ...locations.map((l) => ({ kind: 'loc', id: l.id, lat: l.lat, lng: l.lng, title: l.title, sub: `${l.city}・${l.country} / ${l.year}`, open: () => openLocation(l) })),
+      ...filterLocations(locations, geo).map((l) => ({ kind: 'loc', id: l.id, lat: l.lat, lng: l.lng, title: l.title, sub: `${l.city}・${l.country} / ${l.year}`, open: () => openLocation(l) })),
       ...store.pins().map((p) => ({ kind: 'pin', id: p.id, lat: p.lat, lng: p.lng, title: p.name, sub: p.memo ? p.memo.split('\n')[0].slice(0, 40) : 'マイピン', open: () => openPin(p) })),
     ].filter((e) => filter.kind === 'all' || e.kind === filter.kind);
     for (const e of items) e.km = here ? haversine(here.lat, here.lng, e.lat, e.lng) : null;
@@ -123,17 +129,101 @@ export function render(root) {
     if (street) updateStreets(); // テーマが変わったら街路の配色も作り直す
   }
 
+  /* ---- ピン（ロケ地とマイピンを別々にクラスタ表示） ---- */
+  let spider = null; // 放射状に展開中のクラスタ { layer, marker }
+  function addSingle(kind, p, layer = pinLayer, key = `${kind}:${p.id}`) {
+    const m = L.circleMarker([p.lat, p.lng], { radius: kind === 'loc' ? 7 : 6, kind, bubblingMouseEvents: false })
+      .bindTooltip(p.label, { direction: 'top', offset: [0, -6] }).on('click', p.open);
+    m.addTo(layer); markers.set(key, m);
+    return m;
+  }
+  function addCluster(kind, c) {
+    const d = CLUSTER_SIZES[sizeTier(c.count)];
+    const el = h('div', { class: `cluster ${kind} s${sizeTier(c.count)}` }, h('span', { class: 'num' }, c.count));
+    const marker = L.marker([c.lat, c.lng], {
+      icon: L.divIcon({ html: el, className: 'cluster-icon', iconSize: [d, d], iconAnchor: [d / 2, d / 2] }),
+      title: `${kind === 'loc' ? 'ロケ地' : 'マイピン'} ${c.count} 件`, alt: `${c.count} 件`, riseOnHover: true,
+      zIndexOffset: kind === 'loc' ? 100 : 0,
+    });
+    marker.on('click', () => onCluster(kind, c, marker)).addTo(pinLayer);
+  }
+  // タップ: ズームで分けられるならその範囲にズーム。最大ズームでも重なる（同じ建物など）なら放射状に展開
+  function onCluster(kind, c, marker) {
+    const maxZ = map.getMaxZoom();
+    const spread = maxSpread(c.members, (lat, lng) => map.project([lat, lng], maxZ));
+    if (map.getZoom() < maxZ && spread > CLUSTER_RADIUS) {
+      const b = L.latLngBounds([c.bounds[0], c.bounds[1]], [c.bounds[2], c.bounds[3]]);
+      map.fitBounds(b.pad(0.35), { maxZoom: maxZ });
+    } else if (spider?.marker === marker) unspider();
+    else spiderfy(kind, c, marker);
+  }
+  function spiderfy(kind, c, marker) {
+    unspider();
+    const center = map.latLngToLayerPoint([c.lat, c.lng]);
+    const layer = L.layerGroup().addTo(map);
+    const legColor = themeColors().muted;
+    spiderOffsets(c.count).forEach((o, i) => {
+      const p = c.members[i];
+      const ll = map.layerPointToLatLng(center.add(L.point(o.x, o.y)));
+      L.polyline([[c.lat, c.lng], ll], { color: legColor, weight: 1.5, opacity: 0.8, interactive: false }).addTo(layer);
+      addSingle(kind, { ...p, lat: ll.lat, lng: ll.lng }, layer, `spider:${kind}:${p.id}`);
+    });
+    marker.setOpacity(0.3);
+    spider = { layer, marker };
+    style();
+  }
+  function unspider() {
+    if (!spider) return;
+    spider.layer.remove();
+    spider.marker.setOpacity(1);
+    for (const k of [...markers.keys()]) if (k.startsWith('spider:')) markers.delete(k);
+    spider = null;
+  }
+
   function drawPins() {
+    if (!map) return;
+    unspider();
     pinLayer.clearLayers();
     markers.clear();
-    const add = (id, kind, lat, lng, label, onClick) => {
-      const m = L.circleMarker([lat, lng], { radius: kind === 'loc' ? 7 : 6, kind, bubblingMouseEvents: false })
-        .bindTooltip(label, { direction: 'top', offset: [0, -6] }).on('click', onClick);
-      m.addTo(pinLayer); markers.set(`${kind}:${id}`, m);
-    };
-    for (const l of locations) add(l.id, 'loc', l.lat, l.lng, l.title, () => openLocation(l));
-    for (const p of store.pins()) add(p.id, 'pin', p.lat, p.lng, p.name, () => openPin(p));
+    const z = map.getZoom();
+    const project = (lat, lng) => map.project([lat, lng], z); // ワールドピクセル座標（パンしても変わらない）
+    const groups = [
+      ['loc', filterLocations(locations, geo).map((l) => ({ id: l.id, lat: l.lat, lng: l.lng, label: l.title, open: () => openLocation(l) }))],
+      ['pin', store.pins().map((p) => ({ id: p.id, lat: p.lat, lng: p.lng, label: p.name, open: () => openPin(p) }))],
+    ];
+    for (const [kind, pts] of groups) {
+      for (const c of clusterPoints(pts, project)) {
+        if (c.count === 1) addSingle(kind, c.members[0]);
+        else addCluster(kind, c);
+      }
+    }
     style();
+  }
+
+  /* ---- 地域・国の絞り込み ---- */
+  function drawFacets() {
+    if (!locations.length) { facetEl.replaceChildren(); return; }
+    const f = facetCounts(locations, geo.region);
+    const shown = filterLocations(locations, geo).length;
+    const chip = (id, label, count) => h('button', {
+      type: 'button', class: `chip ${geo.region === id ? 'on' : ''}`, 'aria-pressed': String(geo.region === id),
+      onclick: () => { geo.region = id; geo.country = 'all'; applyGeo(); },
+    }, label, h('span', { class: 'num chip-count' }, count));
+    const countryTotal = f.countries.reduce((s, c) => s + c.count, 0);
+    facetEl.replaceChildren(
+      h('div', { class: 'row wrap', style: 'gap:6px', role: 'group', 'aria-label': '地域で絞り込み' },
+        chip('all', 'すべて', f.total), ...f.regions.map((r) => chip(r.id, r.label, r.count))),
+      h('div', { class: 'row', style: 'gap:10px' },
+        h('div', { class: 'grow' }, select([{ id: 'all', label: `すべての国（${countryTotal}）` }, ...f.countries.map((c) => ({ id: c.id, label: `${c.id}（${c.count}）` }))],
+          geo.country, (v) => { geo.country = v; applyGeo(); }, { 'aria-label': '国で絞り込み' })),
+        h('div', { class: 'small muted', style: 'white-space:nowrap' }, '表示 ', h('span', { class: 'num' }, shown), ' / ', h('span', { class: 'num' }, f.total), ' 件')));
+  }
+  function applyGeo() {
+    drawFacets(); drawPins(); drawList();
+    const vis = filterLocations(locations, geo);
+    if (map && vis.length && (geo.region !== 'all' || geo.country !== 'all')) {
+      map.fitBounds(L.latLngBounds(vis.map((l) => [l.lat, l.lng])).pad(0.25), { maxZoom: Math.min(map.getMaxZoom(), MAX_ZOOM) });
+    }
   }
 
   async function init() {
@@ -161,9 +251,11 @@ export function render(root) {
     labelLayer = L.layerGroup([], { pane: 'ne-labels' });
     pinLayer = L.layerGroup().addTo(map);
     drawPins();
+    drawFacets();
     if (here) showHere();
     map.on('contextmenu', (e) => addPin(e.latlng));
-    map.on('zoomend', updateLayers);
+    map.on('zoomend', () => { updateLayers(); drawPins(); });
+    map.on('zoomstart click', unspider);
     map.on('moveend', () => { drawLabels(); updateStreets(); });
     updateLayers();
     updateStreets();
@@ -334,6 +426,8 @@ export function render(root) {
             close(); toast('レシピ帳にインポートしました');
           } }, 'レシピ帳にインポート'),
         h('p', { class: 'small muted', style: 'margin-top:8px' }, 'レシピは作品の色味から考えた推定で、公式の設定ではありません。'),
+        l.sources?.length ? h('p', { class: 'small muted sources', style: 'margin-top:4px;overflow-wrap:anywhere' }, '撮影地の出典（外部サイト）: ',
+          l.sources.map((u, i) => [i ? ' / ' : '', h('a', { href: u, target: '_blank', rel: 'noopener noreferrer' }, hostOf(u))])) : null,
       ];
     });
   }
