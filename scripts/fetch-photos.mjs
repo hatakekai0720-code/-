@@ -16,7 +16,26 @@ const OUT = join(ROOT, 'data/photos');
 const LONG_SIDE = 1000;
 const QUALITY = 75;
 const API = 'https://commons.wikimedia.org/w/api.php';
-const UA = 'XT3CinematicLab-PhotoFetcher/1.0 (GitHub Actions; bundles freely licensed location photos)';
+// Wikimedia の User-Agent ポリシーに沿って用途を名乗る。連絡先（URL など）は環境変数 WIKIMEDIA_CONTACT があれば付ける
+const UA = `XT3CinematicLab-PhotoFetcher/1.1 (offline PWA; bundles freely licensed location photos${process.env.WIKIMEDIA_CONTACT ? `; ${process.env.WIKIMEDIA_CONTACT}` : ''})`;
+const THUMB_WIDTH = 1280; // Commons の標準サムネイル幅（標準外の幅は生成を断られることがある）
+const PACE_MS = 1500;     // 画像 1 枚ごとの間隔
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/** 429 / 503 は Retry-After（無ければ 5→10→20→40→60 秒）待って最大 6 回まで再試行する */
+export async function fetchRetry(url, init = {}, { tries = 6, wait = sleep } = {}) {
+  let last;
+  for (let i = 0; i < tries; i++) {
+    const res = await fetch(url, { ...init, headers: { 'user-agent': UA, ...(init.headers || {}) } });
+    if (res.status !== 429 && res.status !== 503) return res;
+    last = res;
+    const ra = Number(res.headers.get('retry-after'));
+    const ms = Number.isFinite(ra) && ra > 0 ? Math.min(ra, 120) * 1000 : Math.min(5000 * 2 ** i, 60000);
+    console.log(`  ${res.status} のため ${Math.round(ms / 1000)} 秒待って再試行（${i + 1}/${tries - 1}）: ${String(url).slice(0, 100)}`);
+    if (i < tries - 1) await wait(ms);
+  }
+  return last;
+}
 const REFRESH = process.argv.includes('--refresh');
 
 /** Commons の LicenseShortName / License を、アプリで表示する短い名前にする。許可外なら null */
@@ -56,9 +75,9 @@ async function api(titles) {
   let cont = {};
   for (let guard = 0; guard < 20; guard++) { // カテゴリーが多いと続きのページに分かれる
     const q = new URLSearchParams({ action: 'query', format: 'json', formatversion: '2', prop: 'imageinfo|categories', titles: titles.join('|'),
-      iiprop: 'url|size|mime|extmetadata', iiurlwidth: String(LONG_SIDE * 2), iiextmetadatafilter: 'Artist|LicenseShortName|License|LicenseUrl',
+      iiprop: 'url|size|mime|extmetadata', iiurlwidth: String(THUMB_WIDTH), iiextmetadatafilter: 'Artist|LicenseShortName|License|LicenseUrl',
       cllimit: 'max', ...cont });
-    const res = await fetch(`${API}?${q}`, { headers: { 'user-agent': UA } });
+    const res = await fetchRetry(`${API}?${q}`);
     if (!res.ok) throw new Error(`Commons API: HTTP ${res.status}`);
     const json = await res.json();
     const norm = new Map((json.query?.normalized || []).map((n) => [n.to, n.from]));
@@ -111,6 +130,8 @@ async function main() {
   // 2) 変換（同じ写真・同じ設定で作ったファイルは作り直さない）
   const files = [];
   const mismatch = [];
+  const failed = [];
+  let streak = 0; // 連続で失敗した数（混み合っているときは途中でやめて、次回の実行で続きから）
   for (const l of wanted) {
     const m = info.get(l.id);
     const file = `${l.id}.webp`;
@@ -119,15 +140,25 @@ async function main() {
     const same = old && old.sourceUrl === l.photo.sourceUrl && old.longSide === LONG_SIDE && old.quality === QUALITY && existsSync(path);
     let buf;
     if (same && !REFRESH) buf = readFileSync(path);
+    else if (streak >= 3) { failed.push(`${l.id}: 連続で失敗したため今回は取得しません`); continue; }
     else {
-      const res = await fetch(m.thumb, { headers: { 'user-agent': UA } });
-      if (!res.ok) throw new Error(`${l.id}: HTTP ${res.status}（${m.thumb}）`);
-      const src = Buffer.from(await res.arrayBuffer());
-      buf = await sharp(src).rotate().resize({ width: LONG_SIDE, height: LONG_SIDE, fit: 'inside', withoutEnlargement: true })
-        .webp({ quality: QUALITY }).toBuffer();
-      writeFileSync(path, buf);
-      console.log(`photo ${l.id}  ${(buf.length / 1024).toFixed(0)} KB  ${m.license}  ${m.author}`);
-      await new Promise((r) => setTimeout(r, 300)); // Commons への負荷を抑える
+      try {
+        const res = await fetchRetry(m.thumb);
+        if (!res.ok) throw new Error(`HTTP ${res.status}（${m.thumb}）${(await res.text().catch(() => '')).replace(/\s+/g, ' ').slice(0, 200)}`);
+        const src = Buffer.from(await res.arrayBuffer());
+        buf = await sharp(src).rotate().resize({ width: LONG_SIDE, height: LONG_SIDE, fit: 'inside', withoutEnlargement: true })
+          .webp({ quality: QUALITY }).toBuffer();
+        writeFileSync(path, buf);
+        streak = 0;
+        console.log(`photo ${l.id}  ${(buf.length / 1024).toFixed(0)} KB  ${m.license}  ${m.author}`);
+      } catch (err) {
+        streak++;
+        failed.push(`${l.id}: ${err.message}`);
+        console.log(`  失敗 ${l.id}: ${err.message}`);
+        if (!same) continue;
+        buf = readFileSync(path); // 前回のファイルが使えるならそれを残す
+      }
+      await sleep(PACE_MS); // Commons への負荷を抑える
     }
     const meta = await sharp(buf).metadata();
     if (m.author !== l.photo.author || m.license !== l.photo.license) mismatch.push(`${l.id}: locations.json「${l.photo.author} / ${l.photo.license}」→ Commons「${m.author} / ${m.license}」`);
@@ -142,6 +173,8 @@ async function main() {
   writeFileSync(join(OUT, 'index.json'), `${JSON.stringify(index, null, 1)}\n`);
   if (mismatch.length) console.log(`\nクレジットは Commons の値で index.json に記録しました（アプリはこちらを表示）:\n- ${mismatch.join('\n- ')}`);
   console.log(`\n写真 ${files.length} 件`);
+  // 取得できなかった写真があれば、できた分は書き出したうえで失敗にする（ワークフローはできた分をコミットし、再実行で続きから）
+  if (failed.length) { console.error(`\n取得できなかった写真 ${failed.length} 件（再実行すると続きから取得します）:\n- ${failed.join('\n- ')}`); process.exitCode = 1; }
 }
 
 if (process.argv[1] && new URL(import.meta.url).pathname === process.argv[1]) await main();

@@ -31,7 +31,7 @@ jobs:
   fetch:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
@@ -50,13 +50,16 @@ jobs:
       - name: 取得と変換（scripts/fetch-photos.mjs）
         env:
           REFRESH: ${{ inputs.refresh && '--refresh' || '' }}
+          # 任意: Wikimedia に名乗る連絡先（リポジトリの Settings → Variables で WIKIMEDIA_CONTACT を設定。未設定でも動く）
+          WIKIMEDIA_CONTACT: ${{ vars.WIKIMEDIA_CONTACT }}
         run: node scripts/fetch-photos.mjs $REFRESH
 
       - name: サイズの確認と報告（95MB を超えるファイルがあれば失敗）
         if: always()
         run: node scripts/size-report.mjs data/photos .webp "ロケ地写真（data/photos/）" 95
 
-      - name: コミットして push
+      - name: コミットして push（一部の写真を取得できなかった場合も、取得できた分はコミットする）
+        if: ${{ !cancelled() }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
