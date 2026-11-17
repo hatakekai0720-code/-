@@ -8,7 +8,7 @@ Open Data Commons Open Database License（ODbL）1.0 の下で提供されてい
   著作権と帰属表示: https://www.openstreetmap.org/copyright
 
 各ファイルは Protomaps basemap の daily build（https://build.protomaps.com/）から、
-scripts/extract-streets.sh でロケ地ごとに半径約 2.5km・最大ズーム 15 の範囲を切り出したもの
+scripts/extract-streets.sh で市街地のロケ地ごとに半径約 1km・ズーム 10〜15 の範囲を切り出したもの
 （ODbL でいう「派生データベース」）です。アプリの地図には「© OpenStreetMap contributors」と表示します。
 
 Protomaps basemap のスキーマ・スタイル: https://github.com/protomaps/basemaps（BSD-3-Clause / CC0）
