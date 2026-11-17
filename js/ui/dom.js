@@ -17,8 +17,10 @@ export function h(tag, attrs, ...kids) {
 }
 
 export function toast(msg, ms = 2400) {
+  const root = document.getElementById('toast-root');
   const el = h('div', { class: 'toast' }, msg);
-  document.getElementById('toast-root').append(el);
+  root.append(el);
+  while (root.children.length > 2) root.firstElementChild.remove(); // 連続操作で画面を埋めない
   setTimeout(() => el.remove(), ms);
 }
 

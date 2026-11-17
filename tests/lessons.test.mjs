@@ -30,7 +30,7 @@ test('本文がある回はスキーマどおり', () => {
     assert.ok(l.summary && l.theory && l.mission, `第${l.no}回`);
     assert.ok(Array.isArray(l.steps) && l.steps.length >= 3 && l.steps.every((s) => typeof s === 'string' && s), `第${l.no}回 steps`);
   }
-  for (const ch of [1, 2, 3, 4]) assert.ok(data.lessons.filter((l) => l.chapter === ch).every(hasBody), `第${ch}章は全回本文あり`);
+  for (const ch of [1, 2, 3, 4, 5]) assert.ok(data.lessons.filter((l) => l.chapter === ch).every(hasBody), `第${ch}章は全回本文あり`);
 });
 test('練習用レシピはすべて xt3.js の範囲内', () => {
   for (const l of data.lessons) {
