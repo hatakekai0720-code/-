@@ -20,17 +20,20 @@ const API = 'https://commons.wikimedia.org/w/api.php';
 const UA = `XT3CinematicLab-PhotoFetcher/1.1 (offline PWA; bundles freely licensed location photos${process.env.WIKIMEDIA_CONTACT ? `; ${process.env.WIKIMEDIA_CONTACT}` : ''})`;
 const THUMB_WIDTH = 1280; // Commons の標準サムネイル幅（標準外の幅は生成を断られることがある）
 const PACE_MS = 1500;     // 画像 1 枚ごとの間隔
+// 1 回の実行で画像の取得に使う時間の上限（分）。超えたら残りは次回に回し、取得できた分だけ書き出す（ジョブの時間切れで何も残らないのを防ぐ）
+const BUDGET_MS = (Number(process.env.PHOTO_TIME_BUDGET_MIN) || 20) * 60000;
+const STARTED = Date.now();
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-/** 429 / 503 は Retry-After（無ければ 5→10→20→40→60 秒）待って最大 6 回まで再試行する */
-export async function fetchRetry(url, init = {}, { tries = 6, wait = sleep } = {}) {
+/** 429 / 503 は Retry-After（上限 60 秒。無ければ 5→10→20→40 秒）待って最大 5 回まで試す */
+export async function fetchRetry(url, init = {}, { tries = 5, wait = sleep } = {}) {
   let last;
   for (let i = 0; i < tries; i++) {
     const res = await fetch(url, { ...init, headers: { 'user-agent': UA, ...(init.headers || {}) } });
     if (res.status !== 429 && res.status !== 503) return res;
     last = res;
     const ra = Number(res.headers.get('retry-after'));
-    const ms = Number.isFinite(ra) && ra > 0 ? Math.min(ra, 120) * 1000 : Math.min(5000 * 2 ** i, 60000);
+    const ms = Number.isFinite(ra) && ra > 0 ? Math.min(ra, 60) * 1000 : Math.min(5000 * 2 ** i, 60000);
     console.log(`  ${res.status} のため ${Math.round(ms / 1000)} 秒待って再試行（${i + 1}/${tries - 1}）: ${String(url).slice(0, 100)}`);
     if (i < tries - 1) await wait(ms);
   }
@@ -141,6 +144,7 @@ async function main() {
     let buf;
     if (same && !REFRESH) buf = readFileSync(path);
     else if (streak >= 3) { failed.push(`${l.id}: 連続で失敗したため今回は取得しません`); continue; }
+    else if (Date.now() - STARTED > BUDGET_MS) { failed.push(`${l.id}: 時間の上限に達したため次回に回します`); continue; }
     else {
       try {
         const res = await fetchRetry(m.thumb);
