@@ -1691,6 +1691,406 @@
         "wb": { "mode": "kelvin", "kelvin": 5200 }, "wbShift": { "r": 3, "b": -5 },
         "highlight": -1, "shadow": -1, "color": 0, "sharpness": -2, "nr": -4,
         "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["冬", "住宅", "クリスマス"] }
+    },
+    {
+      "id": "deer-hunter-st-theodosius",
+      "title": "ディア・ハンター", "titleEn": "The Deer Hunter", "year": 1978, "director": "マイケル・チミノ",
+      "place": "聖テオドシウス大聖堂", "city": "クリーブランド", "country": "アメリカ", "region": "north-america",
+      "lat": 41.4797, "lng": -81.6866, "confidence": "high", "streets": true,
+      "scene": "戦地へ向かう直前の若者の結婚式が行われる正教会。長い式と祝宴が、故郷の最後の幸福を描く。",
+      "look": "金色の聖堂内と秋の曇り空。温かい室内と冷たい外光の対比。",
+      "sources": [
+        "https://atlasobscura.com/places/st-theodosius-cathedral",
+        "https://movie-locations.com/movies/d/Deer-Hunter.php"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 0, "color": 1, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["教会", "結婚式", "秋"] }
+    },
+    {
+      "id": "rocky-art-museum-steps",
+      "title": "ロッキー", "titleEn": "Rocky", "year": 1976, "director": "ジョン・G・アヴィルドセン",
+      "place": "フィラデルフィア美術館の階段", "city": "フィラデルフィア", "country": "アメリカ", "region": "north-america",
+      "lat": 39.9656, "lng": -75.18, "confidence": "high", "streets": true,
+      "scene": "早朝のトレーニングでロッキーが階段を駆け上がり、頂上で両手を上げる。",
+      "look": "夜明けの青と朝日の淡い橙。粒子感のある 70 年代の早朝。",
+      "sources": [
+        "https://www.visitphilly.com/articles/philadelphia/quintessential-rocky-tour-of-philadelphia/",
+        "https://www.movie-locations.com/movies/r/Rocky.php"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["朝", "階段", "スポーツ"] }
+    },
+    {
+      "id": "rocky-italian-market",
+      "title": "ロッキー", "titleEn": "Rocky", "year": 1976, "director": "ジョン・G・アヴィルドセン",
+      "place": "9 番街のイタリアン・マーケット", "city": "フィラデルフィア", "country": "アメリカ", "region": "north-america",
+      "lat": 39.9393, "lng": -75.158, "confidence": "high", "streets": true,
+      "scene": "トレーニング中のロッキーが市場の通りを走り抜け、店主から果物を投げ渡される。",
+      "look": "冬の曇り空、屋台のテントと果物の色。くすんだ生活感のある色。",
+      "sources": [
+        "https://www.visitphilly.com/articles/philadelphia/quintessential-rocky-tour-of-philadelphia/",
+        "https://www.movie-locations.com/movies/r/Rocky.php"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 3, "b": -5 },
+        "highlight": -1, "shadow": -1, "color": -2, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["市場", "街", "朝"] }
+    },
+    {
+      "id": "perks-fort-pitt-tunnel",
+      "title": "ウォールフラワー", "titleEn": "The Perks of Being a Wallflower", "year": 2012, "director": "スティーブン・チョボスキー",
+      "place": "フォート・ピット・トンネル", "city": "ピッツバーグ", "country": "アメリカ", "region": "north-america",
+      "lat": 40.4339, "lng": -80.0156, "confidence": "high", "streets": true,
+      "scene": "トラックの荷台に立ったサムが、トンネルを抜けて街の夜景が開ける瞬間に両手を広げる。",
+      "look": "トンネルの橙の照明から夜景の青へ。光が流れる柔らかい夜。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Fort_Pitt_Tunnel",
+        "https://www.imdb.com/title/tt1659337/locations"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 1, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "トンネル", "青春"] }
+    },
+    {
+      "id": "good-will-hunting-public-garden",
+      "title": "グッド・ウィル・ハンティング", "titleEn": "Good Will Hunting", "year": 1997, "director": "ガス・ヴァン・サント",
+      "place": "ボストン・パブリック・ガーデンのベンチ", "city": "ボストン", "country": "アメリカ", "region": "north-america",
+      "lat": 42.3546, "lng": -71.0701, "confidence": "high", "streets": true,
+      "scene": "心理学者のショーンが、天才青年ウィルと池のほとりのベンチで語り合う。",
+      "look": "池の緑と柔らかな曇り空。落ち着いた自然な色。",
+      "sources": [
+        "https://www.movie-locations.com/movies/g/Good-Will-Hunting.php",
+        "https://www.livethemovies.com/blog/the-boston-public-garden-bench-from-good-will-hunting"
+      ],
+      "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 0, "b": -2 },
+        "highlight": -1, "shadow": 0, "color": -1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["公園", "人物", "対話"] }
+    },
+    {
+      "id": "exorcist-steps",
+      "title": "エクソシスト", "titleEn": "The Exorcist", "year": 1973, "director": "ウィリアム・フリードキン",
+      "place": "エクソシスト階段（プロスペクト通りと 36 丁目の角）", "city": "ワシントン D.C.", "country": "アメリカ", "region": "north-america",
+      "lat": 38.9056, "lng": -77.0702, "confidence": "high", "streets": true,
+      "scene": "少女の家の脇から通りへ急降下する石段。物語の決定的な場面の舞台になる。",
+      "look": "夜の街灯の黄と石の灰色、深い影。冷たく重い色。",
+      "sources": [
+        "https://library.georgetown.edu/exhibition/filming-exorcist",
+        "https://wtop.com/entertainment/2015/08/exorcist-film-locations-in-georgetown"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 4500 }, "wbShift": { "r": 1, "b": -2 },
+        "highlight": -1, "shadow": 2, "color": -1, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "階段", "ホラー"] }
+    },
+    {
+      "id": "forrest-gump-reflecting-pool",
+      "title": "フォレスト・ガンプ／一期一会", "titleEn": "Forrest Gump", "year": 1994, "director": "ロバート・ゼメキス",
+      "place": "リンカーン記念堂のリフレクティング・プール", "city": "ワシントン D.C.", "country": "アメリカ", "region": "north-america",
+      "lat": 38.8893, "lng": -77.0442, "confidence": "high", "streets": true,
+      "scene": "反戦集会に紛れ込んだフォレストが、群衆の中からジェニーを見つけ、池を渡って駆け寄る。",
+      "look": "夏の日差しと長い池の反射、記念塔の白。明るく鮮やか。",
+      "sources": [
+        "https://www.smithsonianmag.com/travel/forrest-gumps-america-180951933/",
+        "https://movie-locations.com/movies/f/Forrest-Gump.php"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 1, "b": -1 },
+        "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["夏", "記念碑", "人物"] }
+    },
+    {
+      "id": "jaws-bridge",
+      "title": "ジョーズ", "titleEn": "Jaws", "year": 1975, "director": "スティーヴン・スピルバーグ",
+      "place": "アメリカン・リージョン記念橋（ジョーズ橋）", "city": "マーサズ・ヴィニヤード", "country": "アメリカ", "region": "north-america",
+      "lat": 41.418, "lng": -70.553, "confidence": "high", "streets": false,
+      "scene": "サメが橋の下をくぐって入り江に入り込む。夏の海水浴客でにぎわう島が恐怖に包まれる。",
+      "look": "夏の海の青緑と白い砂、強い日差し。70 年代の鮮やかなフィルム色。",
+      "sources": [
+        "https://atlasobscura.com/places/jaws-bridge",
+        "https://www.movie-locations.com/movies/j/Jaws.php"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 1, "b": -1 },
+        "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "夏", "橋"] }
+    },
+    {
+      "id": "hachi-woonsocket-depot",
+      "title": "HACHI 約束の犬", "titleEn": "Hachi: A Dog's Tale", "year": 2009, "director": "ラッセ・ハルストレム",
+      "place": "ウーンソケット駅", "city": "ウーンソケット", "country": "アメリカ", "region": "north-america",
+      "lat": 42.0024, "lng": -71.5144, "confidence": "high", "streets": true,
+      "scene": "教授を迎えに毎日駅へ通う犬。教授が帰らなくなった後も、駅前で待ち続ける。駅前には今、銅像がある。",
+      "look": "ニューイングランドの秋と冬、レンガの駅舎。柔らかく少し寂しい色。",
+      "sources": [
+        "https://www.hmdb.org/m.asp?m=312736",
+        "https://en.wikipedia.org/wiki/Woonsocket_Depot"
+      ],
+      "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 1, "b": -1 },
+        "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["駅", "秋", "動物"] }
+    },
+    {
+      "id": "dirty-dancing-mountain-lake-lodge",
+      "title": "ダーティ・ダンシング", "titleEn": "Dirty Dancing", "year": 1987, "director": "エミール・アルドリーノ",
+      "place": "マウンテン・レイク・ロッジ（劇中のケラーマンズ）", "city": "ペンブローク", "country": "アメリカ", "region": "north-america",
+      "lat": 37.3573, "lng": -80.5337, "confidence": "high", "streets": false,
+      "scene": "家族と避暑に来た少女が、リゾートのダンス講師と恋に落ちる。石造りのロッジが夏の滞在先になる。",
+      "look": "夏の山の緑と夕方の金色。60 年代の思い出のような暖かい色。",
+      "sources": [
+        "https://www.mtnlakelodge.com/explore/dirty-dancing-film-location",
+        "https://www.imdb.com/title/tt0092890/locations"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 2, "b": -3 },
+        "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["夏", "ホテル", "山"] }
+    },
+    {
+      "id": "mystery-train-arcade-restaurant",
+      "title": "ミステリー・トレイン", "titleEn": "Mystery Train", "year": 1989, "director": "ジム・ジャームッシュ",
+      "place": "アーケード・レストラン", "city": "メンフィス", "country": "アメリカ", "region": "north-america",
+      "lat": 35.1347, "lng": -90.057, "confidence": "high", "streets": true,
+      "scene": "音楽の街を訪れた旅人たちの一夜。古い食堂と隣のホテルが物語の中心になる。",
+      "look": "夜のネオンの赤と緑、褪せた壁。濃い色の夜景。",
+      "sources": [
+        "https://www.avclub.com/memphis-arcade-restaurant-set-of-jim-jarmuschs-myste-1798163226",
+        "https://www.hmdb.org/m.asp?m=116289"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 3800 }, "wbShift": { "r": 1, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 2, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "食堂", "街"] }
+    },
+    {
+      "id": "moonlight-virginia-key-beach",
+      "title": "ムーンライト", "titleEn": "Moonlight", "year": 2016, "director": "バリー・ジェンキンス",
+      "place": "ヴァージニア・キー・ビーチ", "city": "マイアミ", "country": "アメリカ", "region": "north-america",
+      "lat": 25.7378, "lng": -80.15, "confidence": "high", "streets": false,
+      "scene": "少年シャロンが、面倒を見てくれる男に海で泳ぎを教わる。",
+      "look": "強い日差しの青緑の海と深い肌の色。彩度高く、温度の高い色。",
+      "sources": [
+        "https://www.movie-locations.com/movies/m/Moonlight-2016.php",
+        "https://editorial.rottentomatoes.com/article/most-memorable-movie-moments-moonlight-swimming-lesson"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 1, "b": 2 },
+        "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "夏", "人物"] }
+    },
+    {
+      "id": "florida-project-magic-castle-inn",
+      "title": "フロリダ・プロジェクト 真夏の魔法", "titleEn": "The Florida Project", "year": 2017, "director": "ショーン・ベイカー",
+      "place": "マジック・キャッスル・イン", "city": "キシミー", "country": "アメリカ", "region": "north-america",
+      "lat": 28.3315, "lng": -81.5005, "confidence": "high", "streets": true,
+      "scene": "テーマパークのそばの紫色のモーテルで暮らす母娘。子どもたちが夏休みを駆け回る。",
+      "look": "紫の建物、青空、強い日差し。キャンディのような高彩度。",
+      "sources": [
+        "https://faroutmagazine.co.uk/visit-filming-locations-sean-bakers-the-florida-project/",
+        "https://thecinemaholic.com/where-the-florida-project-filmed"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 2, "b": 1 },
+        "highlight": 0, "shadow": 1, "color": 3, "sharpness": 0, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["夏", "モーテル", "子ども"] }
+    },
+    {
+      "id": "scarface-728-ocean-drive",
+      "title": "スカーフェイス", "titleEn": "Scarface", "year": 1983, "director": "ブライアン・デ・パルマ",
+      "place": "728 Ocean Drive", "city": "マイアミビーチ", "country": "アメリカ", "region": "north-america",
+      "lat": 25.7786, "lng": -80.1309, "confidence": "high", "streets": true,
+      "scene": "麻薬取引が決裂し、仲間が襲われる安ホテルの一室。建物の階段近くに記念のプレートがある。",
+      "look": "パステルの外壁と強い日差し、濃い原色。80 年代マイアミの鮮やかさ。",
+      "sources": [
+        "https://movie-locations.com/movies/s/Scarface-1983.php",
+        "https://www.bniengineers.com/projects-item/728-ocean-drive/"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 2, "b": -1 },
+        "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["街", "海", "80年代"] }
+    },
+    {
+      "id": "truman-show-seaside",
+      "title": "トゥルーマン・ショー", "titleEn": "The Truman Show", "year": 1998, "director": "ピーター・ウィアー",
+      "place": "シーサイドの町並み", "city": "シーサイド", "country": "アメリカ", "region": "north-america",
+      "lat": 30.3214, "lng": -86.1394, "confidence": "high", "streets": true,
+      "scene": "自分の人生がテレビ番組だと知らずに暮らす男の町。整いすぎた家並みが作られた世界を思わせる。",
+      "look": "白とパステルの家、青空。明るく人工的に整った色。",
+      "sources": [
+        "https://www.worldatlas.com/places/the-florida-town-where-the-truman-show-was-filmed.html",
+        "https://looper.com/789518/where-was-the-truman-show-actually-filmed"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
+        "highlight": -2, "shadow": -2, "color": 2, "sharpness": -1, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["街", "日中", "住宅"] }
+    },
+    {
+      "id": "edward-scissorhands-tinsmith-circle",
+      "title": "シザーハンズ", "titleEn": "Edward Scissorhands", "year": 1990, "director": "ティム・バートン",
+      "place": "ティンスミス・サークル（カーペンターズ・ラン）", "city": "ラッツ", "country": "アメリカ", "region": "north-america",
+      "lat": 28.1906, "lng": -82.4889, "confidence": "high", "streets": true,
+      "scene": "手がはさみの青年が暮らすことになるパステル色の住宅街。実在の住宅が色を塗り替えて使われた。",
+      "look": "ミントやピンクの家、真っ青な空。お菓子のような高彩度。",
+      "sources": [
+        "https://www.fox13news.com/news/edward-scissorhands-carved-his-way-into-hearts-of-americans-from-a-set-in-lutz-30-years-ago",
+        "https://www.movie-locations.com/movies/e/Edward-Scissorhands.php"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
+        "highlight": -1, "shadow": -2, "color": 3, "sharpness": -1, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["住宅", "日中", "ポップ"] }
+    },
+    {
+      "id": "last-picture-show-royal-theater",
+      "title": "ラスト・ショー", "titleEn": "The Last Picture Show", "year": 1971, "director": "ピーター・ボグダノヴィッチ",
+      "place": "ロイヤル・シアター", "city": "アーチャーシティ", "country": "アメリカ", "region": "north-america",
+      "lat": 33.5953, "lng": -98.6261, "confidence": "high", "streets": true,
+      "scene": "寂れていく田舎町の唯一の映画館。若者たちの青春と、町の終わりを見つめる。",
+      "look": "白黒の乾いた階調、風の強い町。硬いコントラスト。",
+      "sources": [
+        "https://gov.texas.gov/film/trail/the-royal-theater",
+        "https://www.movie-locations.com/movies/l/Last-Picture-Show.php"
+      ],
+      "recipe": { "filmSim": "acros", "monoFilter": "r", "dr": "dr200", "grain": "weak", "colorChrome": "off",
+        "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
+        "highlight": 1, "shadow": 2, "color": 0, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["モノクロ", "映画館", "田舎町"] }
+    },
+    {
+      "id": "paris-texas-marathon-motel",
+      "title": "パリ、テキサス", "titleEn": "Paris, Texas", "year": 1984, "director": "ヴィム・ヴェンダース",
+      "place": "マラソン・モーテル", "city": "マラソン", "country": "アメリカ", "region": "north-america",
+      "lat": 30.205, "lng": -103.251, "confidence": "high", "streets": false,
+      "scene": "荒野をさまよっていた男が弟に見つけられ、ふたりで泊まる砂漠の町のモーテル。",
+      "look": "乾いた赤土、夕方の緑がかった空、ネオンの赤。強いコントラストの色。",
+      "sources": [
+        "https://faroutmagazine.co.uk/visit-the-filming-location-of-paris-texas-guide/",
+        "https://movie-locations.com/movies/p/Paris-Texas.php"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": 0, "shadow": 2, "color": 2, "sharpness": 1, "nr": -3,
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["砂漠", "モーテル", "ロードムービー"] }
+    },
+    {
+      "id": "forrest-gump-point-monument-valley",
+      "title": "フォレスト・ガンプ／一期一会", "titleEn": "Forrest Gump", "year": 1994, "director": "ロバート・ゼメキス",
+      "place": "フォレスト・ガンプ・ポイント（US-163）", "city": "モニュメント・バレー", "country": "アメリカ", "region": "north-america",
+      "lat": 37.1012, "lng": -109.9906, "confidence": "high", "streets": false,
+      "scene": "何年も走り続けたフォレストが、赤い岩山へまっすぐ延びる道の途中で走るのをやめる。",
+      "look": "赤い岩と青空、まっすぐな道。乾いた鮮やかな色。",
+      "sources": [
+        "https://atlasobscura.com/places/forrest-gump-point-2",
+        "https://en.wikipedia.org/wiki/List_of_appearances_of_Monument_Valley_in_the_media"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 3, "b": -3 },
+        "highlight": 0, "shadow": 2, "color": 1, "sharpness": 1, "nr": -3,
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["砂漠", "道", "風景"] }
+    },
+    {
+      "id": "thelma-louise-dead-horse-point",
+      "title": "テルマ＆ルイーズ", "titleEn": "Thelma & Louise", "year": 1991, "director": "リドリー・スコット",
+      "place": "デッド・ホース・ポイント州立公園", "city": "モアブ", "country": "アメリカ", "region": "north-america",
+      "lat": 38.4706, "lng": -109.7406, "confidence": "high", "streets": false,
+      "scene": "追い詰められたふたりが車で峡谷の縁へ向かう最後の場面。劇中ではグランドキャニオンの設定。",
+      "look": "赤茶の峡谷と青空、強い日差し。乾いた高コントラスト。",
+      "sources": [
+        "https://film.utah.gov/thelma-louise-30",
+        "https://www.movie-locations.com/movies/t/Thelma-And-Louise.php"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": 0, "shadow": 2, "color": 1, "sharpness": 1, "nr": -3,
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["峡谷", "車", "風景"] }
+    },
+    {
+      "id": "zabriskie-point-death-valley",
+      "title": "砂丘", "titleEn": "Zabriskie Point", "year": 1970, "director": "ミケランジェロ・アントニオーニ",
+      "place": "ザブリスキー・ポイント", "city": "デスバレー", "country": "アメリカ", "region": "north-america",
+      "lat": 36.4202, "lng": -116.8124, "confidence": "high", "streets": false,
+      "scene": "若い男女が砂漠の丘陵で出会い、荒野の中でふたりの時間を過ごす。",
+      "look": "黄土色の起伏と白い空。乾いた淡い色。",
+      "sources": [
+        "https://www.movie-locations.com/movies/z/Zabriskie-Point.php",
+        "https://www.atlasobscura.com/places/zabriskie-point"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": 3, "b": -3 },
+        "highlight": -1, "shadow": 2, "color": -1, "sharpness": 1, "nr": -3,
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["砂漠", "風景", "人物"] }
+    },
+    {
+      "id": "nomadland-badlands",
+      "title": "ノマドランド", "titleEn": "Nomadland", "year": 2020, "director": "クロエ・ジャオ",
+      "place": "バッドランズ国立公園", "city": "サウスダコタ", "country": "アメリカ", "region": "north-america",
+      "lat": 43.7486, "lng": -101.9455, "confidence": "high", "streets": false,
+      "scene": "車で暮らしながら季節労働を続けるファーンが、国立公園のキャンプ場で働き、荒野を歩く。",
+      "look": "マジックアワーの淡い桃色と灰色の岩。静かで柔らかい色。",
+      "sources": [
+        "https://thecinemaholic.com/where-was-nomadland-filmed",
+        "https://brookingsregister.com/article/south-dakota-hits-big-screen-with-oscar-favorite-nomadland"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6800 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": -2, "shadow": 1, "color": -1, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["荒野", "マジックアワー", "ロードムービー"] }
+    },
+    {
+      "id": "close-encounters-devils-tower",
+      "title": "未知との遭遇", "titleEn": "Close Encounters of the Third Kind", "year": 1977, "director": "スティーヴン・スピルバーグ",
+      "place": "デビルスタワー（隣接する牧場で撮影）", "city": "ワイオミング", "country": "アメリカ", "region": "north-america",
+      "lat": 44.5902, "lng": -104.7146, "confidence": "high", "streets": false,
+      "scene": "謎の光景に取りつかれた人々が、そびえ立つ岩山を目指して集まってくる。",
+      "look": "岩山の灰と草原の緑、夕暮れの青。神秘的な光。",
+      "sources": [
+        "https://cowboystatedaily.com/2022/05/19/sen-ogden-driskill-recalls-filming-of-close-encounters-on-his-familys-ranch-at-devils-tower/",
+        "https://www.movie-locations.com/movies/c/Close-Encounters-Of-The-Third-Kind.php"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6800 }, "wbShift": { "r": 0, "b": 2 },
+        "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["山", "夕方", "SF"] }
+    },
+    {
+      "id": "north-by-northwest-mount-rushmore",
+      "title": "北北西に進路を取れ", "titleEn": "North by Northwest", "year": 1959, "director": "アルフレッド・ヒッチコック",
+      "place": "ラシュモア山（展望エリア）", "city": "キーストーン", "country": "アメリカ", "region": "north-america",
+      "lat": 43.877, "lng": -103.4549, "confidence": "high", "streets": false,
+      "scene": "人違いで追われる広告マンが、巨大な大統領の顔を望む展望所でスパイと会う。岩肌の追跡は撮影所のセット。",
+      "look": "青空と花崗岩の白、50 年代カラーの鮮やかさ。",
+      "sources": [
+        "https://onlocationtours.com/locations/north-by-northwest/",
+        "https://www.tcm.com/articles/488930/famous-north-by-northwest-destinations"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": 1, "shadow": 1, "color": 3, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["山", "記念碑", "日中"] }
+    },
+    {
+      "id": "forrest-gump-chippewa-square",
+      "title": "フォレスト・ガンプ／一期一会", "titleEn": "Forrest Gump", "year": 1994, "director": "ロバート・ゼメキス",
+      "place": "チッペワ・スクエア（バス停のベンチ）", "city": "サバンナ", "country": "アメリカ", "region": "north-america",
+      "lat": 32.077, "lng": -81.0918, "confidence": "high", "streets": true,
+      "scene": "バス停のベンチに座ったフォレストが、隣に来た人々に自分の人生を語り始める。ベンチは撮影用で、今は博物館にある。",
+      "look": "南部の木漏れ日と苔の緑、白い羽根。柔らかく温かい色。",
+      "sources": [
+        "https://www.smithsonianmag.com/travel/forrest-gumps-america-180951933/",
+        "https://movie-locations.com/movies/f/Forrest-Gump.php"
+      ],
+      "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 0, "b": -2 },
+        "highlight": -1, "shadow": 0, "color": 0, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["公園", "日中", "人物"] }
     }
   ]
 }
