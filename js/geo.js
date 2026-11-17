@@ -20,7 +20,7 @@ export function formatLatLng(lat, lng) {
 }
 
 /**
- * 日付変更線をまたぐリングの経度を連続させる（例: 179 → -179 を 179 → 181 に）。
+ * 日付変更線をまたぐリング・線の経度を連続させる（例: 179 → -179 を 179 → 181 に）。
  * こうしないと Leaflet が地図の端から端まで横線を引いてしまう。GeoJSON をその場で書き換える。
  */
 export function unwrapAntimeridian(geojson) {
@@ -35,8 +35,47 @@ export function unwrapAntimeridian(geojson) {
   for (const f of geojson.features || [geojson]) {
     const g = f.geometry;
     if (!g) continue;
-    if (g.type === 'Polygon') g.coordinates.forEach(fixRing);
+    if (g.type === 'Polygon' || g.type === 'MultiLineString') g.coordinates.forEach(fixRing);
     else if (g.type === 'MultiPolygon') g.coordinates.forEach((poly) => poly.forEach(fixRing));
+    else if (g.type === 'LineString') fixRing(g.coordinates);
   }
   return geojson;
+}
+
+/** 経度 lng を、center に一番近い 360° の倍数ずらした値にする（worldCopyJump で地図が横にずれていても正しい位置に置く） */
+export function wrapLngNear(lng, center) {
+  return lng + 360 * Math.round((center - lng) / 360);
+}
+
+/** 1 行のラベルのおおよその幅（px）。全角は 1em、半角は 0.6em で見積もる */
+export function labelWidth(text, fontSize) {
+  let w = 0;
+  for (const ch of text) w += ch.charCodeAt(0) > 0xff ? fontSize : fontSize * 0.6;
+  return w;
+}
+
+/**
+ * 都市名ラベルの選択。表示ズーム以下の都市から、重要な順（minZoom → rank）に、
+ * 画面内で重ならないものだけを選ぶ（DOM 非依存）。
+ * @param {Array} places [lng, lat, name, nameEn, minZoom, rank] の配列（重要な順に並んでいること）
+ * @param {(lat:number, lng:number) => {x:number, y:number}} project 画面座標への変換
+ * @param {{zoom:number, width:number, height:number, centerLng:number, fontSize?:number, max?:number, pad?:number}} o
+ */
+export function pickLabels(places, project, o) {
+  const fs = o.fontSize || 11, pad = o.pad ?? 4, max = o.max || 150;
+  const boxes = [], out = [];
+  for (const p of places) {
+    if (p[4] > o.zoom) continue;
+    const lng = wrapLngNear(p[0], o.centerLng);
+    const { x, y } = project(p[1], lng);
+    if (x < -50 || y < -20 || x > o.width + 50 || y > o.height + 20) continue;
+    // ラベルは点の右側に置く
+    const w = labelWidth(p[2], fs) + 8;
+    const box = [x - 3 - pad, y - fs / 2 - pad, x + w + pad, y + fs / 2 + pad];
+    if (boxes.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1])) continue;
+    boxes.push(box);
+    out.push({ lat: p[1], lng, name: p[2], nameEn: p[3], rank: p[5] });
+    if (out.length >= max) break;
+  }
+  return out;
 }

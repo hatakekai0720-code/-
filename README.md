@@ -68,6 +68,7 @@ node tests/analyzer.test.mjs   # 画像解析と推定レシピ（合成画像�
 node tests/map.test.mjs        # 距離計算・ロケ地データ
 node tests/lessons.test.mjs    # 講座データ・練習用レシピ
 node tests/sw.test.mjs         # Service Worker のキャッシュ一覧・外部 URL が無いこと
+node tests/streets.test.mjs    # 街路地図のダウンロード計画・範囲判定・PMTiles の Range 読み込み
 ```
 
 ## データとプライバシー
@@ -76,7 +77,8 @@ node tests/sw.test.mjs         # Service Worker のキャッシュ一覧・外�
 - 保存先は端末の `localStorage` だけで、キーは `xt3cine:db` です（GitHub Pages では同じユーザーの全リポジトリが同じオリジンになるため、`xt3cine:` を接頭辞にしています）。
 - Service Worker のキャッシュ名も `xt3cine-` で始まり、このアプリのキャッシュ以外は削除しません。
 - 現在地は「近い順」の計算に使うだけで、保存しません。
-- 外部サーバーへの通信はありません（Web フォント・CDN・地図タイルも使っていません）。
+- 外部サーバーへの通信はありません（Web フォント・CDN・外部の地図タイルも使っていません）。
+- ロケ地周辺の街路地図（OpenStreetMap）は、このアプリと同じサイトから裏で 1 件ずつダウンロードし、Cache Storage（`xt3cine-streets`）に保存します。設定画面でオフ・全削除できます。
 - 機種変更やバックアップには、設定画面の「エクスポート」で JSON ファイルを書き出し、新しい端末で「インポート」します。
 
 ## ファイル構成
@@ -96,7 +98,14 @@ data/lessons.json        講座 全 50 回
 data/locations.json      ロケ地 18 件
 data/recipes-seed.json   初期レシピ
 data/countries-50m.json  国境データ（world-atlas / Natural Earth）
-vendor/                  Leaflet・topojson-client
+data/countries-10m.json  国境・海岸線 10m（ズーム 5 以上）
+data/admin1-10m.json     県・州の境界線（ズーム 4 以上）
+data/places-10m.json     主要都市名（ズーム 6 以上）
+data/streets/            ロケ地周辺の街路地図 PMTiles（scripts/extract-streets.sh で作成。プリキャッシュしない）
+js/analyze-worker.js     全ピクセル解析の Web Worker
+js/streets.js            街路地図のダウンロードと読み出し
+vendor/                  Leaflet・topojson-client・pmtiles・protomaps-leaflet
+scripts/                 データ作成用スクリプト（アプリの実行には不要）
 icons/                   アプリアイコン
 tests/                   Node.js のテスト
 SPEC.md                  開発仕様書
@@ -115,4 +124,7 @@ SPEC.md                  開発仕様書
 | [Leaflet](https://leafletjs.com/) | 1.9.4 | BSD-2-Clause | `vendor/leaflet/LICENSE` |
 | [topojson-client](https://github.com/topojson/topojson-client) | 3.1.0 | ISC | `vendor/topojson-client.LICENSE` |
 | [world-atlas](https://github.com/topojson/world-atlas) | 2.0.2 | ISC | `data/world-atlas.LICENSE` |
-| [Natural Earth](https://www.naturalearthdata.com/) | 4.1.0 | パブリックドメイン | （world-atlas の元データ） |
+| [Natural Earth](https://www.naturalearthdata.com/) | 4.1.0 / 5.x | パブリックドメイン | `data/natural-earth.LICENSE` |
+| [pmtiles](https://github.com/protomaps/PMTiles) | 4.5.0 | BSD-3-Clause | `vendor/pmtiles/LICENSE` |
+| [protomaps-leaflet](https://github.com/protomaps/protomaps-leaflet) | 5.1.0 | BSD-3-Clause | `vendor/protomaps-leaflet/LICENSE` |
+| [OpenStreetMap](https://www.openstreetmap.org/copyright)（Protomaps basemap） | daily build | ODbL 1.0 | `data/streets/LICENSE` |

@@ -3,9 +3,10 @@
 // ・GitHub Pages では同じユーザーの全リポジトリが同一オリジンになるため、キャッシュ名は必ず xt3cine- で始め、
 //   削除するのも自分のキャッシュだけにする
 // ・ユーザーの画像はキャッシュしない（画像は fetch を通らず、ここに来ても ASSETS 以外は保存しない）
-const CACHE_VERSION = '2026-11-17.1';
+const CACHE_VERSION = '2026-11-17.5';
 const PREFIX = 'xt3cine-';
 const CACHE = `${PREFIX}${CACHE_VERSION}`;
+const STREETS_CACHE = `${PREFIX}streets`; // js/streets.js の STREETS_CACHE と同じ。街路データは ASSETS に入れない
 
 const ASSETS = [
   './',
@@ -16,11 +17,13 @@ const ASSETS = [
   './js/store.js',
   './js/xt3.js',
   './js/analyzer.js',
+  './js/analyze-worker.js',
   './js/translator.js',
   './js/geo.js',
   './js/locations.js',
   './js/lessons.js',
   './js/pwa.js',
+  './js/streets.js',
   './js/ui/dom.js',
   './js/ui/recipe-ui.js',
   './js/ui/theme.js',
@@ -36,6 +39,9 @@ const ASSETS = [
   './js/views/settings.js',
   './js/views/slots.js',
   './data/countries-50m.json',
+  './data/countries-10m.json',
+  './data/admin1-10m.json',
+  './data/places-10m.json',
   './data/lessons.json',
   './data/locations.json',
   './data/recipes-seed.json',
@@ -47,6 +53,8 @@ const ASSETS = [
   './vendor/leaflet/images/marker-icon-2x.png',
   './vendor/leaflet/images/marker-shadow.png',
   './vendor/topojson-client.min.js',
+  './vendor/pmtiles/pmtiles.js',
+  './vendor/protomaps-leaflet/protomaps-leaflet.js',
   './icons/icon.svg',
   './icons/icon-192.png',
   './icons/icon-512.png',
@@ -63,7 +71,8 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil((async () => {
     const keys = await caches.keys();
-    await Promise.all(keys.filter((k) => k.startsWith(PREFIX) && k !== CACHE).map((k) => caches.delete(k)));
+    // 街路地図（xt3cine-streets）はページ側が管理するので消さない
+    await Promise.all(keys.filter((k) => k.startsWith(PREFIX) && k !== CACHE && k !== STREETS_CACHE).map((k) => caches.delete(k)));
     await self.clients.claim(); // 初回からこのページをオフライン対応にする
   })());
 });

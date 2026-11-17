@@ -1,7 +1,7 @@
 // 解析ロジックの数値テスト。単色などの合成画像（RGBA 配列）で検証する。
 // 実行: node tests/analyzer.test.mjs
 import assert from 'node:assert/strict';
-import { analyze, fitSize } from '../js/analyzer.js';
+import { analyze, fitSize, tilePlan, analyzeTiled, Accumulator, TILE_MAX_AREA, TILE_MAX_EDGE } from '../js/analyzer.js';
 import { estimate, buildRecipe, toneCurves, curvesText } from '../js/translator.js';
 import { validateRecipe, RANGES, WB_MODES, FILM_SIMS } from '../js/xt3.js';
 import { validateDb, VERSION } from '../js/store.js';
@@ -16,7 +16,8 @@ function image(fn) {
 const solid = (r, g, b) => image(() => [r, g, b]);
 const near = (v, want, tol, msg) => assert.ok(Math.abs(v - want) <= tol, `${msg}: ${v} (期待 ${want}±${tol})`);
 let count = 0;
-const test = (name, fn) => { fn(); count++; console.log('ok  ', name); };
+const queue = [];
+const test = (name, fn) => queue.push([name, fn]);
 
 test('グレー単色: ヒストグラム・パーセンタイル・彩度ゼロ', () => {
   const a = solid(128, 128, 128);
@@ -168,4 +169,105 @@ test('store: version 1 のデータを移行（custom → custom1、monoWC 追�
   assert.equal(res.db.recipes[0].wb.mode, 'custom1'); assert.equal(res.db.recipes[0].monoWC, 0); assert.equal(res.db.recipes[1].monoWC, null);
   assert.equal(v1.recipes[0].wb.mode, 'custom', '元のオブジェクトは変更しない');
 });
+
+/* ---- 全ピクセル解析（タイル分割） ---- */
+test('tilePlan: X-T3 の 6240×4160 を重なり・抜けなく分割、各タイルは面積・一辺の上限内', () => {
+  for (const [w, h] of [[6240, 4160], [4160, 6240], [20000, 300], [1, 1], [801, 3]]) {
+    const tiles = tilePlan(w, h);
+    let area = 0;
+    const rows = new Uint32Array(h);
+    for (const t of tiles) {
+      assert.ok(t.w * t.h <= TILE_MAX_AREA && t.w <= TILE_MAX_EDGE && t.h <= TILE_MAX_EDGE, JSON.stringify(t));
+      assert.ok(t.x >= 0 && t.y >= 0 && t.x + t.w <= w && t.y + t.h <= h);
+      area += t.w * t.h;
+      for (let y = t.y; y < t.y + t.h; y++) rows[y] += t.w;
+    }
+    assert.equal(area, w * h, `${w}×${h} の面積`);
+    assert.ok(rows.every((v) => v === w), '各行がちょうど 1 回ずつ');
+  }
+  assert.equal(tilePlan(6240, 4160)[0].w, 4096, '横 4096px を超える画像は縦にも分割');
+});
+
+// 合成の大きな画像（空のグラデーション + 細かいテクスチャ + 1px の鏡面反射 + 細い黒線）
+const BW = 3200, BH = 2400;
+const big = new Uint8ClampedArray(BW * BH * 4);
+{
+  let seed = 11; const rnd = () => (seed = (seed * 1103515245 + 12345) % 2147483648) / 2147483648;
+  for (let y = 0; y < BH; y++) for (let x = 0; x < BW; x++) {
+    const p = (y * BW + x) * 4, t = y / BH, n = (rnd() - 0.5) * 24;
+    let r = 40 + 170 * (1 - t) + n, g = 70 + 120 * (1 - t) + n, b = 85 + 60 * (1 - t) + n; // 上が明るい暖色、下が暗い青緑
+    if (x % 16 === 0 && y % 16 === 0) r = g = b = 255;           // 鏡面反射（1px の点）
+    if (x % 50 === 0) { r = 1; g = 1; b = 2; }                    // 細い黒線（電線など）
+    big[p] = r; big[p + 1] = g; big[p + 2] = b; big[p + 3] = 255;
+  }
+}
+const readBig = (x, y, w, h) => {
+  const out = new Uint8ClampedArray(w * h * 4);
+  for (let r = 0; r < h; r++) out.set(big.subarray(((y + r) * BW + x) * 4, ((y + r) * BW + x + w) * 4), r * w * 4);
+  return out;
+};
+/** ブラウザの縮小描画（面積平均）相当で 800px 版を作る */
+function downscale(src, w, h, dw, dh) {
+  const out = new Uint8ClampedArray(dw * dh * 4);
+  for (let y = 0; y < dh; y++) for (let x = 0; x < dw; x++) {
+    const x0 = Math.floor(x * w / dw), x1 = Math.floor((x + 1) * w / dw), y0 = Math.floor(y * h / dh), y1 = Math.floor((y + 1) * h / dh);
+    const s = [0, 0, 0]; let c = 0;
+    for (let yy = y0; yy < y1; yy++) for (let xx = x0; xx < x1; xx++) { const p = (yy * w + xx) * 4; s[0] += src[p]; s[1] += src[p + 1]; s[2] += src[p + 2]; c++; }
+    out.set([s[0] / c, s[1] / c, s[2] / c, 255], (y * dw + x) * 4);
+  }
+  return out;
+}
+
+test('タイル分割の結果は一括解析と完全に一致（7.7MP を 1MP タイルで）', async () => {
+  const progress = [];
+  const tiled = await analyzeTiled(readBig, BW, BH, { maxArea: 1_000_000, onProgress: (d, t) => progress.push([d, t]) });
+  const whole = analyze(big, BW, BH);
+  assert.equal(tiled.pixels, BW * BH);
+  for (const k of ['r', 'g', 'b', 'l']) assert.deepEqual([...tiled.hist[k]], [...whole.hist[k]], `hist.${k}`);
+  for (const k of ['p5', 'p50', 'p95', 'clipBlack', 'clipWhite']) assert.equal(tiled[k], whole[k], k);
+  for (const k of ['chroma', 'saturation', 'meanLuma', 'lumaStd', 'skinRatio', 'hueConsistency']) near(tiled[k], whole[k], 1e-9, k);
+  for (const z of ['shadows', 'highlights', 'overall']) { assert.deepEqual(tiled[z].rgb, whole[z].rgb, z); assert.equal(tiled[z].name, whole[z].name); }
+  assert.deepEqual(progress[0], [0, BW * BH]); assert.deepEqual(progress.at(-1), [BW * BH, BW * BH]);
+  assert.ok(progress.length >= 9, 'タイルごとに進捗が出る');
+});
+
+test('全ピクセル解析と 800px 版の差: 全体の傾向は一致し、細部（鏡面反射・細線）は全ピクセルでだけ捉えられる', async () => {
+  const full = await analyzeTiled(readBig, BW, BH);
+  const { width: dw, height: dh } = fitSize(BW, BH);
+  const small = analyze(downscale(big, BW, BH, dw, dh), dw, dh);
+  const diff = {
+    p5: full.p5 - small.p5, p50: full.p50 - small.p50, p95: full.p95 - small.p95,
+    clipWhite: full.clipWhite - small.clipWhite, clipBlack: full.clipBlack - small.clipBlack,
+    chroma: full.chroma - small.chroma, lumaStd: full.lumaStd - small.lumaStd,
+  };
+  console.log('     全ピクセル − 800px:', Object.entries(diff).map(([k, v]) => `${k} ${v >= 0 ? '+' : ''}${(+v).toFixed(2)}`).join(', '));
+  // 全体の傾向（中間調・平均色・色被りの判定）はほぼ同じ
+  near(full.p50, small.p50, 3, 'p50'); near(full.meanLuma, small.meanLuma, 1, '平均輝度');
+  for (let i = 0; i < 3; i++) near(full.overall.rgb[i], small.overall.rgb[i], 2, `平均色 ${i}`);
+  assert.equal(full.shadows.name, small.shadows.name); assert.equal(full.highlights.name, small.highlights.name);
+  near(full.chroma, small.chroma, small.chroma * 0.15, '平均彩度');
+  // 細部: 1px の鏡面反射と細い黒線は 800px に縮小すると平均化されて消える
+  near(full.clipWhite, 100 / 256, 0.05, '白飛び（全ピクセル）'); assert.ok(small.clipWhite < 0.01, `白飛び（800px）${small.clipWhite}`);
+  assert.ok(full.clipBlack >= 1.9, `黒つぶれ（全ピクセル）${full.clipBlack}`); assert.ok(small.clipBlack < 0.5, `黒つぶれ（800px）${small.clipBlack}`);
+  assert.ok(full.lumaStd > small.lumaStd, '細かいテクスチャの分だけ輝度のばらつきが大きい');
+  // 推定レシピも範囲内
+  for (const c of estimate(full).candidates) assert.deepEqual(validateRecipe({ ...buildRecipe(full, c), name: 't' }), []);
+});
+
+test('キャンセル: signal.aborted で AbortError、途中まで読んだタイルだけで止まる', async () => {
+  const signal = { aborted: false };
+  let reads = 0;
+  await assert.rejects(analyzeTiled((x, y, w, h) => { if (++reads === 3) signal.aborted = true; return readBig(x, y, w, h); }, BW, BH, { maxArea: 1_000_000, signal }), { name: 'AbortError' });
+  assert.equal(reads, 3);
+});
+
+test('Accumulator: 空のまま result() はエラー、add を分けても同じ結果', () => {
+  assert.throws(() => new Accumulator().result(1, 1));
+  const d = big.subarray(0, 4000 * 4);
+  const a = new Accumulator().add(d.subarray(0, 1234 * 4)).add(d.subarray(1234 * 4)).result(4000, 1);
+  const b = analyze(d, 4000, 1);
+  assert.deepEqual(a.shadows.rgb, b.shadows.rgb); near(a.chroma, b.chroma, 1e-9, 'chroma');
+});
+
+for (const [name, fn] of queue) { await fn(); count++; console.log('ok  ', name); }
 console.log(`\n${count} 件のテストに合格`);

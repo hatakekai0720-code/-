@@ -1,7 +1,8 @@
 // ロケ地データと距離計算のテスト。実行: node tests/map.test.mjs
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { haversine, formatKm, formatLatLng, unwrapAntimeridian } from '../js/geo.js';
+import { haversine, formatKm, formatLatLng, unwrapAntimeridian, wrapLngNear, labelWidth, pickLabels } from '../js/geo.js';
+import { statSync } from 'node:fs';
 import { locationRecipe } from '../js/locations.js';
 import { validateRecipe, drWarning } from '../js/xt3.js';
 
@@ -52,5 +53,49 @@ test('日付変更線をまたぐリングを連続化', () => {
   const plain = { type: 'Feature', geometry: { type: 'MultiPolygon', coordinates: [[[[10, 0], [20, 0], [20, 5], [10, 0]]]] } };
   unwrapAntimeridian(plain);
   assert.deepEqual(plain.geometry.coordinates[0][0].map((p) => p[0]), [10, 20, 20, 10]);
+});
+test('日付変更線: 線（LineString / MultiLineString）も連続化', () => {
+  const l = { type: 'Feature', geometry: { type: 'LineString', coordinates: [[179, 60], [-179, 61], [-178, 62]] } };
+  unwrapAntimeridian(l);
+  assert.deepEqual(l.geometry.coordinates.map((p) => p[0]), [179, 181, 182]);
+  const m = { type: 'Feature', geometry: { type: 'MultiLineString', coordinates: [[[-179, 0], [179, 1]]] } };
+  unwrapAntimeridian(m);
+  assert.deepEqual(m.geometry.coordinates[0].map((p) => p[0]), [-179, -181]);
+});
+test('wrapLngNear: 地図の中心に近い経度へずらす', () => {
+  assert.equal(wrapLngNear(139.7, 139), 139.7); assert.equal(wrapLngNear(139.7, -200), -220.3); assert.equal(wrapLngNear(-170, 175), 190);
+});
+test('pickLabels: ズーム・画面外・重なりで間引き、重要な順に残す', () => {
+  const project = (lat, lng) => ({ x: lng * 10, y: -lat * 10 + 100 }); // 1° = 10px の簡易投影
+  const places = [
+    [10, 5, '大都市', 'Big', 2, 0],
+    [10.2, 5, '重なる町', 'Overlap', 3, 5],   // 大都市のすぐ右 → 重なるので除外
+    [10, 0, '下の町', 'Below', 4, 6],
+    [30, 5, '小さな町', 'Small', 9, 9],       // ズーム 6 では出ない
+    [200, 5, '画面外', 'Out', 1, 0],
+  ];
+  const got = pickLabels(places, project, { zoom: 6, width: 400, height: 200, centerLng: 10 });
+  assert.deepEqual(got.map((p) => p.name), ['大都市', '下の町']);
+  assert.equal(pickLabels(places, project, { zoom: 9, width: 400, height: 200, centerLng: 10 }).length, 3);
+  assert.equal(pickLabels(places, project, { zoom: 9, width: 400, height: 200, centerLng: 10, max: 1 }).length, 1);
+  assert.equal(labelWidth('Tokyo', 10), 30); assert.equal(labelWidth('東京', 10), 20);
+});
+
+const read = (f) => JSON.parse(readFileSync(new URL(`../data/${f}`, import.meta.url)));
+const size = (f) => statSync(new URL(`../data/${f}`, import.meta.url)).size;
+test('地図データ: 10m 国境・県州境界・都市名がそろい、合計 6MB 以内', () => {
+  const c = read('countries-10m.json'), a = read('admin1-10m.json'), p = read('places-10m.json');
+  assert.equal(c.type, 'Topology'); assert.ok(c.objects.countries.geometries.length > 200);
+  assert.equal(a.type, 'Topology'); assert.ok(a.objects.admin1, 'admin1 オブジェクト'); assert.ok(a.arcs.length > 1000);
+  assert.deepEqual(p.fields, ['lng', 'lat', 'name', 'nameEn', 'minZoom', 'rank']);
+  assert.ok(p.places.length > 5000);
+  for (const r of p.places) {
+    assert.ok(Math.abs(r[0]) <= 180 && Math.abs(r[1]) <= 90 && typeof r[2] === 'string' && r[2] && typeof r[4] === 'number', JSON.stringify(r));
+  }
+  for (let i = 1; i < p.places.length; i++) assert.ok(p.places[i - 1][4] <= p.places[i][4], 'minZoom の昇順（重要な順）');
+  const tokyo = p.places.find((r) => r[3] === 'Tokyo');
+  assert.ok(tokyo && tokyo[4] <= 6, '東京はズーム 6 で表示される');
+  const total = ['countries-10m.json', 'admin1-10m.json', 'places-10m.json'].reduce((s, f) => s + size(f), 0);
+  assert.ok(total < 6e6, `${(total / 1e6).toFixed(1)} MB`);
 });
 console.log(`\n${count} 件のテストに合格`);
