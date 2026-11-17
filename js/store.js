@@ -113,6 +113,39 @@ export function setSlot(slot, recipeId) {
   save();
 }
 
+/* ---- pins（ユーザー追加ピン。写真は持たない） ---- */
+export const PIN_LIMITS = { name: 60, memo: 2000 };
+export const pins = () => db.pins;
+export const getPin = (id) => db.pins.find((p) => p.id === id) || null;
+
+export function validatePin(p) {
+  const e = [];
+  if (typeof p.name !== 'string' || !p.name.trim() || p.name.length > PIN_LIMITS.name) e.push(`名前は 1〜${PIN_LIMITS.name} 文字で入力してください`);
+  if (typeof (p.memo ?? '') !== 'string' || (p.memo ?? '').length > PIN_LIMITS.memo) e.push('メモが長すぎます');
+  if (!Number.isFinite(p.lat) || Math.abs(p.lat) > 90 || !Number.isFinite(p.lng) || Math.abs(p.lng) > 180) e.push('座標が不正です');
+  if (p.recipeId != null && !getRecipe(p.recipeId)) e.push('紐づけるレシピが見つかりません');
+  return e;
+}
+
+/** 新規作成または更新 */
+export function savePin(input, id = null) {
+  const errors = validatePin(input);
+  if (errors.length) return { errors };
+  const clean = { name: input.name.trim(), memo: input.memo ?? '', lat: +input.lat.toFixed(6), lng: +input.lng.toFixed(6), recipeId: input.recipeId ?? null };
+  let pin = id && getPin(id);
+  if (pin) Object.assign(pin, clean);
+  else { pin = { id: uid(), ...clean, createdAt: now() }; db.pins.push(pin); }
+  return save() ? { pin } : { errors: ['保存できませんでした'] };
+}
+
+export function deletePin(id) {
+  db.pins = db.pins.filter((p) => p.id !== id);
+  save();
+}
+
+/** ロケ地などから取り込んだレシピ（source と sourceRef が一致するもの） */
+export const findBySource = (source, ref) => db.recipes.find((r) => r.source === source && r.sourceRef === ref) || null;
+
 /* ---- settings ---- */
 export const getSetting = (k) => db.settings[k];
 export function setSetting(k, v) {
@@ -180,6 +213,7 @@ function sanitizeSettings(s) {
   const out = {};
   if (s.seeded === true) out.seeded = true;
   if (s.theme === 'light' || s.theme === 'dark') out.theme = s.theme;
+  if (isObj(s.mapView) && Number.isFinite(s.mapView.lat) && Number.isFinite(s.mapView.lng) && Number.isFinite(s.mapView.zoom)) out.mapView = { lat: s.mapView.lat, lng: s.mapView.lng, zoom: s.mapView.zoom };
   if (Array.isArray(s.qmenuOrder) && s.qmenuOrder.length === 16 && s.qmenuOrder.every((k) => typeof k === 'string' && k.length < 20)) out.qmenuOrder = [...s.qmenuOrder];
   return out;
 }

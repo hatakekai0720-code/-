@@ -243,3 +243,23 @@ button.q-cell { cursor: pointer; }
 .ba-tag { position: absolute; top: 6px; font-family: var(--mono); font-size: 10px; padding: 1px 5px; background: rgba(0,0,0,.6); color: #f3f4f6; border-radius: 3px; }
 .ba-tag.l { left: 6px; } .ba-tag.r { right: 6px; }
 .ba-range { width: 100%; accent-color: var(--accent-bg); height: 32px; }
+
+/* ---- map ---- */
+.map-wrap { position: relative; margin: 0 calc(-1 * max(14px, env(safe-area-inset-left))); }
+.map { isolation: isolate; height: 56vh; min-height: 300px; max-height: 620px; background: var(--bg); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+@media (min-width: 760px) { .map-wrap { margin: 0; } .map { border: 1px solid var(--line); border-radius: 6px; } }
+.map-loading { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
+.map .leaflet-container, .map.leaflet-container { background: var(--bg); font-family: var(--sans); outline: none; }
+.map .leaflet-control-zoom a { background: var(--card); color: var(--text); border-color: var(--line); width: 36px; height: 36px; line-height: 34px; }
+.map .leaflet-control-zoom { border: 1px solid var(--line); border-radius: 4px; box-shadow: none; }
+.map .leaflet-control-zoom a.leaflet-disabled { background: var(--surface); color: var(--muted); }
+.map .leaflet-control-attribution { background: transparent; color: var(--muted); font-size: 10px; }
+.map .leaflet-tooltip { background: var(--card); color: var(--text); border: 1px solid var(--line); border-radius: 4px; box-shadow: none; font-size: 12px; }
+.map .leaflet-tooltip-top::before { border-top-color: var(--line); }
+.near { display: flex; align-items: center; gap: 10px; }
+.near-title { font-size: 14px; overflow-wrap: anywhere; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.dot.loc { background: var(--accent); }
+.dot.pin { border: 2px solid var(--accent); }
+.loc-place { margin-top: 8px; }
+.chip.conf-high { color: var(--accent); border-color: var(--accent); }
