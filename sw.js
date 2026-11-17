@@ -3,7 +3,7 @@
 // ・GitHub Pages では同じユーザーの全リポジトリが同一オリジンになるため、キャッシュ名は必ず xt3cine- で始め、
 //   削除するのも自分のキャッシュだけにする
 // ・ユーザーの画像はキャッシュしない（画像は fetch を通らず、ここに来ても ASSETS 以外は保存しない）
-const CACHE_VERSION = '2026-11-18.12';
+const CACHE_VERSION = '2026-11-18.13';
 const PREFIX = 'xt3cine-';
 const CACHE = `${PREFIX}${CACHE_VERSION}`;
 const STREETS_CACHE = `${PREFIX}streets`; // js/streets.js の STREETS_CACHE と同じ。街路データは ASSETS に入れない
@@ -23,6 +23,7 @@ const ASSETS = [
   './js/geo.js',
   './js/cluster.js',
   './js/locations.js',
+  './js/film.js',
   './js/lessons.js',
   './js/pwa.js',
   './js/bgdownload.js',
@@ -36,13 +37,17 @@ const ASSETS = [
   './js/views/analyze.js',
   './js/views/compare.js',
   './js/views/lesson.js',
+  './js/views/location.js',
   './js/views/map.js',
+  './js/views/names.js',
   './js/views/qmenu.js',
   './js/views/recipe-detail.js',
   './js/views/recipe-edit.js',
   './js/views/recipes.js',
+  './js/views/search.js',
   './js/views/settings.js',
   './js/views/slots.js',
+  './js/views/work.js',
   './data/countries-50m.json',
   './data/countries-10m.json',
   './data/admin1-10m.json',

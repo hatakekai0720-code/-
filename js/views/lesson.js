@@ -5,10 +5,22 @@ import { loadLessons, lessonRecipe, hasBody } from '../lessons.js';
 import { progressGauge, doneToggle } from './academy.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
+import { loadLocations } from '../locations.js';
+import { locationsForLesson } from '../film.js';
 
 // 本文中の【要確認】を目立たせる
 function rich(text) {
   return text.split(/(【要確認】)/).map((s) => (s === '【要確認】' ? h('mark', { class: 'verify' }, s) : s));
+}
+
+// この講座の練習に向くロケ地（locations.json の lessons から）
+function relatedLocations(list) {
+  if (!list.length) return null;
+  return h('section', { class: 'lesson-sec' }, h('h3', null, '関連するロケ地 ', h('span', { class: 'num small muted' }, `${list.length} 件`)),
+    h('div', { class: 'stack', style: 'gap:6px' }, list.slice(0, 12).map((l) => h('a', { class: 'list-btn near', href: `#/locations/${encodeURIComponent(l.id)}` },
+      h('span', { class: 'pal-dot', style: `background:${l.palette?.[0] || 'var(--accent)'}` }),
+      h('div', { class: 'grow' }, h('div', { class: 'near-title' }, l.title), h('div', { class: 'small muted' }, `${l.place}・${l.city}`))))),
+    list.length > 12 ? h('p', { class: 'small muted' }, `ほか ${list.length - 12} 件`) : null);
 }
 
 export function render(root, { id }) {
@@ -16,9 +28,10 @@ export function render(root, { id }) {
   const body = h('div', { class: 'stack' }, h('p', { class: 'muted' }, '読み込み中…'));
   root.append(body);
   let alive = true;
-  loadLessons().then((data) => { if (alive) draw(data); }).catch(() => {
+  let locs = [];
+  loadLocations().then((x) => { locs = x; }).catch(() => {}).finally(() => loadLessons().then((data) => { if (alive) draw(data); }).catch(() => {
     body.replaceChildren(h('div', { class: 'notice' }, '講座データを読み込めませんでした。'));
-  });
+  }));
 
   function draw(data) {
     const l = data.lessons.find((x) => x.no === no);
@@ -49,6 +62,7 @@ export function render(root, { id }) {
         h('div', { class: 'row' }, h('span', { class: 'grow', style: 'font-weight:600' }, '練習用レシピ'), h('span', { class: 'small muted' }, X.filmLabel(r))),
         paramSummary(r),
         h('a', { class: 'btn primary block', href: `#/qmenu/lesson-${no}` }, '練習用レシピを Qメニューで開く')) : null,
+      relatedLocations(locationsForLesson(locs, no)),
       h('button', { type: 'button', class: `btn block ${done ? '' : 'primary'}`, onclick: () => {
         store.setLessonDone(no, !done); toast(done ? '未完了に戻しました' : `第${no}回を完了にしました`); redraw();
       } }, done ? '✓ 完了済み（タップで未完了に戻す）' : 'この回を完了にする'),

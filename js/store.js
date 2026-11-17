@@ -3,7 +3,7 @@ import { SLOT_IDS, validateRecipe, cleanRecipe, isMono } from './xt3.js';
 
 export const PREFIX = 'xt3cine:';
 const KEY = PREFIX + 'db';
-export const VERSION = 2;
+export const VERSION = 3;
 const QUOTA_ESTIMATE = 5 * 1024 * 1024; // ブラウザの一般的な上限の目安
 
 let db = null;
@@ -14,6 +14,8 @@ const emptyDb = () => ({
   slots: Object.fromEntries(SLOT_IDS.map((s) => [s, null])),
   pins: [],
   academy: { completed: [] },
+  visited: {},   // 行ったロケ地: { [locationId]: { date: 'YYYY-MM-DD', memo } }（写真は持たない）
+  palettes: {},  // 画像解析の代表色を作品のパレットとして保存: { [workKey]: { colors: ['#rrggbb', …], savedAt } }（数値のみ）
   settings: {},
 });
 
@@ -29,6 +31,8 @@ const MIGRATIONS = {
       return { ...r, wb, monoWC: r.monoWC ?? (isMono(r.filmSim) ? 0 : null) };
     }) : d.recipes,
   }),
+  // v2 → v3: 「行った」チェック（visited）と、作品ごとの解析パレット（palettes）を追加
+  2: (d) => ({ ...d, version: 3, visited: isObj(d.visited) ? d.visited : {}, palettes: isObj(d.palettes) ? d.palettes : {} }),
 };
 function migrate(obj) {
   let d = obj;
@@ -155,6 +159,42 @@ export function setLessonDone(no, done) {
   save();
 }
 
+/* ---- 行った（ロケ地） ---- */
+export const VISIT_LIMITS = { memo: 500 };
+export const visited = () => db.visited;
+export const getVisited = (id) => db.visited[id] || null;
+const ID_RE = /^[a-z0-9-]{1,80}$/;
+const DAY_RE = /^\d{4}-\d{2}-\d{2}$/;
+const validDay = (s) => typeof s === 'string' && DAY_RE.test(s) && !Number.isNaN(Date.parse(`${s}T00:00:00Z`)) && new Date(`${s}T00:00:00Z`).toISOString().startsWith(s);
+export function validateVisit(id, v) {
+  const e = [];
+  if (typeof id !== 'string' || !ID_RE.test(id)) e.push('ロケ地が不正です');
+  if (!validDay(v?.date)) e.push('日付を入力してください');
+  if (typeof (v?.memo ?? '') !== 'string' || (v?.memo ?? '').length > VISIT_LIMITS.memo) e.push(`メモは ${VISIT_LIMITS.memo} 文字までです`);
+  return e;
+}
+/** 行った日とメモを保存（写真は保存しない） */
+export function setVisited(id, v) {
+  const errors = validateVisit(id, v);
+  if (errors.length) return { errors };
+  db.visited[id] = { date: v.date, memo: v.memo ?? '' };
+  return save() ? { visit: db.visited[id] } : { errors: ['保存できませんでした'] };
+}
+export function clearVisited(id) { delete db.visited[id]; save(); }
+
+/* ---- 作品のパレット（画像解析の代表色。数値のみ） ---- */
+const WORK_RE = /^[a-z0-9-]{1,120}$/;
+const HEX_RE = /^#[0-9a-f]{6}$/;
+export const palettes = () => db.palettes;
+export const getPalette = (workKey) => db.palettes[workKey] || null;
+export function savePalette(workKey, colors) {
+  const list = (colors || []).map((c) => String(c).toLowerCase());
+  if (!WORK_RE.test(workKey) || !list.length || list.length > 8 || !list.every((c) => HEX_RE.test(c))) return { errors: ['パレットが不正です'] };
+  db.palettes[workKey] = { colors: list, savedAt: now() };
+  return save() ? { palette: db.palettes[workKey] } : { errors: ['保存できませんでした'] };
+}
+export function deletePalette(workKey) { delete db.palettes[workKey]; save(); }
+
 /* ---- settings ---- */
 export const getSetting = (k) => db.settings[k];
 export function setSetting(k, v) {
@@ -212,6 +252,17 @@ export function validateDb(obj) {
   const done = src.academy?.completed ?? [];
   if (!Array.isArray(done) || done.some((n) => !Number.isInteger(n) || n < 1 || n > 50)) errors.push('academy.completed が不正です');
   else out.academy.completed = [...new Set(done)].sort((a, b) => a - b);
+  if (src.visited != null && !isObj(src.visited)) errors.push('visited が不正です');
+  else for (const [id, v] of Object.entries(src.visited || {})) {
+    if (!isObj(v) || validateVisit(id, v).length) { errors.push(`行ったロケ地「${String(id).slice(0, 40)}」: 形式が不正です`); continue; }
+    out.visited[id] = { date: v.date, memo: v.memo ?? '' };
+  }
+  if (src.palettes != null && !isObj(src.palettes)) errors.push('palettes が不正です');
+  else for (const [k, p] of Object.entries(src.palettes || {})) {
+    const ok = WORK_RE.test(k) && isObj(p) && Array.isArray(p.colors) && p.colors.length >= 1 && p.colors.length <= 8 && p.colors.every((c) => typeof c === 'string' && HEX_RE.test(c.toLowerCase()));
+    if (!ok) { errors.push(`パレット「${String(k).slice(0, 40)}」: 形式が不正です`); continue; }
+    out.palettes[k] = { colors: p.colors.map((c) => c.toLowerCase()), savedAt: isDate(p.savedAt) ? p.savedAt : now() };
+  }
   if (src.settings != null && !isObj(src.settings)) errors.push('settings が不正です');
   else out.settings = sanitizeSettings(src.settings || {});
   return errors.length ? { ok: false, errors } : { ok: true, db: out };
@@ -241,6 +292,8 @@ export function importData(incoming, mode) {
     for (const p of incoming.pins) if (!db.pins.some((x) => x.id === p.id)) db.pins.push(p);
     for (const s of SLOT_IDS) if (!db.slots[s] && incoming.slots[s]) db.slots[s] = incoming.slots[s];
     db.academy.completed = [...new Set([...db.academy.completed, ...incoming.academy.completed])].sort((a, b) => a - b);
+    for (const [id, v] of Object.entries(incoming.visited || {})) if (!db.visited[id]) db.visited[id] = v;
+    for (const [k, p] of Object.entries(incoming.palettes || {})) if (!db.palettes[k] || p.savedAt > db.palettes[k].savedAt) db.palettes[k] = p;
   }
   db.settings.seeded = true;
   return save();

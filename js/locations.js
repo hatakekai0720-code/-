@@ -10,3 +10,11 @@ export function locationRecipe(loc) {
   r.notes = `推定レシピ（${loc.title} / ${loc.year}）。${loc.place}。\n色味: ${loc.look}`;
   return r;
 }
+
+/** data/locations.json（一度だけ読み込む。SW のプリキャッシュから返る） */
+let cache = null;
+export function loadLocations() {
+  cache ??= fetch('data/locations.json').then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }).then((d) => d.locations);
+  cache.catch(() => { cache = null; });
+  return cache;
+}

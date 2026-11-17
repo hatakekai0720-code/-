@@ -21,7 +21,7 @@
 - アプリのファイルを変えたら `sw.js` の `CACHE_VERSION` を上げる。ファイルを追加・削除したら `sw.js` の `ASSETS` も更新する（`data/streets/` の街路データは ASSETS に入れない）。
 - テストを全部通す：
   ```sh
-  node tests/analyzer.test.mjs && node tests/map.test.mjs && node tests/lessons.test.mjs && node tests/sw.test.mjs && node tests/streets.test.mjs && node tests/photos.test.mjs
+  node tests/analyzer.test.mjs && node tests/map.test.mjs && node tests/lessons.test.mjs && node tests/sw.test.mjs && node tests/streets.test.mjs && node tests/photos.test.mjs && node tests/film.test.mjs
   ```
 - ロジックを足したら対応するテストも足す。
 - 作業はブランチで行い、終わったら変更内容を日本語で報告して止まる（main へのマージは私が確認してから）。

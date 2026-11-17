@@ -41,7 +41,7 @@ export function render(root) {
       close(); applyTheme(); toast(ok ? 'インポートしました' : '保存できませんでした'); redraw();
     };
     sheet('インポート方法を選択', (close) => [
-      h('p', { class: 'muted small', style: 'margin-bottom:12px' }, 'ファイルの内容: レシピ ', h('span', { class: 'num' }, inc.recipes.length), ' 件 / ピン ', h('span', { class: 'num' }, inc.pins.length), ' 件 / 講座完了 ', h('span', { class: 'num' }, inc.academy.completed.length), ' 回'),
+      h('p', { class: 'muted small', style: 'margin-bottom:12px' }, 'ファイルの内容: レシピ ', h('span', { class: 'num' }, inc.recipes.length), ' 件 / ピン ', h('span', { class: 'num' }, inc.pins.length), ' 件 / 講座完了 ', h('span', { class: 'num' }, inc.academy.completed.length), ' 回 / 行ったロケ地 ', h('span', { class: 'num' }, Object.keys(inc.visited || {}).length), ' 件 / パレット ', h('span', { class: 'num' }, Object.keys(inc.palettes || {}).length), ' 件'),
       h('div', { class: 'stack' },
         h('button', { type: 'button', class: 'btn primary', onclick: () => apply('merge', close) }, 'マージ（今のデータに追加）'),
         h('button', { type: 'button', class: 'btn danger', onclick: () => apply('replace', close) }, '上書き（今のデータを置き換え）'),
@@ -57,7 +57,7 @@ export function render(root) {
         h('div', { class: 'hint' }, '「自動」は端末の設定に合わせます。Qメニュー表示は屋外での見やすさのため常にダークです。'))),
     h('div', { class: 'section-title' }, 'データ'),
     h('div', { class: 'card stack' },
-      h('p', { class: 'small muted' }, 'レシピ・スロット・ピン・講座の進捗を 1 つの JSON ファイルに書き出します。画像は含まれません。'),
+      h('p', { class: 'small muted' }, 'レシピ・スロット・ピン・講座の進捗・行ったロケ地（日付とメモ）・作品のパレット（色の数値）を 1 つの JSON ファイルに書き出します。画像は含まれません。'),
       h('button', { type: 'button', class: 'btn', onclick: doExport }, 'エクスポート（JSON を保存）'),
       h('button', { type: 'button', class: 'btn', onclick: () => file.click() }, 'インポート（JSON を読み込む）'),
       file),
@@ -78,7 +78,7 @@ export function render(root) {
     h('div', { class: 'section-title' }, '危険な操作'),
     h('div', { class: 'card' },
       h('button', { type: 'button', class: 'btn danger block', onclick: async () => {
-        if (await confirmSheet('全データを削除', 'レシピ・スロット・ピン・進捗をすべて削除します。元に戻せません。先にエクスポートしておくことをおすすめします。', '全て削除', true)) {
+        if (await confirmSheet('全データを削除', 'レシピ・スロット・ピン・進捗・行ったロケ地・パレットをすべて削除します。元に戻せません。先にエクスポートしておくことをおすすめします。', '全て削除', true)) {
           store.resetAll(); applyTheme(); toast('削除しました'); redraw();
         }
       } }, '全データを削除')));

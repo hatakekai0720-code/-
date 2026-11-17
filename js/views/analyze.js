@@ -1,12 +1,15 @@
 // ① シネマティック画像解析 + ② 推定レシピ。
 // 画像はメモリ上の Canvas で扱うだけで、どこにも保存しない。保存するのは数値（レシピ）のみ。
-import { h, toast } from '../ui/dom.js';
+import { h, toast, sheet } from '../ui/dom.js';
 import { paramSummary } from '../ui/recipe-ui.js';
 import { themeColors } from '../ui/theme.js';
 import { analyzeTiled, canvasReader, fitSize } from '../analyzer.js';
 import { estimate, buildRecipe, toneCurves, curvesText } from '../translator.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
+import { loadLocations } from '../locations.js';
+import { groupWorks, fold } from '../film.js';
+import { paletteRow } from './location.js';
 
 // 画面を切り替えても直前の結果を残す（メモリのみ。リロードで消える）
 let last = null; // { canvas, result, est, pick, fileName, mode, ms }
@@ -173,6 +176,7 @@ export function render(root) {
         stat('平均彩度 C*', a.chroma.toFixed(1)), stat('平均彩度 HSV', pct(a.saturation))),
       h('div', { class: 'section-title' }, '色被り（Lab）'),
       h('div', { class: 'card stack', style: 'gap:8px' }, zone('シャドウ（輝度 下位25%）', a.shadows), zone('ハイライト（輝度 上位25%）', a.highlights)),
+      ...(a.palette?.length ? [h('div', { class: 'section-title' }, '代表色'), paletteBlock(a.palette)] : []),
       h('div', { class: 'section-title' }, '推定レシピ'),
       recipeBlock(),
       h('div', { class: 'section-title' }, 'RAW 現像用トーンカーブ'),
@@ -209,6 +213,30 @@ export function render(root) {
     };
     draw();
     return box;
+  }
+
+  // 代表色を作品のパレットとして保存（色の数値だけ。画像は保存しない）
+  function paletteBlock(colors) {
+    const pick = () => loadLocations().then((locs) => {
+      const works = groupWorks(locs).sort((x, y) => x.title.localeCompare(y.title, 'ja'));
+      sheet('どの作品のパレットにしますか', (close) => {
+        const list = h('div', { class: 'stack', style: 'gap:6px;max-height:50vh;overflow:auto' });
+        const draw = (q) => list.replaceChildren(...works.filter((w) => !q || fold(w.title).includes(fold(q)) || fold(w.titleEn).includes(fold(q))).slice(0, 60)
+          .map((w) => h('button', { type: 'button', class: 'list-btn', onclick: () => {
+            const res = store.savePalette(w.key, colors);
+            if (res.errors) return toast(res.errors[0], 3500);
+            close(); toast(`「${w.title}」のパレットとして保存しました`);
+          } }, h('span', { class: 'grow' }, w.title), h('span', { class: 'num small muted' }, w.year),
+          store.getPalette(w.key) ? h('span', { class: 'small muted', style: 'margin-left:6px' }, '（上書き）') : null)));
+        const input = h('input', { class: 'input', type: 'search', placeholder: '作品名で絞り込み', 'aria-label': '作品名で絞り込み', oninput: (e) => draw(e.target.value) });
+        draw('');
+        return [input, list];
+      });
+    }).catch(() => toast('ロケ地データを読み込めませんでした', 3500));
+    return h('div', { class: 'card stack', style: 'gap:8px' },
+      paletteRow(colors, '代表色'),
+      h('button', { type: 'button', class: 'btn', onclick: pick }, '作品のパレットとして保存'),
+      h('div', { class: 'small muted' }, '色の数値だけを保存します（画像は保存しません）。作品ページとロケ地の作品情報に表示されます。'));
   }
 
   function curveBlock() {

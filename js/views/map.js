@@ -5,7 +5,9 @@ import { h, toast, sheet, confirmSheet, select } from '../ui/dom.js';
 import { paramSummary } from '../ui/recipe-ui.js';
 import { themeColors } from '../ui/theme.js';
 import { haversine, formatKm, formatLatLng, unwrapAntimeridian, pickLabels } from '../geo.js';
-import { locationRecipe } from '../locations.js';
+import { loadLocations } from '../locations.js';
+import { inDecade, decadeCounts } from '../film.js';
+import { decadeChips } from './search.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
 import * as streets from '../streets.js';
@@ -32,8 +34,8 @@ function loadLibs() {
   libs ??= (async () => {
     loadCss('vendor/leaflet/leaflet.css');
     await Promise.all([window.L ? null : loadScript('vendor/leaflet/leaflet.js'), window.topojson ? null : loadScript('vendor/topojson-client.min.js')]);
-    const [world, locs] = await Promise.all([fetch('data/countries-50m.json').then((r) => r.json()), fetch('data/locations.json').then((r) => r.json())]);
-    return { L: window.L, countries: unwrapAntimeridian(window.topojson.feature(world, world.objects.countries)), locations: locs.locations };
+    const [world, locs] = await Promise.all([fetch('data/countries-50m.json').then((r) => r.json()), loadLocations()]);
+    return { L: window.L, countries: unwrapAntimeridian(window.topojson.feature(world, world.objects.countries)), locations: locs };
   })();
   libs.catch(() => { libs = null; });
   return libs;
@@ -60,12 +62,13 @@ function loadStreetLibs() {
 }
 const WORLD_BOUNDS = [[-85, -400], [85, 400]];
 
-const hostOf = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return u; } };
 
 // 現在地はメモリだけに持つ（保存しない）
 let here = null;
+const mapGeo = { region: 'all', country: 'all', decade: 'all' };
+const visibleLocs = (locations, geo) => filterLocations(locations, geo).filter((l) => inDecade(l.year, geo.decade));
 
-export function render(root) {
+export function render(root, { id: focusId } = {}) {
   const mapEl = h('div', { class: 'map', role: 'application', 'aria-label': '世界地図' });
   const status = h('div', { class: 'small muted', 'aria-live': 'polite' });
   const listEl = h('div', { class: 'stack', style: 'gap:6px' });
@@ -82,13 +85,14 @@ export function render(root) {
   streets.events.addEventListener('status', drawBadge);
   photos.events.addEventListener('status', drawBadge);
   drawBadge();
-  const geo = { region: 'all', country: 'all' }; // ロケ地の地域・国の絞り込み（メモリのみ）
+  const geo = mapGeo; // ロケ地の地域・国・年代の絞り込み（メモリのみ。画面を移っても保つ）
   const facetEl = h('div', { class: 'stack facets', style: 'gap:8px;margin:12px 0 4px' });
 
   root.append(
     h('div', { class: 'map-wrap' }, mapEl, h('div', { class: 'map-loading muted small' }, '地図を読み込み中…'), dlBadge),
     h('div', { class: 'row', style: 'margin:8px 0' }, locBtn, h('div', { class: 'grow small muted' }, '長押し（PC は右クリック）でピンを追加')),
     status,
+    h('a', { class: 'btn block', href: '#/search', style: 'margin-top:6px' }, '作品・監督・俳優で探す'),
     facetEl,
     h('div', { class: 'row', style: 'margin:14px 0 8px' },
       h('div', { class: 'section-title grow', style: 'margin:0' }, '近い順'),
@@ -104,7 +108,7 @@ export function render(root) {
   /* ---- 一覧 ---- */
   function entries() {
     const items = [
-      ...filterLocations(locations, geo).map((l) => ({ kind: 'loc', id: l.id, lat: l.lat, lng: l.lng, title: l.title, sub: `${l.city}・${l.country} / ${l.year}`, open: () => openLocation(l) })),
+      ...visibleLocs(locations, geo).map((l) => ({ kind: 'loc', id: l.id, lat: l.lat, lng: l.lng, title: l.title, sub: `${l.place}・${l.city} / ${l.year}${store.getVisited(l.id) ? ' · ✓ 行った' : ''}`, open: () => openLocation(l) })),
       ...store.pins().map((p) => ({ kind: 'pin', id: p.id, lat: p.lat, lng: p.lng, title: p.name, sub: p.memo ? p.memo.split('\n')[0].slice(0, 40) : 'マイピン', open: () => openPin(p) })),
     ].filter((e) => filter.kind === 'all' || e.kind === filter.kind);
     for (const e of items) e.km = here ? haversine(here.lat, here.lng, e.lat, e.lng) : null;
@@ -201,7 +205,7 @@ export function render(root) {
     const z = map.getZoom();
     const project = (lat, lng) => map.project([lat, lng], z); // ワールドピクセル座標（パンしても変わらない）
     const groups = [
-      ['loc', filterLocations(locations, geo).map((l) => ({ id: l.id, lat: l.lat, lng: l.lng, label: l.title, open: () => openLocation(l) }))],
+      ['loc', visibleLocs(locations, geo).map((l) => ({ id: l.id, lat: l.lat, lng: l.lng, label: l.title, open: () => openLocation(l) }))],
       ['pin', store.pins().map((p) => ({ id: p.id, lat: p.lat, lng: p.lng, label: p.name, open: () => openPin(p) }))],
     ];
     for (const [kind, pts] of groups) {
@@ -217,7 +221,9 @@ export function render(root) {
   function drawFacets() {
     if (!locations.length) { facetEl.replaceChildren(); return; }
     const f = facetCounts(locations, geo.region);
-    const shown = filterLocations(locations, geo).length;
+    const shown = visibleLocs(locations, geo).length;
+    const inRegion = filterLocations(locations, geo);
+    const dc = Object.fromEntries([['all', inRegion.length], ...decadeCounts(inRegion).map((d) => [d.id, d.count])]);
     const chip = (id, label, count) => h('button', {
       type: 'button', class: `chip ${geo.region === id ? 'on' : ''}`, 'aria-pressed': String(geo.region === id),
       onclick: () => { geo.region = id; geo.country = 'all'; applyGeo(); },
@@ -229,12 +235,13 @@ export function render(root) {
       h('div', { class: 'row', style: 'gap:10px' },
         h('div', { class: 'grow' }, select([{ id: 'all', label: `すべての国（${countryTotal}）` }, ...f.countries.map((c) => ({ id: c.id, label: `${c.id}（${c.count}）` }))],
           geo.country, (v) => { geo.country = v; applyGeo(); }, { 'aria-label': '国で絞り込み' })),
-        h('div', { class: 'small muted', style: 'white-space:nowrap' }, '表示 ', h('span', { class: 'num' }, shown), ' / ', h('span', { class: 'num' }, f.total), ' 件')));
+        h('div', { class: 'small muted', style: 'white-space:nowrap' }, '表示 ', h('span', { class: 'num' }, shown), ' / ', h('span', { class: 'num' }, f.total), ' 件')),
+      decadeChips(geo.decade, dc, (id) => { geo.decade = id; applyGeo(); }));
   }
   function applyGeo() {
     drawFacets(); drawPins(); drawList();
-    const vis = filterLocations(locations, geo);
-    if (map && vis.length && (geo.region !== 'all' || geo.country !== 'all')) {
+    const vis = visibleLocs(locations, geo);
+    if (map && vis.length && (geo.region !== 'all' || geo.country !== 'all' || geo.decade !== 'all')) {
       map.fitBounds(L.latLngBounds(vis.map((l) => [l.lat, l.lng])).pad(0.25), { maxZoom: Math.min(map.getMaxZoom(), MAX_ZOOM) });
     }
   }
@@ -274,6 +281,14 @@ export function render(root) {
     updateStreets();
     map.on('moveend', () => { const c = map.getCenter(); store.setSetting('mapView', { lat: +c.lat.toFixed(4), lng: +c.lng.toFixed(4), zoom: map.getZoom() }); });
     drawList();
+    // #/map/<ロケ地 ID>: そのロケ地を中心に（街路データがあれば街路が見えるズームで）表示してシートを開く
+    const target = focusId && locations.find((x) => x.id === focusId);
+    if (target) {
+      const hasStreet = streetAreas.some((a) => a.id === target.id);
+      if (hasStreet) map.setMaxZoom(streets.STREET_MAX_ZOOM);
+      map.setView([target.lat, target.lng], hasStreet ? 15 : Math.max(map.getZoom(), 7));
+      openLocation(target);
+    }
   }
 
   /* ---- ズームに応じた詳細レイヤー ---- */
@@ -413,37 +428,20 @@ export function render(root) {
 
   /* ---- シート ---- */
   function openLocation(l) {
-    const recipe = locationRecipe(l);
-    sheet(l.title, (close) => {
-      const existing = store.findBySource('location', l.id);
-      return [
-        h('div', { class: 'small muted', style: 'margin-top:-6px' }, `${l.titleEn} · `, h('span', { class: 'num' }, l.year), ` · ${l.director}`),
-        h('div', { class: 'loc-place' }, h('div', null, l.place), h('div', { class: 'small muted' }, `${l.city}・${l.country} `, h('span', { class: 'num' }, formatLatLng(l.lat, l.lng))),
-          h('div', { class: 'row', style: 'gap:6px;margin-top:4px' }, h('span', { class: `chip conf-${l.confidence}` }, CONF_LABEL[l.confidence]),
-            here ? h('span', { class: 'chip num' }, formatKm(haversine(here.lat, here.lng, l.lat, l.lng))) : null)),
-        streetAreas.some((a) => a.id === l.id) && map ? h('button', { type: 'button', class: 'btn block', style: 'margin-top:8px', onclick: () => {
-          close(); map.setMaxZoom(streets.STREET_MAX_ZOOM); map.setView([l.lat, l.lng], 15);
-          if (mapEl.getBoundingClientRect().top < 0) window.scrollTo({ top: 0, behavior: 'smooth' });
-        } }, '周辺の街路地図を見る') : null,
-        photoFigure(l),
-        h('p', { style: 'margin:10px 0' }, l.scene),
-        h('div', { class: 'small muted' }, '色味: ', l.look),
-        h('div', { class: 'card stack', style: 'gap:6px;margin-top:10px' },
-          h('div', { class: 'row' }, h('span', { class: 'grow', style: 'font-weight:600' }, '推定レシピ'), h('span', { class: 'small muted' }, X.filmLabel(recipe))),
-          paramSummary(recipe),
-          recipe.isoNote ? h('div', { class: 'small muted num' }, recipe.isoNote, recipe.exposureNote ? ` / ${recipe.exposureNote}` : '') : null),
-        existing
-          ? h('a', { class: 'btn block', style: 'margin-top:10px', href: `#/recipes/${encodeURIComponent(existing.id)}`, onclick: close }, 'インポート済み — レシピを開く')
-          : h('button', { type: 'button', class: 'btn primary block', style: 'margin-top:10px', onclick: () => {
-            const res = store.saveRecipe(recipe);
-            if (res.errors) return toast(res.errors[0], 4000);
-            close(); toast('レシピ帳にインポートしました');
-          } }, 'レシピ帳にインポート'),
-        h('p', { class: 'small muted', style: 'margin-top:8px' }, 'レシピは作品の色味から考えた推定で、公式の設定ではありません。'),
-        l.sources?.length ? h('p', { class: 'small muted sources', style: 'margin-top:4px;overflow-wrap:anywhere' }, '撮影地の出典（外部サイト）: ',
-          l.sources.map((u, i) => [i ? ' / ' : '', h('a', { href: u, target: '_blank', rel: 'noopener noreferrer' }, hostOf(u))])) : null,
-      ];
-    });
+    sheet(l.title, (close) => [
+      h('div', { class: 'small muted', style: 'margin-top:-6px' }, `${l.titleEn} · `, h('span', { class: 'num' }, l.year), ` · ${l.director}`),
+      h('div', { class: 'loc-place' }, h('div', null, l.place), h('div', { class: 'small muted' }, `${l.city}・${l.country} `, h('span', { class: 'num' }, formatLatLng(l.lat, l.lng))),
+        h('div', { class: 'row wrap', style: 'gap:6px;margin-top:4px' }, h('span', { class: `chip conf-${l.confidence}` }, CONF_LABEL[l.confidence]),
+          store.getVisited(l.id) ? h('span', { class: 'chip visited' }, '✓ 行った') : null,
+          here ? h('span', { class: 'chip num' }, formatKm(haversine(here.lat, here.lng, l.lat, l.lng))) : null)),
+      photoFigure(l),
+      h('p', { style: 'margin:10px 0' }, l.scene),
+      h('a', { class: 'btn primary block', href: `#/locations/${encodeURIComponent(l.id)}`, onclick: close }, '詳細（作品情報・撮影ガイド・レシピ）'),
+      streetAreas.some((a) => a.id === l.id) && map ? h('button', { type: 'button', class: 'btn block', style: 'margin-top:8px', onclick: () => {
+        close(); map.setMaxZoom(streets.STREET_MAX_ZOOM); map.setView([l.lat, l.lng], 15);
+        if (mapEl.getBoundingClientRect().top < 0) window.scrollTo({ top: 0, behavior: 'smooth' });
+      } }, '周辺の街路地図を見る') : null,
+    ]);
   }
 
   function pinForm(title, init, onSave) {
