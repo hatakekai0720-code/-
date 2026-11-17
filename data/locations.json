@@ -1347,397 +1347,676 @@
       "id": "station-mashike",
       "title": "駅 STATION", "titleEn": "Station", "year": 1981, "director": "降旗康男",
       "place": "旧増毛駅", "city": "増毛", "country": "日本", "region": "asia",
-      "lat": 43.853, "lng": 141.5222, "confidence": "high", "streets": true,
+      "lat": 43.853, "lng": 141.5222, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "刑事の英次が雄冬への船を待つために降り立つ終着駅。駅前の食堂や居酒屋で人生が交差する。",
       "look": "冬の日本海の灰色と雪。低いコントラストの寂しい色。",
       "sources": [
         "https://tabi-mag.jp/ho1063/",
-        "https://www.hokkaido-np.co.jp/movies/detail/5401758585001/"
+        "https://www.hokkaido-np.co.jp/movies/detail/5401758585001/",
+        "https://movie.jorudan.co.jp/film/17102/",
+        "https://thetv.jp/program/0000019372/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": -1, "shadow": 1, "color": -3, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["雪", "駅", "冬"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["雪", "駅", "冬"] },
+      "cinematographer": "木村大作", "genre": null,
+      "cast": [{ "name": "高倉健", "role": "三上英次" }, { "name": "倍賞千恵子", "role": "桐子" }, { "name": "いしだあゆみ", "role": "三上直子" }],
+      "production": null, "distributor": { "original": "東宝", "japan": "東宝" },
+      "synopsis": "射撃のオリンピック選手でもある刑事・英次。北海道の駅を舞台に、三人の女性との出会いと別れを重ねていく。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": "雪",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": "列車や利用者の妨げにならないように。線路やホームの端には近づかないこと。",
+      "lessons": [24], "palette": ["#8a8a88", "#ece8e0", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "golden-slumber-jozenji-dori",
       "title": "ゴールデンスランバー", "titleEn": "Golden Slumber", "year": 2010, "director": "中村義洋",
       "place": "定禅寺通", "city": "仙台", "country": "日本", "region": "asia",
-      "lat": 38.2667, "lng": 140.868, "confidence": "medium", "streets": true,
+      "lat": 38.2667, "lng": 140.868, "confidence": "medium", "spotSources": 1, "streets": true,
       "scene": "首相暗殺の濡れ衣を着せられた青年が逃げ回る仙台の街。ケヤキ並木の大通りが登場する。",
       "look": "ケヤキの緑と街の灰色。明るい日中の自然な色。",
       "sources": [
-        "https://www.khb-tv.co.jp/event/gamera2024/pdf/tour_ar.pdf"
+        "https://www.khb-tv.co.jp/event/gamera2024/pdf/tour_ar.pdf",
+        "https://eiga.com/movie/54556/",
+        "https://movie.jorudan.co.jp/film/40589/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 1, "b": -2 },
         "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["街", "日中", "並木"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["街", "日中", "並木"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "堺雅人", "role": "青柳雅春" }, { "name": "竹内結子", "role": "樋口晴子" }, { "name": "吉岡秀隆", "role": "森田森吾" }],
+      "production": null, "distributor": { "original": "東宝", "japan": "東宝" },
+      "synopsis": "首相暗殺の犯人に仕立てられた宅配ドライバーの青柳。仙台の街で、かつての仲間たちの助けを借りながら逃げ続ける。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
+      "lessons": [15], "palette": ["#5a8a4f", "#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": "https://eiga.com/movie/54556/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "monster-tateishi-park",
       "title": "怪物", "titleEn": "Monster", "year": 2023, "director": "是枝裕和",
       "place": "立石公園", "city": "諏訪", "country": "日本", "region": "asia",
-      "lat": 36.0478, "lng": 138.1262, "confidence": "medium", "streets": true,
+      "lat": 36.0478, "lng": 138.1262, "confidence": "medium", "spotSources": 1, "streets": true,
       "scene": "湖を見下ろす高台の公園。湖のある町で起きた出来事を、複数の視点から描く物語の舞台のひとつ。",
       "look": "湖面の青と山の稜線。夕方の澄んだ光で落ち着いた色。",
       "sources": [
-        "https://www.seikatsu-guide.com/keyword/1700/20/20206/"
+        "https://www.seikatsu-guide.com/keyword/1700/20/20206/",
+        "https://eiga.com/movie/98367/",
+        "https://movie.jorudan.co.jp/film/98185/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6800 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["湖", "夕方", "風景"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["湖", "夕方", "風景"] },
+      "cinematographer": null, "genre": null, "committee": true,
+      "cast": [{ "name": "安藤サクラ", "role": null }, { "name": "永山瑛太", "role": null }, { "name": "黒川想矢", "role": null }],
+      "production": null, "distributor": { "original": "東宝、ギャガ", "japan": "東宝、ギャガ" },
+      "synopsis": "湖のある町で、息子の様子がおかしいと感じた母親が学校に乗り込む。母、教師、子どもたち、それぞれの視点から一つの出来事を描く。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夕方", "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "日没前の 1 時間" },
+      "visitNotes": null,
+      "lessons": [13, 31], "palette": ["#2f5d8a", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
+      "links": { "eigacom": "https://eiga.com/movie/98367/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "glasses-yoron-coral-way",
       "title": "めがね", "titleEn": "Glasses", "year": 2007, "director": "荻上直子",
       "place": "コーラルウェイ（与論空港の西側）", "city": "与論", "country": "日本", "region": "asia",
-      "lat": 27.0445, "lng": 128.3975, "confidence": "medium", "streets": false,
+      "lat": 27.0445, "lng": 128.3975, "confidence": "medium", "spotSources": 1, "streets": false,
       "scene": "南の島にやって来たタエコが、何もしない時間に少しずつなじんでいく。白い道と青い海が続く。",
       "look": "白砂と透明な青緑の海。明るく露出オーバー気味のやさしい色。",
       "sources": [
-        "https://tabi-mag.jp/kg0326/"
+        "https://tabi-mag.jp/kg0326/",
+        "https://eiga.com/movie/34054/",
+        "https://www.allcinema.net/cinema/327719",
+        "https://thetv.jp/program/0000041507/"
       ],
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 2, "b": -1 },
         "highlight": -2, "shadow": -2, "color": 1, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["海", "日中", "夏"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["海", "日中", "夏"] },
+      "cinematographer": "谷峰登", "genre": null,
+      "cast": [{ "name": "小林聡美", "role": "タエコ" }, { "name": "市川実日子", "role": "ハルナ" }, { "name": "もたいまさこ", "role": "サクラ" }],
+      "production": null, "distributor": { "original": "日活", "japan": "日活" },
+      "synopsis": "南の島の小さな宿を訪れたタエコ。「たそがれる」のが得意な風変わりな人たちと過ごすうち、少しずつ心がほどけていく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [15, 31], "palette": ["#ece8e0", "#d8c49a", "#2a7f80", "#2f5d8a", "#5a8a4f"],
+      "links": { "eigacom": "https://eiga.com/movie/34054/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "villain-osezaki-lighthouse",
       "title": "悪人", "titleEn": "Villain", "year": 2010, "director": "李相日",
       "place": "大瀬埼灯台", "city": "五島", "country": "日本", "region": "asia",
-      "lat": 32.6067, "lng": 128.6036, "confidence": "medium", "streets": false,
+      "lat": 32.6067, "lng": 128.6036, "confidence": "medium", "spotSources": 1, "streets": false,
       "scene": "逃避行の果てにふたりが身を寄せる、断崖の上の白い灯台。荒れた海と強い風が孤独を際立たせる。",
       "look": "灰青の海と白い灯台。冷たく硬いコントラスト。",
       "sources": [
-        "https://www.veltra.com/jp/japan/gotoretto_iki_tsushima/gotoretto/a/171059"
+        "https://www.veltra.com/jp/japan/gotoretto_iki_tsushima/gotoretto/a/171059",
+        "https://movie.jorudan.co.jp/cinema/16653/",
+        "https://www.cinematoday.jp/news/N0026409"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": -1, "shadow": 2, "color": -2, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["海", "灯台", "曇り"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["海", "灯台", "曇り"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "妻夫木聡", "role": "清水祐一" }, { "name": "深津絵里", "role": null }],
+      "production": null, "distributor": { "original": "東宝", "japan": "東宝" },
+      "synopsis": "九州で起きた殺人事件をきっかけに、解体作業員の祐一と孤独な女性・光代が出会う。二人は人目を避けて逃避行を続ける。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": "曇り",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": "足場が不安定な場所です。立入禁止の表示や規制情報を事前に確認してください。",
+      "lessons": [31, 24], "palette": ["#8a8a88", "#2f5d8a", "#ece8e0", "#2b3a42", "#6f7f7a"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "enter-the-void-kabukicho",
       "title": "エンター・ザ・ボイド", "titleEn": "Enter the Void", "year": 2009, "director": "ギャスパー・ノエ",
       "place": "歌舞伎町一番街", "city": "東京", "country": "日本", "region": "asia",
-      "lat": 35.6938, "lng": 139.7019, "confidence": "high", "streets": true,
+      "lat": 35.6938, "lng": 139.7019, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "東京で暮らす兄妹の物語。ネオンの街を真上から漂うように見下ろすカメラが特徴。",
       "look": "原色のネオン、深い黒、強い彩度。光がにじむサイケデリックな色。",
       "sources": [
         "https://en.wikipedia.org/wiki/Enter_the_Void",
-        "https://filmoblivion.com/filming-locations-enter-the-void-2009"
+        "https://filmoblivion.com/filming-locations-enter-the-void-2009",
+        "https://eiga.com/movie/55349/",
+        "https://www.festival-cannes.com/en/f/enter-the-void/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "strong", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 3800 }, "wbShift": { "r": 1, "b": -2 },
         "highlight": -1, "shadow": 2, "color": 3, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "街", "ネオン"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "街", "ネオン"] },
+      "cinematographer": "ベノワ・デビー", "genre": null,
+      "cast": [{ "name": "ナサニエル・ブラウン", "role": "オスカー" }, { "name": "パス・デ・ラ・ウエルタ", "role": "リンダ" }, { "name": "シリル・ロイ", "role": "アレックス" }],
+      "production": null, "distributor": { "original": null, "japan": "コムストック・グループ" },
+      "synopsis": "東京で暮らす売人の青年オスカーが警察に撃たれ、魂となって夜の街の上空をさまよいながら、妹と自分の過去を見つめる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [28, 42, 29], "palette": ["#ff4f9a", "#141414", "#1d2a30", "#3f5b5e", "#8a9b8f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "blood-of-wolves-kure-nakadori",
       "title": "孤狼の血", "titleEn": "The Blood of Wolves", "year": 2018, "director": "白石和彌",
       "place": "呉 中通", "city": "呉", "country": "日本", "region": "asia",
-      "lat": 34.2478, "lng": 132.565, "confidence": "high", "streets": true,
+      "lat": 34.2478, "lng": 132.565, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "昭和末期の港町を舞台に、刑事と暴力団の抗争を描く。撮影の大半が呉市内で行われ、中心街の通りも登場する。",
       "look": "湿った夏の空気、くすんだ黄と緑。粒子の荒い昭和の色。",
       "sources": [
         "https://ciatr.jp/topics/310388",
-        "https://press.moviewalker.jp/news/article/146810"
+        "https://press.moviewalker.jp/news/article/146810",
+        "https://movie.jorudan.co.jp/film/88459/",
+        "https://www.cinematoday.jp/news/N0098638"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5900 }, "wbShift": { "r": 3, "b": -5 },
         "highlight": -1, "shadow": 1, "color": -1, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["街", "昭和", "夏"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["街", "昭和", "夏"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "役所広司", "role": "大上章吾" }, { "name": "松坂桃李", "role": "日岡秀一" }, { "name": "江口洋介", "role": "一ノ瀬" }],
+      "production": null, "distributor": { "original": "東映", "japan": "東映" },
+      "synopsis": "昭和63年、広島の架空の街・呉原。暴力団との癒着がうわさされる刑事・大上と組んだ新人の日岡が、抗争の火種を追う。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [22, 29, 15], "palette": ["#e0c048", "#5a8a4f", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "joker-stairs-bronx",
       "title": "ジョーカー", "titleEn": "Joker", "year": 2019, "director": "トッド・フィリップス",
       "place": "ジョーカー階段（Shakespeare Ave〜W 167th St）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.8361, "lng": -73.9239, "confidence": "high", "streets": true,
+      "lat": 40.8361, "lng": -73.9239, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "アーサーが真っ赤なスーツで長い階段を踊りながら下りる。主人公が変貌したことを示す場面。",
       "look": "くすんだ緑と黄の街に、赤いスーツが浮かぶ。暖色寄りで粒子感のある色。",
       "sources": [
         "https://en.wikipedia.org/wiki/Joker_Stairs",
-        "https://www.timeout.com/newyork/news/photos-the-bronx-stairs-made-famous-by-the-joker-are-making-a-comeback-in-its-dc-sequel-040323"
+        "https://www.timeout.com/newyork/news/photos-the-bronx-stairs-made-famous-by-the-joker-are-making-a-comeback-in-its-dc-sequel-040323",
+        "https://movie.jorudan.co.jp/film/92396/",
+        "https://www.justwatch.com/jp/%E6%98%A0%E7%94%BB/ziyoka"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr200", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 4, "b": -5 },
         "highlight": -1, "shadow": 1, "color": 2, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 320〜1600", "exposureNote": "-1/3EV", "tags": ["街", "階段", "人物"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "-1/3EV", "tags": ["街", "階段", "人物"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ホアキン・フェニックス", "role": "アーサー・フレック" }, { "name": "ロバート・デ・ニーロ", "role": "マーレイ・フランクリン" }, { "name": "ザジー・ビーツ", "role": "ソフィー" }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース映画" },
+      "synopsis": "1981年のゴッサム・シティ。コメディアンを夢見る孤独な男アーサーが、社会に追い詰められ、少しずつ変貌していく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "53mm（XF35mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [22, 18, 33], "palette": ["#5a8a4f", "#e0c048", "#b8322a", "#1d2a30", "#3f5b5e"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "once-upon-a-time-in-america-dumbo",
       "title": "ワンス・アポン・ア・タイム・イン・アメリカ", "titleEn": "Once Upon a Time in America", "year": 1984, "director": "セルジオ・レオーネ",
       "place": "ワシントン・ストリートとウォーター・ストリートの角（ダンボ）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.7034, "lng": -73.9894, "confidence": "high", "streets": true,
+      "lat": 40.7034, "lng": -73.9894, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "少年たちが石畳の通りを歩き、正面にマンハッタン橋がそびえる。ポスターにも使われた構図。",
       "look": "セピアがかった暖色と霞んだ橋。柔らかく懐かしいトーン。",
       "sources": [
         "https://www.imdb.com/title/tt0087843/locations",
-        "https://www.movie-locations.com/movies/o/Once-Upon-A-Time-In-America.php"
+        "https://www.movie-locations.com/movies/o/Once-Upon-A-Time-In-America.php",
+        "https://eiga.com/movie/51207/",
+        "https://thetv.jp/program/0000023441/",
+        "https://www.allcinema.net/cinema/26251"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6200 }, "wbShift": { "r": 3, "b": -5 },
         "highlight": -1, "shadow": -1, "color": -2, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["街", "橋", "ノスタルジー"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["街", "橋", "ノスタルジー"] },
+      "cinematographer": "トニーノ・デリ・コリ", "genre": "ギャング映画",
+      "cast": [{ "name": "ロバート・デ・ニーロ", "role": "ヌードルス" }, { "name": "ジェームズ・ウッズ", "role": "マックス" }, { "name": "エリザベス・マクガバン", "role": "デボラ" }],
+      "production": null, "distributor": { "original": null, "japan": "東宝東和" },
+      "synopsis": "ニューヨークのユダヤ系移民街で育ったヌードルスと仲間たち。禁酒法の時代にギャングとして生きた半世紀を描く叙事詩。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [22, 29, 15], "palette": ["#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4", "#8a5a44"],
+      "links": { "eigacom": "https://eiga.com/movie/51207/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "ghostbusters-hook-ladder-8",
       "title": "ゴーストバスターズ", "titleEn": "Ghostbusters", "year": 1984, "director": "アイヴァン・ライトマン",
       "place": "消防署 Hook & Ladder 8", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.7196, "lng": -74.0066, "confidence": "high", "streets": true,
+      "lat": 40.7196, "lng": -74.0066, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "幽霊退治の会社を始めた 3 人が本部にする古い消防署。外観はこの現役の消防署で撮られた。",
       "look": "赤レンガと昼の明るい光。80 年代らしいややマゼンタ寄りの色。",
       "sources": [
         "https://en.wikipedia.org/wiki/Firehouse,_Hook_%26_Ladder_Company_8",
-        "https://www.untappedcities.com/ghostbusters-1984-nyc-filming-locations/"
+        "https://www.untappedcities.com/ghostbusters-1984-nyc-filming-locations/",
+        "https://eiga.com/movie/12373/",
+        "https://thetv.jp/program/0000043489/",
+        "https://movie.jorudan.co.jp/film/03422/",
+        "https://www.allcinema.net/cinema/7634"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": 1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["街", "建築", "日中"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["街", "建築", "日中"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ビル・マーレイ", "role": "ピーター・ヴェンクマン" }, { "name": "ダン・エイクロイド", "role": "レイモンド・スタンツ" }, { "name": "ハロルド・レイミス", "role": "イーガン" }],
+      "production": null, "distributor": { "original": null, "japan": "コロンビア" },
+      "synopsis": "大学を追われた三人の超常現象研究者が、幽霊退治の会社を開業。ニューヨークに異変が広がるなか、街を救うため出動する。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#b8322a", "#7a5a3a", "#d9488f", "#13365c", "#2e7d4f"],
+      "links": { "eigacom": "https://eiga.com/movie/12373/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "when-harry-met-sally-katzs",
       "title": "恋人たちの予感", "titleEn": "When Harry Met Sally...", "year": 1989, "director": "ロブ・ライナー",
       "place": "カッツ・デリカテッセン", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.7223, "lng": -73.9874, "confidence": "high", "streets": true,
+      "lat": 40.7223, "lng": -73.9874, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ハリーとサリーが向かい合って食事をする老舗のデリ。店内の客を巻き込む有名な場面が撮られ、今も席に目印がある。",
       "look": "蛍光灯と白熱灯が混じる店内。黄みがかった温かい色。",
       "sources": [
         "https://www.untappedcities.com/when-harry-met-sally-nyc-film-locations-35-years-later/",
-        "https://movie-locations.com/movies/w/When-Harry-Met-Sally.php"
+        "https://movie-locations.com/movies/w/When-Harry-Met-Sally.php",
+        "https://eiga.com/movie/44353/",
+        "https://movie.jorudan.co.jp/film/03130/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": -1, "shadow": 0, "color": 0, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "食", "人物"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "食", "人物"] },
+      "cinematographer": "バリー・ソネンフェルド", "genre": null,
+      "cast": [{ "name": "ビリー・クリスタル", "role": "ハリー・バーンズ" }, { "name": "メグ・ライアン", "role": "サリー・オルブライト" }, { "name": "キャリー・フィッシャー", "role": "マリー" }],
+      "production": null, "distributor": { "original": null, "japan": "日本ヘラルド映画" },
+      "synopsis": "大学を出てシカゴからニューヨークへ車で同乗したハリーとサリー。「男女の友情は成り立つか」をめぐる十数年の物語。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [24], "palette": ["#ece8e0", "#e0c048", "#1d2a30", "#3f5b5e", "#8a9b8f"],
+      "links": { "eigacom": "https://eiga.com/movie/44353/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "when-harry-met-sally-washington-square",
       "title": "恋人たちの予感", "titleEn": "When Harry Met Sally...", "year": 1989, "director": "ロブ・ライナー",
       "place": "ワシントン・スクエア公園の凱旋門", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.7313, "lng": -73.9971, "confidence": "high", "streets": true,
+      "lat": 40.7313, "lng": -73.9971, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "シカゴから車で一緒に来たふたりが別れる場所。白い大理石の門の向こうに街が広がる。",
       "look": "秋の柔らかな日差しと白い門。暖かく落ち着いた色。",
       "sources": [
         "https://www.untappedcities.com/when-harry-met-sally-nyc-film-locations-35-years-later/",
-        "https://movie-locations.com/movies/w/When-Harry-Met-Sally.php"
+        "https://movie-locations.com/movies/w/When-Harry-Met-Sally.php",
+        "https://eiga.com/movie/44353/",
+        "https://movie.jorudan.co.jp/film/03130/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 2, "b": -3 },
         "highlight": 0, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["公園", "秋", "日中"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["公園", "秋", "日中"] },
+      "cinematographer": "バリー・ソネンフェルド", "genre": null,
+      "cast": [{ "name": "ビリー・クリスタル", "role": "ハリー・バーンズ" }, { "name": "メグ・ライアン", "role": "サリー・オルブライト" }, { "name": "キャリー・フィッシャー", "role": "マリー" }],
+      "production": null, "distributor": { "original": null, "japan": "日本ヘラルド映画" },
+      "synopsis": "大学を出てシカゴからニューヨークへ車で同乗したハリーとサリー。「男女の友情は成り立つか」をめぐる十数年の物語。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [17], "palette": ["#ece8e0", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
+      "links": { "eigacom": "https://eiga.com/movie/44353/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "godfather-old-st-patricks",
       "title": "ゴッドファーザー", "titleEn": "The Godfather", "year": 1972, "director": "フランシス・フォード・コッポラ",
       "place": "旧セント・パトリック大聖堂", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.7237, "lng": -73.9953, "confidence": "high", "streets": true,
+      "lat": 40.7237, "lng": -73.9953, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "マイケルが洗礼式に立ち会う教会。式の進行と、街のあちこちで起きる粛清が交互に映される。",
       "look": "琥珀色の暗い堂内、深く沈む影。黄色みの強いアンダー気味の色。",
       "sources": [
         "https://untappedcities.com/2014/02/27/an-offer-you-cant-refuse-10-nyc-film-locations-for-the-godfather/8/",
-        "https://scoutingny.com/the-godfather-the-new-york-city-filming-locations-then-and-now/3"
+        "https://scoutingny.com/the-godfather-the-new-york-city-filming-locations-then-and-now/3",
+        "https://eiga.com/movie/44529/",
+        "https://www.britannica.com/topic/The-Godfather-film-by-Coppola"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 3800 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -1, "shadow": 2, "color": 0, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-2/3EV", "tags": ["室内", "教会", "低照度"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-2/3EV", "tags": ["室内", "教会", "低照度"] },
+      "cinematographer": "ゴードン・ウィリス", "genre": null,
+      "cast": [{ "name": "マーロン・ブランド", "role": "ビトー・コルレオーネ" }, { "name": "アル・パチーノ", "role": "マイケル・コルレオーネ" }, { "name": "ジェームズ・カーン", "role": null }],
+      "production": null, "distributor": { "original": "パラマウント・ピクチャーズ", "japan": null },
+      "synopsis": "ニューヨークのマフィア、コルレオーネ家。ドンのヴィトーが襲われたことで、堅気だった三男マイケルが一家の争いに引き込まれる。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
+      "lessons": [22, 24], "palette": ["#c98a3a", "#141414", "#e0c048", "#1d2a30", "#3f5b5e"],
+      "links": { "eigacom": "https://eiga.com/movie/44529/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "home-alone-2-plaza-hotel",
       "title": "ホーム・アローン2", "titleEn": "Home Alone 2: Lost in New York", "year": 1992, "director": "クリス・コロンバス",
       "place": "プラザ・ホテル", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.7646, "lng": -73.9744, "confidence": "high", "streets": true,
+      "lat": 40.7646, "lng": -73.9744, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ひとりでニューヨークに来たケビンが、父のカードで泊まる高級ホテル。クリスマスの装飾が華やか。",
       "look": "冬の街の青と金色の照明。暖色の光がきらめく。",
       "sources": [
         "https://movie-locations.com/movies/h/Home-Alone-2.php",
-        "https://onlocationtours.com/locations/home-alone-2-lost-in-new-york/"
+        "https://onlocationtours.com/locations/home-alone-2-lost-in-new-york/",
+        "https://eiga.com/movie/49304/",
+        "https://animeanime.jp/article/2024/12/20/88312.html"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 2, "b": -3 },
         "highlight": -1, "shadow": 0, "color": 1, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["冬", "ホテル", "夜"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["冬", "ホテル", "夜"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "マコーレー・カルキン", "role": "ケビン" }, { "name": "ジョー・ペシ", "role": "ハリー" }, { "name": "ダニエル・スターン", "role": "マーブ" }],
+      "production": null, "distributor": { "original": null, "japan": "20世紀フォックス映画" },
+      "synopsis": "家族旅行の空港で一人だけ別の飛行機に乗ってしまったケビン。ニューヨークで豪遊するうち、あの泥棒コンビと再会する。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [42, 24], "palette": ["#2f5d8a", "#c9a04a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
+      "links": { "eigacom": "https://eiga.com/movie/49304/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "night-at-the-museum-amnh",
       "title": "ナイト ミュージアム", "titleEn": "Night at the Museum", "year": 2006, "director": "ショーン・レヴィ",
       "place": "アメリカ自然史博物館（外観）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.7811, "lng": -73.973, "confidence": "high", "streets": true,
+      "lat": 40.7811, "lng": -73.973, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "夜警として働き始めた男の職場になる博物館。外観はセントラル・パーク・ウエストの本物の建物。",
       "look": "夜の石造りの建物と街灯の黄。青い夜空とのコントラスト。",
       "sources": [
         "https://movielocationsguide.com/night-at-the-museum/filming-locations/museum-of-natural-history",
-        "https://thecinemaholic.com/night-at-the-museum-filming-location"
+        "https://thecinemaholic.com/night-at-the-museum-filming-location",
+        "https://eiga.com/movie/1134/",
+        "https://ciatr.jp/topics/339446"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 4300 }, "wbShift": { "r": 1, "b": -2 },
         "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "建築", "街"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "建築", "街"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ベン・スティラー", "role": "ラリー" }, { "name": "ロビン・ウィリアムズ", "role": "セオドア・ルーズベルト" }, { "name": "カーラ・グギーノ", "role": "レベッカ" }],
+      "production": null, "distributor": { "original": null, "japan": "20世紀フォックス映画" },
+      "synopsis": "自然史博物館の夜警になったラリー。閉館後に展示物が次々と動き出し、恐竜や歴史上の人物と大騒ぎの一夜を過ごす。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
+      "lessons": [42, 24], "palette": ["#e0c048", "#2f5d8a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
+      "links": { "eigacom": "https://eiga.com/movie/1134/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "youve-got-mail-cafe-lalo",
       "title": "ユー・ガット・メール", "titleEn": "You've Got Mail", "year": 1998, "director": "ノーラ・エフロン",
       "place": "カフェ・ラロ", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.786, "lng": -73.9776, "confidence": "high", "streets": true,
+      "lat": 40.786, "lng": -73.9776, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "メールで文通するふたりが初めて会う約束をするカフェ。窓辺の席で待つキャスリーンを、ジョーが外から見つける。",
       "look": "店内の暖かい電球色と窓の外の夕方の青。柔らかい。",
       "sources": [
         "https://untappedcities.com/2023/12/11/film-locations-youve-got-mail-nyc/",
-        "https://movie-locations.com/movies/y/Youve-Got-Mail.php"
+        "https://movie-locations.com/movies/y/Youve-Got-Mail.php",
+        "https://eiga.com/movie/50283/",
+        "https://movie.jorudan.co.jp/film/31335/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -2, "shadow": 0, "color": 0, "sharpness": -3, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "カフェ", "夕方"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "カフェ", "夕方"] },
+      "cinematographer": "ジョン・リンドレイ", "genre": "ロマンス",
+      "cast": [{ "name": "トム・ハンクス", "role": "ジョー" }, { "name": "メグ・ライアン", "role": "キャスリーン" }, { "name": "グレッグ・キニア", "role": "フランク" }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース映画" },
+      "synopsis": "大型書店チェーンの御曹司ジョーと、街角の小さな絵本店を営むキャスリーン。商売敵の二人は、互いに名前を知らないメール友達だった。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夕方", "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "日没前の 1 時間" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [13, 22, 17], "palette": ["#c98a3a", "#2f5d8a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
+      "links": { "eigacom": "https://eiga.com/movie/50283/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "youve-got-mail-riverside-park",
       "title": "ユー・ガット・メール", "titleEn": "You've Got Mail", "year": 1998, "director": "ノーラ・エフロン",
       "place": "リバーサイド・パーク 91 丁目ガーデン", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.7935, "lng": -73.9775, "confidence": "high", "streets": true,
+      "lat": 40.7935, "lng": -73.9775, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "物語の最後に、ふたりが花に囲まれた小さな庭で再会する。",
       "look": "花の色と木漏れ日。明るく甘いパステル調。",
       "sources": [
         "https://untappedcities.com/2023/12/11/film-locations-youve-got-mail-nyc/",
-        "https://iamnotastalker.com/2007/12/16/youve-got-filming-locations"
+        "https://iamnotastalker.com/2007/12/16/youve-got-filming-locations",
+        "https://eiga.com/movie/50283/",
+        "https://movie.jorudan.co.jp/film/31335/"
       ],
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
         "highlight": -2, "shadow": -2, "color": 1, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["公園", "花", "日中"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["公園", "花", "日中"] },
+      "cinematographer": "ジョン・リンドレイ", "genre": "ロマンス",
+      "cast": [{ "name": "トム・ハンクス", "role": "ジョー" }, { "name": "メグ・ライアン", "role": "キャスリーン" }, { "name": "グレッグ・キニア", "role": "フランク" }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース映画" },
+      "synopsis": "大型書店チェーンの御曹司ジョーと、街角の小さな絵本店を営むキャスリーン。商売敵の二人は、互いに名前を知らないメール友達だった。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#7a5a3a", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
+      "links": { "eigacom": "https://eiga.com/movie/50283/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "do-the-right-thing-stuyvesant-ave",
       "title": "ドゥ・ザ・ライト・シング", "titleEn": "Do the Right Thing", "year": 1989, "director": "スパイク・リー",
       "place": "スタイヴェサント・アベニュー（クインシー通り〜レキシントン通り）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.6876, "lng": -73.9333, "confidence": "high", "streets": true,
+      "lat": 40.6876, "lng": -73.9333, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "真夏の一日、ひとつの街区で人々の緊張が高まっていく。撮影はこの一区画を借り切って行われた。",
       "look": "赤とオレンジを強めた暑い色、濃い影。高彩度で熱っぽい。",
       "sources": [
         "https://www.brownstoner.com/brooklyn-life/spike-lee-making-do-the-right-thing-st-clair-bourne-bed-stuy-metrograph/",
-        "https://atlasobscura.com/places/do-the-right-thing-way"
+        "https://atlasobscura.com/places/do-the-right-thing-way",
+        "https://eiga.com/movie/21517/",
+        "https://www.encyclopedia.com/arts/culture-magazines/do-right-thing"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": 4, "b": -5 },
         "highlight": 0, "shadow": 1, "color": 3, "sharpness": 0, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["夏", "街", "日中"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["夏", "街", "日中"] },
+      "cinematographer": "アーネスト・ディッカーソン", "genre": null,
+      "cast": [{ "name": "スパイク・リー", "role": "ムーキー" }, { "name": "ダニー・アイエロ", "role": "サル" }, { "name": "オシー・デイヴィス", "role": "ダー・メイヤー" }],
+      "production": ["40 Acres and a Mule Filmworks"], "distributor": { "original": "ユニバーサル・ピクチャーズ", "japan": null },
+      "synopsis": "ブルックリンの黒人街の猛暑の一日。ピザ屋で働くムーキーの周りで、住人たちの小さな摩擦が積み重なっていく。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [22, 15], "palette": ["#b8322a", "#e07a3a", "#141414", "#13365c", "#2e7d4f"],
+      "links": { "eigacom": "https://eiga.com/movie/21517/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "sex-and-the-city-nypl",
       "title": "セックス・アンド・ザ・シティ", "titleEn": "Sex and the City", "year": 2008, "director": "マイケル・パトリック・キング",
       "place": "ニューヨーク公共図書館 本館", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.7532, "lng": -73.9822, "confidence": "high", "streets": true,
+      "lat": 40.7532, "lng": -73.9822, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "キャリーが結婚式の会場に選ぶ図書館。新郎が現れず、ウエディングドレスのまま階段を去る。",
       "look": "白い大理石とやわらかな昼光。明るく上品な色。",
       "sources": [
         "https://www.iamnotastalker.com/2010/05/27/the-new-york-public-library-from-sex-and-the-city-the-movie/",
-        "https://otsony.com/sexandthecity.html"
+        "https://otsony.com/sexandthecity.html",
+        "https://eiga.com/movie/53179/",
+        "https://thetv.jp/program/0000040680/"
       ],
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
         "highlight": -2, "shadow": -2, "color": 0, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["建築", "日中", "人物"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["建築", "日中", "人物"] },
+      "cinematographer": "ジョン・トーマス", "genre": null,
+      "cast": [{ "name": "サラ・ジェシカ・パーカー", "role": "キャリー・ブラッドショー" }, { "name": "キム・キャトラル", "role": "サマンサ・ジョーンズ" }, { "name": "クリス・ノース", "role": "ビッグ" }],
+      "production": null, "distributor": { "original": null, "japan": "ギャガ・コミュニケーションズ" },
+      "synopsis": "ニューヨークで暮らす四人の女性たちの友情と恋。コラムニストのキャリーは、長年の恋人ビッグとの結婚を考え始める。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "53mm（XF35mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
+      "lessons": [18, 33], "palette": ["#ece8e0", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
+      "links": { "eigacom": "https://eiga.com/movie/53179/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "warriors-coney-island",
       "title": "ウォリアーズ", "titleEn": "The Warriors", "year": 1979, "director": "ウォルター・ヒル",
       "place": "コニーアイランド（ワンダー・ホイール）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.574, "lng": -73.9787, "confidence": "high", "streets": true,
+      "lat": 40.574, "lng": -73.9787, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "冒頭の夜の観覧車と、一晩中追われたギャングがようやく帰り着く夜明けの海辺。",
       "look": "夜のネオンと夜明けの淡い青。粒子の荒い 70 年代の夜景。",
       "sources": [
         "https://timeout.com/newyork/news/the-6-new-york-locations-that-helped-turn-the-warriors-into-a-cult-classic-101624",
-        "https://scoutingny.com/the-new-york-city-filming-locations-of-the-warriors-ny-youve-changed"
+        "https://scoutingny.com/the-new-york-city-filming-locations-of-the-warriors-ny-youve-changed",
+        "https://eiga.com/movie/5089/",
+        "https://www.allcinema.net/cinema/2375"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "strong", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 3800 }, "wbShift": { "r": 1, "b": -2 },
         "highlight": -1, "shadow": 1, "color": 2, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "遊園地", "海"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "遊園地", "海"] },
+      "cinematographer": "アンドリュー・ラズロ", "genre": "アクション・スリラー",
+      "cast": [{ "name": "マイケル・ベック", "role": "スワン" }, { "name": "ジェームズ・レマー", "role": "エイジャックス" }, { "name": "ドーシー・ライト", "role": "クレオン" }],
+      "production": null, "distributor": { "original": "パラマウント・ピクチャーズ", "japan": "CIC" },
+      "synopsis": "ギャングの大集会で起きた事件の濡れ衣を着せられたウォリアーズ。夜のニューヨークを横断し、地元コニーアイランドを目指す。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "朝", "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "日の出から 1 時間" },
+      "visitNotes": null,
+      "lessons": [28, 29, 31], "palette": ["#ff4f9a", "#8fb8d8", "#2f5d8a", "#1d2a30", "#3f5b5e"],
+      "links": { "eigacom": "https://eiga.com/movie/5089/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "john-wick-beaver-building",
       "title": "ジョン・ウィック", "titleEn": "John Wick", "year": 2014, "director": "チャド・スタエルスキ",
       "place": "ビーバー・ビルディング（コンチネンタル・ホテルの外観）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.705, "lng": -74.0087, "confidence": "high", "streets": true,
+      "lat": 40.705, "lng": -74.0087, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "殺し屋たちが泊まる中立地帯のホテル。三角形の古いビルが外観に使われた。",
       "look": "夜の青緑と街灯のオレンジ。濃い黒と冷たい肌色。",
       "sources": [
         "https://atlasofwonders.com/2021/12/continental-hotel-john-wick.html",
-        "https://downtownny.com/news/film-locations-visit-downtown/"
+        "https://downtownny.com/news/film-locations-visit-downtown/",
+        "https://eiga.com/movie/79911/",
+        "https://movie.jorudan.co.jp/film/83110/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -1, "shadow": 2, "color": 2, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "建築", "街"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "建築", "街"] },
+      "cinematographer": "ジョナサン・セラ", "genre": null,
+      "cast": [{ "name": "キアヌ・リーヴス", "role": "ジョン・ウィック" }, { "name": "ミカエル・ニクヴィスト", "role": "ヴィゴ・タラソフ" }, { "name": "ウィレム・デフォー", "role": null }],
+      "production": null, "distributor": { "original": null, "japan": "ポニーキャニオン" },
+      "synopsis": "引退した伝説の殺し屋ジョン・ウィック。亡き妻が遺した子犬を奪われたことで、再び裏社会に戻っていく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [42, 22], "palette": ["#2a7f80", "#2f5d8a", "#5a8a4f", "#e07a3a", "#141414"],
+      "links": { "eigacom": "https://eiga.com/movie/79911/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "birdman-st-james-theatre",
       "title": "バードマン", "titleEn": "Birdman", "year": 2014, "director": "アレハンドロ・G・イニャリトゥ",
       "place": "セント・ジェームズ劇場", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.759, "lng": -73.9884, "confidence": "high", "streets": true,
+      "lat": 40.759, "lng": -73.9884, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "落ち目の俳優が舞台に挑むブロードウェイの劇場。撮影の大半がこの劇場の中と周辺で行われた。",
       "look": "楽屋の暖色と舞台照明、狭い廊下の影。長回しの生々しい色。",
       "sources": [
         "https://onlocationtours.com/blog/birdman-locations-nyc/",
-        "https://www.untappedcities.com/nyc-film-locations-birdman-by-alejandro-gonzalez-inarritu-with-michael-keaton/"
+        "https://www.untappedcities.com/nyc-film-locations-birdman-by-alejandro-gonzalez-inarritu-with-michael-keaton/",
+        "https://eiga.com/movie/81227/",
+        "https://movie.jorudan.co.jp/film/81770/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -1, "shadow": 1, "color": 1, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "劇場", "夜"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "劇場", "夜"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "マイケル・キートン", "role": "リーガン・トムソン" }, { "name": "エドワード・ノートン", "role": "マイク・シャイナー" }, { "name": "エマ・ストーン", "role": "サム" }],
+      "production": null, "distributor": { "original": null, "japan": "20世紀フォックス映画" },
+      "synopsis": "かつてヒーロー映画で人気を得た俳優リーガンが、ブロードウェイの舞台で再起を図る。公演初日を前に、彼は追い詰められていく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
+      "lessons": [42, 22], "palette": ["#141414", "#1d2a30", "#3f5b5e", "#8a9b8f", "#c8b28a"],
+      "links": { "eigacom": "https://eiga.com/movie/81227/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "oceans-8-met",
       "title": "オーシャンズ8", "titleEn": "Ocean's 8", "year": 2018, "director": "ゲイリー・ロス",
       "place": "メトロポリタン美術館", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.7794, "lng": -73.9632, "confidence": "high", "streets": true,
+      "lat": 40.7794, "lng": -73.9632, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ファッションの祭典の夜に宝石を盗む計画の舞台。館内の展示室で夜間の撮影が行われた。",
       "look": "華やかな照明、ドレスの色、黒の締まった画面。リッチで鮮やか。",
       "sources": [
         "https://www.screenglobalproduction.com/news/2018/06/08/heist-movie-oceans-8-filmed-in-new-yorks-met",
-        "https://news.artnet.com/art-world/oceans-8-met-gala-heist-1297880"
+        "https://news.artnet.com/art-world/oceans-8-met-gala-heist-1297880",
+        "https://eiga.com/movie/86216/",
+        "https://natalie.mu/eiga/film/172479"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4500 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": 1, "shadow": 1, "color": 3, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["室内", "美術館", "夜"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["室内", "美術館", "夜"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "サンドラ・ブロック", "role": "デビー・オーシャン" }, { "name": "ケイト・ブランシェット", "role": "ルー・ミラー" }, { "name": "アン・ハサウェイ", "role": "ダフネ・クルーガー" }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース映画" },
+      "synopsis": "刑務所を出たデビー・オーシャンが女性だけのチームを集め、メットガラの会場で高価なネックレスを狙う。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
+      "lessons": [42], "palette": ["#141414", "#13365c", "#2e7d4f", "#e0b23a", "#c8402e"],
+      "links": { "eigacom": "https://eiga.com/movie/86216/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "moonstruck-cranberry-street",
       "title": "月の輝く夜に", "titleEn": "Moonstruck", "year": 1987, "director": "ノーマン・ジュイソン",
       "place": "19 Cranberry St（カストリーニ家）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.6993, "lng": -73.9947, "confidence": "high", "streets": true,
+      "lat": 40.6993, "lng": -73.9947, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "イタリア系の一家が暮らすれんが造りの家。満月の夜に家族それぞれの恋が動き出す。",
       "look": "冬の夜の青と窓の暖かい光。少しくすんだ 80 年代の色。",
       "sources": [
         "https://www.timeout.com/newyork/news/see-inside-that-famous-moonstruck-townhouse-in-brooklyn-heights-030221",
-        "https://www.brickunderground.com/blog/2014/11/reel_estate_moonstruck"
+        "https://www.brickunderground.com/blog/2014/11/reel_estate_moonstruck",
+        "https://eiga.com/movie/46847/",
+        "https://movie.jorudan.co.jp/film/05970/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 5200 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["夜", "住宅", "冬"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["夜", "住宅", "冬"] },
+      "cinematographer": "デイヴィッド・ワトキン", "genre": null,
+      "cast": [{ "name": "シェール", "role": "ロレッタ" }, { "name": "ニコラス・ケイジ", "role": "ロニー" }, { "name": "オリンピア・デュカキス", "role": "ローズ" }],
+      "production": null, "distributor": { "original": "MGM", "japan": "UIP" },
+      "synopsis": "ブルックリンに暮らす未亡人ロレッタが、婚約者の弟ロニーと出会い、満月の夜に恋に落ちていく。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": "個人の住宅です。敷地や玄関先に入らず、公道から短時間で。住人や近所の迷惑にならないように。",
+      "lessons": [42, 17], "palette": ["#2f5d8a", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
+      "links": { "eigacom": "https://eiga.com/movie/46847/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "royal-tenenbaums-convent-ave",
       "title": "ザ・ロイヤル・テネンバウムズ", "titleEn": "The Royal Tenenbaums", "year": 2001, "director": "ウェス・アンダーソン",
       "place": "339 Convent Ave（テネンバウム家）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.8237, "lng": -73.9476, "confidence": "high", "streets": true,
+      "lat": 40.8237, "lng": -73.9476, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "天才児だったきょうだいが育った家。久しぶりに家族が戻り、再び同じ屋根の下で暮らす。",
       "look": "赤レンガ、くすんだ黄と赤。左右対称の画面に合う暖かい色。",
       "sources": [
         "https://www.movie-locations.com/movies/r/Royal-Tenenbaums.php",
-        "https://6sqft.com/manhattan/upper-manhattan/hamilton-heights/339-convent-avenue"
+        "https://6sqft.com/manhattan/upper-manhattan/hamilton-heights/339-convent-avenue",
+        "https://eiga.com/movie/1158/",
+        "https://movie.jorudan.co.jp/film/32816/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -1, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["住宅", "日中", "人物"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["住宅", "日中", "人物"] },
+      "cinematographer": "ロバート・イェーマン", "genre": null,
+      "cast": [{ "name": "ジーン・ハックマン", "role": "ロイヤル" }, { "name": "アンジェリカ・ヒューストン", "role": "エセル" }, { "name": "ベン・スティラー", "role": "チャス" }],
+      "production": null, "distributor": { "original": null, "japan": "ブエナビスタ" },
+      "synopsis": "かつて天才児と呼ばれた三人のきょうだいと、長年家族を顧みなかった父ロイヤル。ばらばらだった一家が再び同じ家に集まる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "個人の住宅です。敷地や玄関先に入らず、公道から短時間で。住人や近所の迷惑にならないように。",
+      "lessons": [22, 33], "palette": ["#b8322a", "#7a5a3a", "#e0c048", "#2b3a42", "#6f7f7a"],
+      "links": { "eigacom": "https://eiga.com/movie/1158/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "paterson-great-falls",
