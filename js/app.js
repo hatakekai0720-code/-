@@ -4,6 +4,7 @@ import { closeSheets, toast } from './ui/dom.js';
 import { applyTheme } from './ui/theme.js';
 import { initPwa } from './pwa.js';
 import { autoDownloadStreets } from './streets.js';
+import { autoDownloadPhotos } from './photos.js';
 import * as compare from './views/compare.js';
 import * as analyze from './views/analyze.js';
 import * as recipes from './views/recipes.js';
@@ -76,5 +77,6 @@ await store.seedIfNeeded();
 window.addEventListener('hashchange', route);
 route();
 initPwa();
-// 街路地図の自動ダウンロード（SW のインストールとは別に、少し待ってから裏で 1 ファイルずつ）
+// 街路地図とロケ地写真の自動ダウンロード（SW のインストールとは別に、少し待ってから裏で 1 ファイルずつ）
+autoDownloadPhotos(() => store.getSetting('streetsAuto') !== false);
 autoDownloadStreets(() => store.getSetting('streetsAuto') !== false);

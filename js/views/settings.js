@@ -4,6 +4,7 @@ import { applyTheme, THEMES } from '../ui/theme.js';
 import * as store from '../store.js';
 import { offlineStatus, checkForUpdate } from '../pwa.js';
 import * as streets from '../streets.js';
+import * as photos from '../photos.js';
 
 export function render(root) {
   const redraw = () => { root.replaceChildren(); render(root); };
@@ -103,7 +104,7 @@ function offlineCard() {
   });
   refresh();
   return h('div', { class: 'card stack' }, status,
-    h('p', { class: 'small muted' }, 'アプリのファイル（地図データ・講座を含む）を端末に保存し、機内モードでも全機能を使えます。写真は保存しません。'),
+    h('p', { class: 'small muted' }, 'アプリのファイル（地図データ・講座を含む）を端末に保存し、機内モードでも全機能を使えます。あなたが解析した画像は保存しません。'),
     btn);
 }
 
@@ -114,52 +115,62 @@ const STATE_LABEL = {
   cleared: '削除しました（自動ダウンロードがオンなら次回起動時に再ダウンロード）',
 };
 
-function streetsCard() {
-  const enabled = () => store.getSetting('streetsAuto') !== false;
-  const sw = h('input', { type: 'checkbox', role: 'switch', class: 'switch', checked: enabled(), 'aria-label': '街路地図を自動ダウンロード', onchange: () => {
-    store.setSetting('streetsAuto', sw.checked ? undefined : false);
-    if (sw.checked) streets.startDownload(enabled); else streets.stopDownload();
-  } });
+// ダウンロードの進捗（街路地図・写真で共通）
+function dlStatus(mod, label) {
   const bar = h('span');
-  const meter = h('div', { class: 'progress', role: 'progressbar', 'aria-label': '街路地図のダウンロード', 'aria-valuemin': '0', 'aria-valuemax': '100' }, bar);
+  const meter = h('div', { class: 'progress', role: 'progressbar', 'aria-label': `${label}のダウンロード`, 'aria-valuemin': '0', 'aria-valuemax': '100' }, bar);
   const line = h('div', { class: 'small' });
   const count = h('div', { class: 'num small muted' });
-  const storage = h('div', { class: 'num small muted' }, '保存容量: 計算中…');
-
   const draw = () => {
-    const st = streets.getStatus();
+    const st = mod.getStatus();
     const p = st.state === 'done' ? 100 : st.totalBytes ? st.doneBytes / st.totalBytes * 100 : 0;
     bar.style.width = `${p}%`; meter.setAttribute('aria-valuenow', String(Math.round(p)));
-    line.replaceChildren(STATE_LABEL[st.state] || st.state, st.current ? h('span', { class: 'muted' }, `（${st.current}）`) : '',
+    line.replaceChildren(h('span', { style: 'font-weight:600' }, `${label}: `), (st.state === 'nodata' ? `${label}はまだ配信されていません` : STATE_LABEL[st.state]) || st.state,
+      st.current ? h('span', { class: 'muted' }, `（${st.current}）`) : '',
       st.error ? h('div', { class: 'small', style: 'color:var(--danger)' }, st.error) : '');
     count.textContent = st.total ? `${st.done}/${st.total} 件・${mb(st.doneBytes)} / ${mb(st.totalBytes)}` : '';
   };
-  let lastState = null;
+  return { el: [line, meter, count], draw };
+}
+
+function streetsCard() {
+  const enabled = () => store.getSetting('streetsAuto') !== false;
+  const mods = [photos, streets];
+  const sw = h('input', { type: 'checkbox', role: 'switch', class: 'switch', checked: enabled(), 'aria-label': '街路地図とロケ地写真を自動ダウンロード', onchange: () => {
+    store.setSetting('streetsAuto', sw.checked ? undefined : false);
+    for (const m of mods) { if (sw.checked) m.startDownload(enabled); else m.stopDownload(); }
+  } });
+  const ph = dlStatus(photos, 'ロケ地写真');
+  const st = dlStatus(streets, '街路地図');
+  const storage = h('div', { class: 'num small muted' }, '保存容量: 計算中…');
+  const draw = () => { ph.draw(); st.draw(); };
   const measure = async () => {
     try {
-      const used = await streets.cachedBytes();
+      const [usedS, usedP] = await Promise.all([streets.cachedBytes(), photos.cachedBytes()]);
       const est = await navigator.storage?.estimate?.();
       const persisted = await navigator.storage?.persisted?.();
-      storage.textContent = `保存容量: ${mb(used)}` + (est?.quota ? `（端末の空き目安 ${(est.quota / 1073741824).toFixed(1)} GB 中 ${mb(est.usage || 0)} 使用）` : '')
+      storage.textContent = `保存容量: 街路地図 ${mb(usedS)}・写真 ${mb(usedP)}` + (est?.quota ? `（端末の空き目安 ${(est.quota / 1073741824).toFixed(1)} GB 中 ${mb(est.usage || 0)} 使用）` : '')
         + (persisted ? '・削除されにくい保存' : '');
     } catch { storage.textContent = '保存容量: 不明'; }
   };
-  const onStatus = () => { draw(); const st = streets.getStatus().state; if (st !== lastState) { lastState = st; measure(); } };
+  const last = new Map();
+  const onStatus = () => { draw(); for (const m of mods) { const s2 = m.getStatus().state; if (last.get(m) !== s2) { last.set(m, s2); measure(); } } };
   const onFile = () => measure();
-  streets.events.addEventListener('status', onStatus);
-  streets.events.addEventListener('file', onFile);
-  // 画面を離れたらリスナーを外す（カードが DOM から外れたら）
+  for (const m of mods) { m.events.addEventListener('status', onStatus); m.events.addEventListener('file', onFile); }
+  const clearBtn = (mod, label, msg) => h('button', { type: 'button', class: 'btn danger', onclick: async () => {
+    if (!(await confirmSheet(`${label}を全削除`, msg, '全削除', true))) return;
+    await mod.clearAll(); toast(`${label}を削除しました`); measure();
+  } }, `${label}を全削除`);
   const card = h('div', { class: 'card stack' },
-    h('label', { class: 'row', style: 'gap:10px;cursor:pointer' }, h('span', { class: 'grow' }, '街路地図を自動ダウンロード'), sw),
-    h('p', { class: 'small muted' }, '市街地のロケ地の周辺（半径約 1km）の街路地図を、アプリの操作を止めずに裏で 1 件ずつ保存します。保存した場所はズーム 10 以上で街路を表示し、18 まで拡大できます。Wi-Fi での利用をおすすめします。'),
-    meter, line, count, storage,
-    h('button', { type: 'button', class: 'btn danger', onclick: async () => {
-      if (!(await confirmSheet('街路地図を全削除', '保存した街路地図をすべて削除します。地図は国境・県境だけの表示に戻ります。', '全削除', true))) return;
-      await streets.clearAll(); toast('街路地図を削除しました'); measure();
-    } }, '街路地図を全削除'),
-    h('p', { class: 'small muted' }, '地図データ © OpenStreetMap contributors（ODbL）。Protomaps basemap から切り出しています。'));
+    h('label', { class: 'row', style: 'gap:10px;cursor:pointer' }, h('span', { class: 'grow' }, '街路地図とロケ地写真を自動ダウンロード'), sw),
+    h('p', { class: 'small muted' }, 'アプリの操作を止めずに、裏で 1 件ずつ保存します。ロケ地写真（Wikimedia Commons の自由ライセンス写真）と、市街地のロケ地の周辺（半径約 1km）の街路地図です。街路地図を保存した場所はズーム 10 以上で街路を表示し、18 まで拡大できます。Wi-Fi での利用をおすすめします。'),
+    ...ph.el, ...st.el, storage,
+    h('div', { class: 'row', style: 'gap:8px;flex-wrap:wrap' },
+      clearBtn(photos, 'ロケ地写真', '保存したロケ地写真をすべて削除します。'),
+      clearBtn(streets, '街路地図', '保存した街路地図をすべて削除します。地図は国境・県境だけの表示に戻ります。')),
+    h('p', { class: 'small muted' }, '地図データ © OpenStreetMap contributors（ODbL）。Protomaps basemap から切り出しています。ロケ地写真は撮影者とライセンスを写真の下に表示しています。'));
   const mo = new MutationObserver(() => {
-    if (!card.isConnected) { streets.events.removeEventListener('status', onStatus); streets.events.removeEventListener('file', onFile); mo.disconnect(); }
+    if (!card.isConnected) { for (const m of mods) { m.events.removeEventListener('status', onStatus); m.events.removeEventListener('file', onFile); } mo.disconnect(); }
   });
   queueMicrotask(() => mo.observe(document.getElementById('view') || document.body, { childList: true }));
   draw(); measure();

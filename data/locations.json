@@ -26,7 +26,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [42, 17], "palette": ["#2f5d8a", "#c98a3a", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": "https://eiga.com/movie/1507/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/1507/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Park_Hyatt_Tokyo.jpg", "author": "怪賊王", "license": "Public domain", "licenseUrl": null }
     },
     {
       "id": "chungking-express-escalator",
@@ -53,7 +54,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [42, 29], "palette": ["#5a8a4f", "#b8322a", "#e0c048", "#2b3a42", "#6f7f7a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Central-Mid-Levels_Escalator_and_Walkway_System_2017.jpg", "author": "Wpcpey", "license": "CC BY 3.0", "licenseUrl": "https://creativecommons.org/licenses/by/3.0/" }
     },
     {
       "id": "in-the-mood-for-love-angkor-wat",
@@ -80,7 +82,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [33], "palette": ["#8a8a88", "#5a8a4f", "#141414", "#1d2a30", "#3f5b5e"],
-      "links": { "eigacom": "https://eiga.com/movie/1470/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/1470/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Angkor_Wat.jpg", "author": "Bjørn Christian Tørrissen", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "tokyo-story-onomichi",
@@ -107,7 +110,8 @@
       "guide": { "focal": "75mm（XF50mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [20, 15, 33], "palette": ["#0f0f0f", "#3c3c3c", "#7a7a7a", "#b5b5b5", "#ececec"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "lawrence-of-arabia-wadi-rum",
@@ -134,7 +138,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [31, 24], "palette": ["#b8322a", "#7a5a3a", "#d8c49a", "#2f5d8a", "#13365c"],
-      "links": { "eigacom": "https://eiga.com/movie/42205/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/42205/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jordan,_Wadi_Rum_Desert,_Rock_Formations.jpg", "author": "Vyacheslav Argenberg", "license": "CC BY 4.0", "licenseUrl": "https://creativecommons.org/licenses/by/4.0/" }
     },
     {
       "id": "amelie-cafe-des-2-moulins",
@@ -161,7 +166,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [22, 15, 33], "palette": ["#5a8a4f", "#b8322a", "#13365c", "#2e7d4f", "#e0b23a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Caf%C3%A9_des_2_Moulins_June_2010.jpg", "author": "Aleksandr Zykov", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/" }
     },
     {
       "id": "la-dolce-vita-trevi",
@@ -189,7 +195,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [20, 42, 29], "palette": ["#0f0f0f", "#3c3c3c", "#7a7a7a", "#b5b5b5", "#ececec"],
-      "links": { "eigacom": "https://eiga.com/movie/42127/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/42127/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trevi_Fountain_-_Roma.jpg", "author": "Paris Orlando", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "roman-holiday-bocca-della-verita",
@@ -216,7 +223,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [20, 33], "palette": ["#141414", "#424242", "#7f7f7f", "#bdbdbd", "#efefef"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rome_Santa_Maria_in_Cosmedin_2020_P03_Bocca_della_Verit%C3%A0.jpg", "author": "Fallaner", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "the-third-man-riesenrad",
@@ -243,7 +251,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [20, 29], "palette": ["#0f0f0f", "#3c3c3c", "#7a7a7a", "#b5b5b5", "#ececec"],
-      "links": { "eigacom": "https://eiga.com/movie/46413/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/46413/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Riesenrad-Wien_8026.JPG", "author": "Karl Gruber", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "wings-of-desire-victory-column",
@@ -270,7 +279,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [20], "palette": ["#141414", "#424242", "#7f7f7f", "#bdbdbd", "#efefef"],
-      "links": { "eigacom": "https://eiga.com/movie/27461/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/27461/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Siegess%C3%A4ule_Berlin_-_victory_column_Berlin_-_01.jpg", "author": "Norbert Nagel", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "call-me-by-your-name-crema",
@@ -296,7 +306,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [33, 24], "palette": ["#d8c49a", "#3a4246", "#7d8a86", "#c4b4a0", "#e2d9cc"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Duomo_di_Crema,_Facciata.jpg", "author": "Mannivu", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "walter-mitty-seydisfjordur",
@@ -323,7 +334,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [15, 31], "palette": ["#2a7f80", "#2f5d8a", "#5a8a4f", "#2b3a42", "#6f7f7a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sey%C3%B0isfjar%C3%B0arvegur.jpg", "author": "Pietro", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "breakfast-at-tiffanys-fifth-avenue",
@@ -349,7 +361,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日の出から 1 時間" },
       "visitNotes": null,
       "lessons": [33], "palette": ["#2f5d8a", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
-      "links": { "eigacom": "https://eiga.com/movie/46909/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/46909/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:TiffanyandCompanyFifthAvenue.JPG", "author": "David Shankbone", "license": "CC BY 2.5", "licenseUrl": "https://creativecommons.org/licenses/by/2.5/" }
     },
     {
       "id": "manhattan-sutton-place",
@@ -376,7 +389,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日の出から 1 時間" },
       "visitNotes": null,
       "lessons": [20, 15], "palette": ["#0f0f0f", "#3c3c3c", "#7a7a7a", "#b5b5b5", "#ececec"],
-      "links": { "eigacom": "https://eiga.com/movie/49781/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/49781/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sutton_Place_Park_and_Queensboro_Bridge-Night.jpg", "author": "Roy Googin", "license": "CC BY 3.0", "licenseUrl": "https://creativecommons.org/licenses/by/3.0/" }
     },
     {
       "id": "la-la-land-griffith-observatory",
@@ -402,7 +416,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前後の 30 分" },
       "visitNotes": null,
       "lessons": [13, 31], "palette": ["#7a5a9a", "#2f5d8a", "#13365c", "#2e7d4f", "#e0b23a"],
-      "links": { "eigacom": "https://eiga.com/movie/82024/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/82024/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Griffith_Observatory_2012_01.jpg", "author": "Mike Peel", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "blade-runner-bradbury-building",
@@ -429,7 +444,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [42, 41, 22], "palette": ["#2a7f80", "#2f5d8a", "#5a8a4f", "#141414", "#e07a3a"],
-      "links": { "eigacom": "https://eiga.com/movie/26947/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/26947/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bradbury_Building_interior_02.jpg", "author": "Levi Clancy", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "vertigo-fort-point",
@@ -456,7 +472,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [15, 33], "palette": ["#8a8a88", "#5a8a4f", "#b8322a", "#2d3e3a", "#5f7d6b"],
-      "links": { "eigacom": "https://eiga.com/movie/29916/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/29916/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Golden_gate_bridge_and_fort_point_in_San_Francisco.jpg", "author": "Jon Sullivan", "license": "Public domain", "licenseUrl": null }
     },
     {
       "id": "the-shining-timberline-lodge",
@@ -483,7 +500,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [24], "palette": ["#ece8e0", "#5a8a4f", "#2c4f7c", "#5f8f5a", "#d9c27a"],
-      "links": { "eigacom": "https://eiga.com/movie/14352/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/14352/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Timberline_Lodge,_Mount_Hood,_OR_9-1-13zh_(9726532658).jpg", "author": "Don Graham", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/" }
     },
     {
       "id": "perfect-days-yoyogi-hachiman-toilet",
@@ -510,7 +528,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#7a5a3a", "#5a8a4f", "#ece8e0", "#3a4246", "#7d8a86"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "perfect-days-sakurabashi",
@@ -536,7 +555,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没前の 1 時間" },
       "visitNotes": null,
       "lessons": [13, 15], "palette": ["#2f5d8a", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sakurabashi-tokyo-2016-4-9.jpg", "author": "Nesnad", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "perfect-days-asakusa-chikagai",
@@ -563,7 +583,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [42, 24], "palette": ["#5a8a4f", "#b8322a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Asakusa_Underground_Shopping_Street_(50057445901).jpg", "author": "Dick Thomas Johnson", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/" }
     },
     {
       "id": "drive-my-car-naka-incineration-plant",
@@ -589,7 +610,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [24], "palette": ["#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
-      "links": { "eigacom": "https://eiga.com/movie/94037/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/94037/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hiroshima_City_Naka_Incineration_Plant_-_5311996173.jpg", "author": "Kenta Mabuchi", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/" }
     },
     {
       "id": "black-rain-dotonbori",
@@ -617,7 +639,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [28, 42, 41], "palette": ["#ff4f9a", "#b8322a", "#2f5d8a", "#141414", "#1d2a30"],
-      "links": { "eigacom": "https://eiga.com/movie/26808/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/26808/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:D%C5%8Dtonbori_at_night,_Osaka_(19551420339).jpg", "author": "Kristoffer Trolle", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/" }
     },
     {
       "id": "memoirs-of-a-geisha-fushimi-inari",
@@ -645,7 +668,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [17], "palette": ["#b8322a", "#7a5a3a", "#5a8a4f", "#13365c", "#2e7d4f"],
-      "links": { "eigacom": "https://eiga.com/movie/1631/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/1631/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fushimi_Inari-taisha_sembon-torii.jpg", "author": "M338", "license": "CC0", "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/" }
     },
     {
       "id": "last-samurai-engyoji",
@@ -672,7 +696,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [32], "palette": ["#5a8a4f", "#7a5a3a", "#2d3e3a", "#5f7d6b", "#c7a27c"],
-      "links": { "eigacom": "https://eiga.com/movie/1491/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/1491/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Engyoji05s4592.jpg", "author": "663highland", "license": "CC BY 2.5", "licenseUrl": "https://creativecommons.org/licenses/by/2.5/" }
     },
     {
       "id": "you-only-live-twice-himeji-castle",
@@ -700,7 +725,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [45], "palette": ["#ece8e0", "#2f5d8a", "#13365c", "#2e7d4f", "#e0b23a"],
-      "links": { "eigacom": "https://eiga.com/movie/46181/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/46181/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Himeji_castle_in_may_2015.jpg", "author": "Niko Kitsakis", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "you-only-live-twice-new-otani",
@@ -728,7 +754,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [32], "palette": ["#ece8e0", "#2f5d8a", "#13365c", "#2e7d4f", "#e0b23a"],
-      "links": { "eigacom": "https://eiga.com/movie/46181/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/46181/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hotel_New_Otani_Tokyo_The_Main_1.JPG", "author": "Abasaa", "license": "Public domain", "licenseUrl": null }
     },
     {
       "id": "you-only-live-twice-akime",
@@ -756,7 +783,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [31], "palette": ["#2f5d8a", "#5a8a4f", "#13365c", "#2e7d4f", "#e0b23a"],
-      "links": { "eigacom": "https://eiga.com/movie/46181/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/46181/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bonotsu_Akime_Port_View.JPG", "author": "Sakoppi", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "you-only-live-twice-shinmoedake",
@@ -784,7 +812,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "足場が不安定な場所です。立入禁止の表示や規制情報を事前に確認してください。",
       "lessons": [31, 24], "palette": ["#7a5a3a", "#2a7f80", "#2f5d8a", "#5a8a4f", "#13365c"],
-      "links": { "eigacom": "https://eiga.com/movie/46181/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/46181/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shinmoedake_crater.jpg", "author": "Motamota", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "departures-kappo-obata",
@@ -811,7 +840,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#ece8e0", "#8a8a88", "#7a5a3a", "#3a4246", "#7d8a86"],
-      "links": { "eigacom": "https://eiga.com/movie/53337/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/53337/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "our-little-sister-gokurakuji-station",
@@ -838,7 +868,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。 列車や利用者の妨げにならないように。線路やホームの端には近づかないこと。",
       "lessons": [32], "palette": ["#5a8a4f", "#7a5a3a", "#f3e3d6", "#e7b8a8", "#9cc2cf"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Enoden-EN11-Gokurakuji-station-building-20200315-143624.jpg", "author": "LERK", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "tora-san-shibamata-sando",
@@ -865,7 +896,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [22, 29, 17], "palette": ["#7a5a3a", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
-      "links": { "eigacom": "https://eiga.com/movie/35273/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/35273/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taishakuten_Sando_-01.jpg", "author": "Aimaimyi", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "lost-in-translation-heian-shrine",
@@ -891,7 +923,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [45], "palette": ["#5a8a4f", "#b8322a", "#8a8a88", "#2d3e3a", "#5f7d6b"],
-      "links": { "eigacom": "https://eiga.com/movie/1507/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/1507/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Heian-jingu_shinen_IMG_5748_0-25.JPG", "author": "Daderot", "license": "Public domain", "licenseUrl": null }
     },
     {
       "id": "lost-in-translation-shibuya-crossing",
@@ -917,7 +950,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前の 1 時間" },
       "visitNotes": null,
       "lessons": [41, 13], "palette": ["#2f5d8a", "#1d2a30", "#3f5b5e", "#8a9b8f", "#c8b28a"],
-      "links": { "eigacom": "https://eiga.com/movie/1507/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/1507/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shibuya_Scramble_crossing.jpg", "author": "Syced", "license": "CC0", "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/" }
     },
     {
       "id": "lost-in-translation-karaoke-kan",
@@ -943,7 +977,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [42, 24], "palette": ["#e8a0b0", "#7a5a9a", "#d8a888", "#d9488f", "#1d2a30"],
-      "links": { "eigacom": "https://eiga.com/movie/1507/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/1507/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Room_601,_Karaoke_Kan,_Tokyo.jpg", "author": "The Ingle Group", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "lost-in-translation-nanzenji",
@@ -969,7 +1004,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [17], "palette": ["#7a5a3a", "#ece8e0", "#8a8a88", "#3a4246", "#7d8a86"],
-      "links": { "eigacom": "https://eiga.com/movie/1507/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/1507/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sanmon_gate,_Nanzenji_Temple,_Kyoto,_20240820_1205_5050.jpg", "author": "Jakub Hałun", "license": "CC BY 4.0", "licenseUrl": "https://creativecommons.org/licenses/by/4.0/" }
     },
     {
       "id": "love-letter-otaru-nyk",
@@ -995,7 +1031,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
       "lessons": [24], "palette": ["#ece8e0", "#8a8a88", "#2f5d8a", "#2b3a42", "#6f7f7a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kyu-Nippon-Yusen-Otaru-Branch-20040424.jpg", "author": "Otraff", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "exchange-students-misode-tenmangu",
@@ -1022,7 +1059,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [22, 29, 18], "palette": ["#5a8a4f", "#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": "https://eiga.com/movie/37980/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/37980/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "girl-who-leapt-takehara",
@@ -1049,7 +1087,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "日没前の 1 時間" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [13, 22, 29], "palette": ["#8a8a88", "#ece8e0", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "crying-out-love-aji-breakwater",
@@ -1075,7 +1114,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前の 1 時間" },
       "visitNotes": "足場が不安定な場所です。立入禁止の表示や規制情報を事前に確認してください。",
       "lessons": [13, 31], "palette": ["#e07a3a", "#2f5d8a", "#8a8a88", "#2b3a42", "#6f7f7a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "kamikaze-girls-ushiku-daibutsu",
@@ -1101,7 +1141,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#2f5d8a", "#5a8a4f", "#ece8e0", "#13365c", "#2e7d4f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ushiku_Buddha_Statue_Parking_Area.jpg", "author": "Dandy1022", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "after-the-storm-asahigaoka-danchi",
@@ -1128,7 +1169,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [42], "palette": ["#8a8a88", "#5a8a4f", "#3a4246", "#7d8a86", "#c4b4a0"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "wolverine-zojoji",
@@ -1155,7 +1197,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [41, 22], "palette": ["#8a8a88", "#141414", "#b8322a", "#1d2a30", "#3f5b5e"],
-      "links": { "eigacom": "https://eiga.com/movie/77469/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/77469/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tokyo_Tower_and_Zojoji_temple_(7475558188).jpg", "author": "Kimon Berlin", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/" }
     },
     {
       "id": "wolverine-tomonoura",
@@ -1182,7 +1225,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [42], "palette": ["#2f5d8a", "#8a8a88", "#7a5a3a", "#3a4246", "#7d8a86"],
-      "links": { "eigacom": "https://eiga.com/movie/77469/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/77469/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tomonoura_Gangi.jpg", "author": "Yanajin", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "chihayafuru-omi-jingu",
@@ -1208,7 +1252,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [17], "palette": ["#b8322a", "#2f4a32", "#5a8a4f", "#13365c", "#2e7d4f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Omi-jingu02n4592.jpg", "author": "663highland", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "poppoya-ikutora-station",
@@ -1235,7 +1280,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "列車や利用者の妨げにならないように。線路やホームの端には近づかないこと。",
       "lessons": [24], "palette": ["#ece8e0", "#7a5a3a", "#2f5d8a", "#141414", "#2b3a42"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ikutora_Station_dressed_as_Horomai_Station_for_the_film_Railroad_Man_(1999)_-_20020818.jpg", "author": "Akira Sasaki", "license": "Public domain", "licenseUrl": null }
     },
     {
       "id": "yellow-handkerchief-yubari",
@@ -1261,7 +1307,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [22, 29], "palette": ["#2f5d8a", "#e0c048", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Yellow_Handkerchief_at_yubari.JPG", "author": "Captain76", "license": "Public domain", "licenseUrl": null }
     },
     {
       "id": "rebirth-nakayama-senmaida",
@@ -1288,7 +1335,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前の 1 時間" },
       "visitNotes": null,
       "lessons": [13], "palette": ["#5a8a4f", "#e07a3a", "#2d3e3a", "#5f7d6b", "#c7a27c"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "twenty-four-eyes-misaki-bunkyojo",
@@ -1314,7 +1362,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "足場が不安定な場所です。立入禁止の表示や規制情報を事前に確認してください。",
       "lessons": [20, 31], "palette": ["#141414", "#424242", "#7f7f7f", "#bdbdbd", "#efefef"],
-      "links": { "eigacom": "https://eiga.com/movie/38410/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/38410/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "norwegian-wood-tonomine",
@@ -1341,7 +1390,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [31], "palette": ["#c9a04a", "#5a8a4f", "#8a8a88", "#2d3e3a", "#5f7d6b"],
-      "links": { "eigacom": "https://eiga.com/movie/53950/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/53950/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tonomine_highland_Kamikawa_Hyogo_pref_Japan07n.jpg", "author": "663highland", "license": "CC BY 2.5", "licenseUrl": "https://creativecommons.org/licenses/by/2.5/" }
     },
     {
       "id": "station-mashike",
@@ -1368,7 +1418,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "列車や利用者の妨げにならないように。線路やホームの端には近づかないこと。",
       "lessons": [24], "palette": ["#8a8a88", "#ece8e0", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "golden-slumber-jozenji-dori",
@@ -1394,7 +1445,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [15], "palette": ["#5a8a4f", "#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": "https://eiga.com/movie/54556/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/54556/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jozenji-dori_Avenue_rev.jpg", "author": "Atsi Otani", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "monster-tateishi-park",
@@ -1420,7 +1472,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "日没前の 1 時間" },
       "visitNotes": null,
       "lessons": [13, 31], "palette": ["#2f5d8a", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
-      "links": { "eigacom": "https://eiga.com/movie/98367/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/98367/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Suwa_as_seen_from_Tateishi_Park_(east).jpg", "author": "Irvin", "license": "CC BY 4.0", "licenseUrl": "https://creativecommons.org/licenses/by/4.0/" }
     },
     {
       "id": "glasses-yoron-coral-way",
@@ -1447,7 +1500,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [15, 31], "palette": ["#ece8e0", "#d8c49a", "#2a7f80", "#2f5d8a", "#5a8a4f"],
-      "links": { "eigacom": "https://eiga.com/movie/34054/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/34054/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "villain-osezaki-lighthouse",
@@ -1473,7 +1527,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": "足場が不安定な場所です。立入禁止の表示や規制情報を事前に確認してください。",
       "lessons": [31, 24], "palette": ["#8a8a88", "#2f5d8a", "#ece8e0", "#2b3a42", "#6f7f7a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osezaki_lighthouse.jpg", "author": "Umi", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "enter-the-void-kabukicho",
@@ -1500,7 +1555,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [28, 42, 29], "palette": ["#ff4f9a", "#141414", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kabukicho_red_gate_and_colorful_neon_street_signs_at_night,_Shinjuku,_Tokyo,_Japan.jpg", "author": "Basile Morin", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "blood-of-wolves-kure-nakadori",
@@ -1527,7 +1583,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [22, 29, 15], "palette": ["#e0c048", "#5a8a4f", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "joker-stairs-bronx",
@@ -1554,7 +1611,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [22, 18, 33], "palette": ["#5a8a4f", "#e0c048", "#b8322a", "#1d2a30", "#3f5b5e"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "once-upon-a-time-in-america-dumbo",
@@ -1582,7 +1640,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [22, 29, 15], "palette": ["#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4", "#8a5a44"],
-      "links": { "eigacom": "https://eiga.com/movie/51207/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/51207/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_of_Manhattan_Bridge_from_Washington_Street_in_DUMBO,_Brooklyn.jpg", "author": "Wgreaves", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "ghostbusters-hook-ladder-8",
@@ -1611,7 +1670,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#b8322a", "#7a5a3a", "#d9488f", "#13365c", "#2e7d4f"],
-      "links": { "eigacom": "https://eiga.com/movie/12373/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/12373/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ghostbusters_Firehouse.jpg", "author": "Phillip Ritz", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/" }
     },
     {
       "id": "when-harry-met-sally-katzs",
@@ -1638,7 +1698,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [24], "palette": ["#ece8e0", "#e0c048", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": "https://eiga.com/movie/44353/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/44353/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Katz's_Delicatessen.jpg", "author": "Beyond My Ken", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "when-harry-met-sally-washington-square",
@@ -1665,7 +1726,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [17], "palette": ["#ece8e0", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
-      "links": { "eigacom": "https://eiga.com/movie/44353/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/44353/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Washington_Square_Park_arch_2007.jpg", "author": "TiconderogaCCB", "license": "Public domain", "licenseUrl": null }
     },
     {
       "id": "godfather-old-st-patricks",
@@ -1692,7 +1754,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [22, 24], "palette": ["#c98a3a", "#141414", "#e0c048", "#1d2a30", "#3f5b5e"],
-      "links": { "eigacom": "https://eiga.com/movie/44529/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/44529/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Basilica_of_Saint_Patrick's_Old_Cathedral,_Manhattan,_New_York_(7237381996).jpg", "author": "Ken Lund", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/" }
     },
     {
       "id": "home-alone-2-plaza-hotel",
@@ -1719,7 +1782,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [42, 24], "palette": ["#2f5d8a", "#c9a04a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": "https://eiga.com/movie/49304/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/49304/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Plaza_Hotel_May_2010.JPG", "author": "OptimumPx", "license": "Public domain", "licenseUrl": null }
     },
     {
       "id": "night-at-the-museum-amnh",
@@ -1746,7 +1810,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
       "lessons": [42, 24], "palette": ["#e0c048", "#2f5d8a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": "https://eiga.com/movie/1134/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/1134/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:American_Museum_of_Natural_History,_Central_Park_West_and_77th_St..jpg", "author": "Farrah Ross", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "youve-got-mail-cafe-lalo",
@@ -1773,7 +1838,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "日没前の 1 時間" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [13, 22, 17], "palette": ["#c98a3a", "#2f5d8a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": "https://eiga.com/movie/50283/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/50283/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:You've_Got_Mail_-_Cafe_Lalo_(870230076).jpg", "author": "Rob Young", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/" }
     },
     {
       "id": "youve-got-mail-riverside-park",
@@ -1800,7 +1866,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#7a5a3a", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
-      "links": { "eigacom": "https://eiga.com/movie/50283/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/50283/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "do-the-right-thing-stuyvesant-ave",
@@ -1827,7 +1894,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [22, 15], "palette": ["#b8322a", "#e07a3a", "#141414", "#13365c", "#2e7d4f"],
-      "links": { "eigacom": "https://eiga.com/movie/21517/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/21517/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "sex-and-the-city-nypl",
@@ -1854,7 +1922,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
       "lessons": [18, 33], "palette": ["#ece8e0", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
-      "links": { "eigacom": "https://eiga.com/movie/53179/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/53179/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:New_York_Public_Library_May_2011.JPG", "author": "OptimumPx", "license": "Public domain", "licenseUrl": null }
     },
     {
       "id": "warriors-coney-island",
@@ -1881,7 +1950,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "日の出から 1 時間" },
       "visitNotes": null,
       "lessons": [28, 29, 31], "palette": ["#ff4f9a", "#8fb8d8", "#2f5d8a", "#1d2a30", "#3f5b5e"],
-      "links": { "eigacom": "https://eiga.com/movie/5089/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/5089/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wonder_Wheel_off-season_1.jpg", "author": "Rhododendrites", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "john-wick-beaver-building",
@@ -1908,7 +1978,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [42, 22], "palette": ["#2a7f80", "#2f5d8a", "#5a8a4f", "#e07a3a", "#141414"],
-      "links": { "eigacom": "https://eiga.com/movie/79911/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/79911/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Beaver_Building_(1_Wall_Street_Court)_(7236964580).jpg", "author": "Ken Lund", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/" }
     },
     {
       "id": "birdman-st-james-theatre",
@@ -1935,7 +2006,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
       "lessons": [42, 22], "palette": ["#141414", "#1d2a30", "#3f5b5e", "#8a9b8f", "#c8b28a"],
-      "links": { "eigacom": "https://eiga.com/movie/81227/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/81227/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stjamestheatre.jpg", "author": "Mademoiselle Sabina", "license": "CC BY-SA 2.5", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/" }
     },
     {
       "id": "oceans-8-met",
@@ -1962,7 +2034,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
       "lessons": [42], "palette": ["#141414", "#13365c", "#2e7d4f", "#e0b23a", "#c8402e"],
-      "links": { "eigacom": "https://eiga.com/movie/86216/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/86216/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_MET.jpg", "author": "Kai Pilger", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "moonstruck-cranberry-street",
@@ -1989,7 +2062,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": "個人の住宅です。敷地や玄関先に入らず、公道から短時間で。住人や近所の迷惑にならないように。",
       "lessons": [42, 17], "palette": ["#2f5d8a", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
-      "links": { "eigacom": "https://eiga.com/movie/46847/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/46847/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "royal-tenenbaums-convent-ave",
@@ -2016,7 +2090,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "個人の住宅です。敷地や玄関先に入らず、公道から短時間で。住人や近所の迷惑にならないように。",
       "lessons": [22, 33], "palette": ["#b8322a", "#7a5a3a", "#e0c048", "#2b3a42", "#6f7f7a"],
-      "links": { "eigacom": "https://eiga.com/movie/1158/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/1158/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "paterson-great-falls",
@@ -2043,7 +2118,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#8a8a88", "#ece8e0", "#3a4246", "#7d8a86", "#c4b4a0"],
-      "links": { "eigacom": "https://eiga.com/movie/86003/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/86003/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Great_Falls_of_the_Passaic_River_-_July_2009.jpg", "author": "Francisco Diez", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/" }
     },
     {
       "id": "la-la-land-angels-flight",
@@ -2069,7 +2145,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [42], "palette": ["#e07a3a", "#2f5d8a", "#13365c", "#2e7d4f", "#e0b23a"],
-      "links": { "eigacom": "https://eiga.com/movie/82024/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/82024/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Angels_Flight_after_reopening_in_September_2017.jpg", "author": "Difference engine", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "la-la-land-hermosa-pier",
@@ -2095,7 +2172,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没前後の 30 分" },
       "visitNotes": null,
       "lessons": [13, 15, 31], "palette": ["#7a5a9a", "#e07a3a", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": "https://eiga.com/movie/82024/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/82024/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "500-days-of-summer-angels-knoll",
@@ -2122,7 +2200,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "現在は閉鎖されています。立ち入らず、外から眺めるだけにしてください。",
       "lessons": [32], "palette": ["#8fb8d8", "#2f5d8a", "#e0c048", "#f3e3d6", "#e7b8a8"],
-      "links": { "eigacom": "https://eiga.com/movie/54686/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/54686/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "pretty-woman-beverly-wilshire",
@@ -2150,7 +2229,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [32], "palette": ["#ece8e0", "#5a8a4f", "#f3e3d6", "#e7b8a8", "#9cc2cf"],
-      "links": { "eigacom": "https://eiga.com/movie/27103/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/27103/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:BeverlyWilshire01.jpg", "author": "Minnaert", "license": "Public domain", "licenseUrl": null }
     },
     {
       "id": "back-to-the-future-gamble-house",
@@ -2178,7 +2258,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "個人の住宅です。敷地や玄関先に入らず、公道から短時間で。住人や近所の迷惑にならないように。",
       "lessons": [32], "palette": ["#7a5a3a", "#5a8a4f", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": "https://eiga.com/movie/47965/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/47965/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gamble_House_2016-1.jpg", "author": "Cullen328", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "back-to-the-future-puente-hills-mall",
@@ -2206,7 +2287,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [42, 24], "palette": ["#2f5d8a", "#141414", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": "https://eiga.com/movie/47965/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/47965/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:2019_Puente_Hills_Mall.jpg", "author": "Mark Yasuda", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "blade-runner-union-station",
@@ -2233,7 +2315,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "列車や利用者の妨げにならないように。線路やホームの端には近づかないこと。",
       "lessons": [22, 17], "palette": ["#c98a3a", "#1d2a30", "#3f5b5e", "#8a9b8f", "#c8b28a"],
-      "links": { "eigacom": "https://eiga.com/movie/26947/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/26947/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Union-Station-LA-Waiting-Ro.jpg", "author": "Mackerm", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "once-upon-a-time-in-hollywood-musso-frank",
@@ -2260,7 +2343,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [22, 24], "palette": ["#b8322a", "#7a5a3a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": "https://eiga.com/movie/89421/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/89421/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Musso%26Franks_03.jpg", "author": "Gary Minnaert", "license": "Public domain", "licenseUrl": null }
     },
     {
       "id": "die-hard-fox-plaza",
@@ -2287,7 +2371,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [42, 22], "palette": ["#2f5d8a", "#e07a3a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:2121_Avenue_of_the_Stars_(Fox_Plaza),_Sept._2024.jpg", "author": "Alexis Doine", "license": "CC0", "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/" }
     },
     {
       "id": "et-lonzo-street",
@@ -2314,7 +2399,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前の 1 時間" },
       "visitNotes": "個人の住宅です。敷地や玄関先に入らず、公道から短時間で。住人や近所の迷惑にならないように。",
       "lessons": [13, 24], "palette": ["#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4", "#8a5a44"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "top-gun-kansas-city-barbeque",
@@ -2341,7 +2427,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没前の 1 時間" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [13, 22, 15], "palette": ["#c98a3a", "#7a5a3a", "#c9a04a", "#1d2a30", "#3f5b5e"],
-      "links": { "eigacom": "https://eiga.com/movie/21197/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/21197/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kansas_City_Barbeque_San_Diego_-_September_2010_005.jpg", "author": "Nan Palmero", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/" }
     },
     {
       "id": "some-like-it-hot-hotel-del-coronado",
@@ -2368,7 +2455,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [20, 31], "palette": ["#0f0f0f", "#3c3c3c", "#7a7a7a", "#b5b5b5", "#ececec"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hotel_del_Coronado.JPG", "author": "Djh57", "license": "CC BY 3.0", "licenseUrl": "https://creativecommons.org/licenses/by/3.0/" }
     },
     {
       "id": "sideways-hitching-post",
@@ -2395,7 +2483,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前の 1 時間" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [13], "palette": ["#b8322a", "#c9a04a", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": "https://eiga.com/movie/1171/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/1171/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "bagdad-cafe-newberry-springs",
@@ -2422,7 +2511,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没前の 1 時間" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [13, 22, 29], "palette": ["#e0c048", "#d9488f", "#5a8a4f", "#d8c49a", "#13365c"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bagdad_cafe.jpg", "author": "Shoshone", "license": "Public domain", "licenseUrl": null }
     },
     {
       "id": "vertigo-legion-of-honor",
@@ -2449,7 +2539,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
       "lessons": [32], "palette": ["#5a8a4f", "#13365c", "#2e7d4f", "#e0b23a", "#c8402e"],
-      "links": { "eigacom": "https://eiga.com/movie/29916/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/29916/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:California_Palace_of_the_Legion_of_Honor,_01.JPG", "author": "Sailko", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "vertigo-mission-dolores",
@@ -2476,7 +2567,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [32], "palette": ["#ece8e0", "#5a8a4f", "#2d3e3a", "#5f7d6b", "#c7a27c"],
-      "links": { "eigacom": "https://eiga.com/movie/29916/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/29916/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mission_Dolores,_September_2008.jpg", "author": "Elisa Rolle", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "bullitt-taylor-filbert",
@@ -2503,7 +2595,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [22, 29, 18], "palette": ["#8a8a88", "#5a8a4f", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": "https://eiga.com/movie/48904/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/48904/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "mrs-doubtfire-steiner-street",
@@ -2531,7 +2624,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "個人の住宅です。敷地や玄関先に入らず、公道から短時間で。住人や近所の迷惑にならないように。",
       "lessons": [32], "palette": ["#ece8e0", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
-      "links": { "eigacom": "https://eiga.com/movie/49875/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/49875/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mrs_doubtfire_house_san_francisco.jpg", "author": "rulenumberone2", "license": "CC BY 2.0", "licenseUrl": "https://creativecommons.org/licenses/by/2.0/" }
     },
     {
       "id": "the-rock-alcatraz",
@@ -2559,7 +2653,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [22, 31], "palette": ["#2a7f80", "#e07a3a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": "https://eiga.com/movie/44968/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/44968/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alcatraz_Island_as_seen_from_the_East.jpg", "author": "Frank Schulenburg", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "milk-castro-theatre",
@@ -2586,7 +2681,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
       "lessons": [28, 22, 29], "palette": ["#ff4f9a", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
-      "links": { "eigacom": "https://eiga.com/movie/53227/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/53227/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Castro_Theatre_in_San_Francisco.JPG", "author": "Burkhard Mücke", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "the-conversation-union-square",
@@ -2613,7 +2709,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [22, 29, 17], "palette": ["#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4", "#8a5a44"],
-      "links": { "eigacom": "https://eiga.com/movie/43561/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/43561/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:San_Francisco_-_Union_Square_004.jpg", "author": "Américo Toledano", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "dark-knight-lower-wacker",
@@ -2640,7 +2737,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [42, 22, 15], "palette": ["#e07a3a", "#141414", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": "https://eiga.com/movie/53214/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/53214/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wacker_Drive,_3_levels.jpg", "author": "Knowledge Seeker", "license": "Public domain", "licenseUrl": null }
     },
     {
       "id": "ferris-bueller-art-institute",
@@ -2667,7 +2765,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
       "lessons": [32], "palette": ["#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0", "#7a8a9a"],
-      "links": { "eigacom": "https://eiga.com/movie/48645/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/48645/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Art_Institute_of_Chicago_Michigan_Avenue.jpg", "author": "Alanscottwalker", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
     },
     {
       "id": "home-alone-winnetka-house",
@@ -2694,7 +2793,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "個人の住宅です。敷地や玄関先に入らず、公道から短時間で。住人や近所の迷惑にならないように。",
       "lessons": [22, 24], "palette": ["#b8322a", "#7a5a3a", "#ece8e0", "#5a8a4f", "#1d2a30"],
-      "links": { "eigacom": "https://eiga.com/movie/49303/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/49303/", "trailer": null, "wikipedia": null },
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:2015-05-11_06_40_04_View_of_the_%22Home_Alone%22_house_at_671_Lincoln_Avenue_in_Winnetka,_Illinois.jpg", "author": "Famartin", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "blues-brothers-daley-plaza",
@@ -2721,7 +2821,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [24], "palette": ["#8a8a88", "#141414", "#2f5d8a", "#ece8e0", "#2b3a42"],
-      "links": { "eigacom": "https://eiga.com/movie/48946/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/48946/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "untouchables-union-station",
@@ -2748,7 +2849,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": "列車や利用者の妨げにならないように。線路やホームの端には近づかないこと。",
       "lessons": [42, 22, 18], "palette": ["#c98a3a", "#141414", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": "https://eiga.com/movie/4231/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/4231/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "groundhog-day-woodstock-square",
@@ -2775,7 +2877,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [24], "palette": ["#8a8a88", "#ece8e0", "#b8322a", "#7a5a3a", "#2b3a42"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "field-of-dreams-dyersville",
@@ -2802,7 +2905,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前の 1 時間" },
       "visitNotes": null,
       "lessons": [13, 24], "palette": ["#c9a04a", "#5a8a4f", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "shawshank-ohio-state-reformatory",
@@ -2829,7 +2933,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [24], "palette": ["#5a8a4f", "#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "christmas-story-house",
@@ -2856,7 +2961,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "個人の住宅です。敷地や玄関先に入らず、公道から短時間で。住人や近所の迷惑にならないように。",
       "lessons": [22, 29, 17], "palette": ["#ece8e0", "#e0c048", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "deer-hunter-st-theodosius",
@@ -2883,7 +2989,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [22, 24], "palette": ["#c9a04a", "#8a8a88", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": "https://eiga.com/movie/20568/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/20568/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "rocky-art-museum-steps",
@@ -2911,7 +3018,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "日の出から 1 時間" },
       "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
       "lessons": [29, 18], "palette": ["#2f5d8a", "#e07a3a", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": "https://eiga.com/movie/32595/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/32595/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "rocky-italian-market",
@@ -2939,7 +3047,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日の出から 1 時間" },
       "visitNotes": null,
       "lessons": [22, 29, 15], "palette": ["#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
-      "links": { "eigacom": "https://eiga.com/movie/32595/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/32595/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "perks-fort-pitt-tunnel",
@@ -2966,7 +3075,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [42, 17], "palette": ["#e07a3a", "#2f5d8a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": "https://eiga.com/movie/77670/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/77670/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "good-will-hunting-public-garden",
@@ -2993,7 +3103,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [33], "palette": ["#5a8a4f", "#8a8a88", "#2d3e3a", "#5f7d6b", "#c7a27c"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "exorcist-steps",
@@ -3020,7 +3131,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [42, 18, 15], "palette": ["#e0c048", "#8a8a88", "#141414", "#1d2a30", "#3f5b5e"],
-      "links": { "eigacom": "https://eiga.com/movie/5732/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/5732/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "forrest-gump-reflecting-pool",
@@ -3048,7 +3160,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [19, 33], "palette": ["#ece8e0", "#13365c", "#2e7d4f", "#e0b23a", "#c8402e"],
-      "links": { "eigacom": "https://eiga.com/movie/48663/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/48663/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "jaws-bridge",
@@ -3075,7 +3188,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [15, 31], "palette": ["#2a7f80", "#2f5d8a", "#5a8a4f", "#ece8e0", "#d8c49a"],
-      "links": { "eigacom": "https://eiga.com/movie/45574/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/45574/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "hachi-woonsocket-depot",
@@ -3102,7 +3216,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "列車や利用者の妨げにならないように。線路やホームの端には近づかないこと。",
       "lessons": [32], "palette": ["#7a5a3a", "#3a4246", "#7d8a86", "#c4b4a0", "#e2d9cc"],
-      "links": { "eigacom": "https://eiga.com/movie/54325/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/54325/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "dirty-dancing-mountain-lake-lodge",
@@ -3129,7 +3244,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前の 1 時間" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [13, 31], "palette": ["#5a8a4f", "#c9a04a", "#f3e3d6", "#e7b8a8", "#9cc2cf"],
-      "links": { "eigacom": "https://eiga.com/movie/46368/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/46368/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "mystery-train-arcade-restaurant",
@@ -3157,7 +3273,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [28, 42], "palette": ["#ff4f9a", "#b8322a", "#5a8a4f", "#1d2a30", "#3f5b5e"],
-      "links": { "eigacom": "https://eiga.com/movie/29202/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/29202/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "moonlight-virginia-key-beach",
@@ -3185,7 +3302,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [31], "palette": ["#2a7f80", "#2f5d8a", "#5a8a4f", "#d8a888", "#13365c"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "florida-project-magic-castle-inn",
@@ -3212,7 +3330,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [32], "palette": ["#7a5a9a", "#2f5d8a", "#13365c", "#2e7d4f", "#e0b23a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "scarface-728-ocean-drive",
@@ -3239,7 +3358,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [18, 31], "palette": ["#13365c", "#2e7d4f", "#e0b23a", "#c8402e", "#f2ead8"],
-      "links": { "eigacom": "https://eiga.com/movie/16478/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/16478/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "truman-show-seaside",
@@ -3266,7 +3386,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#ece8e0", "#2f5d8a", "#f3e3d6", "#e7b8a8", "#9cc2cf"],
-      "links": { "eigacom": "https://eiga.com/movie/47169/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/47169/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "edward-scissorhands-tinsmith-circle",
@@ -3293,7 +3414,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#e8a0b0", "#2f5d8a", "#f3e3d6", "#e7b8a8", "#9cc2cf"],
-      "links": { "eigacom": "https://eiga.com/movie/14029/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/14029/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "last-picture-show-royal-theater",
@@ -3320,7 +3442,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
       "lessons": [20], "palette": ["#0f0f0f", "#3c3c3c", "#7a7a7a", "#b5b5b5", "#ececec"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "paris-texas-marathon-motel",
@@ -3348,7 +3471,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前の 1 時間" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [28, 13, 29], "palette": ["#d8c49a", "#b8322a", "#7a5a3a", "#5a8a4f", "#ff4f9a"],
-      "links": { "eigacom": "https://eiga.com/movie/24897/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/24897/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "forrest-gump-point-monument-valley",
@@ -3376,7 +3500,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [15, 31], "palette": ["#b8322a", "#2f5d8a", "#d8c49a", "#13365c", "#2e7d4f"],
-      "links": { "eigacom": "https://eiga.com/movie/48663/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/48663/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "thelma-louise-dead-horse-point",
@@ -3404,7 +3529,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [22, 31], "palette": ["#b8322a", "#7a5a3a", "#2f5d8a", "#d8c49a", "#13365c"],
-      "links": { "eigacom": "https://eiga.com/movie/20323/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/20323/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "zabriskie-point-death-valley",
@@ -3431,7 +3557,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [31, 24], "palette": ["#e0c048", "#7a5a3a", "#d8c49a", "#ece8e0", "#13365c"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "nomadland-badlands",
@@ -3458,7 +3585,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前後の 30 分" },
       "visitNotes": null,
       "lessons": [13, 29, 31], "palette": ["#e8a0b0", "#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "close-encounters-devils-tower",
@@ -3486,7 +3614,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "日没前の 1 時間" },
       "visitNotes": null,
       "lessons": [13, 31], "palette": ["#8a8a88", "#5a8a4f", "#2f5d8a", "#2b3a42", "#6f7f7a"],
-      "links": { "eigacom": "https://eiga.com/movie/49880/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/49880/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "north-by-northwest-mount-rushmore",
@@ -3513,7 +3642,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [31], "palette": ["#2f5d8a", "#ece8e0", "#13365c", "#2e7d4f", "#e0b23a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "forrest-gump-chippewa-square",
@@ -3541,7 +3671,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [33], "palette": ["#7a5a3a", "#5a8a4f", "#ece8e0", "#2d3e3a", "#5f7d6b"],
-      "links": { "eigacom": "https://eiga.com/movie/48663/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/48663/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "shining-st-mary-lake",
@@ -3568,7 +3699,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [31, 24], "palette": ["#2a7f80", "#2f5d8a", "#5a8a4f", "#141414", "#2b3a42"],
-      "links": { "eigacom": "https://eiga.com/movie/14352/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/14352/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "goonies-haystack-rock",
@@ -3595,7 +3727,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [31, 24], "palette": ["#8a8a88", "#d8c49a", "#5a8a4f", "#2b3a42", "#6f7f7a"],
-      "links": { "eigacom": "https://eiga.com/movie/43934/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/43934/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "cuckoos-nest-oregon-state-hospital",
@@ -3622,7 +3755,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [29], "palette": ["#ece8e0", "#5a8a4f", "#3a4246", "#7d8a86", "#c4b4a0"],
-      "links": { "eigacom": "https://eiga.com/movie/43356/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/43356/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "stand-by-me-lake-britton-bridge",
@@ -3650,7 +3784,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [15], "palette": ["#d8c49a", "#5a8a4f", "#2f5d8a", "#2b3a42", "#6f7f7a"],
-      "links": { "eigacom": "https://eiga.com/movie/45887/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/45887/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "sleepless-in-seattle-houseboat",
@@ -3677,7 +3812,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [41, 19, 17], "palette": ["#8a8a88", "#2f5d8a", "#7a5a3a", "#3a4246", "#7d8a86"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "napoleon-dynamite-preston-high",
@@ -3704,7 +3840,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [22, 29], "palette": ["#d8c49a", "#e0c048", "#e07a3a", "#2b3a42", "#6f7f7a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "oceans-eleven-bellagio-fountains",
@@ -3731,7 +3868,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [42, 22], "palette": ["#ece8e0", "#c9a04a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "parasite-jahamun-stairs",
@@ -3758,7 +3896,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [42, 41, 22], "palette": ["#2a7f80", "#2f5d8a", "#5a8a4f", "#e07a3a", "#141414"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "in-the-mood-for-love-goldfinch",
@@ -3785,7 +3924,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [42, 15], "palette": ["#b8322a", "#7a5a3a", "#c98a3a", "#1d2a30", "#3f5b5e"],
-      "links": { "eigacom": "https://eiga.com/movie/1470/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/1470/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "infernal-affairs-north-point-rooftop",
@@ -3812,7 +3952,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [24], "palette": ["#8a8a88", "#2f5d8a", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": "https://eiga.com/movie/1089/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/1089/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "city-of-sadness-jiufen",
@@ -3840,7 +3981,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [31], "palette": ["#b8322a", "#3a4246", "#7d8a86", "#c4b4a0", "#e2d9cc"],
-      "links": { "eigacom": "https://eiga.com/movie/25077/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/25077/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "last-emperor-forbidden-city",
@@ -3868,7 +4010,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#b8322a", "#e0c048", "#c9a04a", "#13365c", "#2e7d4f"],
-      "links": { "eigacom": "https://eiga.com/movie/31401/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/31401/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "crouching-tiger-anji-bamboo",
@@ -3895,7 +4038,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#5a8a4f", "#2d3e3a", "#5f7d6b", "#c7a27c", "#e6d5bd"],
-      "links": { "eigacom": "https://eiga.com/movie/1411/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/1411/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "the-beach-maya-bay",
@@ -3922,7 +4066,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [31], "palette": ["#ece8e0", "#d8c49a", "#5a8a4f", "#13365c", "#2e7d4f"],
-      "links": { "eigacom": "https://eiga.com/movie/44866/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/44866/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "golden-gun-khao-phing-kan",
@@ -3949,7 +4094,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [31], "palette": ["#8a8a88", "#13365c", "#2e7d4f", "#e0b23a", "#c8402e"],
-      "links": { "eigacom": "https://eiga.com/movie/46185/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/46185/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "tomb-raider-ta-prohm",
@@ -3976,7 +4122,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#5a8a4f", "#8a8a88", "#7a5a3a", "#2d3e3a", "#5f7d6b"],
-      "links": { "eigacom": "https://eiga.com/movie/1202/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/1202/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "crazy-rich-asians-newton-food-centre",
@@ -4003,7 +4150,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [42, 22], "palette": ["#c98a3a", "#1d2a30", "#3f5b5e", "#8a9b8f", "#c8b28a"],
-      "links": { "eigacom": "https://eiga.com/movie/88417/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/88417/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "slumdog-millionaire-cst",
@@ -4030,7 +4178,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": "列車や利用者の妨げにならないように。線路やホームの端には近づかないこと。",
       "lessons": [22], "palette": ["#e0c048", "#13365c", "#2e7d4f", "#e0b23a", "#c8402e"],
-      "links": { "eigacom": "https://eiga.com/movie/54163/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/54163/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "life-of-pi-botanical-garden",
@@ -4057,7 +4206,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#2f4a32", "#5a8a4f", "#2d3e3a", "#5f7d6b", "#c7a27c"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "ghost-protocol-burj-khalifa",
@@ -4084,7 +4234,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [24], "palette": ["#d8c49a", "#ece8e0", "#2f5d8a", "#2b3a42", "#6f7f7a"],
-      "links": { "eigacom": "https://eiga.com/movie/55154/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/55154/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "last-crusade-petra-treasury",
@@ -4111,7 +4262,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [22, 31], "palette": ["#d8c49a", "#141414", "#13365c", "#2e7d4f", "#e0b23a"],
-      "links": { "eigacom": "https://eiga.com/movie/42519/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/42519/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "skyfall-varda-viaduct",
@@ -4138,7 +4290,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [15, 24], "palette": ["#d8c49a", "#e0c048", "#7a5a3a", "#2f5d8a", "#13365c"],
-      "links": { "eigacom": "https://eiga.com/movie/56381/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/56381/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "notting-hill-blue-door",
@@ -4165,7 +4318,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": "個人の住宅です。敷地や玄関先に入らず、公道から短時間で。住人や近所の迷惑にならないように。",
       "lessons": [32], "palette": ["#2f5d8a", "#ece8e0", "#8a8a88", "#f3e3d6", "#e7b8a8"],
-      "links": { "eigacom": "https://eiga.com/movie/47694/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/47694/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "bridget-jones-borough-market",
@@ -4193,7 +4347,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#7a5a3a", "#b8322a", "#8a8a88", "#e0c048", "#3a4246"],
-      "links": { "eigacom": "https://eiga.com/movie/26856/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/26856/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "clockwork-orange-southmere-lake",
@@ -4220,7 +4375,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [29, 19, 31], "palette": ["#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
-      "links": { "eigacom": "https://eiga.com/movie/21144/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/21144/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "harry-potter-leadenhall-market",
@@ -4247,7 +4403,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [15], "palette": ["#b8322a", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "paddington-chalcot-crescent",
@@ -4274,7 +4431,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [15], "palette": ["#2f5d8a", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "harry-potter-alnwick-castle",
@@ -4301,7 +4459,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#5a8a4f", "#8a8a88", "#2d3e3a", "#5f7d6b", "#c7a27c"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "chamber-of-secrets-glenfinnan-viaduct",
@@ -4326,7 +4485,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [17, 15, 31], "palette": ["#5a8a4f", "#8a8a88", "#2d3e3a", "#5f7d6b", "#c7a27c"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "trainspotting-princes-street",
@@ -4351,7 +4511,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日の出から 1 時間" },
       "visitNotes": null,
       "lessons": [29, 15], "palette": ["#8a8a88", "#5a8a4f", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "skyfall-glen-etive",
@@ -4378,7 +4539,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [15, 31], "palette": ["#8a8a88", "#5a8a4f", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": "https://eiga.com/movie/56381/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/56381/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "da-vinci-code-rosslyn-chapel",
@@ -4403,7 +4565,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [22, 24], "palette": ["#141414", "#1d2a30", "#3f5b5e", "#8a9b8f", "#c8b28a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "force-awakens-skellig-michael",
@@ -4428,7 +4591,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [18, 31], "palette": ["#5a8a4f", "#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "banshees-inisherin-achill",
@@ -4453,7 +4617,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [31], "palette": ["#5a8a4f", "#8a8a88", "#2d3e3a", "#5f7d6b", "#c7a27c"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "midnight-in-paris-saint-etienne-du-mont",
@@ -4478,7 +4643,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [42, 22, 18], "palette": ["#c9a04a", "#e0c048", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "breathless-champs-elysees",
@@ -4503,7 +4669,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [20, 29, 15], "palette": ["#141414", "#424242", "#7f7f7f", "#bdbdbd", "#efefef"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "last-tango-bir-hakeim",
@@ -4528,7 +4695,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [22, 15], "palette": ["#e07a3a", "#2f5d8a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "before-sunset-shakespeare-and-company",
@@ -4553,7 +4721,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [15], "palette": ["#3a4246", "#7d8a86", "#c4b4a0", "#e2d9cc", "#9a7a66"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "da-vinci-code-louvre",
@@ -4578,7 +4747,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": "館内の撮影ルールは場所や展示ごとに異なります。現地の表示に従ってください。",
       "lessons": [42, 24], "palette": ["#2f5d8a", "#ece8e0", "#c9a04a", "#1d2a30", "#3f5b5e"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "umbrellas-of-cherbourg-rue-du-port",
@@ -4603,7 +4773,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
       "lessons": [41], "palette": ["#e8a0b0", "#2f5d8a", "#f3e3d6", "#e7b8a8", "#9cc2cf"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "young-girls-rochefort-place-colbert",
@@ -4628,7 +4799,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#ece8e0", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "a-man-and-a-woman-deauville",
@@ -4653,7 +4825,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [20, 15, 31], "palette": ["#2a1d12", "#5e432b", "#94704c", "#c9a982", "#efe0c6"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "dunkirk-malo-les-bains",
@@ -4678,7 +4851,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": "足場が不安定な場所です。立入禁止の表示や規制情報を事前に確認してください。",
       "lessons": [31, 24], "palette": ["#8a8a88", "#2f5d8a", "#d8c49a", "#2b3a42", "#6f7f7a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "in-bruges-belfry",
@@ -4703,7 +4877,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#7a5a3a", "#b8322a", "#8a8a88", "#3a4246", "#7d8a86"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "fault-in-our-stars-leidsegracht",
@@ -4728,7 +4903,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
       "visitNotes": null,
       "lessons": [33], "palette": ["#5a8a4f", "#7a5a3a", "#8a8a88", "#f3e3d6", "#e7b8a8"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "godfather-bar-vitelli",
@@ -4755,7 +4931,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [22], "palette": ["#ece8e0", "#e0c048", "#7a5a3a", "#d8c49a", "#2b3a42"],
-      "links": { "eigacom": "https://eiga.com/movie/44529/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/44529/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "cinema-paradiso-palazzo-adriano",
@@ -4780,7 +4957,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前の 1 時間" },
       "visitNotes": null,
       "lessons": [13], "palette": ["#d8c49a", "#e0c048", "#3a4246", "#7d8a86", "#c4b4a0"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "malena-siracusa-piazza-duomo",
@@ -4805,7 +4983,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [33], "palette": ["#ece8e0", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "roman-holiday-spanish-steps",
@@ -4832,7 +5011,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [20, 18], "palette": ["#141414", "#424242", "#7f7f7f", "#bdbdbd", "#efefef"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "great-beauty-acqua-paola",
@@ -4857,7 +5037,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#ece8e0", "#c9a04a", "#13365c", "#2e7d4f", "#e0b23a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "talented-mr-ripley-corricella",
@@ -4882,7 +5063,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#2f5d8a", "#13365c", "#2e7d4f", "#e0b23a", "#c8402e"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "death-in-venice-hotel-des-bains",
@@ -4907,7 +5089,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [31], "palette": ["#ece8e0", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "no-time-to-die-matera",
@@ -4932,7 +5115,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#8a8a88", "#e0c048", "#ece8e0", "#141414", "#d8c49a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "room-with-a-view-piazza-della-signoria",
@@ -4957,7 +5141,8 @@
       "guide": { "focal": "53mm（XF35mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [33], "palette": ["#e0c048", "#7a5a3a", "#d8c49a", "#f3e3d6", "#e7b8a8"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "good-bad-ugly-sad-hill",
@@ -4982,7 +5167,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [22, 29, 31], "palette": ["#d8c49a", "#7a5a3a", "#e0c048", "#2f5d8a", "#13365c"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "lawrence-of-arabia-plaza-de-espana",
@@ -5009,7 +5195,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [24], "palette": ["#b8322a", "#7a5a3a", "#2f5d8a", "#d8c49a", "#13365c"],
-      "links": { "eigacom": "https://eiga.com/movie/42205/", "trailer": null, "wikipedia": null }
+      "links": { "eigacom": "https://eiga.com/movie/42205/", "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "vicky-cristina-park-guell",
@@ -5034,7 +5221,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [22, 18], "palette": ["#e0c048", "#c98a3a", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "grand-budapest-gorlitzer-warenhaus",
@@ -5059,7 +5247,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#e8a0b0", "#b8322a", "#f3e3d6", "#e7b8a8", "#9cc2cf"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "good-bye-lenin-karl-marx-allee",
@@ -5084,7 +5273,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [22, 29, 15], "palette": ["#e0c048", "#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "run-lola-run-oberbaum-bridge",
@@ -5109,7 +5299,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [15], "palette": ["#b8322a", "#5a8a4f", "#13365c", "#2e7d4f", "#e0b23a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "sound-of-music-mirabell-gardens",
@@ -5134,7 +5325,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [18], "palette": ["#5a8a4f", "#13365c", "#2e7d4f", "#e0b23a", "#c8402e"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "ohmss-piz-gloria",
@@ -5159,7 +5351,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
       "visitNotes": null,
       "lessons": [19, 31], "palette": ["#ece8e0", "#2f5d8a", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "mission-impossible-charles-bridge",
@@ -5184,7 +5377,8 @@
       "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
       "visitNotes": null,
       "lessons": [42, 15], "palette": ["#e0c048", "#2f5d8a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "kamome-diner-kahvila-suomi",
@@ -5209,7 +5403,8 @@
       "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [32], "palette": ["#ece8e0", "#7a5a3a", "#f3e3d6", "#e7b8a8", "#9cc2cf"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "fallout-preikestolen",
@@ -5234,7 +5429,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [31, 24], "palette": ["#8a8a88", "#2f5d8a", "#2b3a42", "#6f7f7a", "#b9a77f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "interstellar-svinafellsjokull",
@@ -5259,7 +5455,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [31, 24], "palette": ["#ece8e0", "#8a8a88", "#2f5d8a", "#2b3a42", "#6f7f7a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "mamma-mia-agios-ioannis-kastri",
@@ -5284,7 +5481,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [18, 31], "palette": ["#2f5d8a", "#ece8e0", "#5a8a4f", "#13365c", "#2e7d4f"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     },
     {
       "id": "big-blue-agia-anna",
@@ -5309,7 +5507,8 @@
       "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
       "visitNotes": null,
       "lessons": [31], "palette": ["#2f5d8a", "#ece8e0", "#13365c", "#2e7d4f", "#e0b23a"],
-      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null },
+      "photo": null
     }
   ]
 }

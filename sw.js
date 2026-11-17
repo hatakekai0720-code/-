@@ -3,10 +3,11 @@
 // ・GitHub Pages では同じユーザーの全リポジトリが同一オリジンになるため、キャッシュ名は必ず xt3cine- で始め、
 //   削除するのも自分のキャッシュだけにする
 // ・ユーザーの画像はキャッシュしない（画像は fetch を通らず、ここに来ても ASSETS 以外は保存しない）
-const CACHE_VERSION = '2026-11-18.11';
+const CACHE_VERSION = '2026-11-18.12';
 const PREFIX = 'xt3cine-';
 const CACHE = `${PREFIX}${CACHE_VERSION}`;
 const STREETS_CACHE = `${PREFIX}streets`; // js/streets.js の STREETS_CACHE と同じ。街路データは ASSETS に入れない
+const PHOTOS_CACHE = `${PREFIX}photos`; // js/photos.js の PHOTOS_CACHE と同じ。ロケ地写真も ASSETS に入れない
 
 const ASSETS = [
   './',
@@ -24,8 +25,11 @@ const ASSETS = [
   './js/locations.js',
   './js/lessons.js',
   './js/pwa.js',
+  './js/bgdownload.js',
   './js/streets.js',
+  './js/photos.js',
   './js/ui/dom.js',
+  './js/ui/photo.js',
   './js/ui/recipe-ui.js',
   './js/ui/theme.js',
   './js/views/academy.js',
@@ -72,8 +76,8 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil((async () => {
     const keys = await caches.keys();
-    // 街路地図（xt3cine-streets）はページ側が管理するので消さない
-    await Promise.all(keys.filter((k) => k.startsWith(PREFIX) && k !== CACHE && k !== STREETS_CACHE).map((k) => caches.delete(k)));
+    // 街路地図（xt3cine-streets）とロケ地写真（xt3cine-photos）はページ側が管理するので消さない
+    await Promise.all(keys.filter((k) => k.startsWith(PREFIX) && ![CACHE, STREETS_CACHE, PHOTOS_CACHE].includes(k)).map((k) => caches.delete(k)));
     await self.clients.claim(); // 初回からこのページをオフライン対応にする
   })());
 });

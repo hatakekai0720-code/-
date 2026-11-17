@@ -1,0 +1,71 @@
+# ロケ地写真（Wikimedia Commons）を取得して data/photos/ にコミットする。
+# ・手動実行（Actions タブ → 「ロケ地写真を取得」→ Run workflow）、または
+#   data/locations.json / scripts/fetch-photos.mjs を変更した push で動く
+# ・data/photos/ だけの変更では動かない（paths に含めていない。bot の push は GITHUB_TOKEN なので再実行もされない）
+# ・Commons API でライセンスを確認し、CC0 / パブリックドメイン / CC BY / CC BY-SA 以外が 1 件でもあれば失敗する
+name: ロケ地写真を取得
+
+on:
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: すべての写真を取得し直す
+        type: boolean
+        default: false
+  push:
+    paths:
+      - data/locations.json
+      - scripts/fetch-photos.mjs
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-photos-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  SHARP_VERSION: 0.33.5
+
+jobs:
+  fetch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 画像変換ライブラリ（sharp）を作業フォルダに入れる（リポジトリには入れない）
+        run: |
+          mkdir -p "$RUNNER_TEMP/photo-tools"
+          cd "$RUNNER_TEMP/photo-tools"
+          npm init -y >/dev/null
+          npm install --no-audit --no-fund "sharp@${SHARP_VERSION}"
+          echo "SHARP_DIR=$RUNNER_TEMP/photo-tools" >> "$GITHUB_ENV"
+
+      - name: 取得と変換（scripts/fetch-photos.mjs）
+        env:
+          REFRESH: ${{ inputs.refresh && '--refresh' || '' }}
+        run: node scripts/fetch-photos.mjs $REFRESH
+
+      - name: サイズの確認と報告（95MB を超えるファイルがあれば失敗）
+        if: always()
+        run: node scripts/size-report.mjs data/photos .webp "ロケ地写真（data/photos/）" 95
+
+      - name: コミットして push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/photos
+          if git diff --cached --quiet; then echo "変更なし"; exit 0; fi
+          git commit -m "ロケ地写真を更新（GitHub Actions）"
+          for i in 1 2 3 4; do
+            if git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME"; then exit 0; fi
+            sleep $((i * 15))
+          done
+          echo "push できませんでした" >&2
+          exit 1

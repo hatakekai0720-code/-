@@ -21,7 +21,7 @@
 - アプリのファイルを変えたら `sw.js` の `CACHE_VERSION` を上げる。ファイルを追加・削除したら `sw.js` の `ASSETS` も更新する（`data/streets/` の街路データは ASSETS に入れない）。
 - テストを全部通す：
   ```sh
-  node tests/analyzer.test.mjs && node tests/map.test.mjs && node tests/lessons.test.mjs && node tests/sw.test.mjs && node tests/streets.test.mjs
+  node tests/analyzer.test.mjs && node tests/map.test.mjs && node tests/lessons.test.mjs && node tests/sw.test.mjs && node tests/streets.test.mjs && node tests/photos.test.mjs
   ```
 - ロジックを足したら対応するテストも足す。
 - 作業はブランチで行い、終わったら変更内容を日本語で報告して止まる（main へのマージは私が確認してから）。
@@ -31,6 +31,8 @@
 - `js/analyzer.js` 画像解析（全ピクセル。`Accumulator` で統計を累積、`tilePlan`/`analyzeTiled` で最大 4MP のタイルに分けて読む）/ `js/analyze-worker.js` 解析用 Worker（OffscreenCanvas。無ければ `views/analyze.js` がメインスレッドで 0.5MP ずつ await しながら処理）/ `js/translator.js` 推定レシピ（ルール表は冒頭）
 - `js/geo.js` 距離・日付変更線・都市名ラベルの間引き（`pickLabels`）
 - `js/cluster.js` 地図のピンのクラスタ（自前実装。ズームごとにワールドピクセル座標で貪欲法、半径 44px、件数で 3 段階）・放射状展開（`spiderOffsets`）・地域/国の絞り込み（`facetCounts`/`filterLocations`）。ロケ地とマイピンは別クラスタ。描画は単独ピン = Canvas の circleMarker、クラスタ = divIcon
+- `js/bgdownload.js` 同梱データを裏で 1 件ずつ Cache Storage に保存する共通部品（index.json の sha256 で更新判定・中断再開）。街路地図と写真で使う
+- `js/photos.js` ロケ地写真: `data/photos/index.json`（`scripts/fetch-photos.mjs` が Commons API で確認したクレジット入り）を見て Cache Storage `xt3cine-photos` に保存。ASSETS には入れない。表示は `js/ui/photo.js`（写真の下に必ず「撮影者 / ライセンス / Wikimedia Commons」）
 - `js/streets.js` 街路地図: `data/streets/index.json` を見て裏で 1 件ずつ Cache Storage `xt3cine-streets` に保存（sha256 で更新判定・中断再開）、`BlobSource` でキャッシュ済みファイルから PMTiles の Range を切り出す。SW はこのキャッシュを消さない
 - `js/views/*` 各画面 / `js/ui/*` 共通部品・テーマ / `js/pwa.js` SW 登録と更新通知
 - 地図のズーム: 〜 国境 50m / 4〜 県・州の境界（`data/admin1-10m.json`）/ 5〜 国境・海岸線 10m（`data/countries-10m.json`）/ 6〜 都市名（`data/places-10m.json`）/ 通常の最大 8。ダウンロード済みのロケ地付近だけ 10〜 街路（`vendor/protomaps-leaflet` + `vendor/pmtiles`）、最大 18（データは 15 まで、それ以上は拡大表示）。ダウンロード中は地図の右上に進捗（n/N）

@@ -9,6 +9,8 @@ import { locationRecipe } from '../locations.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
 import * as streets from '../streets.js';
+import * as photos from '../photos.js';
+import { photoFigure } from '../ui/photo.js';
 import { clusterPoints, maxSpread, spiderOffsets, sizeTier, facetCounts, filterLocations, CLUSTER_RADIUS, CLUSTER_SIZES } from '../cluster.js';
 
 const CONF_LABEL = { high: '確度 高', medium: '確度 中' };
@@ -72,12 +74,13 @@ export function render(root) {
   // ダウンロード中は地図の右上に小さく進捗（n/N）を出す
   const dlBadge = h('div', { class: 'map-progress num', 'aria-live': 'polite', hidden: true });
   const drawBadge = () => {
-    const st = streets.getStatus();
-    const on = st.state === 'running' && st.total > 0;
-    dlBadge.hidden = !on;
-    if (on) dlBadge.textContent = `街路 ${st.done}/${st.total}`;
+    const parts = [['写真', photos.getStatus()], ['街路', streets.getStatus()]]
+      .filter(([, st]) => st.state === 'running' && st.total > 0).map(([k, st]) => `${k} ${st.done}/${st.total}`);
+    dlBadge.hidden = !parts.length;
+    dlBadge.textContent = parts.join('　');
   };
   streets.events.addEventListener('status', drawBadge);
+  photos.events.addEventListener('status', drawBadge);
   drawBadge();
   const geo = { region: 'all', country: 'all' }; // ロケ地の地域・国の絞り込み（メモリのみ）
   const facetEl = h('div', { class: 'stack facets', style: 'gap:8px;margin:12px 0 4px' });
@@ -422,6 +425,7 @@ export function render(root) {
           close(); map.setMaxZoom(streets.STREET_MAX_ZOOM); map.setView([l.lat, l.lng], 15);
           if (mapEl.getBoundingClientRect().top < 0) window.scrollTo({ top: 0, behavior: 'smooth' });
         } }, '周辺の街路地図を見る') : null,
+        photoFigure(l),
         h('p', { style: 'margin:10px 0' }, l.scene),
         h('div', { class: 'small muted' }, '色味: ', l.look),
         h('div', { class: 'card stack', style: 'gap:6px;margin-top:10px' },
@@ -492,5 +496,5 @@ export function render(root) {
   init();
   const mo = new MutationObserver(style);
   mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-  return () => { alive = false; mo.disconnect(); streets.events.removeEventListener('file', onStreetFile); streets.events.removeEventListener('status', drawBadge); map?.remove(); };
+  return () => { alive = false; mo.disconnect(); streets.events.removeEventListener('file', onStreetFile); streets.events.removeEventListener('status', drawBadge); photos.events.removeEventListener('status', drawBadge); map?.remove(); };
 }
