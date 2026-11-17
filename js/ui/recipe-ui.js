@@ -7,10 +7,11 @@ import * as store from '../store.js';
 export function paramSummary(r) {
   const mono = X.isMono(r.filmSim);
   const parts = [
+    ...(mono ? [['WC', X.signed(r.monoWC)]] : []),
     ['DR', X.labelOf(X.DR_MODES, r.dr).replace('DR', '')],
     ['WB', `${X.wbLabel(r)} R${X.signed(r.wbShift.r)} B${X.signed(r.wbShift.b)}`],
     ['H', X.signed(r.highlight)], ['S', X.signed(r.shadow)],
-    ['C', mono ? '—' : X.signed(r.color)], ['SH', X.signed(r.sharpness)], ['NR', X.signed(r.nr)],
+    ['C', X.hasColor(r.filmSim) ? X.signed(r.color) : '—'], ['SH', X.signed(r.sharpness)], ['NR', X.signed(r.nr)],
     ['GR', X.labelOf(X.EFFECT_LEVELS, r.grain)], ['CC', X.labelOf(X.EFFECT_LEVELS, r.colorChrome)],
   ];
   return h('div', { class: 'params' }, parts.map(([k, v], i) => [i ? ' · ' : '', h('span', { class: 'pair' }, `${k} `, h('b', null, v))]));

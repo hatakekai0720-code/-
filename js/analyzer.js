@@ -54,7 +54,7 @@ export function analyze(data, width, height) {
   if (!n || data.length < n * 4) throw new Error('画像データが空です');
   const histR = new Uint32Array(256), histG = new Uint32Array(256), histB = new Uint32Array(256), histL = new Uint32Array(256);
   const lum = new Uint8Array(n);
-  let sumChroma = 0, sumSatHsv = 0, skin = 0, sumLum = 0, sumLum2 = 0;
+  let sumChroma = 0, sumSatHsv = 0, skin = 0, sumLum = 0, sumLum2 = 0, sumA = 0, sumB = 0;
   const all = [0, 0, 0];
 
   for (let i = 0, p = 0; i < n; i++, p += 4) {
@@ -69,7 +69,7 @@ export function analyze(data, width, height) {
     if (mx === mn) continue; // 無彩色は彩度 0
     const [L, a, bb] = linToLab(rl, gl, bl);
     const c = Math.hypot(a, bb);
-    sumChroma += c;
+    sumChroma += c; sumA += a; sumB += bb;
     // 肌色域のおおまかな判定（Lab の色相 35〜75°、中程度の彩度と明るさ）
     if (c >= 12 && c <= 45 && L >= 30 && L <= 88) {
       const hue = Math.atan2(bb, a) * 180 / Math.PI;
@@ -109,6 +109,10 @@ export function analyze(data, width, height) {
     chroma: sumChroma / n,                               // 平均彩度（Lab C*）
     saturation: sumSatHsv / n * 100,                     // 平均彩度（HSV S, %）
     skinRatio: skin / n,
+    // 色相のそろい具合（0〜1）。1 に近いほど画像全体が 1 色に染まっている（セピア調・調色モノクロ）
+    hueConsistency: sumChroma > 0 ? Math.hypot(sumA, sumB) / sumChroma : 0,
+    meanA: sumA / n, meanB: sumB / n,
+    meanHue: (Math.atan2(sumB, sumA) * 180 / Math.PI + 360) % 360,
     shadows: zone(sh, sh[3]),
     highlights: zone(hi, hi[3]),
     overall: zone(all, n),

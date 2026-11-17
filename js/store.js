@@ -1,9 +1,9 @@
 // localStorage ラッパー。キーは必ず xt3cine: で始める。画像は一切保存しない。
-import { SLOT_IDS, validateRecipe, cleanRecipe } from './xt3.js';
+import { SLOT_IDS, validateRecipe, cleanRecipe, isMono } from './xt3.js';
 
 export const PREFIX = 'xt3cine:';
 const KEY = PREFIX + 'db';
-export const VERSION = 1;
+export const VERSION = 2;
 const QUOTA_ESTIMATE = 5 * 1024 * 1024; // ブラウザの一般的な上限の目安
 
 let db = null;
@@ -18,7 +18,18 @@ const emptyDb = () => ({
 });
 
 // スキーマ移行: MIGRATIONS[n] が version n → n+1 へ変換する
-const MIGRATIONS = {};
+const MIGRATIONS = {
+  // v1 → v2: WB「カスタム」を「カスタム1〜3」に分割、モノクロ調整（monoWC）を追加
+  1: (d) => ({
+    ...d,
+    version: 2,
+    recipes: Array.isArray(d.recipes) ? d.recipes.map((r) => {
+      if (!r || typeof r !== 'object') return r;
+      const wb = r.wb && r.wb.mode === 'custom' ? { ...r.wb, mode: 'custom1' } : r.wb;
+      return { ...r, wb, monoWC: r.monoWC ?? (isMono(r.filmSim) ? 0 : null) };
+    }) : d.recipes,
+  }),
+};
 function migrate(obj) {
   let d = obj;
   while (d.version < VERSION) {
@@ -39,6 +50,7 @@ export function init() {
     const res = validateDb(JSON.parse(raw));
     if (!res.ok) throw new Error(res.errors[0]);
     db = res.db;
+    if (JSON.parse(raw).version !== VERSION) save(); // 移行したら新しい形式で書き戻す
     return { fresh: false };
   } catch (err) {
     // 壊れたデータは退避してから初期化する
@@ -118,6 +130,7 @@ const isDate = (v) => typeof v === 'string' && !Number.isNaN(Date.parse(v));
 
 /** 任意の JSON を検証し、既知フィールドだけで組み直した db を返す。 */
 export function validateDb(obj) {
+  if (obj && typeof obj === 'object') obj = structuredClone(obj);
   const errors = [];
   if (!isObj(obj)) return { ok: false, errors: ['JSON の最上位がオブジェクトではありません'] };
   if (!Number.isInteger(obj.version) || obj.version < 1) return { ok: false, errors: ['version がありません'] };
@@ -212,7 +225,8 @@ export async function seedIfNeeded() {
     const res = await fetch('data/recipes-seed.json');
     const seeds = await res.json();
     const t = now();
-    for (const s of seeds) {
+    for (const s0 of seeds) {
+      const s = { monoWC: isMono(s0.filmSim) ? 0 : null, ...s0 };
       if (validateRecipe(s).length || getRecipe(s.id)) continue;
       db.recipes.push({ id: s.id, createdAt: t, updatedAt: t, ...cleanRecipe(s) });
     }

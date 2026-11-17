@@ -26,14 +26,14 @@
   {
     "id": "seed-acros-noir",
     "name": "Acros Noir",
-    "filmSim": "acros", "monoFilter": "r",
+    "filmSim": "acros", "monoFilter": "r", "monoWC": -2,
     "dr": "dr100", "grain": "strong", "colorChrome": "off",
     "wb": { "mode": "auto", "kelvin": null }, "wbShift": { "r": 0, "b": 0 },
     "highlight": 2, "shadow": 3, "color": 0, "sharpness": 1, "nr": -4,
     "isoNote": "ISO 160〜6400", "exposureNote": "-1/3EV",
     "tags": ["モノクロ", "街", "夜"],
     "source": "manual", "sourceRef": null,
-    "notes": "+R フィルターで空を落とし、硬いコントラストで影を締める。"
+    "notes": "+R フィルターで空を落とし、硬いコントラストで影を締める。モノクロ調整を少し寒色に振って冷たい夜の空気に。"
   },
   {
     "id": "seed-soft-skin-portrait",

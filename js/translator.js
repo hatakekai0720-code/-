@@ -5,6 +5,12 @@ import * as X from './xt3.js';
 export const RULES = {
   // 彩度（平均 Lab C*）がこれ未満ならモノクロ系。コントラストが高ければ ACROS を第 1 候補にする
   mono: { maxChroma: 3, acrosMinContrast: 150 },
+  // 調色モノクロ: 平均彩度がこの範囲で、色相がほぼ 1 色にそろっている画像
+  toned: { maxChroma: 18, minHueConsistency: 0.9 },
+  // セピア: 調色モノクロのうち、色相がこの範囲（オレンジ〜イエロー）で彩度がこれ以上
+  sepia: { hue: [40, 100], minChroma: 6 },
+  // モノクロ調整（WC）: 平均 b*（+ が黄 = 暖色）× この係数。実機の WC と b* の対応は未較正の目安値
+  wcPerB: 0.6,
 
   // フィルムシミュレーション候補。sat = 平均彩度 C* の範囲、contrast = (p95 - p5) の範囲、
   // skin = 肌色域の割合がこれ以上のときだけ候補にする
@@ -51,13 +57,22 @@ const pickLE = (table, x) => table.find(([max]) => x <= max)[1];
 /** フィルムシミュレーション候補（上位 2〜3 件）と確度 */
 export function estimate(a) {
   const R = RULES;
-  const isMonoImage = a.chroma < R.mono.maxChroma;
+  const neutral = a.chroma < R.mono.maxChroma;
+  const toned = !neutral && a.chroma < R.toned.maxChroma && a.hueConsistency >= R.toned.minHueConsistency;
+  const isMonoImage = neutral || toned;
   let candidates;
   if (isMonoImage) {
     const hard = a.contrast >= R.mono.acrosMinContrast;
-    const acros = { filmSim: 'acros', monoFilter: 'none', score: hard ? 1 : 0.7, why: '彩度ほぼゼロ・コントラスト高め' };
-    const mono = { filmSim: 'monochrome', monoFilter: 'none', score: hard ? 0.7 : 1, why: '彩度ほぼゼロ・コントラスト控えめ' };
+    const monoWC = clamp(Math.round(a.meanB * R.wcPerB), X.RANGES.monoWC);
+    const tone = monoWC > 0 ? '・暖色寄り' : monoWC < 0 ? '・寒色寄り' : '';
+    const base = neutral ? '彩度ほぼゼロ' : `全体が 1 色に調色${tone}`;
+    const acros = { filmSim: 'acros', monoFilter: 'none', monoWC, score: hard ? 1 : 0.7, why: `${base}・コントラスト高め` };
+    const mono = { filmSim: 'monochrome', monoFilter: 'none', monoWC, score: hard ? 0.7 : 1, why: `${base}・コントラスト控えめ` };
     candidates = hard ? [acros, mono] : [mono, acros];
+    const [h0, h1] = R.sepia.hue;
+    if (toned && a.meanHue >= h0 && a.meanHue <= h1 && a.chroma >= R.sepia.minChroma) {
+      candidates = [{ filmSim: 'sepia', monoFilter: null, monoWC: null, score: 1, why: '全体がセピア調（オレンジ〜イエロー）に調色' }, ...candidates.map((c) => ({ ...c, score: c.score * 0.7 }))].slice(0, 3);
+    }
   } else {
     candidates = R.film
       .map((f) => ({ filmSim: f.id, monoFilter: null, why: f.why,
@@ -80,6 +95,7 @@ export function estimate(a) {
   if (a.contrast < C.lowContrast) reasons.push('輝度の幅が極端に狭い');
   if (top < C.lowScore) reasons.push('どのフィルムシミュレーションの特徴にもはっきり当てはまらない');
   if (reasons.length) level = '低';
+  else if (toned) { level = '中'; reasons.push('調色の色味は推定。モノクロ調整の値は目安'); }
   else if (isMonoImage ? a.chroma < C.monoHighChroma : (top >= C.highScore && gap >= C.highGap)) { level = '高'; reasons.push('特徴が 1 つの候補にはっきり当てはまる'); }
   else { level = '中'; reasons.push('複数の候補が近い。候補を切り替えて比べてください'); }
   return { candidates, confidence: { level, reasons } };
@@ -92,13 +108,14 @@ export function buildRecipe(a, cand) {
   const r = X.defaultRecipe();
   r.filmSim = cand.filmSim;
   r.monoFilter = mono ? (cand.monoFilter || 'none') : null;
+  r.monoWC = mono ? (cand.monoWC ?? 0) : null;
   r.shadow = clamp(pickLE(R.shadowTone, a.p5), X.RANGES.shadow);
   r.highlight = clamp(pickGE(R.highlightTone, a.p95), X.RANGES.highlight);
   r.dr = pickGE(R.dr, a.clipWhite);
   const minIso = X.DR_MODES.find((d) => d.id === r.dr).minIso;
   r.isoNote = minIso ? `ISO ${minIso}〜` : '';
 
-  if (!mono) {
+  if (X.hasColor(cand.filmSim)) {
     r.color = clamp(Math.round((a.chroma - R.colorCenter[cand.filmSim]) / R.colorStep), X.RANGES.color);
     r.colorChrome = pickGE(R.colorChrome, a.chroma);
     const split = a.highlights.b - a.shadows.b;

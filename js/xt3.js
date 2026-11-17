@@ -10,8 +10,10 @@ export const FILM_SIMS = [
   { id: 'pro-neg-hi', label: 'PRO Neg.Hi', q: 'PRO Neg\nHi' },
   { id: 'pro-neg-std', label: 'PRO Neg.Std', q: 'PRO Neg\nStd' },
   { id: 'eterna', label: 'ETERNA/シネマ', q: 'ETERNA' },
-  { id: 'monochrome', label: 'モノクロ', q: 'MONO', mono: true },
-  { id: 'acros', label: 'ACROS', q: 'ACROS', mono: true },
+  // mono: フィルター（+Ye/+R/+G）とモノクロ調整（暖色〜寒色）が使える / noColor: カラー設定が効かない
+  { id: 'monochrome', label: 'モノクロ', q: 'MONO', mono: true, noColor: true },
+  { id: 'acros', label: 'ACROS', q: 'ACROS', mono: true, noColor: true },
+  { id: 'sepia', label: 'セピア', q: 'SEPIA', noColor: true },
 ];
 
 // モノクロ / ACROS 専用のフィルター
@@ -46,12 +48,15 @@ export const WB_MODES = [
   { id: 'fluorescent3', label: '蛍光灯3' },
   { id: 'incandescent', label: '電球' },
   { id: 'underwater', label: '水中' },
-  { id: 'custom', label: 'カスタム' },
+  { id: 'custom1', label: 'カスタム1' },
+  { id: 'custom2', label: 'カスタム2' },
+  { id: 'custom3', label: 'カスタム3' },
 ];
 
 export const RANGES = {
   kelvin: { min: 2500, max: 10000, step: 10 },
   wbShift: { min: -9, max: 9 },
+  monoWC: { min: -9, max: 9 }, // モノクロ調整: − が寒色（クール）、+ が暖色（ウォーム）
   highlight: { min: -2, max: 4 },
   shadow: { min: -2, max: 4 },
   color: { min: -4, max: 4 },
@@ -67,13 +72,14 @@ export const LIMITS = { name: 60, note: 60, notes: 2000, tags: 12, tag: 20 };
 const byId = (list, id) => list.find((x) => x.id === id);
 export const filmSim = (id) => byId(FILM_SIMS, id);
 export const isMono = (id) => !!filmSim(id)?.mono;
+export const hasColor = (id) => !filmSim(id)?.noColor;
 export const labelOf = (list, id) => byId(list, id)?.label ?? '—';
 
 export const signed = (n) => (n > 0 ? `+${n}` : `${n}`);
 
 export function defaultRecipe() {
   return {
-    name: '', filmSim: 'provia', monoFilter: null,
+    name: '', filmSim: 'provia', monoFilter: null, monoWC: null,
     dr: 'auto', grain: 'off', colorChrome: 'off',
     wb: { mode: 'auto', kelvin: 5500 }, wbShift: { r: 0, b: 0 },
     highlight: 0, shadow: 0, color: 0, sharpness: 0, nr: 0,
@@ -93,7 +99,11 @@ export function validateRecipe(r) {
   if (!filmSim(r.filmSim)) e.push('フィルムシミュレーションが X-T3 の範囲外です');
   else if (isMono(r.filmSim)) {
     if (!byId(MONO_FILTERS, r.monoFilter)) e.push('モノクロフィルターが不正です');
-  } else if (r.monoFilter != null) e.push('モノクロフィルターはモノクロ / ACROS でのみ指定できます');
+    if (!isInt(r.monoWC, RANGES.monoWC)) e.push('モノクロ調整（暖色〜寒色）は -9〜+9 の整数です');
+  } else {
+    if (r.monoFilter != null) e.push('モノクロフィルターはモノクロ / ACROS でのみ指定できます');
+    if (r.monoWC != null) e.push('モノクロ調整はモノクロ / ACROS でのみ指定できます');
+  }
   if (!byId(DR_MODES, r.dr)) e.push('ダイナミックレンジが不正です');
   if (!byId(EFFECT_LEVELS, r.grain)) e.push('グレイン・エフェクトが不正です');
   if (!byId(EFFECT_LEVELS, r.colorChrome)) e.push('カラークローム・エフェクトが不正です');
@@ -120,7 +130,7 @@ export function validateRecipe(r) {
 export function cleanRecipe(r) {
   const mono = isMono(r.filmSim);
   return {
-    name: r.name.trim(), filmSim: r.filmSim, monoFilter: mono ? r.monoFilter : null,
+    name: r.name.trim(), filmSim: r.filmSim, monoFilter: mono ? r.monoFilter : null, monoWC: mono ? r.monoWC : null,
     dr: r.dr, grain: r.grain, colorChrome: r.colorChrome,
     wb: { mode: r.wb.mode, kelvin: r.wb.kelvin ?? null }, wbShift: { r: r.wbShift.r, b: r.wbShift.b },
     highlight: r.highlight, shadow: r.shadow, color: r.color, sharpness: r.sharpness, nr: r.nr,
@@ -140,6 +150,12 @@ export function filmLabel(r) {
 export function wbLabel(r) {
   if (r.wb.mode === 'kelvin') return `${r.wb.kelvin}K`;
   return labelOf(WB_MODES, r.wb.mode);
+}
+
+/** モノクロ調整の表示: WC +3（暖） / WC -2（寒） / WC 0 */
+export function wcLabel(v) {
+  if (v == null) return '—';
+  return `WC ${signed(v)}${v > 0 ? '（暖）' : v < 0 ? '（寒）' : ''}`;
 }
 
 /** DR と ISO メモの組み合わせチェック。問題なければ null。 */

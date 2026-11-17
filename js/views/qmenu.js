@@ -33,7 +33,8 @@ export const Q_ITEMS = {
   wbShift: { label: 'WB SHIFT', value: (r) => wbShiftSvg(r.wbShift.r, r.wbShift.b) },
   highlight: { label: 'HIGHLIGHT', value: (r) => X.signed(r.highlight) },
   shadow: { label: 'SHADOW', value: (r) => X.signed(r.shadow) },
-  color: { label: 'COLOR', value: (r) => (X.isMono(r.filmSim) ? null : X.signed(r.color)) },
+  monoWC: { label: 'MONO WC', value: (r) => (X.isMono(r.filmSim) ? X.signed(r.monoWC) : null) },
+  color: { label: 'COLOR', value: (r) => (X.hasColor(r.filmSim) ? X.signed(r.color) : null) },
   sharpness: { label: 'SHARPNESS', value: (r) => X.signed(r.sharpness) },
   nr: { label: 'NOISE REDUCTION', value: (r) => X.signed(r.nr) },
   grain: { label: 'GRAIN', value: (r) => fx(r.grain) },
@@ -41,12 +42,12 @@ export const Q_ITEMS = {
   iso: { label: 'ISO メモ', value: (r) => r.isoNote.replace(/^ISO\s*/i, '') || null },
   exposure: { label: '露出メモ', value: (r) => r.exposureNote || null },
   slot: { label: 'CUSTOM', value: (r) => store.slotsOf(r.id).join(' ') || null },
-  tags: { label: 'TAGS', value: (r) => r.tags.slice(0, 3).join('\n') || null },
 };
-export const DEFAULT_ORDER = ['filmSim', 'dr', 'wb', 'wbShift', 'highlight', 'shadow', 'color', 'sharpness', 'nr', 'grain', 'colorChrome', 'monoFilter', 'iso', 'exposure', 'slot', 'tags'];
+export const DEFAULT_ORDER = ['filmSim', 'dr', 'wb', 'wbShift', 'highlight', 'shadow', 'color', 'sharpness', 'nr', 'grain', 'colorChrome', 'monoFilter', 'monoWC', 'iso', 'exposure', 'slot'];
 
 export function getOrder() {
-  const o = store.getSetting('qmenuOrder');
+  // 旧配置の TAGS マスはモノクロ調整に置き換える
+  const o = store.getSetting('qmenuOrder')?.map((k) => (k === 'tags' && !store.getSetting('qmenuOrder').includes('monoWC') ? 'monoWC' : k));
   const valid = Array.isArray(o) && o.length === 16 && new Set(o).size === 16 && o.every((k) => k in Q_ITEMS);
   return valid ? [...o] : [...DEFAULT_ORDER];
 }
@@ -120,7 +121,8 @@ export function render(root, { id }) {
         h('div', { class: 'k' }, 'WB SHIFT'),
         h('div', { class: 'big' }, `R ${X.signed(r.wbShift.r)}`), h('div', { class: 'big' }, `B ${X.signed(r.wbShift.b)}`),
         h('div', { class: 'k', style: 'margin-top:6px' }, 'WHITE BALANCE'), h('div', { class: 'num' }, X.wbLabel(r)),
-        h('div', { class: 'k', style: 'margin-top:6px' }, 'FILM SIMULATION'), h('div', { class: 'small' }, X.filmLabel(r)))),
+        h('div', { class: 'k', style: 'margin-top:6px' }, 'FILM SIMULATION'), h('div', { class: 'small' }, X.filmLabel(r)),
+        X.isMono(r.filmSim) ? [h('div', { class: 'k', style: 'margin-top:6px' }, 'MONO WC'), h('div', { class: 'num' }, X.wcLabel(r.monoWC))] : null)),
     warn?.level === 'warn' ? h('div', { class: 'notice', style: 'margin-top:10px' }, warn.text) : null,
     r.notes ? h('div', { class: 'q-notes' }, r.notes) : null,
     h('p', { class: 'small muted', style: 'margin-top:12px' }, '※ マスの並びはこのアプリ独自のものです。')));

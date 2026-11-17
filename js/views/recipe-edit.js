@@ -10,6 +10,7 @@ export function render(root, { id }) {
   if (id && !existing) { root.append(h('div', { class: 'empty' }, 'レシピが見つかりません。')); return; }
   const d = structuredClone(existing || X.defaultRecipe());
   if (d.wb.kelvin == null) d.wb.kelvin = 5500;
+  if (d.monoWC == null) d.monoWC = 0;
 
   const field = (label, control, inline = true, extra = null) =>
     h('div', { class: `field ${inline ? 'inline' : ''}` }, h('div', { class: 'label' }, label), control, extra);
@@ -19,16 +20,19 @@ export function render(root, { id }) {
 
   // 条件付き表示
   const monoField = field('モノクロフィルター', select(X.MONO_FILTERS, d.monoFilter || 'none', (v) => { d.monoFilter = v; }, { 'aria-label': 'モノクロフィルター' }), false);
+  const wcField = field('モノクロ調整（暖色〜寒色）', stepper({ value: d.monoWC, ...X.RANGES.monoWC, format: X.signed, label: 'モノクロ調整', onChange: (v) => { d.monoWC = v; } }), true,
+    h('div', { class: 'hint' }, '− で寒色（クール）、+ で暖色（ウォーム）'));
   const kelvinField = field('色温度', stepper({ value: d.wb.kelvin, min: X.RANGES.kelvin.min, max: X.RANGES.kelvin.max, steps: [X.RANGES.kelvin.step, 100], format: (v) => `${v}K`, label: '色温度', onChange: (v) => { d.wb.kelvin = v; } }), false);
   const colorField = step('color', 'カラー');
-  const colorHint = h('div', { class: 'hint' }, 'モノクロ / ACROS ではカラーは使われません');
+  const colorHint = h('div', { class: 'hint' }, 'モノクロ / ACROS / セピアではカラーは使われません');
   colorField.append(colorHint);
   const drHint = h('div', { class: 'hint' });
 
   const refresh = () => {
     const mono = X.isMono(d.filmSim);
     monoField.hidden = !mono;
-    colorHint.hidden = !mono;
+    wcField.hidden = !mono;
+    colorHint.hidden = X.hasColor(d.filmSim);
     kelvinField.hidden = d.wb.mode !== 'kelvin';
     const w = X.drWarning(d);
     drHint.hidden = !w;
@@ -63,7 +67,7 @@ export function render(root, { id }) {
   const submit = (e) => {
     e.preventDefault();
     const mono = X.isMono(d.filmSim);
-    const input = { ...d, monoFilter: mono ? (d.monoFilter || 'none') : null, wb: { mode: d.wb.mode, kelvin: d.wb.mode === 'kelvin' ? d.wb.kelvin : null } };
+    const input = { ...d, monoFilter: mono ? (d.monoFilter || 'none') : null, monoWC: mono ? d.monoWC : null, wb: { mode: d.wb.mode, kelvin: d.wb.mode === 'kelvin' ? d.wb.kelvin : null } };
     const res = store.saveRecipe(input, existing?.id);
     if (res.errors) return toast(res.errors[0], 4000);
     toast('保存しました');
@@ -74,7 +78,7 @@ export function render(root, { id }) {
     h('div', { class: 'card' },
       field('名前', h('input', { class: 'input', type: 'text', value: d.name, maxLength: X.LIMITS.name, placeholder: '例: Teal & Amber Night', 'aria-label': '名前', oninput: (e) => { d.name = e.target.value; } }), false),
       field('フィルムシミュレーション', select(X.FILM_SIMS, d.filmSim, (v) => { d.filmSim = v; refresh(); }, { 'aria-label': 'フィルムシミュレーション' }), false),
-      monoField),
+      monoField, wcField),
     h('div', { class: 'section-title' }, 'トーン・色'),
     h('div', { class: 'card' },
       field('ダイナミックレンジ', select(X.DR_MODES, d.dr, (v) => { d.dr = v; refresh(); }, { 'aria-label': 'ダイナミックレンジ' }), false, drHint),

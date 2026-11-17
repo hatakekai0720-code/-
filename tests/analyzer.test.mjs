@@ -3,7 +3,8 @@
 import assert from 'node:assert/strict';
 import { analyze, fitSize } from '../js/analyzer.js';
 import { estimate, buildRecipe, toneCurves, curvesText } from '../js/translator.js';
-import { validateRecipe, RANGES } from '../js/xt3.js';
+import { validateRecipe, RANGES, WB_MODES, FILM_SIMS } from '../js/xt3.js';
+import { validateDb, VERSION } from '../js/store.js';
 
 const W = 40, H = 40;
 /** fn(x, y) → [r, g, b] で画像を作る */
@@ -68,7 +69,7 @@ test('トランスレーター: 無彩色 → モノクロ系（コントラス�
   const soft = image((x) => (x % 2 ? [100, 100, 100] : [160, 160, 160]));
   assert.equal(estimate(soft).candidates[0].filmSim, 'monochrome');
   const r = buildRecipe(hard, estimate(hard).candidates[0]);
-  assert.equal(r.monoFilter, 'none'); assert.equal(r.wb.mode, 'auto');
+  assert.equal(r.monoFilter, 'none'); assert.equal(r.wb.mode, 'auto'); assert.equal(r.monoWC, 0);
 });
 test('トランスレーター: 高彩度 → Velvia、低彩度・低コントラスト → ETERNA', () => {
   assert.equal(estimate(image((x) => (x % 2 ? [200, 30, 30] : [30, 60, 200]))).candidates[0].filmSim, 'velvia');
@@ -122,5 +123,49 @@ test('トーンカーブ: グレーは 3 チャンネル同一、暖色ハイラ
 test('fitSize: 長辺 800px に縮小、小さい画像は拡大しない', () => {
   assert.deepEqual(fitSize(4000, 3000), { width: 800, height: 600 }); assert.deepEqual(fitSize(3000, 6000), { width: 400, height: 800 });
   assert.deepEqual(fitSize(320, 200), { width: 320, height: 200 }); assert.ok(RANGES);
+});
+test('セピア調の画像 → セピアが第 1 候補、カラー設定なし', () => {
+  const a = image((x) => { const v = x / (W - 1); return [Math.round(55 + 190 * v), Math.round(45 + 175 * v), Math.round(32 + 150 * v)]; });
+  assert.ok(a.hueConsistency > 0.95, `色相のそろい ${a.hueConsistency}`);
+  const est = estimate(a);
+  assert.equal(est.candidates[0].filmSim, 'sepia'); assert.ok(est.candidates.some((c) => c.filmSim === 'monochrome' || c.filmSim === 'acros'));
+  const r = buildRecipe(a, est.candidates[0]);
+  assert.equal(r.monoFilter, null); assert.equal(r.monoWC, null); assert.equal(r.color, 0); assert.equal(r.wb.mode, 'auto');
+  const m = buildRecipe(a, est.candidates[1]);
+  assert.ok(m.monoWC > 0, `暖色の調色 → WC+ (${m.monoWC})`);
+  assert.deepEqual(validateRecipe({ ...r, name: 't' }), []); assert.deepEqual(validateRecipe({ ...m, name: 't' }), []);
+});
+test('寒色に調色したモノクロ → モノクロ系で WC−', () => {
+  const a = image((x) => { const v = x / (W - 1); return [Math.round(30 + 190 * v), Math.round(38 + 195 * v), Math.round(55 + 195 * v)]; });
+  const est = estimate(a);
+  assert.ok(['monochrome', 'acros'].includes(est.candidates[0].filmSim), est.candidates[0].filmSim);
+  assert.ok(buildRecipe(a, est.candidates[0]).monoWC < 0);
+});
+test('カラー写真（色相がばらばら）は調色モノクロと判定しない', () => {
+  const a = image((x, y) => (y < H / 2 ? [60, 90, 110] : [200, 160, 120]));
+  assert.ok(!['sepia', 'monochrome', 'acros'].includes(estimate(a).candidates[0].filmSim));
+});
+test('xt3.js: セピア・カスタムWB1〜3・モノクロ調整の範囲', () => {
+  assert.ok(FILM_SIMS.some((f) => f.id === 'sepia'));
+  assert.deepEqual(WB_MODES.filter((w) => w.id.startsWith('custom')).map((w) => w.id), ['custom1', 'custom2', 'custom3']);
+  const base = { name: 'x', filmSim: 'acros', monoFilter: 'ye', monoWC: 9, dr: 'auto', grain: 'off', colorChrome: 'off', wb: { mode: 'custom3', kelvin: null }, wbShift: { r: 0, b: 0 },
+    highlight: 0, shadow: 0, color: 0, sharpness: 0, nr: 0, isoNote: '', exposureNote: '', tags: [], source: 'manual', sourceRef: null, notes: '' };
+  assert.deepEqual(validateRecipe(base), []);
+  assert.ok(validateRecipe({ ...base, monoWC: 10 }).length);
+  assert.ok(validateRecipe({ ...base, monoWC: null }).length);
+  assert.ok(validateRecipe({ ...base, filmSim: 'sepia' }).length, 'セピアにフィルター / WC は不可');
+  assert.deepEqual(validateRecipe({ ...base, filmSim: 'sepia', monoFilter: null, monoWC: null }), []);
+  assert.ok(validateRecipe({ ...base, filmSim: 'provia', monoFilter: null, monoWC: 1 }).length);
+  assert.ok(validateRecipe({ ...base, wb: { mode: 'custom', kelvin: null } }).length, '旧 custom は不可');
+});
+test('store: version 1 のデータを移行（custom → custom1、monoWC 追加）', () => {
+  const r = { id: 'a', name: 'a', filmSim: 'acros', monoFilter: 'r', dr: 'auto', grain: 'off', colorChrome: 'off', wb: { mode: 'custom', kelvin: null }, wbShift: { r: 0, b: 0 },
+    highlight: 0, shadow: 0, color: 0, sharpness: 0, nr: 0, isoNote: '', exposureNote: '', tags: [], source: 'manual', sourceRef: null, notes: '' };
+  const v1 = { version: 1, recipes: [r, { ...r, id: 'b', filmSim: 'velvia', monoFilter: null }], slots: {}, pins: [], academy: { completed: [] }, settings: {} };
+  const res = validateDb(v1);
+  assert.ok(res.ok, res.errors?.join());
+  assert.equal(res.db.version, VERSION);
+  assert.equal(res.db.recipes[0].wb.mode, 'custom1'); assert.equal(res.db.recipes[0].monoWC, 0); assert.equal(res.db.recipes[1].monoWC, null);
+  assert.equal(v1.recipes[0].wb.mode, 'custom', '元のオブジェクトは変更しない');
 });
 console.log(`\n${count} 件のテストに合格`);
