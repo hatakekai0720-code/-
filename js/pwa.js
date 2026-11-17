@@ -40,7 +40,7 @@ export function initPwa() {
 /** 設定画面用: オフライン用キャッシュの状態 */
 export async function offlineStatus() {
   if (!('serviceWorker' in navigator) || !('caches' in window)) return { supported: false };
-  const keys = (await caches.keys()).filter((k) => k.startsWith('xt3cine-'));
+  const keys = (await caches.keys()).filter((k) => k.startsWith('xt3cine-') && k !== 'xt3cine-streets');
   const reg = registration || await navigator.serviceWorker.getRegistration();
   return { supported: true, ready: !!navigator.serviceWorker.controller && keys.length > 0, cache: keys.sort().at(-1) || null, waiting: !!reg?.waiting };
 }
