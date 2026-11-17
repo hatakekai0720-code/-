@@ -19,21 +19,27 @@ const API = 'https://commons.wikimedia.org/w/api.php';
 // Wikimedia の User-Agent ポリシーに沿って用途を名乗る。連絡先（URL など）は環境変数 WIKIMEDIA_CONTACT があれば付ける
 const UA = `XT3CinematicLab-PhotoFetcher/1.1 (offline PWA; bundles freely licensed location photos${process.env.WIKIMEDIA_CONTACT ? `; ${process.env.WIKIMEDIA_CONTACT}` : ''})`;
 const THUMB_WIDTH = 1280; // Commons の標準サムネイル幅（標準外の幅は生成を断られることがある）
+// 元画像がこれより小さいと API は元画像の URL（thumbnail_unscaled）を返すが、元画像の直接取得は 429 で断られやすい。
+// そのときは元画像の幅より小さい標準幅のサムネイルを使う
+const STANDARD_WIDTHS = [1280, 960, 500, 330, 250];
+/** 元画像の幅 → 取得するサムネイルの幅（元画像より小さい標準幅。無ければ null = 元画像） */
+export const thumbWidthFor = (origWidth) => STANDARD_WIDTHS.find((w) => w < origWidth) ?? null;
+const isScaled = (url) => /\/thumb\//.test(String(url));
 const PACE_MS = 1500;     // 画像 1 枚ごとの間隔
 // 1 回の実行で画像の取得に使う時間の上限（分）。超えたら残りは次回に回し、取得できた分だけ書き出す（ジョブの時間切れで何も残らないのを防ぐ）
 const BUDGET_MS = (Number(process.env.PHOTO_TIME_BUDGET_MIN) || 20) * 60000;
 const STARTED = Date.now();
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-/** 429 / 503 は Retry-After（上限 60 秒。無ければ 5→10→20→40 秒）待って最大 5 回まで試す */
-export async function fetchRetry(url, init = {}, { tries = 5, wait = sleep } = {}) {
+/** 429 / 503 は Retry-After（上限 30 秒。無ければ 5→10 秒）待って最大 3 回まで試す */
+export async function fetchRetry(url, init = {}, { tries = 3, wait = sleep } = {}) {
   let last;
   for (let i = 0; i < tries; i++) {
     const res = await fetch(url, { ...init, headers: { 'user-agent': UA, ...(init.headers || {}) } });
     if (res.status !== 429 && res.status !== 503) return res;
     last = res;
     const ra = Number(res.headers.get('retry-after'));
-    const ms = Number.isFinite(ra) && ra > 0 ? Math.min(ra, 60) * 1000 : Math.min(5000 * 2 ** i, 60000);
+    const ms = Number.isFinite(ra) && ra > 0 ? Math.min(ra, 30) * 1000 : Math.min(5000 * 2 ** i, 30000);
     console.log(`  ${res.status} のため ${Math.round(ms / 1000)} 秒待って再試行（${i + 1}/${tries - 1}）: ${String(url).slice(0, 100)}`);
     if (i < tries - 1) await wait(ms);
   }
@@ -73,12 +79,12 @@ export function fileTitle(sourceUrl) {
   return m ? decodeURIComponent(m[1]).replace(/_/g, ' ') : null;
 }
 
-async function api(titles) {
+async function api(titles, width = THUMB_WIDTH) {
   const out = new Map();
   let cont = {};
   for (let guard = 0; guard < 20; guard++) { // カテゴリーが多いと続きのページに分かれる
     const q = new URLSearchParams({ action: 'query', format: 'json', formatversion: '2', prop: 'imageinfo|categories', titles: titles.join('|'),
-      iiprop: 'url|size|mime|extmetadata', iiurlwidth: String(THUMB_WIDTH), iiextmetadatafilter: 'Artist|LicenseShortName|License|LicenseUrl',
+      iiprop: 'url|size|mime|extmetadata', iiurlwidth: String(width), iiextmetadatafilter: 'Artist|LicenseShortName|License|LicenseUrl',
       cllimit: 'max', ...cont });
     const res = await fetchRetry(`${API}?${q}`);
     if (!res.ok) throw new Error(`Commons API: HTTP ${res.status}`);
@@ -146,9 +152,14 @@ async function main() {
     else if (streak >= 3) { failed.push(`${l.id}: 連続で失敗したため今回は取得しません`); continue; }
     else if (Date.now() - STARTED > BUDGET_MS) { failed.push(`${l.id}: 時間の上限に達したため次回に回します`); continue; }
     else {
+      let url = m.thumb;
       try {
-        const res = await fetchRetry(m.thumb);
-        if (!res.ok) throw new Error(`HTTP ${res.status}（${m.thumb}）${(await res.text().catch(() => '')).replace(/\s+/g, ' ').slice(0, 200)}`);
+        if (!isScaled(url) && thumbWidthFor(m.width)) { // 元画像の URL になっていたら、小さい標準幅のサムネイルを取り直す
+          const ii = (await api([m.title], thumbWidthFor(m.width))).get(m.title)?.imageinfo?.[0];
+          if (ii?.thumburl) url = ii.thumburl;
+        }
+        const res = await fetchRetry(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}（${url}）${(await res.text().catch(() => '')).replace(/\s+/g, ' ').slice(0, 200)}`);
         const src = Buffer.from(await res.arrayBuffer());
         buf = await sharp(src).rotate().resize({ width: LONG_SIDE, height: LONG_SIDE, fit: 'inside', withoutEnlargement: true })
           .webp({ quality: QUALITY }).toBuffer();

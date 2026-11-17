@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { parseIndex, planDownloads, creditOf, ALLOWED_LICENSE, PHOTOS_DIR } from '../js/photos.js';
-import { normalizeLicense, licenseFromCategories, licenseUrlOf, fileTitle, plain } from '../scripts/fetch-photos.mjs';
+import { normalizeLicense, licenseFromCategories, licenseUrlOf, fileTitle, plain, thumbWidthFor } from '../scripts/fetch-photos.mjs';
 
 let count = 0;
 const test = (name, fn) => { fn(); count++; console.log('ok  ', name); };
@@ -24,6 +24,12 @@ test('ライセンスの判定: CC0 / パブリックドメイン / CC BY / CC B
   assert.equal(licenseFromCategories([{ title: 'Category:GFDL' }]), null);
   assert.equal(licenseUrlOf('CC BY-SA 3.0'), 'https://creativecommons.org/licenses/by-sa/3.0/');
   assert.equal(licenseUrlOf('Public domain'), null);
+});
+test('サムネイルの幅: 元画像より小さい標準幅（元画像の直接取得は断られやすいため）', () => {
+  assert.equal(thumbWidthFor(4000), 1280);
+  assert.equal(thumbWidthFor(1280), 960);
+  assert.equal(thumbWidthFor(640), 500);
+  assert.equal(thumbWidthFor(200), null);
 });
 test('Commons のファイルページ URL → タイトル、HTML のクレジット → 文字列', () => {
   assert.equal(fileTitle('https://commons.wikimedia.org/wiki/File:Caf%C3%A9_des_2_Moulins_June_2010.jpg'), 'File:Café des 2 Moulins June 2010.jpg');
