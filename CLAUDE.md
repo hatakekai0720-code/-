@@ -8,8 +8,10 @@
 
 ## 絶対に守るルール
 1. **ビルド不要**：Vanilla JS（ES Modules）＋素の CSS。npm ビルド・バンドラー・Tailwind・フレームワークは入れない。
-2. **完全オフライン**：CDN・Web フォント・地図タイル・外部 API など外部ドメインへの通信は禁止。ライブラリは `vendor/`、データは `data/` に同梱する（街路地図 `data/streets/` も同じオリジンから配信し、Cache Storage に保存して使う）。
-3. **画像は保存しない**：解析画像はメモリ上（Canvas）だけで扱う。localStorage / IndexedDB / Cache に画像を書かない。
+2. **完全オフライン**：CDN・Web フォント・地図タイル・外部 API など外部ドメインへの通信は禁止。ライブラリは `vendor/`、データは `data/` に同梱する（街路地図 `data/streets/` とロケ地写真 `data/photos/` も同じオリジンから配信し、Cache Storage に保存して使う）。
+   - 外部 URL を書いてよいのは `data/locations.json` の `sources`（出典）・`links`（映画.com／予告編／Wikipedia）・`photo`（写真のクレジット）だけ。アプリはこれらに通信せず、ユーザーがタップしたときに外部ブラウザで開くだけ（`target="_blank" rel="noopener noreferrer"`）。
+3. **ユーザーの画像は保存しない**：ユーザーがアップロード・選択した画像（解析画像など）はメモリ上（Canvas）だけで扱い、localStorage / IndexedDB / Cache に書かない。保存してよいのは解析結果の数値（レシピ・代表色など）だけ。
+   - アプリに同梱する自由ライセンスのロケ地写真（`data/photos/`、Wikimedia Commons の CC0 / パブリックドメイン / CC BY / CC BY-SA）はこのルールの対象外。表示するときは必ず撮影者・ライセンス・Wikimedia Commons のクレジットを添える。
 4. **保存は localStorage のみ**：キーは `xt3cine:` 接頭辞（本体は `xt3cine:db`）。スキーマを変えるときは `js/store.js` に移行処理を書き、バージョンを上げる。エクスポート/インポートとの互換性を保つ。
 5. **X-T3 の実機仕様だけ**：パラメータは `js/xt3.js` が唯一の真実。X-T3 に無い機能（カラークローム・ブルー、クラリティ、トーン0.5刻み、グレインサイズ、Classic Neg、Nostalgic Neg など）は追加しない。実機仕様に自信が無い項目は実装前に確認を求める。
 6. **相対パスのみ**（GitHub Pages のサブパス `/-/` で動かすため）。
