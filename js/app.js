@@ -10,6 +10,7 @@ import * as recipeEdit from './views/recipe-edit.js';
 import * as qmenu from './views/qmenu.js';
 import * as map from './views/map.js';
 import * as academy from './views/academy.js';
+import * as lesson from './views/lesson.js';
 import * as slots from './views/slots.js';
 import * as settings from './views/settings.js';
 
@@ -20,9 +21,10 @@ const ROUTES = [
   { re: /^\/recipes\/([^/]+)\/edit$/, view: recipeEdit, tab: 'recipes', title: 'レシピを編集', back: '#/recipes' },
   { re: /^\/recipes\/([^/]+)$/, view: recipeDetail, tab: 'recipes', title: 'レシピ詳細', back: '#/recipes' },
   { re: /^\/compare$/, view: compare, tab: 'recipes', title: 'ビフォーアフター比較', back: '#/recipes' },
-  { re: /^\/qmenu\/([^/]+)$/, view: qmenu, tab: 'recipes', title: 'Qメニュー', fullscreen: true },
+  { re: /^\/qmenu\/([^/]+)$/, view: qmenu, tab: null, title: 'Qメニュー', fullscreen: true },
   { re: /^\/map$/, view: map, tab: 'map', title: 'ロケ地マップ' },
   { re: /^\/academy$/, view: academy, tab: 'academy', title: '撮影講座' },
+  { re: /^\/academy\/(\d{1,2})$/, view: lesson, tab: 'academy', title: '撮影講座', back: '#/academy' },
   { re: /^\/slots$/, view: slots, tab: 'slots', title: 'C1〜C7 スロット' },
   { re: /^\/settings$/, view: settings, tab: null, title: '設定', back: '#/analyze' },
 ];

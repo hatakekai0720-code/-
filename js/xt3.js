@@ -88,6 +88,17 @@ export function defaultRecipe() {
   };
 }
 
+/** 一部の項目だけ書かれたレシピ（ロケ地・講座のデータ）を既定値で補ったレシピにする */
+export function fromPartial(partial) {
+  const base = defaultRecipe();
+  const r = { ...base, ...partial, wb: { ...base.wb, ...partial.wb }, wbShift: { ...base.wbShift, ...partial.wbShift }, tags: [...(partial.tags || [])] };
+  const mono = isMono(r.filmSim);
+  r.monoFilter = mono ? (r.monoFilter || 'none') : null;
+  r.monoWC = mono ? (r.monoWC ?? 0) : null;
+  if (r.wb.mode !== 'kelvin') r.wb.kelvin = null;
+  return r;
+}
+
 const isInt = (v, { min, max }) => Number.isInteger(v) && v >= min && v <= max;
 const isStr = (v, max) => typeof v === 'string' && v.length <= max;
 

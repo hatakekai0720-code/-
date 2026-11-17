@@ -146,6 +146,15 @@ export function deletePin(id) {
 /** ロケ地などから取り込んだレシピ（source と sourceRef が一致するもの） */
 export const findBySource = (source, ref) => db.recipes.find((r) => r.source === source && r.sourceRef === ref) || null;
 
+/* ---- academy ---- */
+export const completedLessons = () => db.academy.completed;
+export function setLessonDone(no, done) {
+  const set = new Set(db.academy.completed);
+  if (done) set.add(no); else set.delete(no);
+  db.academy.completed = [...set].sort((a, b) => a - b);
+  save();
+}
+
 /* ---- settings ---- */
 export const getSetting = (k) => db.settings[k];
 export function setSetting(k, v) {

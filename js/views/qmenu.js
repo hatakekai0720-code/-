@@ -3,6 +3,7 @@
 import { h, toast } from '../ui/dom.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
+import { loadLessons, lessonRecipe } from '../lessons.js';
 
 const fx = (v) => ({ off: 'OFF', weak: '弱', strong: '強' }[v]);
 
@@ -53,7 +54,23 @@ export function getOrder() {
 }
 
 export function render(root, { id }) {
-  const r = store.getRecipe(id);
+  const stored = store.getRecipe(id);
+  if (stored) return draw(root, stored);
+  // 講座の練習用レシピ: レシピ帳に保存しなくても開ける
+  const m = /^lesson-(\d{1,2})$/.exec(id);
+  if (m) {
+    let cleanup = null, alive = true;
+    loadLessons().then((data) => {
+      if (!alive) return;
+      const r = lessonRecipe(data.lessons.find((l) => l.no === Number(m[1])));
+      if (r) cleanup = draw(root, { ...r, id }, true); else draw(root, null);
+    }).catch(() => alive && draw(root, null));
+    return () => { alive = false; cleanup?.(); };
+  }
+  return draw(root, null);
+}
+
+function draw(root, r, transient = false) {
   if (!r) {
     root.append(h('div', { class: 'qmenu' }, h('div', { class: 'empty' }, 'レシピが見つかりません。', h('div', { style: 'margin-top:12px' }, h('a', { class: 'btn', href: '#/recipes' }, 'レシピ一覧へ')))));
     return;
@@ -107,7 +124,18 @@ export function render(root, { id }) {
   document.addEventListener('visibilitychange', onVis);
   acquire();
 
-  const close = () => (history.length > 1 ? history.back() : (location.hash = `#/recipes/${encodeURIComponent(r.id)}`));
+  const close = () => (history.length > 1 ? history.back() : (location.hash = transient ? `#/academy/${r.sourceRef}` : `#/recipes/${encodeURIComponent(r.id)}`));
+  const saveBtn = () => {
+    const existing = store.findBySource('lesson', r.sourceRef);
+    if (existing) return h('a', { class: 'btn block', style: 'margin-top:12px', href: `#/recipes/${encodeURIComponent(existing.id)}` }, 'レシピ帳に保存済み — 開く');
+    return h('button', { type: 'button', class: 'btn primary block', style: 'margin-top:12px', onclick: (e) => {
+      const { id: _drop, ...data } = r;
+      const res = store.saveRecipe(data);
+      if (res.errors) return toast(res.errors[0], 4000);
+      toast('レシピ帳に保存しました');
+      e.currentTarget.replaceWith(saveBtn());
+    } }, 'このレシピをレシピ帳に保存');
+  };
   const warn = X.drWarning(r);
 
   root.append(h('div', { class: 'qmenu' },
@@ -125,6 +153,7 @@ export function render(root, { id }) {
         X.isMono(r.filmSim) ? [h('div', { class: 'k', style: 'margin-top:6px' }, 'MONO WC'), h('div', { class: 'num' }, X.wcLabel(r.monoWC))] : null)),
     warn?.level === 'warn' ? h('div', { class: 'notice', style: 'margin-top:10px' }, warn.text) : null,
     r.notes ? h('div', { class: 'q-notes' }, r.notes) : null,
+    transient ? saveBtn() : null,
     h('p', { class: 'small muted', style: 'margin-top:12px' }, '※ マスの並びはこのアプリ独自のものです。')));
   draw();
 
