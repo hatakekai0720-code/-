@@ -10,8 +10,8 @@ export const STREETS_CACHE = 'xt3cine-streets';
 export const STREETS_DIR = 'data/streets/';
 export const INDEX_URL = `${STREETS_DIR}index.json`;
 export const STREET_MIN_ZOOM = 10;   // このズーム以上で街路レイヤーを表示
-export const STREET_MAX_ZOOM = 16;   // 街路データのある範囲だけ、ここまでズームできる
-export const STREET_DATA_ZOOM = 15;  // PMTiles の maxzoom（16 はこれを拡大表示）
+export const STREET_MAX_ZOOM = 18;   // 街路データのある範囲だけ、ここまでズームできる
+export const STREET_DATA_ZOOM = 15;  // PMTiles の maxzoom（16〜18 はこれを拡大表示）
 const SHA_HEADER = 'x-xt3cine-sha256';
 
 /* ---- 純粋関数 ---- */

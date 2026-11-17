@@ -11,8 +11,8 @@ const test = (name, fn) => queue.push([name, fn]);
 const sha = (c) => c.repeat(64);
 const file = (id, over = {}) => ({ id, file: `${id}.pmtiles`, bytes: 1000, sha256: sha('a'), bbox: [139.66, 35.66, 139.72, 35.71], ...over });
 
-test('定数: ズーム 10 以上で表示、16 まで拡大、データは 15 まで', () => {
-  assert.deepEqual([STREET_MIN_ZOOM, STREET_MAX_ZOOM, STREET_DATA_ZOOM], [10, 16, 15]);
+test('定数: ズーム 10 以上で表示、18 まで拡大、データは 15 まで', () => {
+  assert.deepEqual([STREET_MIN_ZOOM, STREET_MAX_ZOOM, STREET_DATA_ZOOM], [10, 18, 15]);
   assert.equal(INDEX_URL, 'data/streets/index.json'); assert.ok(!STREETS_DIR.startsWith('/'), '相対パス');
 });
 test('parseIndex: 不正な項目（パス・ハッシュ・範囲）は捨てる', () => {

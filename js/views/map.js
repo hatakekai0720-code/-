@@ -1,6 +1,6 @@
 // ④ 映画ロケ地ワールドマップ。Leaflet をタイル無しで使い、同梱の Natural Earth データだけを描く（外部通信なし）。
 // ズームで描くものを切り替える: 〜4.5 国境 50m / 4〜 県・州の境界線 / 5〜 国境・海岸線 10m / 6〜 主要都市名
-// ロケ地の周辺（街路データをダウンロード済みの範囲）だけは、ズーム 10 以上で OpenStreetMap の街路を重ね、16 まで拡大できる
+// ロケ地の周辺（街路データをダウンロード済みの範囲）だけは、ズーム 10 以上で OpenStreetMap の街路を重ね、18 まで拡大できる（データはズーム 15 まで。それ以上は拡大表示）
 import { h, toast, sheet, confirmSheet, select } from '../ui/dom.js';
 import { paramSummary } from '../ui/recipe-ui.js';
 import { themeColors } from '../ui/theme.js';
@@ -69,11 +69,21 @@ export function render(root) {
   const listEl = h('div', { class: 'stack', style: 'gap:6px' });
   const locBtn = h('button', { type: 'button', class: 'btn', onclick: locate }, '現在地');
   const filter = { kind: 'all' };
+  // ダウンロード中は地図の右上に小さく進捗（n/N）を出す
+  const dlBadge = h('div', { class: 'map-progress num', 'aria-live': 'polite', hidden: true });
+  const drawBadge = () => {
+    const st = streets.getStatus();
+    const on = st.state === 'running' && st.total > 0;
+    dlBadge.hidden = !on;
+    if (on) dlBadge.textContent = `街路 ${st.done}/${st.total}`;
+  };
+  streets.events.addEventListener('status', drawBadge);
+  drawBadge();
   const geo = { region: 'all', country: 'all' }; // ロケ地の地域・国の絞り込み（メモリのみ）
   const facetEl = h('div', { class: 'stack facets', style: 'gap:8px;margin:12px 0 4px' });
 
   root.append(
-    h('div', { class: 'map-wrap' }, mapEl, h('div', { class: 'map-loading muted small' }, '地図を読み込み中…')),
+    h('div', { class: 'map-wrap' }, mapEl, h('div', { class: 'map-loading muted small' }, '地図を読み込み中…'), dlBadge),
     h('div', { class: 'row', style: 'margin:8px 0' }, locBtn, h('div', { class: 'grow small muted' }, '長押し（PC は右クリック）でピンを追加')),
     status,
     facetEl,
@@ -317,7 +327,7 @@ export function render(root) {
     const z = map.getZoom(), b = map.getBounds(), c = map.getCenter();
     const off = c.lng - c.wrap().lng; // worldCopyJump で横にずれた分
     const area = streets.areasInView(streetAreas, [b.getWest() - off, b.getSouth(), b.getEast() - off, b.getNorth()])[0];
-    // 街路データのある範囲だけ最大ズームを 16 に。範囲から外れたら通常の 8 に戻す
+    // 街路データのある範囲だけ最大ズームを 18 に。範囲から外れたら通常の 8 に戻す
     map.setMaxZoom(area ? streets.STREET_MAX_ZOOM : MAX_ZOOM);
     // ズーム 9 以上では、その範囲の外へ動かせないようにする（外へ行くにはズームアウト）
     const key = area && z > MAX_ZOOM ? area.id : 'world';
@@ -482,5 +492,5 @@ export function render(root) {
   init();
   const mo = new MutationObserver(style);
   mo.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-  return () => { alive = false; mo.disconnect(); streets.events.removeEventListener('file', onStreetFile); map?.remove(); };
+  return () => { alive = false; mo.disconnect(); streets.events.removeEventListener('file', onStreetFile); streets.events.removeEventListener('status', drawBadge); map?.remove(); };
 }

@@ -336,3 +336,8 @@ body.fullscreen .update-banner { bottom: calc(env(safe-area-inset-bottom) + 8px)
 .chip-count { margin-left: 6px; color: var(--muted); }
 .chip.on .chip-count { color: var(--accent); }
 .sources a { color: var(--muted); text-decoration: underline; }
+
+/* 地図右上のダウンロード進捗（街路・写真） */
+.map-progress { position: absolute; top: 10px; right: 10px; z-index: 500; pointer-events: none; font-size: 11px; line-height: 1;
+  padding: 5px 8px; border-radius: 10px; background: var(--card); color: var(--muted); border: 1px solid var(--line); opacity: .92; }
+.map-progress[hidden] { display: none; }
