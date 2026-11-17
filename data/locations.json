@@ -3382,401 +3382,682 @@
       "id": "thelma-louise-dead-horse-point",
       "title": "テルマ＆ルイーズ", "titleEn": "Thelma & Louise", "year": 1991, "director": "リドリー・スコット",
       "place": "デッド・ホース・ポイント州立公園", "city": "モアブ", "country": "アメリカ", "region": "north-america",
-      "lat": 38.4706, "lng": -109.7406, "confidence": "high", "streets": false,
+      "lat": 38.4706, "lng": -109.7406, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "追い詰められたふたりが車で峡谷の縁へ向かう最後の場面。劇中ではグランドキャニオンの設定。",
       "look": "赤茶の峡谷と青空、強い日差し。乾いた高コントラスト。",
       "sources": [
         "https://film.utah.gov/thelma-louise-30",
-        "https://www.movie-locations.com/movies/t/Thelma-And-Louise.php"
+        "https://www.movie-locations.com/movies/t/Thelma-And-Louise.php",
+        "https://eiga.com/movie/20323/",
+        "https://movie.jorudan.co.jp/film/06106/",
+        "https://www.boxofficemojo.com/title/tt0103074/credits/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": 0, "shadow": 2, "color": 1, "sharpness": 1, "nr": -3,
-        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["峡谷", "車", "風景"] }
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["峡谷", "車", "風景"] },
+      "cinematographer": null, "genre": "ロードムービー",
+      "cast": [{ "name": "ジーナ・デイビス", "role": "テルマ" }, { "name": "スーザン・サランドン", "role": "ルイーズ" }, { "name": "ハーヴェイ・カイテル", "role": "ハル警部" }],
+      "production": null, "distributor": { "original": "MGM", "japan": null },
+      "synopsis": "週末の小旅行に出たテルマとルイーズ。立ち寄った酒場で起きた事件をきっかけに、思いがけない逃避行が始まる。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [22, 31], "palette": ["#b8322a", "#7a5a3a", "#2f5d8a", "#d8c49a", "#13365c"],
+      "links": { "eigacom": "https://eiga.com/movie/20323/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "zabriskie-point-death-valley",
       "title": "砂丘", "titleEn": "Zabriskie Point", "year": 1970, "director": "ミケランジェロ・アントニオーニ",
       "place": "ザブリスキー・ポイント", "city": "デスバレー", "country": "アメリカ", "region": "north-america",
-      "lat": 36.4202, "lng": -116.8124, "confidence": "high", "streets": false,
+      "lat": 36.4202, "lng": -116.8124, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "若い男女が砂漠の丘陵で出会い、荒野の中でふたりの時間を過ごす。",
       "look": "黄土色の起伏と白い空。乾いた淡い色。",
       "sources": [
         "https://www.movie-locations.com/movies/z/Zabriskie-Point.php",
-        "https://www.atlasobscura.com/places/zabriskie-point"
+        "https://www.atlasobscura.com/places/zabriskie-point",
+        "https://www.allcinema.net/cinema/8544",
+        "https://movie.jorudan.co.jp/film/12135/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": 3, "b": -3 },
         "highlight": -1, "shadow": 2, "color": -1, "sharpness": 1, "nr": -3,
-        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["砂漠", "風景", "人物"] }
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["砂漠", "風景", "人物"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "マーク・フレチェット", "role": "マーク" }, { "name": "ダリア・ハルプリン", "role": "ダリア" }, { "name": "ロッド・テイラー", "role": "アレン" }],
+      "production": null, "distributor": { "original": null, "japan": "MGM" },
+      "synopsis": "1960年代末のロサンゼルス。学生運動の渦中にいた青年マークと、砂漠へ車を走らせる女性ダリアが出会う。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [31, 24], "palette": ["#e0c048", "#7a5a3a", "#d8c49a", "#ece8e0", "#13365c"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "nomadland-badlands",
       "title": "ノマドランド", "titleEn": "Nomadland", "year": 2020, "director": "クロエ・ジャオ",
       "place": "バッドランズ国立公園", "city": "サウスダコタ", "country": "アメリカ", "region": "north-america",
-      "lat": 43.7486, "lng": -101.9455, "confidence": "high", "streets": false,
+      "lat": 43.7486, "lng": -101.9455, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "車で暮らしながら季節労働を続けるファーンが、国立公園のキャンプ場で働き、荒野を歩く。",
       "look": "マジックアワーの淡い桃色と灰色の岩。静かで柔らかい色。",
       "sources": [
         "https://thecinemaholic.com/where-was-nomadland-filmed",
-        "https://brookingsregister.com/article/south-dakota-hits-big-screen-with-oscar-favorite-nomadland"
+        "https://brookingsregister.com/article/south-dakota-hits-big-screen-with-oscar-favorite-nomadland",
+        "https://movie.jorudan.co.jp/film/94465/",
+        "https://www.crank-in.net/movietitle/239828"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6800 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": -2, "shadow": 1, "color": -1, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["荒野", "マジックアワー", "ロードムービー"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["荒野", "マジックアワー", "ロードムービー"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "フランシス・マクドーマンド", "role": "ファーン" }, { "name": "デヴィッド・ストラザーン", "role": null }],
+      "production": null, "distributor": { "original": null, "japan": "ウォルト・ディズニー・ジャパン" },
+      "synopsis": "町が消えて家を失った60代のファーン。車で暮らしながら季節労働の現場を渡り歩き、各地のノマドたちと出会う。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "マジックアワー", "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前後の 30 分" },
+      "visitNotes": null,
+      "lessons": [13, 29, 31], "palette": ["#e8a0b0", "#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "close-encounters-devils-tower",
       "title": "未知との遭遇", "titleEn": "Close Encounters of the Third Kind", "year": 1977, "director": "スティーヴン・スピルバーグ",
       "place": "デビルスタワー（隣接する牧場で撮影）", "city": "ワイオミング", "country": "アメリカ", "region": "north-america",
-      "lat": 44.5902, "lng": -104.7146, "confidence": "high", "streets": false,
+      "lat": 44.5902, "lng": -104.7146, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "謎の光景に取りつかれた人々が、そびえ立つ岩山を目指して集まってくる。",
       "look": "岩山の灰と草原の緑、夕暮れの青。神秘的な光。",
       "sources": [
         "https://cowboystatedaily.com/2022/05/19/sen-ogden-driskill-recalls-filming-of-close-encounters-on-his-familys-ranch-at-devils-tower/",
-        "https://www.movie-locations.com/movies/c/Close-Encounters-Of-The-Third-Kind.php"
+        "https://www.movie-locations.com/movies/c/Close-Encounters-Of-The-Third-Kind.php",
+        "https://natalie.mu/eiga/film/138591",
+        "https://movie.jorudan.co.jp/film/08750/",
+        "https://eiga.com/movie/49880/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6800 }, "wbShift": { "r": 0, "b": 2 },
         "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["山", "夕方", "SF"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["山", "夕方", "SF"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "リチャード・ドレイファス", "role": "ロイ" }, { "name": "フランソワ・トリュフォー", "role": "ラコーム" }, { "name": "テリー・ガー", "role": "ロニー" }],
+      "production": null, "distributor": { "original": "コロンビア ピクチャーズ", "japan": "コロムビア映画" },
+      "synopsis": "謎の光を目撃したことから、頭に浮かぶ山の形に取りつかれていく電気技師ロイ。各地で不思議な現象が起きる。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "夕方", "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "日没前の 1 時間" },
+      "visitNotes": null,
+      "lessons": [13, 31], "palette": ["#8a8a88", "#5a8a4f", "#2f5d8a", "#2b3a42", "#6f7f7a"],
+      "links": { "eigacom": "https://eiga.com/movie/49880/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "north-by-northwest-mount-rushmore",
       "title": "北北西に進路を取れ", "titleEn": "North by Northwest", "year": 1959, "director": "アルフレッド・ヒッチコック",
       "place": "ラシュモア山（展望エリア）", "city": "キーストーン", "country": "アメリカ", "region": "north-america",
-      "lat": 43.877, "lng": -103.4549, "confidence": "high", "streets": false,
+      "lat": 43.877, "lng": -103.4549, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "人違いで追われる広告マンが、巨大な大統領の顔を望む展望所でスパイと会う。岩肌の追跡は撮影所のセット。",
       "look": "青空と花崗岩の白、50 年代カラーの鮮やかさ。",
       "sources": [
         "https://onlocationtours.com/locations/north-by-northwest/",
-        "https://www.tcm.com/articles/488930/famous-north-by-northwest-destinations"
+        "https://www.tcm.com/articles/488930/famous-north-by-northwest-destinations",
+        "https://www.allcinema.net/cinema/21445",
+        "https://movie.jorudan.co.jp/film/08220/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": 1, "shadow": 1, "color": 3, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["山", "記念碑", "日中"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["山", "記念碑", "日中"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ケーリー・グラント", "role": "ロジャー・ソーンヒル" }, { "name": "エヴァ・マリー・セイント", "role": "イヴ・ケンドール" }, { "name": "ジェームズ・メイスン", "role": "タウンゼントを名乗る男" }],
+      "production": null, "distributor": { "original": null, "japan": "MGM" },
+      "synopsis": "広告会社の社長ロジャー・ソーンヒルが人違いでスパイと思い込まれ、追われながらアメリカを横断する。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [31], "palette": ["#2f5d8a", "#ece8e0", "#13365c", "#2e7d4f", "#e0b23a"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "forrest-gump-chippewa-square",
       "title": "フォレスト・ガンプ／一期一会", "titleEn": "Forrest Gump", "year": 1994, "director": "ロバート・ゼメキス",
       "place": "チッペワ・スクエア（バス停のベンチ）", "city": "サバンナ", "country": "アメリカ", "region": "north-america",
-      "lat": 32.077, "lng": -81.0918, "confidence": "high", "streets": true,
+      "lat": 32.077, "lng": -81.0918, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "バス停のベンチに座ったフォレストが、隣に来た人々に自分の人生を語り始める。ベンチは撮影用で、今は博物館にある。",
       "look": "南部の木漏れ日と苔の緑、白い羽根。柔らかく温かい色。",
       "sources": [
         "https://www.smithsonianmag.com/travel/forrest-gumps-america-180951933/",
-        "https://movie-locations.com/movies/f/Forrest-Gump.php"
+        "https://movie-locations.com/movies/f/Forrest-Gump.php",
+        "https://eiga.com/movie/48663/",
+        "https://movie.jorudan.co.jp/film/10914/",
+        "https://www.allcinema.net/cinema/19931"
       ],
       "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 0, "b": -2 },
         "highlight": -1, "shadow": 0, "color": 0, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["公園", "日中", "人物"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["公園", "日中", "人物"] },
+      "cinematographer": "ドン・バージェス", "genre": null,
+      "cast": [{ "name": "トム・ハンクス", "role": "フォレスト" }, { "name": "ロビン・ライト", "role": "ジェニー" }, { "name": "ゲイリー・シニーズ", "role": "ダン小隊長" }],
+      "production": null, "distributor": { "original": "パラマウント・ピクチャーズ", "japan": "UIP" },
+      "synopsis": "アラバマ出身の純朴な男フォレスト。アメリカ現代史の出来事に次々と居合わせながら、幼なじみのジェニーを想い続ける。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [33], "palette": ["#7a5a3a", "#5a8a4f", "#ece8e0", "#2d3e3a", "#5f7d6b"],
+      "links": { "eigacom": "https://eiga.com/movie/48663/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "shining-st-mary-lake",
       "title": "シャイニング", "titleEn": "The Shining", "year": 1980, "director": "スタンリー・キューブリック",
       "place": "セント・メアリー湖（ゴーイング・トゥ・ザ・サン・ロード）", "city": "グレイシャー国立公園", "country": "アメリカ", "region": "north-america",
-      "lat": 48.674, "lng": -113.5865, "confidence": "high", "streets": false,
+      "lat": 48.674, "lng": -113.5865, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "冒頭、山の湖と小島を越えて、一台の車を空から追い続ける長い空撮。",
       "look": "湖の深い青緑と山の影。冷たく不穏な澄んだ色。",
       "sources": [
         "https://en.wikipedia.org/wiki/Saint_Mary_Lake",
-        "https://idyllopuspress.com/idyllopus/film/sh_stmarys.htm"
+        "https://idyllopuspress.com/idyllopus/film/sh_stmarys.htm",
+        "https://eiga.com/movie/14352/",
+        "https://movie.jorudan.co.jp/film/11262/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 7000 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": -1, "shadow": 2, "color": -2, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["湖", "山", "空撮"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["湖", "山", "空撮"] },
+      "cinematographer": "ジョン・オルコット", "genre": null,
+      "cast": [{ "name": "ジャック・ニコルソン", "role": "ジャック・トランス" }, { "name": "シェリー・デュヴァル", "role": "ウェンディ" }, { "name": "ダニー・ロイド", "role": "ダニー" }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース映画" },
+      "synopsis": "冬のあいだ閉鎖される山のホテルに、管理人として住み込んだ作家と家族。雪に閉ざされた館で、父の様子が少しずつ変わっていく。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [31, 24], "palette": ["#2a7f80", "#2f5d8a", "#5a8a4f", "#141414", "#2b3a42"],
+      "links": { "eigacom": "https://eiga.com/movie/14352/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "goonies-haystack-rock",
       "title": "グーニーズ", "titleEn": "The Goonies", "year": 1985, "director": "リチャード・ドナー",
       "place": "ヘイスタック・ロック（キャノンビーチ）", "city": "キャノンビーチ", "country": "アメリカ", "region": "north-america",
-      "lat": 45.8841, "lng": -123.9686, "confidence": "high", "streets": true,
+      "lat": 45.8841, "lng": -123.9686, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "子どもたちの冒険の舞台になる海辺。巨大な岩を背に浜辺を車が走り、近くに隠れ家のレストランが建てられた。",
       "look": "霧の灰色と濡れた砂、緑の岬。湿った北の海辺の色。",
       "sources": [
         "https://www.atlasofwonders.com/2022/07/where-was-the-goonies-filmed.html",
-        "https://www.locationshub.com/blog/2014/7/29/3-movies-you-might-not-know-were-filmed-at-cannon-beach"
+        "https://www.locationshub.com/blog/2014/7/29/3-movies-you-might-not-know-were-filmed-at-cannon-beach",
+        "https://eiga.com/movie/43934/",
+        "https://movie.jorudan.co.jp/film/02728/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": -1, "shadow": 1, "color": -1, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["海", "霧", "冒険"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["海", "霧", "冒険"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ショーン・アスティン", "role": "マイキー・ウォルシュ" }, { "name": "ジョシュ・ブローリン", "role": "ブランド" }, { "name": "コリー・フェルドマン", "role": "マウス" }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース映画" },
+      "synopsis": "立ち退きを迫られた港町の少年たちが、屋根裏で見つけた宝の地図を手に、伝説の海賊の財宝を探しに出かける。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": "霧",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [31, 24], "palette": ["#8a8a88", "#d8c49a", "#5a8a4f", "#2b3a42", "#6f7f7a"],
+      "links": { "eigacom": "https://eiga.com/movie/43934/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "cuckoos-nest-oregon-state-hospital",
       "title": "カッコーの巣の上で", "titleEn": "One Flew Over the Cuckoo's Nest", "year": 1975, "director": "ミロス・フォアマン",
       "place": "オレゴン州立病院", "city": "セーラム", "country": "アメリカ", "region": "north-america",
-      "lat": 44.9372, "lng": -123.0071, "confidence": "high", "streets": true,
+      "lat": 44.9372, "lng": -123.0071, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "刑務所から精神病院へ移された男が、管理された病棟に騒ぎを起こす。実際の病院で撮影された。",
       "look": "病棟の白と淡い緑、蛍光灯の平坦な光。冷たく閉じた色。",
       "sources": [
         "https://en.wikipedia.org/wiki/One_Flew_Over_the_Cuckoo%27s_Nest_(film)",
-        "https://oregonencyclopedia.org/articles/one-flew-over-the-cuckoos-nest-film/"
+        "https://oregonencyclopedia.org/articles/one-flew-over-the-cuckoos-nest-film/",
+        "https://eiga.com/movie/43356/",
+        "https://www.allcinema.net/cinema/4572"
       ],
       "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "fluorescent2", "kelvin": null}, "wbShift": { "r": 1, "b": -1 },
         "highlight": -1, "shadow": -1, "color": -2, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["室内", "病院", "70年代"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["室内", "病院", "70年代"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ジャック・ニコルソン", "role": "マクマーフィ" }, { "name": "ルイーズ・フレッチャー", "role": "ラチェッド婦長" }, { "name": "ウィル・サンプソン", "role": "チーフ・ブロムデン" }],
+      "production": null, "distributor": { "original": null, "japan": "ユナイテッド・アーティスツ" },
+      "synopsis": "刑務所の労働を逃れて精神病院に移ったマクマーフィ。厳格な婦長ラチェッドのもとで、患者たちに変化をもたらしていく。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [29], "palette": ["#ece8e0", "#5a8a4f", "#3a4246", "#7d8a86", "#c4b4a0"],
+      "links": { "eigacom": "https://eiga.com/movie/43356/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "stand-by-me-lake-britton-bridge",
       "title": "スタンド・バイ・ミー", "titleEn": "Stand by Me", "year": 1986, "director": "ロブ・ライナー",
       "place": "レイク・ブリットン橋", "city": "マッカーサー・バーニー滝州立公園", "country": "アメリカ", "region": "north-america",
-      "lat": 41.033, "lng": -121.6525, "confidence": "high", "streets": false,
+      "lat": 41.033, "lng": -121.6525, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "線路づたいに旅する少年たちが、高い鉄橋の上で迫る列車から必死に逃げる。",
       "look": "夏の乾いた緑と湖の青、日に焼けた色。懐かしく暖かい。",
       "sources": [
         "https://en.wikipedia.org/wiki/McArthur%E2%80%93Burney_Falls_Memorial_State_Park",
-        "https://www.ijpr.org/post/it-was-northern-california-railroad-trestle-makes-movie-history"
+        "https://www.ijpr.org/post/it-was-northern-california-railroad-trestle-makes-movie-history",
+        "https://eiga.com/movie/45887/",
+        "https://www.allcinema.net/cinema/11893",
+        "https://movie.jorudan.co.jp/film/04760/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 2, "b": -3 },
         "highlight": 0, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["夏", "橋", "青春"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["夏", "橋", "青春"] },
+      "cinematographer": "トーマス・デル・ルース", "genre": null,
+      "cast": [{ "name": "ウィル・ウィートン", "role": "ゴーディ" }, { "name": "リヴァー・フェニックス", "role": "クリス" }, { "name": "コリー・フェルドマン", "role": "テディ" }],
+      "production": null, "distributor": { "original": null, "japan": "コロムビア映画" },
+      "synopsis": "1959年のオレゴンの小さな町。12歳の少年4人が、行方不明の少年の遺体を見つけようと、線路沿いに旅に出る。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [15], "palette": ["#d8c49a", "#5a8a4f", "#2f5d8a", "#2b3a42", "#6f7f7a"],
+      "links": { "eigacom": "https://eiga.com/movie/45887/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "sleepless-in-seattle-houseboat",
       "title": "めぐり逢えたら", "titleEn": "Sleepless in Seattle", "year": 1993, "director": "ノーラ・エフロン",
       "place": "レイク・ユニオンのハウスボート", "city": "シアトル", "country": "アメリカ", "region": "north-america",
-      "lat": 47.6418, "lng": -122.3398, "confidence": "high", "streets": true,
+      "lat": 47.6418, "lng": -122.3398, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "妻を亡くした建築家と息子が暮らす湖上の家。窓の外に水面と街が広がる。",
       "look": "湖の灰青と木の家の暖色。雨の多い街のしっとりした色。",
       "sources": [
         "https://iamnotastalker.com/2010/04/02/the-sleepless-in-seattle-houseboat",
-        "https://movie-locations.com/movies/s/Sleepless-In-Seattle.php"
+        "https://movie-locations.com/movies/s/Sleepless-In-Seattle.php",
+        "https://movie.jorudan.co.jp/film/10349/",
+        "https://www.justwatch.com/jp/%E6%98%A0%E7%94%BB/sleepless-in-seattle"
       ],
       "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 1, "b": -1 },
         "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["湖", "住宅", "雨"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["湖", "住宅", "雨"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "メグ・ライアン", "role": "アニー・リード" }, { "name": "トム・ハンクス", "role": "サム・ボールドウィン" }, { "name": "ロス・マリンジャー", "role": "ジョナー・ボールドウィン" }],
+      "production": null, "distributor": { "original": null, "japan": "コロンビア トライスター映画" },
+      "synopsis": "妻を亡くしたシアトルの建築家サムの話をラジオで聞いた、ボルチモアの記者アニー。会ったこともない彼が気になり始める。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": "雨",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": null,
+      "lessons": [41, 19, 17], "palette": ["#8a8a88", "#2f5d8a", "#7a5a3a", "#3a4246", "#7d8a86"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "napoleon-dynamite-preston-high",
       "title": "ナポレオン・ダイナマイト", "titleEn": "Napoleon Dynamite", "year": 2004, "director": "ジャレッド・ヘス",
       "place": "プレストン高校", "city": "プレストン", "country": "アメリカ", "region": "north-america",
-      "lat": 42.095, "lng": -111.8737, "confidence": "high", "streets": true,
+      "lat": 42.095, "lng": -111.8737, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "風変わりな高校生ナポレオンが通う田舎町の高校。監督の母校でもある。",
       "look": "乾いた黄色、色あせたベージュとオレンジ。とぼけた温かい色。",
       "sources": [
         "https://movie-locations.com/movies/n/Napoleon-Dynamite.php",
-        "https://www.fox13now.com/entertainment/20-years-of-napoleon-dynamite-a-look-back-at-the-cult-classic-and-small-idaho-town-where-it-was-filmed"
+        "https://www.fox13now.com/entertainment/20-years-of-napoleon-dynamite-a-look-back-at-the-cult-classic-and-small-idaho-town-where-it-was-filmed",
+        "https://www.encyclopedia.com/arts/culture-magazines/napoleon-dynamite",
+        "https://allmovie.com/movie/napoleon-dynamite-am5921"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6200 }, "wbShift": { "r": 3, "b": -5 },
         "highlight": -1, "shadow": -1, "color": 0, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["学校", "田舎町", "日中"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["学校", "田舎町", "日中"] },
+      "cinematographer": null, "genre": "青春コメディ",
+      "cast": [{ "name": "ジョン・ヘダー", "role": "ナポレオン" }, { "name": "エフレン・ラミレス", "role": "ペドロ" }, { "name": "ジョン・グリーズ", "role": "リコ" }],
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "アイダホの田舎町で暮らす風変わりな高校生ナポレオン。転校生ペドロの生徒会長選挙を手伝うことになる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [22, 29], "palette": ["#d8c49a", "#e0c048", "#e07a3a", "#2b3a42", "#6f7f7a"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "oceans-eleven-bellagio-fountains",
       "title": "オーシャンズ11", "titleEn": "Ocean's Eleven", "year": 2001, "director": "スティーブン・ソダーバーグ",
       "place": "ベラージオの噴水", "city": "ラスベガス", "country": "アメリカ", "region": "north-america",
-      "lat": 36.1126, "lng": -115.1739, "confidence": "high", "streets": true,
+      "lat": 36.1126, "lng": -115.1739, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "大仕事を終えた仲間たちが、夜の噴水の前に並んで眺め、ひとりずつ去っていく。",
       "look": "噴水のライトアップの白と夜の金色。華やかで暖かい夜。",
       "sources": [
         "https://nevadafilm.com/scene-in-nevada-oceans-eleven/amp",
-        "https://thecinemaholic.com/oceans-eleven-filming-locations"
+        "https://thecinemaholic.com/oceans-eleven-filming-locations",
+        "https://movie.jorudan.co.jp/film/32778/",
+        "https://www.allcinema.net/cinema/234690"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4300 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -1, "shadow": 0, "color": 1, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "噴水", "街"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "噴水", "街"] },
+      "cinematographer": "ピーター・アンドリューズ", "genre": null,
+      "cast": [{ "name": "ジョージ・クルーニー", "role": "ダニー・オーシャン" }, { "name": "ブラッド・ピット", "role": "ラスティー" }, { "name": "ジュリア・ロバーツ", "role": "テス" }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース映画" },
+      "synopsis": "仮釈放されたダニー・オーシャンが11人の仲間を集め、ラスベガスのカジノの巨大金庫を一夜で狙う。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [42, 22], "palette": ["#ece8e0", "#c9a04a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "parasite-jahamun-stairs",
       "title": "パラサイト 半地下の家族", "titleEn": "Parasite", "year": 2019, "director": "ポン・ジュノ",
       "place": "紫霞門トンネル脇の階段", "city": "ソウル", "country": "韓国", "region": "asia",
-      "lat": 37.5915, "lng": 126.9665, "confidence": "high", "streets": true,
+      "lat": 37.5915, "lng": 126.9665, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "豪雨の夜、一家が高台の邸宅から自宅のある低地へ、長い階段を駆け下りる。",
       "look": "雨の夜の青緑と街灯の橙。濡れた黒の深いコントラスト。",
       "sources": [
         "https://amp.cnn.com/cnn/travel/article/parasite-movie-filming-locations-seoul",
-        "https://www.koreajoongangdaily.com/lifestyle/where-parasite-comes-to-life-a-visit-to-each-of-the-awardwinning-films-iconic-filming-locations/11212971"
+        "https://www.koreajoongangdaily.com/lifestyle/where-parasite-comes-to-life-a-visit-to-each-of-the-awardwinning-films-iconic-filming-locations/11212971",
+        "https://movie.jorudan.co.jp/film/92460/",
+        "https://movie.jorudan.co.jp/news/jrd_191021_05/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -1, "shadow": 2, "color": 2, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "雨", "階段"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "雨", "階段"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ソン・ガンホ", "role": "ギテク" }, { "name": "イ・ソンギュン", "role": "パク・ドンイク" }, { "name": "チョ・ヨジョン", "role": "ヨンギョ" }],
+      "production": null, "distributor": { "original": null, "japan": "ビターズ・エンド" },
+      "synopsis": "全員失業中のキム一家の長男が、高台の豪邸に住む裕福なパク家の家庭教師に。一家は少しずつパク家に入り込んでいく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": "雨",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "階段や坂の下から見上げる（ローアングル）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [42, 41, 22], "palette": ["#2a7f80", "#2f5d8a", "#5a8a4f", "#e07a3a", "#141414"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "in-the-mood-for-love-goldfinch",
       "title": "花様年華", "titleEn": "In the Mood for Love", "year": 2000, "director": "ウォン・カーウァイ",
       "place": "金雀餐廳（ゴールドフィンチ・レストラン、蘭芳道）", "city": "香港", "country": "香港", "region": "asia",
-      "lat": 22.2789, "lng": 114.1834, "confidence": "high", "streets": true,
+      "lat": 22.2789, "lng": 114.1834, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "隣人同士のふたりが向かい合って洋食をとる老舗の洋食店。何度も訪れる場所になる。",
       "look": "赤いブースと暗い木、琥珀の照明。深く濃い色。",
       "sources": [
         "https://www.tatlerasia.com/lifestyle/entertainment/hong-kong-wong-kar-wai-movie-location",
-        "https://www.scmp.com/article/976427/goldfinch-restaurant"
+        "https://www.scmp.com/article/976427/goldfinch-restaurant",
+        "https://eiga.com/movie/1470/",
+        "https://movie.jorudan.co.jp/film/32482/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 4, "b": -3 },
         "highlight": -1, "shadow": 1, "color": 2, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "レストラン", "夜"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "レストラン", "夜"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "トニー・レオン", "role": "チャウ" }, { "name": "マギー・チャン", "role": "チャン" }],
+      "production": null, "distributor": { "original": null, "japan": "松竹" },
+      "synopsis": "1962年の香港。同じ日に隣の部屋へ越してきた男女は、互いの配偶者の秘密に気づき、ひそやかに心を通わせていく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [42, 15], "palette": ["#b8322a", "#7a5a3a", "#c98a3a", "#1d2a30", "#3f5b5e"],
+      "links": { "eigacom": "https://eiga.com/movie/1470/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "infernal-affairs-north-point-rooftop",
       "title": "インファナル・アフェア", "titleEn": "Infernal Affairs", "year": 2002, "director": "アンドリュー・ラウ、アラン・マック",
       "place": "北角政府合署の屋上", "city": "香港", "country": "香港", "region": "asia",
-      "lat": 22.2918, "lng": 114.1983, "confidence": "high", "streets": true,
+      "lat": 22.2918, "lng": 114.1983, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "潜入捜査官と上司が密会し、最後にふたりの潜入者が対峙するビルの屋上。",
       "look": "曇り空の冷たい青、ビル群の灰色。クールで硬い色。",
       "sources": [
         "https://www.cathaypacific.com/cx/en_AU/inspiration/hong-kong/infernal-affairs-filmed-hong-kong.html",
-        "https://www.amexessentials.com/top-hong-kong-filming-locations/"
+        "https://www.amexessentials.com/top-hong-kong-filming-locations/",
+        "https://eiga.com/movie/1089/",
+        "https://movie.jorudan.co.jp/film/33213/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": -1, "shadow": 2, "color": -1, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["屋上", "街", "サスペンス"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["屋上", "街", "サスペンス"] },
+      "cinematographer": "アンドリュー・ラウ", "genre": null,
+      "cast": [{ "name": "アンディ・ラウ", "role": "ラウ" }, { "name": "トニー・レオン", "role": "ヤン" }, { "name": "アンソニー・ウォン", "role": "ウォン警視" }],
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "警察に潜入したマフィアの男と、マフィアに潜入した警察官。互いの存在に気づいた二人が、相手の正体を暴こうとする。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": "曇り",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": null,
+      "lessons": [24], "palette": ["#8a8a88", "#2f5d8a", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": "https://eiga.com/movie/1089/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "city-of-sadness-jiufen",
       "title": "悲情城市", "titleEn": "A City of Sadness", "year": 1989, "director": "ホウ・シャオシェン",
       "place": "九份", "city": "新北", "country": "台湾", "region": "asia",
-      "lat": 25.1093, "lng": 121.8446, "confidence": "high", "streets": true,
+      "lat": 25.1093, "lng": 121.8446, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "戦後の動乱期を生きる一家の物語。山の斜面に家が重なる旧鉱山町で撮影され、町が再び注目されるきっかけになった。",
       "look": "霧の山と瓦屋根、赤い提灯。湿ったしっとりした色。",
       "sources": [
         "https://www.chinadaily.com.cn/cndy/2016-02/27/content_23663511.htm",
-        "https://taiwan-scene.com/2024/02/05/the-taiwan-of-hou-hsiao-hsien-and-edward-yang/"
+        "https://taiwan-scene.com/2024/02/05/the-taiwan-of-hou-hsiao-hsien-and-edward-yang/",
+        "https://eiga.com/movie/25077/",
+        "https://movie.jorudan.co.jp/film/15692/",
+        "https://www.tfai.org.tw/zh/program/movieDetail/2c9580828362af940183cfb6b8df0088"
       ],
       "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["街", "霧", "山"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["街", "霧", "山"] },
+      "cinematographer": "陳懐恩", "genre": null,
+      "cast": [{ "name": "トニー・レオン", "role": "文清" }, { "name": "リー・ティエンルー", "role": null }, { "name": "チェン・ソンユン", "role": null }],
+      "production": null, "distributor": { "original": null, "japan": "フランス映画社" },
+      "synopsis": "1945年から49年の台湾。日本統治の終わりと新しい政府の到来という激動の時代を、林家の兄弟たちを通して描く。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": "霧",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [31], "palette": ["#b8322a", "#3a4246", "#7d8a86", "#c4b4a0", "#e2d9cc"],
+      "links": { "eigacom": "https://eiga.com/movie/25077/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "last-emperor-forbidden-city",
       "title": "ラストエンペラー", "titleEn": "The Last Emperor", "year": 1987, "director": "ベルナルド・ベルトルッチ",
       "place": "紫禁城（太和殿）", "city": "北京", "country": "中国", "region": "asia",
-      "lat": 39.9154, "lng": 116.3908, "confidence": "high", "streets": true,
+      "lat": 39.9154, "lng": 116.3908, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "幼い皇帝の即位から始まる物語。実際の宮殿の中で、許可を得て撮影が行われた。",
       "look": "朱の柱と黄色の瓦、金色の装飾。豊かで重厚な色。",
       "sources": [
         "https://britannica.com/topic/The%2DLast%2DEmperor%2Dfilm%2Dby%2DBertolucci",
-        "https://www.dga.org/craft/dgaq/issues/0801-spring-2008/shot-to-remember-the-last-emperor"
+        "https://www.dga.org/craft/dgaq/issues/0801-spring-2008/shot-to-remember-the-last-emperor",
+        "https://eiga.com/movie/31401/",
+        "https://movie.jorudan.co.jp/film/11831/",
+        "https://www.allcinema.net/cinema/24562"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": 1, "shadow": 1, "color": 2, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["宮殿", "歴史", "日中"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["宮殿", "歴史", "日中"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ジョン・ローン", "role": "溥儀" }, { "name": "ピーター・オトゥール", "role": "レジナルド・ジョンストン" }, { "name": "ジョアン・チェン", "role": "婉容" }],
+      "production": null, "distributor": { "original": null, "japan": "松竹富士" },
+      "synopsis": "幼くして清朝最後の皇帝となった溥儀。紫禁城での少年時代から、激動の中国を生きた生涯をたどる。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#b8322a", "#e0c048", "#c9a04a", "#13365c", "#2e7d4f"],
+      "links": { "eigacom": "https://eiga.com/movie/31401/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "crouching-tiger-anji-bamboo",
       "title": "グリーン・デスティニー", "titleEn": "Crouching Tiger, Hidden Dragon", "year": 2000, "director": "アン・リー",
       "place": "安吉の竹林（中国大竹海）", "city": "安吉", "country": "中国", "region": "asia",
-      "lat": 30.505, "lng": 119.59, "confidence": "high", "streets": false,
+      "lat": 30.505, "lng": 119.59, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "剣士と若い女剣客が、しなる竹の梢の上を飛び移りながら戦う。",
       "look": "竹の緑一色の世界。柔らかい拡散光で、緑の濃淡が美しい。",
       "sources": [
         "https://www.chinadaily.com.cn/travel/2016-09/21/content_26848513.htm",
-        "https://archive.shine.cn/feature/Heaven-in-the-hometown-of-bamboo/shdaily.shtml"
+        "https://archive.shine.cn/feature/Heaven-in-the-hometown-of-bamboo/shdaily.shtml",
+        "https://eiga.com/movie/1411/",
+        "https://movie.jorudan.co.jp/film/31978"
       ],
       "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": -1, "b": -1 },
         "highlight": -1, "shadow": 0, "color": 1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["竹林", "緑", "アクション"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["竹林", "緑", "アクション"] },
+      "cinematographer": "ピーター・パウ", "genre": null,
+      "cast": [{ "name": "チョウ・ユンファ", "role": "リー・ムーバイ" }, { "name": "ミシェル・ヨー", "role": "ユー・シューリン" }, { "name": "チャン・ツィイー", "role": "イェン" }],
+      "production": null, "distributor": { "original": null, "japan": "ソニー・ピクチャーズエンタテインメント" },
+      "synopsis": "引退を決めた剣の達人リー・ムーバイが名剣を託す。だが剣が盗まれ、名家の娘イェンをめぐる戦いが始まる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#5a8a4f", "#2d3e3a", "#5f7d6b", "#c7a27c", "#e6d5bd"],
+      "links": { "eigacom": "https://eiga.com/movie/1411/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "the-beach-maya-bay",
       "title": "ザ・ビーチ", "titleEn": "The Beach", "year": 2000, "director": "ダニー・ボイル",
       "place": "マヤ・ベイ（ピピ・レ島）", "city": "クラビ", "country": "タイ", "region": "asia",
-      "lat": 7.6779, "lng": 98.766, "confidence": "high", "streets": false,
+      "lat": 7.6779, "lng": 98.766, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "旅人たちが隠れ住む、断崖に囲まれた楽園の入り江。",
       "look": "エメラルドの海と白砂、緑の断崖。強い日差しで鮮烈。",
       "sources": [
         "https://www.movie-locations.com/movies/b/Beach.php",
-        "https://almostginger.com/the-beach-filming-locations-in-thailand/"
+        "https://almostginger.com/the-beach-filming-locations-in-thailand/",
+        "https://eiga.com/movie/44866/",
+        "https://movie.jorudan.co.jp/film/31859/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 1, "b": -1 },
         "highlight": 0, "shadow": 1, "color": 3, "sharpness": 0, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "島", "夏"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "島", "夏"] },
+      "cinematographer": "ダリウス・コンジ", "genre": null,
+      "cast": [{ "name": "レオナルド・ディカプリオ", "role": "リチャード" }, { "name": "ティルダ・スウィントン", "role": "サル" }, { "name": "ロバート・カーライル", "role": "ダフィ" }],
+      "production": null, "distributor": { "original": null, "japan": "20世紀フォックス映画" },
+      "synopsis": "タイを旅する若者リチャードが、秘密の楽園への地図を手に入れ、外界から隔絶された島の共同体にたどり着く。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [31], "palette": ["#ece8e0", "#d8c49a", "#5a8a4f", "#13365c", "#2e7d4f"],
+      "links": { "eigacom": "https://eiga.com/movie/44866/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "golden-gun-khao-phing-kan",
       "title": "007／黄金銃を持つ男", "titleEn": "The Man with the Golden Gun", "year": 1974, "director": "ガイ・ハミルトン",
       "place": "カオ・ピン・カン（ジェームズ・ボンド島）", "city": "パンガー", "country": "タイ", "region": "asia",
-      "lat": 8.2746, "lng": 98.5013, "confidence": "high", "streets": false,
+      "lat": 8.2746, "lng": 98.5013, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "殺し屋スカラマンガの隠れ家がある島。沖に立つ細い岩の柱が、秘密兵器の装置を隠す。",
       "look": "翡翠色の海と石灰岩の岩山。70 年代の鮮やかな色。",
       "sources": [
         "https://en.wikipedia.org/wiki/Khao_Phing_Kan",
-        "https://www.movie-locations.com/movies/m/Man-With-The-Golden-Gun.php"
+        "https://www.movie-locations.com/movies/m/Man-With-The-Golden-Gun.php",
+        "https://eiga.com/movie/46185/",
+        "https://thetv.jp/program/0000016869/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 1, "b": -1 },
         "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "島", "岩"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "島", "岩"] },
+      "cinematographer": "テッド・ムーア", "genre": null,
+      "cast": [{ "name": "ロジャー・ムーア", "role": "ジェームズ・ボンド" }, { "name": "クリストファー・リー", "role": "スカラマンガ" }, { "name": "ブリット・エクランド", "role": "メアリー" }],
+      "production": null, "distributor": { "original": null, "japan": "ユナイト" },
+      "synopsis": "一発100万ドルの殺し屋スカラマンガに狙われたボンド。太陽エネルギーの技術をめぐり、香港やタイで対決する。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [31], "palette": ["#8a8a88", "#13365c", "#2e7d4f", "#e0b23a", "#c8402e"],
+      "links": { "eigacom": "https://eiga.com/movie/46185/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "tomb-raider-ta-prohm",
       "title": "トゥームレイダー", "titleEn": "Lara Croft: Tomb Raider", "year": 2001, "director": "サイモン・ウェスト",
       "place": "タ・プローム", "city": "シェムリアップ", "country": "カンボジア", "region": "asia",
-      "lat": 13.435, "lng": 103.889, "confidence": "high", "streets": false,
+      "lat": 13.435, "lng": 103.889, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "ララが遺跡を探索する場面。巨大な樹の根が石の回廊をのみ込んだ寺院で撮影された。",
       "look": "苔の緑と灰色の石、木漏れ日。湿った熱帯の色。",
       "sources": [
         "https://en.wikipedia.org/wiki/Ta_Prohm",
-        "https://www.movie-locations.com/movies/l/Lara-Croft-Tomb-Raider.php"
+        "https://www.movie-locations.com/movies/l/Lara-Croft-Tomb-Raider.php",
+        "https://eiga.com/movie/1202/",
+        "https://movie.jorudan.co.jp/film/32543/"
       ],
       "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 0, "b": -2 },
         "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["遺跡", "森", "冒険"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["遺跡", "森", "冒険"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "アンジェリーナ・ジョリー", "role": "ララ" }, { "name": "ジョン・ヴォイト", "role": "ララの父" }, { "name": "ダニエル・クレイグ", "role": "アレックス" }],
+      "production": null, "distributor": { "original": null, "japan": "東宝東和" },
+      "synopsis": "トレジャー・ハンターのララ・クロフトが、亡き父の残した手がかりをもとに、時を操る秘宝を探す。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#5a8a4f", "#8a8a88", "#7a5a3a", "#2d3e3a", "#5f7d6b"],
+      "links": { "eigacom": "https://eiga.com/movie/1202/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "crazy-rich-asians-newton-food-centre",
       "title": "クレイジー・リッチ！", "titleEn": "Crazy Rich Asians", "year": 2018, "director": "ジョン・M・チュウ",
       "place": "ニュートン・フードセンター", "city": "シンガポール", "country": "シンガポール", "region": "asia",
-      "lat": 1.312, "lng": 103.8396, "confidence": "high", "streets": true,
+      "lat": 1.312, "lng": 103.8396, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "シンガポールに着いたレイチェルが、友人たちと屋台街で最初の食事を楽しむ。",
       "look": "屋台の電球と料理の湯気、夜の暖色。にぎやかで濃い色。",
       "sources": [
         "https://theculturetrip.com/asia/singapore/articles/7-singapore-locations-filmed-in-crazy-rich-asians",
-        "https://guide.michelin.com/en/article/features/crazy-rich-asians-movie-food-styling"
+        "https://guide.michelin.com/en/article/features/crazy-rich-asians-movie-food-styling",
+        "https://eiga.com/movie/88417/",
+        "https://movie.jorudan.co.jp/film/89876/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": -1, "shadow": 0, "color": 2, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "屋台", "食"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "屋台", "食"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "コンスタンス・ウー", "role": "レイチェル" }, { "name": "ヘンリー・ゴールディング", "role": "ニック" }, { "name": "オークワフィナ", "role": "ペク" }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース映画" },
+      "synopsis": "ニューヨークの大学教授レイチェルが、恋人ニックの故郷シンガポールへ。そこで彼が大富豪一族の御曹司だと知る。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [42, 22], "palette": ["#c98a3a", "#1d2a30", "#3f5b5e", "#8a9b8f", "#c8b28a"],
+      "links": { "eigacom": "https://eiga.com/movie/88417/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "slumdog-millionaire-cst",
       "title": "スラムドッグ＄ミリオネア", "titleEn": "Slumdog Millionaire", "year": 2008, "director": "ダニー・ボイル",
       "place": "チャトラパティ・シヴァージー・ターミナス駅", "city": "ムンバイ", "country": "インド", "region": "asia",
-      "lat": 18.9398, "lng": 72.8355, "confidence": "high", "streets": true,
+      "lat": 18.9398, "lng": 72.8355, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "エンドロールで、主人公たちと大勢の人々が駅のホームで踊る。",
       "look": "ホームの黄色い光と人々の色鮮やかな服。熱気のある暖色。",
       "sources": [
         "https://cinestaan.com/listicles/2015/nov/26/190/mumbai-hamari-jaan",
-        "https://dnaindia.com/entertainment/report-salaam-slum-children-of-mumbai-loveleen-1221102/amp"
+        "https://dnaindia.com/entertainment/report-salaam-slum-children-of-mumbai-loveleen-1221102/amp",
+        "https://eiga.com/movie/54163/",
+        "https://natalie.mu/eiga/film/150405"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["駅", "群衆", "ダンス"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["駅", "群衆", "ダンス"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "デーヴ・パテル", "role": "ジャマール" }, { "name": "アニル・カプール", "role": "プレーム" }, { "name": "フリーダ・ピント", "role": null }],
+      "production": null, "distributor": { "original": null, "japan": "ギャガ・コミュニケーションズ" },
+      "synopsis": "ムンバイのスラムで育った青年ジャマールがクイズ番組で勝ち進む。なぜ答えを知っていたのか、彼の半生が語られていく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": "列車や利用者の妨げにならないように。線路やホームの端には近づかないこと。",
+      "lessons": [22], "palette": ["#e0c048", "#13365c", "#2e7d4f", "#e0b23a", "#c8402e"],
+      "links": { "eigacom": "https://eiga.com/movie/54163/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "life-of-pi-botanical-garden",
       "title": "ライフ・オブ・パイ", "titleEn": "Life of Pi", "year": 2012, "director": "アン・リー",
       "place": "ポンディシェリ植物園（劇中の動物園）", "city": "ポンディシェリ", "country": "インド", "region": "asia",
-      "lat": 11.935, "lng": 79.8204, "confidence": "high", "streets": true,
+      "lat": 11.935, "lng": 79.8204, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "少年パイの父が営む動物園として使われた植物園。家族の穏やかな日々が描かれる。",
       "look": "熱帯植物の濃い緑と花の色。明るく豊かな色。",
       "sources": [
         "https://en.wikipedia.org/wiki/Life_of_Pi_(film)",
-        "https://emanuellevy.com/review/life-of-pi-lees-spectacle-locations"
+        "https://emanuellevy.com/review/life-of-pi-lees-spectacle-locations",
+        "https://thetv.jp/program/0000048441/",
+        "https://www.allcinema.net/cinema/344013"
       ],
       "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 0, "b": -2 },
         "highlight": -1, "shadow": 0, "color": 2, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["庭園", "緑", "家族"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["庭園", "緑", "家族"] },
+      "cinematographer": "クラウディオ・ミランダ", "genre": null,
+      "cast": [{ "name": "スラージ・シャルマ", "role": "パイ・パテル" }, { "name": "イルファン・カーン", "role": "パイ・パテル（成年期）" }, { "name": "タブー", "role": "ジータ・パテル" }],
+      "production": null, "distributor": { "original": null, "japan": "20世紀フォックス" },
+      "synopsis": "動物たちとともに移住の船に乗ったインドの少年パイ。嵐で船が沈み、一頭のトラと救命ボートで漂流することになる。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#2f4a32", "#5a8a4f", "#2d3e3a", "#5f7d6b", "#c7a27c"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "ghost-protocol-burj-khalifa",
