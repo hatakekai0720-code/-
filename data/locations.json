@@ -6,400 +6,673 @@
       "id": "lost-in-translation-park-hyatt",
       "title": "ロスト・イン・トランスレーション", "titleEn": "Lost in Translation", "year": 2003, "director": "ソフィア・コッポラ",
       "place": "パーク ハイアット 東京（新宿パークタワー）", "city": "東京", "country": "日本", "region": "asia",
-      "lat": 35.6856, "lng": 139.6906, "confidence": "high", "streets": true,
+      "lat": 35.6856, "lng": 139.6906, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "主人公 2 人が滞在する高層ホテル。客室の窓から見下ろす新宿の夜景と、バーの暖かい間接照明が、眠れない夜の孤独を描く。",
       "look": "夜景の青と室内のタングステンの琥珀。低めのコントラストで柔らかい。",
       "sources": [
         "https://www.focusfeatures.com/article/film-locations_japan_lost-in-translation",
-        "https://www.movie-locations.com/movies/l/Lost-In-Translation.php"
+        "https://www.movie-locations.com/movies/l/Lost-In-Translation.php",
+        "https://eiga.com/movie/1507/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 4000 }, "wbShift": { "r": 2, "b": -3 },
         "highlight": -1, "shadow": -1, "color": 0, "sharpness": -2, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "街", "室内"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "街", "室内"] },
+      "cinematographer": "ランス・アコード", "genre": null,
+      "cast": [{ "name": "ビル・マーレイ", "role": "ボブ・ハリス" }, { "name": "スカーレット・ヨハンソン", "role": "シャーロット" }, { "name": "ジョヴァンニ・リビシ", "role": "ジョン" }],
+      "production": null, "distributor": { "original": null, "japan": "東北新社" },
+      "synopsis": "東京のホテルで眠れない夜を過ごす落ち目の米国人俳優と、夫に置き去りにされた若い女性。言葉の通じない街で、二人は短い友情を育んでいく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [42, 17], "palette": ["#2f5d8a", "#c98a3a", "#2b3a42", "#6f7f7a", "#b9a77f"],
+      "links": { "eigacom": "https://eiga.com/movie/1507/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "chungking-express-escalator",
       "title": "恋する惑星", "titleEn": "Chungking Express", "year": 1994, "director": "ウォン・カーウァイ",
       "place": "セントラル〜ミッドレベル・エスカレーター", "city": "香港", "country": "香港", "region": "asia",
-      "lat": 22.2823, "lng": 114.1548, "confidence": "high", "streets": true,
+      "lat": 22.2823, "lng": 114.1548, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "後半の物語で、フェイが通う警官 663 号の部屋はこの長い屋外エスカレーター沿い。手持ちカメラとコマ落としの速い映像。",
       "look": "蛍光灯の緑、看板の赤と黄。粒子が強く、色はにじむように濃い。",
       "sources": [
         "https://www.timeout.com/hong-kong/film/then-and-now-iconic-locations-from-wong-kar-wais-chungking-express",
-        "https://en.wikipedia.org/wiki/Central%E2%80%93Mid-Levels_escalator"
+        "https://en.wikipedia.org/wiki/Central%E2%80%93Mid-Levels_escalator",
+        "https://thetv.jp/program/0000024326/",
+        "https://www.allcinema.net/cinema/7298"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "strong", "colorChrome": "strong",
         "wb": { "mode": "fluorescent1", "kelvin": null}, "wbShift": { "r": 1, "b": -2 },
         "highlight": 1, "shadow": 2, "color": 2, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-2/3EV", "tags": ["夜", "街", "23mm"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-2/3EV", "tags": ["夜", "街", "23mm"] },
+      "cinematographer": "クリストファー・ドイル、ラウ・ウァイキョン", "genre": null,
+      "cast": [{ "name": "トニー・レオン", "role": "警官633号" }, { "name": "フェイ・ウォン", "role": "フェイ" }, { "name": "金城武", "role": "警官223号" }],
+      "production": null, "distributor": { "original": null, "japan": "プレノン・アッシュ" },
+      "synopsis": "失恋した香港の警官二人と、彼らの前に現れる謎めいた女性たち。夜の街と軽食スタンドを舞台に、すれ違う恋を二つの物語で描く。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [42, 29], "palette": ["#5a8a4f", "#b8322a", "#e0c048", "#2b3a42", "#6f7f7a"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "in-the-mood-for-love-angkor-wat",
       "title": "花様年華", "titleEn": "In the Mood for Love", "year": 2000, "director": "ウォン・カーウァイ",
       "place": "アンコール・ワット", "city": "シェムリアップ", "country": "カンボジア", "region": "asia",
-      "lat": 13.4125, "lng": 103.867, "confidence": "high", "streets": false,
+      "lat": 13.4125, "lng": 103.867, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "終盤、チャウが遺跡の壁の穴に秘密をささやいて封じる場面。全編の濃密な室内劇から一転した、静かな石の空間。",
       "look": "石の灰色と苔の緑。落ち着いた暖色で、影は深い。",
       "sources": [
         "https://www.criterion.com/current/posts/197-in-the-mood-for-love",
-        "https://www.sensesofcinema.com/2010/cteq/in-the-mood-for-love/"
+        "https://www.sensesofcinema.com/2010/cteq/in-the-mood-for-love/",
+        "https://eiga.com/movie/1470/",
+        "https://movie.jorudan.co.jp/film/32482/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr200", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "shade", "kelvin": null}, "wbShift": { "r": 2, "b": -2 },
         "highlight": 0, "shadow": 2, "color": 1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "-2/3EV", "tags": ["旅", "日中", "35mm"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "-2/3EV", "tags": ["旅", "日中", "35mm"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "トニー・レオン", "role": "チャウ" }, { "name": "マギー・チャン", "role": "チャン" }],
+      "production": null, "distributor": { "original": null, "japan": "松竹" },
+      "synopsis": "1962年の香港。同じ日に隣の部屋へ越してきた男女は、互いの配偶者の秘密に気づき、ひそやかに心を通わせていく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [33], "palette": ["#8a8a88", "#5a8a4f", "#141414", "#1d2a30", "#3f5b5e"],
+      "links": { "eigacom": "https://eiga.com/movie/1470/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "tokyo-story-onomichi",
       "title": "東京物語", "titleEn": "Tokyo Story", "year": 1953, "director": "小津安二郎",
       "place": "浄土寺（尾道）", "city": "尾道", "country": "日本", "region": "asia",
-      "lat": 34.4094, "lng": 133.2106, "confidence": "high", "streets": true,
+      "lat": 34.4094, "lng": 133.2106, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "老夫婦が暮らす町として冒頭と結末に登場。低い位置に据えた固定カメラで、瀬戸内の穏やかな朝を映す。モノクロ作品。",
       "look": "モノクロ。中間調が豊かで、コントラストは穏やか。",
       "sources": [
         "https://web-japan.org/trends/11_food/jfd131028.html",
-        "https://jl-db.nfaj.go.jp/en/location/340200053/"
+        "https://jl-db.nfaj.go.jp/en/location/340200053/",
+        "https://thetv.jp/program/0000015136/",
+        "https://movie.jorudan.co.jp/film/23842/"
       ],
       "recipe": { "filmSim": "acros", "monoFilter": "ye", "monoWC": 1, "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": -1, "shadow": 0, "color": 0, "sharpness": 0, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+1/3EV", "tags": ["モノクロ", "日中", "50mm"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+1/3EV", "tags": ["モノクロ", "日中", "50mm"] },
+      "cinematographer": "厚田雄春", "genre": null,
+      "cast": [{ "name": "笠智衆", "role": "平山周吉" }, { "name": "原節子", "role": "平山紀子" }, { "name": "東山千栄子", "role": "平山とみ" }],
+      "production": null, "distributor": { "original": null, "japan": "松竹" },
+      "synopsis": "尾道から東京の子どもたちを訪ねた老夫婦。忙しい息子や娘に持て余されるなか、戦死した次男の妻だけが温かく迎える。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "75mm（XF50mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
+      "lessons": [20, 15, 33], "palette": ["#0f0f0f", "#3c3c3c", "#7a7a7a", "#b5b5b5", "#ececec"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "lawrence-of-arabia-wadi-rum",
       "title": "アラビアのロレンス", "titleEn": "Lawrence of Arabia", "year": 1962, "director": "デヴィッド・リーン",
       "place": "ワディ・ラム", "city": "ワディ・ラム", "country": "ヨルダン", "region": "middle-east",
-      "lat": 29.5761, "lng": 35.4205, "confidence": "high", "streets": false,
+      "lat": 29.5761, "lng": 35.4205, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "砂漠の行軍場面の撮影地のひとつ。赤い砂と巨大な岩山を、横長の画面いっぱいに映す。",
       "look": "赤茶の砂、濃い青空。強い日差しで高コントラスト。",
       "sources": [
         "https://movie-locations.com/movies/l/Lawrence-Of-Arabia.php",
-        "https://en.wikipedia.org/wiki/Wadi_Rum"
+        "https://en.wikipedia.org/wiki/Wadi_Rum",
+        "https://eiga.com/movie/42205/",
+        "https://thetv.jp/program/0000029165/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 2, "b": -1 },
         "highlight": -1, "shadow": 1, "color": 0, "sharpness": 0, "nr": -2,
-        "isoNote": "ISO 640〜", "exposureNote": "-1/3EV", "tags": ["風景", "日中", "16mm"] }
+        "isoNote": "ISO 640〜", "exposureNote": "-1/3EV", "tags": ["風景", "日中", "16mm"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ピーター・オトゥール", "role": "T・E・ロレンス" }, { "name": "オマー・シャリフ", "role": "アリ" }, { "name": "アレック・ギネス", "role": "ファイサル王子" }],
+      "production": null, "distributor": { "original": null, "japan": "コロムビア" },
+      "synopsis": "第一次大戦下、英国軍の若い将校ロレンスがアラブの部族をまとめ、砂漠を越えてオスマン帝国軍に挑む。実在の人物を描く大作。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": "晴れ",
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [31, 24], "palette": ["#b8322a", "#7a5a3a", "#d8c49a", "#2f5d8a", "#13365c"],
+      "links": { "eigacom": "https://eiga.com/movie/42205/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "amelie-cafe-des-2-moulins",
       "title": "アメリ", "titleEn": "Amélie", "year": 2001, "director": "ジャン＝ピエール・ジュネ",
       "place": "カフェ・デ・ドゥ・ムーラン（ルピック通り）", "city": "パリ", "country": "フランス", "region": "europe",
-      "lat": 48.8849, "lng": 2.3336, "confidence": "high", "streets": true,
+      "lat": 48.8849, "lng": 2.3336, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "アメリがウェイトレスとして働くモンマルトルのカフェ。",
       "look": "緑と赤が強い、暖かく濃い色調。",
       "sources": [
         "https://en.wikipedia.org/wiki/Caf%C3%A9_des_2_Moulins",
-        "https://faroutmagazine.co.uk/cafe-des-deux-moulins-inside-the-parisian-cafe-from-amelie/"
+        "https://faroutmagazine.co.uk/cafe-des-deux-moulins-inside-the-parisian-cafe-from-amelie/",
+        "https://www.tv-tokyo.co.jp/telecine/cinema/amelie/cre.html",
+        "https://movie.jorudan.co.jp/film/32571/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "auto", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 4800 }, "wbShift": { "r": 3, "b": -4 },
         "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 800〜3200", "exposureNote": "0EV", "tags": ["室内", "街", "35mm"] }
+        "isoNote": "ISO 800〜3200", "exposureNote": "0EV", "tags": ["室内", "街", "35mm"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "オドレイ・トトゥ", "role": "アメリ・プーラン" }, { "name": "マチュー・カソヴィッツ", "role": "ニノ・カンカンポワ" }],
+      "production": null, "distributor": { "original": null, "japan": "アルバトロス・フィルム" },
+      "synopsis": "パリ・モンマルトルのカフェで働く空想好きのアメリ。ある発見をきっかけに、周りの人々をこっそり幸せにしようと動き出す。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "53mm（XF35mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [22, 15, 33], "palette": ["#5a8a4f", "#b8322a", "#13365c", "#2e7d4f", "#e0b23a"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "la-dolce-vita-trevi",
       "title": "甘い生活", "titleEn": "La Dolce Vita", "year": 1960, "director": "フェデリコ・フェリーニ",
       "place": "トレヴィの泉", "city": "ローマ", "country": "イタリア", "region": "europe",
-      "lat": 41.9009, "lng": 12.4833, "confidence": "high", "streets": true,
+      "lat": 41.9009, "lng": 12.4833, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "夜のトレヴィの泉にシルヴィアが入っていく有名な場面。モノクロ作品。",
       "look": "モノクロ。夜の照明で白い大理石が浮かび、黒は深く締まる。",
       "sources": [
         "https://italyformovies.com/film-serie-tv-games/detail/6710/la-dolce-vita",
-        "https://www.througheternity.com/travel-guide/movie-locations-in-rome"
+        "https://www.througheternity.com/travel-guide/movie-locations-in-rome",
+        "https://eiga.com/movie/42127/",
+        "https://www.allcinema.net/cinema/1154",
+        "https://movie.jorudan.co.jp/film/12989/"
       ],
       "recipe": { "filmSim": "acros", "monoFilter": "none", "monoWC": 0, "dr": "dr400", "grain": "strong", "colorChrome": "off",
         "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": 1, "shadow": 3, "color": 0, "sharpness": 0, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1EV", "tags": ["モノクロ", "夜", "街"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1EV", "tags": ["モノクロ", "夜", "街"] },
+      "cinematographer": "オテッロ・マルテッリ", "genre": null,
+      "cast": [{ "name": "マルチェロ・マストロヤンニ", "role": "マルチェロ・ルビーニ" }, { "name": "アニタ・エクバーグ", "role": "ハリウッド女優" }, { "name": "アヌーク・エーメ", "role": "マッダレーナ" }],
+      "production": null, "distributor": { "original": null, "japan": "イタリフィルム" },
+      "synopsis": "ローマのゴシップ記者マルチェロが、華やかなパーティーや有名人を追いかけながら、空虚な日々のなかで生き方を探す。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [20, 42, 29], "palette": ["#0f0f0f", "#3c3c3c", "#7a7a7a", "#b5b5b5", "#ececec"],
+      "links": { "eigacom": "https://eiga.com/movie/42127/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "roman-holiday-bocca-della-verita",
       "title": "ローマの休日", "titleEn": "Roman Holiday", "year": 1953, "director": "ウィリアム・ワイラー",
       "place": "真実の口（サンタ・マリア・イン・コスメディン教会）", "city": "ローマ", "country": "イタリア", "region": "europe",
-      "lat": 41.8881, "lng": 12.4816, "confidence": "high", "streets": true,
+      "lat": 41.8881, "lng": 12.4816, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ジョーが真実の口に手を入れてアンをからかう場面。モノクロ作品。",
       "look": "モノクロ。日中の柔らかい光で、肌の階調がなめらか。",
       "sources": [
         "https://www.movie-locations.com/movies/r/Roman-Holiday.php",
-        "https://www.imdb.com/title/tt0046250/locations"
+        "https://www.imdb.com/title/tt0046250/locations",
+        "https://www.allcinema.net/cinema/pdf/25599",
+        "https://movie.jorudan.co.jp/film/09840/"
       ],
       "recipe": { "filmSim": "monochrome", "monoFilter": "ye", "monoWC": 1, "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": -1, "shadow": 0, "color": 0, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "+1/3EV", "tags": ["モノクロ", "ポートレート", "日中"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "+1/3EV", "tags": ["モノクロ", "ポートレート", "日中"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "オードリー・ヘプバーン", "role": "アン王女" }, { "name": "グレゴリー・ペック", "role": "ジョー・ブラドリー" }, { "name": "エディ・アルバート", "role": "カメラマン" }],
+      "production": null, "distributor": { "original": null, "japan": "パラマウント" },
+      "synopsis": "公務に疲れたある国の王女が、ローマで宿舎を抜け出す。新聞記者と出会い、一日だけの自由な休日を過ごす。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
+      "lessons": [20, 33], "palette": ["#141414", "#424242", "#7f7f7f", "#bdbdbd", "#efefef"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "the-third-man-riesenrad",
       "title": "第三の男", "titleEn": "The Third Man", "year": 1949, "director": "キャロル・リード",
       "place": "プラーター公園の大観覧車（ヴィーナー・リーゼンラート）", "city": "ウィーン", "country": "オーストリア", "region": "europe",
-      "lat": 48.2166, "lng": 16.3958, "confidence": "high", "streets": true,
+      "lat": 48.2166, "lng": 16.3958, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "観覧車のゴンドラでハリー・ライムとホリーが対峙する場面。斜めに傾けた構図と強い陰影のモノクロ作品。",
       "look": "モノクロ。硬い光、深い影、高コントラスト。",
       "sources": [
         "https://www.visitingvienna.com/songsfilms/third-man-locations",
-        "https://lwlies.com/articles/on-location-the-third-man-vienna-harry-lime/"
+        "https://lwlies.com/articles/on-location-the-third-man-vienna-harry-lime/",
+        "https://eiga.com/movie/46413/",
+        "https://www.allcinema.net/cinema/13635"
       ],
       "recipe": { "filmSim": "acros", "monoFilter": "r", "monoWC": -1, "dr": "dr100", "grain": "strong", "colorChrome": "off",
         "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": 3, "shadow": 4, "color": 0, "sharpness": 1, "nr": -4,
-        "isoNote": "ISO 160〜3200", "exposureNote": "-2/3EV", "tags": ["モノクロ", "街", "23mm"] }
+        "isoNote": "ISO 160〜3200", "exposureNote": "-2/3EV", "tags": ["モノクロ", "街", "23mm"] },
+      "cinematographer": "ロバート・クラスカー", "genre": null,
+      "cast": [{ "name": "ジョゼフ・コットン", "role": "ホリー・マーチンス" }, { "name": "オーソン・ウェルズ", "role": "ハリー・ライム" }, { "name": "アリダ・ヴァリ", "role": "アンナ" }],
+      "production": null, "distributor": { "original": null, "japan": "東和・東宝" },
+      "synopsis": "戦後のウィーンに旧友を訪ねた米国人作家。友人の死をめぐる不審な点を追ううち、闇市の世界に踏み込んでいく。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [20, 29], "palette": ["#0f0f0f", "#3c3c3c", "#7a7a7a", "#b5b5b5", "#ececec"],
+      "links": { "eigacom": "https://eiga.com/movie/46413/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "wings-of-desire-victory-column",
       "title": "ベルリン・天使の詩", "titleEn": "Wings of Desire", "year": 1987, "director": "ヴィム・ヴェンダース",
       "place": "ジーゲスゾイレ（戦勝記念塔）", "city": "ベルリン", "country": "ドイツ", "region": "europe",
-      "lat": 52.5145, "lng": 13.3501, "confidence": "high", "streets": true,
+      "lat": 52.5145, "lng": 13.3501, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "天使ダミエルが塔の上の像に腰かけ、街を見下ろす。天使の視点の場面はモノクロで描かれる。",
       "look": "わずかに暖かいモノクロ。柔らかい曇天の光。",
       "sources": [
         "https://movie-locations.com/movies/w/Wings-Of-Desire.php",
-        "https://atlasobscura.com/places/berlin-victory-column"
+        "https://atlasobscura.com/places/berlin-victory-column",
+        "https://eiga.com/movie/27461/",
+        "https://movie.jorudan.co.jp/film/11858/"
       ],
       "recipe": { "filmSim": "monochrome", "monoFilter": "none", "monoWC": 3, "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": -1, "shadow": -1, "color": 0, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["モノクロ", "街", "曇り"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["モノクロ", "街", "曇り"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ブルーノ・ガンツ", "role": "天使ダミエル" }, { "name": "オットー・ザンダー", "role": "天使カシエル" }, { "name": "ソルヴェイグ・ドマルタン", "role": "マリオン" }],
+      "production": null, "distributor": { "original": null, "japan": "東北新社" },
+      "synopsis": "壁のあるベルリンの空から、人々の心の声に耳を傾ける天使ダミエル。サーカスの空中ブランコ乗りに惹かれ、人間の生に憧れる。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": "曇り",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "高い位置から見下ろす（ハイアングル）", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": null,
+      "lessons": [20], "palette": ["#141414", "#424242", "#7f7f7f", "#bdbdbd", "#efefef"],
+      "links": { "eigacom": "https://eiga.com/movie/27461/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "call-me-by-your-name-crema",
       "title": "君の名前で僕を呼んで", "titleEn": "Call Me by Your Name", "year": 2017, "director": "ルカ・グァダニーノ",
       "place": "クレーマ旧市街（ドゥオーモ広場）", "city": "クレーマ", "country": "イタリア", "region": "europe",
-      "lat": 45.3626, "lng": 9.6854, "confidence": "high", "streets": true,
+      "lat": 45.3626, "lng": 9.6854, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "1983 年夏の北イタリアを描く舞台の町。自転車で広場を抜ける場面など、町の中で多く撮影された。",
       "look": "明るく乾いた夏の光。暖かく、ハイライトは柔らか。",
       "sources": [
         "https://movie-locations.com/movies/c/Call-Me-By-Your-Name.php",
-        "https://www.italyformovies.com/film-serie-tv-games/detail/6627/call-me-by-your-name"
+        "https://www.italyformovies.com/film-serie-tv-games/detail/6627/call-me-by-your-name",
+        "https://natalie.mu/eiga/film/173762"
       ],
       "recipe": { "filmSim": "pro-neg-std", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 2, "b": -3 },
         "highlight": -1, "shadow": -1, "color": 1, "sharpness": -2, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "+1/3EV", "tags": ["日中", "旅", "ポートレート"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "+1/3EV", "tags": ["日中", "旅", "ポートレート"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ティモシー・シャラメ", "role": "エリオ" }, { "name": "アーミー・ハマー", "role": "オリヴァー" }, { "name": "マイケル・スタールバーグ", "role": "パールマン教授" }],
+      "production": null, "distributor": { "original": null, "japan": "ファントム・フィルム" },
+      "synopsis": "1983年の夏、北イタリアの別荘で過ごす17歳のエリオと、父の助手として訪れた大学院生オリヴァーのひと夏の恋。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [33, 24], "palette": ["#d8c49a", "#3a4246", "#7d8a86", "#c4b4a0", "#e2d9cc"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "walter-mitty-seydisfjordur",
       "title": "LIFE!", "titleEn": "The Secret Life of Walter Mitty", "year": 2013, "director": "ベン・スティラー",
       "place": "セイジスフィヨルズル（峠からの道）", "city": "セイジスフィヨルズル", "country": "アイスランド", "region": "europe",
-      "lat": 65.2603, "lng": -14.0097, "confidence": "high", "streets": true,
+      "lat": 65.2603, "lng": -14.0097, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ウォルターがロングボードで峠道を下り、フィヨルドの町へ向かう場面。",
       "look": "冷たい青緑と苔の緑。澄んだ空気で彩度は控えめ。",
       "sources": [
         "https://guidetoiceland.is/de/island-blog/konstantin/filming-locations-of-secret-life-of-walter-mitty",
-        "https://www.travelagentcentral.com/iceland/walter-mitty-gives-iceland-its-first-leading-role-hollywood-blockbuster-44043"
+        "https://www.travelagentcentral.com/iceland/walter-mitty-gives-iceland-its-first-leading-role-hollywood-blockbuster-44043",
+        "https://movie.jorudan.co.jp/film/73267/",
+        "https://www.cinematoday.jp/page/A0004029"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": -1, "b": 1 },
         "highlight": -1, "shadow": 1, "color": 1, "sharpness": 0, "nr": -2,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["風景", "旅", "16mm"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["風景", "旅", "16mm"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ベン・スティラー", "role": "ウォルター・ミティ" }, { "name": "クリステン・ウィグ", "role": "シェリル・メルホフ" }, { "name": "ショーン・ペン", "role": "ショーン・オコンネル" }],
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "空想ばかりしている写真雑誌のネガ管理係ウォルター。表紙に使うはずのネガが見つからず、撮影者を探して北の国へ旅立つ。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [15, 31], "palette": ["#2a7f80", "#2f5d8a", "#5a8a4f", "#2b3a42", "#6f7f7a"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "breakfast-at-tiffanys-fifth-avenue",
       "title": "ティファニーで朝食を", "titleEn": "Breakfast at Tiffany's", "year": 1961, "director": "ブレイク・エドワーズ",
       "place": "ティファニー本店（5 番街 57 丁目）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.7625, "lng": -73.9739, "confidence": "high", "streets": true,
+      "lat": 40.7625, "lng": -73.9739, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "早朝、ホリーがショーウィンドウを眺めながらパンを食べる冒頭の場面。",
       "look": "早朝の青い空気と、淡く上品な色。",
       "sources": [
         "https://www.imdb.com/title/tt0054698/locations",
-        "https://nycinfilm.com/2023/12/12/breakfast-at-tiffanys-1961/"
+        "https://nycinfilm.com/2023/12/12/breakfast-at-tiffanys-1961/",
+        "https://eiga.com/movie/46909/"
       ],
       "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 6200 }, "wbShift": { "r": 0, "b": 1 },
         "highlight": -1, "shadow": -1, "color": 1, "sharpness": -1, "nr": -2,
-        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["街", "朝", "ポートレート"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["街", "朝", "ポートレート"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "オードリー・ヘプバーン", "role": "ホリー・ゴライトリー" }, { "name": "ジョージ・ペパード", "role": "ポール" }, { "name": "ミッキー・ルーニー", "role": "ユニオシ" }],
+      "production": null, "distributor": { "original": null, "japan": null },
+      "synopsis": "ニューヨークで気ままに暮らすホリーと、同じアパートに越してきた作家志望の青年。都会の孤独と恋を描くロマンス。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "朝", "weather": null,
+      "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日の出から 1 時間" },
+      "visitNotes": null,
+      "lessons": [33], "palette": ["#2f5d8a", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
+      "links": { "eigacom": "https://eiga.com/movie/46909/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "manhattan-sutton-place",
       "title": "マンハッタン", "titleEn": "Manhattan", "year": 1979, "director": "ウディ・アレン",
       "place": "サットン・プレイス東端（クイーンズボロ橋を望むベンチ）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
-      "lat": 40.759, "lng": -73.959, "confidence": "high", "streets": true,
+      "lat": 40.759, "lng": -73.959, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "夜明け前、2 人がベンチに座りクイーンズボロ橋を眺める場面。モノクロのシネマスコープ作品。",
       "look": "モノクロ。橋のシルエットと白み始めた空。",
       "sources": [
         "https://theculturetrip.com/north-america/usa/new-york/articles/awesome-nyc-film-locations-no-6-queensboro-bridge-manhattan",
-        "https://www.movie-locations.com/movies/m/Manhattan.php"
+        "https://www.movie-locations.com/movies/m/Manhattan.php",
+        "https://eiga.com/movie/49781/",
+        "https://movie.jorudan.co.jp/film/08650/"
       ],
       "recipe": { "filmSim": "acros", "monoFilter": "ye", "monoWC": 0, "dr": "dr400", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
         "highlight": 0, "shadow": 2, "color": 0, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["モノクロ", "朝", "街"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["モノクロ", "朝", "街"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ウディ・アレン", "role": "アイザック・デイビス" }, { "name": "ダイアン・キートン", "role": "メリー・ウィルキー" }, { "name": "マリエル・ヘミングウェイ", "role": "トレーシー" }],
+      "production": null, "distributor": { "original": null, "japan": "ユナイト映画" },
+      "synopsis": "ニューヨークに暮らすテレビ作家アイザック。年の離れた恋人と、友人の愛人とのあいだで揺れる日々を、モノクロの街とともに描く。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "朝", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日の出から 1 時間" },
+      "visitNotes": null,
+      "lessons": [20, 15], "palette": ["#0f0f0f", "#3c3c3c", "#7a7a7a", "#b5b5b5", "#ececec"],
+      "links": { "eigacom": "https://eiga.com/movie/49781/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "la-la-land-griffith-observatory",
       "title": "ラ・ラ・ランド", "titleEn": "La La Land", "year": 2016, "director": "デイミアン・チャゼル",
       "place": "グリフィス天文台", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
-      "lat": 34.1184, "lng": -118.3004, "confidence": "high", "streets": false,
+      "lat": 34.1184, "lng": -118.3004, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "2 人が夜の天文台に忍び込み、プラネタリウムで宙に浮かんで踊る場面。",
       "look": "マジックアワーの紫と群青、街明かりの暖色。",
       "sources": [
         "https://thecinemaholic.com/where-was-la-la-land-filmed-all-filming-locations",
-        "https://www.atlasofwonders.com/2016/12/la-la-land-filming-locations.html"
+        "https://www.atlasofwonders.com/2016/12/la-la-land-filming-locations.html",
+        "https://eiga.com/movie/82024/"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "off", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 2, "b": 2 },
         "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["夕方", "夜", "風景"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["夕方", "夜", "風景"] },
+      "cinematographer": "リヌス・サンドグレン", "genre": null,
+      "cast": [{ "name": "エマ・ストーン", "role": "ミア" }, { "name": "ライアン・ゴズリング", "role": "セバスチャン" }],
+      "production": null, "distributor": { "original": null, "japan": "ギャガ、ポニーキャニオン" },
+      "synopsis": "ロサンゼルスで女優を目指すミアと、ジャズの店を開く夢を持つピアニストのセブ。夢と恋のあいだで揺れる二人のミュージカル。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "マジックアワー", "weather": null,
+      "guide": { "focal": "24mm（XF16mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没前後の 30 分" },
+      "visitNotes": null,
+      "lessons": [13, 31], "palette": ["#7a5a9a", "#2f5d8a", "#13365c", "#2e7d4f", "#e0b23a"],
+      "links": { "eigacom": "https://eiga.com/movie/82024/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "blade-runner-bradbury-building",
       "title": "ブレードランナー", "titleEn": "Blade Runner", "year": 1982, "director": "リドリー・スコット",
       "place": "ブラッドベリー・ビル", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
-      "lat": 34.0505, "lng": -118.2478, "confidence": "high", "streets": true,
+      "lat": 34.0505, "lng": -118.2478, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "J・F・セバスチャンが住む建物。鉄の手すりと吹き抜けに、雨と探照灯の光が差し込む終盤の舞台。",
       "look": "青緑の闇とオレンジの光源。煙ったハイライト。",
       "sources": [
         "https://www.brmovie.com/Locations/Bradbury_Building.htm",
-        "https://movie-locations.com/movies/b/Blade-Runner.php"
+        "https://movie-locations.com/movies/b/Blade-Runner.php",
+        "https://eiga.com/movie/26947/",
+        "https://movie.jorudan.co.jp/film/07988/"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 3600 }, "wbShift": { "r": 4, "b": -6 },
         "highlight": -1, "shadow": 2, "color": 2, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1EV", "tags": ["夜", "室内", "雨"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1EV", "tags": ["夜", "室内", "雨"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "ハリソン・フォード", "role": "デッカード" }, { "name": "ルトガー・ハウアー", "role": "ロイ・バッティ" }, { "name": "ショーン・ヤング", "role": "レイチェル" }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース映画" },
+      "synopsis": "2019年のロサンゼルス。人間そっくりの人造人間レプリカントを追う捜査官デッカードが、逃亡した4体を追跡する。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "夜", "weather": "雨",
+      "guide": { "focal": "27mm（XF18mm）", "angle": "少し離れて見上げ、垂直を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [42, 41, 22], "palette": ["#2a7f80", "#2f5d8a", "#5a8a4f", "#141414", "#e07a3a"],
+      "links": { "eigacom": "https://eiga.com/movie/26947/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "vertigo-fort-point",
       "title": "めまい", "titleEn": "Vertigo", "year": 1958, "director": "アルフレッド・ヒッチコック",
       "place": "フォート・ポイント（ゴールデンゲートブリッジ南端の下）", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
-      "lat": 37.8106, "lng": -122.4771, "confidence": "high", "streets": false,
+      "lat": 37.8106, "lng": -122.4771, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "マデリンがサンフランシスコ湾に身を投げ、スコッティが救い上げる場面。",
       "look": "霧がかった湾の灰緑と、赤い橋。",
       "sources": [
         "https://reelsf.com/reelsf/vertigo-fort-point",
-        "https://hitchcock.zone/wiki/Fort_Point"
+        "https://hitchcock.zone/wiki/Fort_Point",
+        "https://eiga.com/movie/29916/",
+        "https://www.allcinema.net/cinema/23363"
       ],
       "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 1, "b": -1 },
         "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -2,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["風景", "曇り", "35mm"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["風景", "曇り", "35mm"] },
+      "cinematographer": "ロバート・バークス", "genre": null,
+      "cast": [{ "name": "ジェームズ・スチュワート", "role": "ジョン・“スコティ”・ファーガソン" }, { "name": "キム・ノヴァク", "role": "マデリン／ジュディ" }, { "name": "バーバラ・ベル・ゲデス", "role": "ミッジ" }],
+      "production": null, "distributor": { "original": null, "japan": "パラマウント" },
+      "synopsis": "高所恐怖症で警察を辞めた元刑事スコティ。旧友から妻マデリンの尾行を頼まれ、彼女の謎めいた行動に引き込まれていく。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": "霧",
+      "guide": { "focal": "53mm（XF35mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": null,
+      "lessons": [15, 33], "palette": ["#8a8a88", "#5a8a4f", "#b8322a", "#2d3e3a", "#5f7d6b"],
+      "links": { "eigacom": "https://eiga.com/movie/29916/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "the-shining-timberline-lodge",
       "title": "シャイニング", "titleEn": "The Shining", "year": 1980, "director": "スタンリー・キューブリック",
       "place": "ティンバーライン・ロッジ（フッド山）", "city": "フッド山", "country": "アメリカ", "region": "north-america",
-      "lat": 45.3311, "lng": -121.7113, "confidence": "high", "streets": false,
+      "lat": 45.3311, "lng": -121.7113, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "オーバールック・ホテルの外観として使われた山岳ロッジ。雪山に囲まれた孤立感。",
       "look": "雪の白と針葉樹の暗い緑。冷たく硬い光。",
       "sources": [
         "https://movie-locations.com/movies/s/Shining-1980.php",
-        "https://www.slashfilm.com/1799102/the-shining-filming-locations-explained"
+        "https://www.slashfilm.com/1799102/the-shining-filming-locations-explained",
+        "https://eiga.com/movie/14352/",
+        "https://movie.jorudan.co.jp/film/11262/"
       ],
       "recipe": { "filmSim": "provia", "dr": "dr400", "grain": "off", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6800 }, "wbShift": { "r": -1, "b": 1 },
         "highlight": 0, "shadow": 1, "color": -1, "sharpness": 1, "nr": -2,
-        "isoNote": "ISO 640〜", "exposureNote": "+2/3EV", "tags": ["風景", "雪", "23mm"] }
+        "isoNote": "ISO 640〜", "exposureNote": "+2/3EV", "tags": ["風景", "雪", "23mm"] },
+      "cinematographer": "ジョン・オルコット", "genre": null,
+      "cast": [{ "name": "ジャック・ニコルソン", "role": "ジャック・トランス" }, { "name": "シェリー・デュヴァル", "role": "ウェンディ" }, { "name": "ダニー・ロイド", "role": "ダニー" }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース映画" },
+      "synopsis": "冬のあいだ閉鎖される山のホテルに、管理人として住み込んだ作家と家族。雪に閉ざされた館で、父の様子が少しずつ変わっていく。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": null, "weather": "雪",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "朝夕の斜光の時間帯" },
+      "visitNotes": "営業中の施設です。店内・館内の撮影は許可を得てから。ほかの客が写り込まないように。",
+      "lessons": [24], "palette": ["#ece8e0", "#5a8a4f", "#2c4f7c", "#5f8f5a", "#d9c27a"],
+      "links": { "eigacom": "https://eiga.com/movie/14352/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "perfect-days-yoyogi-hachiman-toilet",
       "title": "PERFECT DAYS", "titleEn": "Perfect Days", "year": 2023, "director": "ヴィム・ヴェンダース",
       "place": "代々木八幡の公衆トイレ（THE TOKYO TOILET）", "city": "東京", "country": "日本", "region": "asia",
-      "lat": 35.6688, "lng": 139.6866, "confidence": "high", "streets": true,
+      "lat": 35.6688, "lng": 139.6866, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "清掃員の平山が毎日磨く公衆トイレのひとつ。神社の森を背にしたきのこ形の小屋で、木漏れ日の昼休みとつながる場所。",
       "look": "木漏れ日の緑と白い壁。やわらかく明るい日中光で、色は控えめ。",
       "sources": [
         "https://japanspecialist.com/w/a-tour-of-tokyo-s-public-toilets-from-the-movie-perfect-days",
-        "https://tokyofox.net/2024/02/29/the-modern-arty-toilets-featured-in-the-movie-perfect-days-2023/"
+        "https://tokyofox.net/2024/02/29/the-modern-arty-toilets-featured-in-the-movie-perfect-days-2023/",
+        "https://movie.jorudan.co.jp/film/98523/",
+        "https://lp.p.pia.jp/article/news/300313/index.html"
       ],
       "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 1, "b": -1 },
         "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["日中", "街", "緑"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["日中", "街", "緑"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "役所広司", "role": "平山" }],
+      "production": ["MASTER MIND"], "distributor": { "original": "ビターズ・エンド", "japan": "ビターズ・エンド" },
+      "synopsis": "東京の公衆トイレを清掃する平山。木漏れ日を撮り、古本を読み、カセットを聴く。同じようで少しずつ違う毎日を静かに描く。",
+      "format": { "capture": null, "aspect": "1.33:1（スタンダード）" }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": null,
+      "lessons": [32], "palette": ["#7a5a3a", "#5a8a4f", "#ece8e0", "#3a4246", "#7d8a86"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "perfect-days-sakurabashi",
       "title": "PERFECT DAYS", "titleEn": "Perfect Days", "year": 2023, "director": "ヴィム・ヴェンダース",
       "place": "桜橋（隅田川）", "city": "東京", "country": "日本", "region": "asia",
-      "lat": 35.7155, "lng": 139.8019, "confidence": "medium", "streets": true,
+      "lat": 35.7155, "lng": 139.8019, "confidence": "medium", "spotSources": 1, "streets": true,
       "scene": "平山が自転車で渡る X 字形の歩行者橋。休日の夕暮れや夜の川辺で、一日の終わりを静かに映す。",
       "look": "川面の青と夕方の斜光。わずかに暖色に寄せた落ち着いた色。",
       "sources": [
-        "https://voyapon.com/it/perfect-days-location-tokyo/"
+        "https://voyapon.com/it/perfect-days-location-tokyo/",
+        "https://movie.jorudan.co.jp/film/98523/",
+        "https://lp.p.pia.jp/article/news/300313/index.html"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 6800 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["夕方", "街", "川"] }
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["夕方", "街", "川"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "役所広司", "role": "平山" }],
+      "production": ["MASTER MIND"], "distributor": { "original": "ビターズ・エンド", "japan": "ビターズ・エンド" },
+      "synopsis": "東京の公衆トイレを清掃する平山。木漏れ日を撮り、古本を読み、カセットを聴く。同じようで少しずつ違う毎日を静かに描く。",
+      "format": { "capture": null, "aspect": "1.33:1（スタンダード）" }, "sceneTime": "夕方", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没前の 1 時間" },
+      "visitNotes": null,
+      "lessons": [13, 15], "palette": ["#2f5d8a", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "perfect-days-asakusa-chikagai",
       "title": "PERFECT DAYS", "titleEn": "Perfect Days", "year": 2023, "director": "ヴィム・ヴェンダース",
       "place": "浅草地下街", "city": "東京", "country": "日本", "region": "asia",
-      "lat": 35.7108, "lng": 139.7972, "confidence": "high", "streets": true,
+      "lat": 35.7108, "lng": 139.7972, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "仕事終わりの平山が通う、古い地下商店街の小さな飲み屋。低い天井と年季の入った看板が昭和の空気を残す。",
       "look": "蛍光灯の緑がかった光と赤い看板。暗部は重く、粒子感がある。",
       "sources": [
         "https://voyapon.com/it/perfect-days-location-tokyo/",
-        "https://www.enjoytokyo.jp/article/201726/"
+        "https://www.enjoytokyo.jp/article/201726/",
+        "https://movie.jorudan.co.jp/film/98523/",
+        "https://lp.p.pia.jp/article/news/300313/index.html"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "fluorescent1", "kelvin": null}, "wbShift": { "r": 1, "b": -2 },
         "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "室内", "街"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "室内", "街"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "役所広司", "role": "平山" }],
+      "production": ["MASTER MIND"], "distributor": { "original": "ビターズ・エンド", "japan": "ビターズ・エンド" },
+      "synopsis": "東京の公衆トイレを清掃する平山。木漏れ日を撮り、古本を読み、カセットを聴く。同じようで少しずつ違う毎日を静かに描く。",
+      "format": { "capture": null, "aspect": "1.33:1（スタンダード）" }, "sceneTime": "夜", "weather": null,
+      "guide": { "focal": "27mm（XF18mm）", "angle": "目線の高さで水平を保つ", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [42, 24], "palette": ["#5a8a4f", "#b8322a", "#1d2a30", "#3f5b5e", "#8a9b8f"],
+      "links": { "eigacom": null, "trailer": null, "wikipedia": null }
     },
     {
       "id": "drive-my-car-naka-incineration-plant",
       "title": "ドライブ・マイ・カー", "titleEn": "Drive My Car", "year": 2021, "director": "濱口竜介",
       "place": "広島市環境局 中工場", "city": "広島", "country": "日本", "region": "asia",
-      "lat": 34.372, "lng": 132.445, "confidence": "high", "streets": true,
+      "lat": 34.372, "lng": 132.445, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "家福とドライバーのみさきが訪れるごみ処理工場。平和記念公園から続く軸線を通す吹き抜けの通路で、ふたりが言葉少なに海を見る。",
       "look": "コンクリートのグレーと曇り空。彩度を抑えた冷たく端正な色。",
       "sources": [
         "https://www.pref.hiroshima.lg.jp/lab/topics/20220328/01/",
-        "https://www.city.hiroshima.lg.jp/shisei/kouhou/1004010/1027486/1004259/1004287.html"
+        "https://www.city.hiroshima.lg.jp/shisei/kouhou/1004010/1027486/1004259/1004287.html",
+        "https://eiga.com/movie/94037/"
       ],
       "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
         "highlight": -1, "shadow": 1, "color": -2, "sharpness": 0, "nr": -3,
-        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["建築", "曇り", "街"] }
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["建築", "曇り", "街"] },
+      "cinematographer": null, "genre": null, "committee": true,
+      "cast": [{ "name": "西島秀俊", "role": "家福" }, { "name": "三浦透子", "role": "みさき" }, { "name": "岡田将生", "role": "高槻" }],
+      "production": null, "distributor": { "original": "ビターズ・エンド", "japan": "ビターズ・エンド" },
+      "synopsis": "妻を亡くした舞台俳優で演出家の家福。広島の演劇祭で寡黙な女性ドライバーみさきと出会い、喪失と向き合っていく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": null, "weather": "曇り",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "水面の映り込みを入れて低めに構える", "bestTime": "曇りや雨の日の日中（光が柔らかい）" },
+      "visitNotes": null,
+      "lessons": [24], "palette": ["#8a8a88", "#2b3a42", "#6f7f7a", "#b9a77f", "#d9cdb4"],
+      "links": { "eigacom": "https://eiga.com/movie/94037/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "black-rain-dotonbori",
       "title": "ブラック・レイン", "titleEn": "Black Rain", "year": 1989, "director": "リドリー・スコット",
       "place": "道頓堀", "city": "大阪", "country": "日本", "region": "asia",
-      "lat": 34.6687, "lng": 135.5013, "confidence": "high", "streets": true,
+      "lat": 34.6687, "lng": 135.5013, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "ニューヨークの刑事が大阪のネオン街で犯人を追う。看板の光と煙、濡れた路面が異国の夜の迷路をつくる。",
       "look": "強いネオンの赤と青、黒く締まった影。逆光の煙で光がにじむ。",
       "sources": [
         "https://bfi-prog-notes.github.io/ridley%20scott%3Cbr%3Ebuilding%20cinematic%20worlds/2025/09/12/black-rain",
-        "https://movie-locations.com/movies/b/Black-Rain.php"
+        "https://movie-locations.com/movies/b/Black-Rain.php",
+        "https://eiga.com/movie/26808/",
+        "https://movie.jorudan.co.jp/film/07918/",
+        "https://renote.net/reviews/19573"
       ],
       "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
         "wb": { "mode": "kelvin", "kelvin": 3800 }, "wbShift": { "r": 1, "b": -2 },
         "highlight": -1, "shadow": 2, "color": 2, "sharpness": -1, "nr": -4,
-        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "街", "雨"] }
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "街", "雨"] },
+      "cinematographer": "ヤン・デ・ボン", "genre": null,
+      "cast": [{ "name": "マイケル・ダグラス", "role": "ニック・コンクリン" }, { "name": "高倉健", "role": "松本正博" }, { "name": "アンディ・ガルシア", "role": "チャーリー・ヴィンセント" }],
+      "production": null, "distributor": { "original": "パラマウント映画", "japan": "UIP" },
+      "synopsis": "ニューヨークの刑事が、護送中に逃げたヤクザを追って大阪へ。言葉も習慣も違う街で、日本の刑事と組んで捜査に挑む。",
+      "format": { "capture": "フィルム", "aspect": null }, "sceneTime": "夜", "weather": "雨",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "道や橋の線を奥へ伸ばす（リーディングライン）", "bestTime": "日没の 30 分後から（空に青みが残るうち）" },
+      "visitNotes": null,
+      "lessons": [28, 42, 41], "palette": ["#ff4f9a", "#b8322a", "#2f5d8a", "#141414", "#1d2a30"],
+      "links": { "eigacom": "https://eiga.com/movie/26808/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "memoirs-of-a-geisha-fushimi-inari",
       "title": "SAYURI", "titleEn": "Memoirs of a Geisha", "year": 2005, "director": "ロブ・マーシャル",
       "place": "伏見稲荷大社 千本鳥居", "city": "京都", "country": "日本", "region": "asia",
-      "lat": 34.9671, "lng": 135.7795, "confidence": "high", "streets": true,
+      "lat": 34.9671, "lng": 135.7795, "confidence": "high", "spotSources": 2, "streets": true,
       "scene": "幼い千代が朱色の鳥居のトンネルを駆け抜ける。連なる柱が光と影の縞をつくり、少女の願いを印象づける。",
       "look": "鳥居の朱と木陰の深い緑。コントラスト強めで赤が際立つ。",
       "sources": [
         "https://www.imdb.com/title/tt0397535/locations",
-        "https://www.discoverkyoto.com/kyoto-voice/filming-locations-kyoto/"
+        "https://www.discoverkyoto.com/kyoto-voice/filming-locations-kyoto/",
+        "https://eiga.com/movie/1631/",
+        "https://movie.jorudan.co.jp/film/36427/",
+        "https://tcm.com/tcmdb/title/620690/wd"
       ],
       "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": 1, "shadow": 1, "color": 3, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["日中", "寺社", "赤"] }
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["日中", "寺社", "赤"] },
+      "cinematographer": "ディオン・ビーブ", "genre": null,
+      "cast": [{ "name": "チャン・ツィイー", "role": "さゆり" }, { "name": "渡辺謙", "role": "会長" }, { "name": "ミシェル・ヨー", "role": "豆葉" }],
+      "production": null, "distributor": { "original": "Sony Pictures Releasing", "japan": "ブエナビスタ、松竹" },
+      "synopsis": "貧しい漁村から京都の置屋に売られた少女・千代。厳しい修業や嫉妬に耐え、芸者さゆりとして花開いていく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": null,
+      "guide": { "focal": "35mm（XF23mm）", "angle": "門や窓を手前に入れて額縁にする", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
+      "lessons": [17], "palette": ["#b8322a", "#7a5a3a", "#5a8a4f", "#13365c", "#2e7d4f"],
+      "links": { "eigacom": "https://eiga.com/movie/1631/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "last-samurai-engyoji",
       "title": "ラスト サムライ", "titleEn": "The Last Samurai", "year": 2003, "director": "エドワード・ズウィック",
       "place": "書写山圓教寺", "city": "姫路", "country": "日本", "region": "asia",
-      "lat": 34.8895, "lng": 134.6605, "confidence": "high", "streets": false,
+      "lat": 34.8895, "lng": 134.6605, "confidence": "high", "spotSources": 2, "streets": false,
       "scene": "勝元が暮らす山寺として登場。杉木立に囲まれた大きな木造の堂で、主人公が武士の生き方に触れていく。",
       "look": "杉の深い緑と古材の茶。霧がかった柔らかい光で落ち着いた色。",
       "sources": [
         "https://www.movie-locations.com/movies/l/Last-Samurai.php",
-        "https://jl-db.nfaj.go.jp/en/location/280213001"
+        "https://jl-db.nfaj.go.jp/en/location/280213001",
+        "https://eiga.com/movie/1491/",
+        "https://movie.jorudan.co.jp/film/33230/"
       ],
       "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
         "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 0, "b": -2 },
         "highlight": -1, "shadow": 0, "color": 0, "sharpness": -1, "nr": -3,
-        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["寺社", "緑", "日中"] }
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["寺社", "緑", "日中"] },
+      "cinematographer": null, "genre": null,
+      "cast": [{ "name": "トム・クルーズ", "role": "ネイサン・オールグレン" }, { "name": "渡辺謙", "role": "勝元盛次" }, { "name": "真田広之", "role": "氏尾" }],
+      "production": null, "distributor": { "original": null, "japan": "ワーナー・ブラザース映画" },
+      "synopsis": "明治初期の日本に軍の教官として招かれた米国人大尉。捕らわれた先の侍の村で暮らし、その生き方に心を動かされていく。",
+      "format": { "capture": null, "aspect": null }, "sceneTime": "昼", "weather": "霧",
+      "guide": { "focal": "35mm（XF23mm）", "angle": "目線の高さで水平を保つ", "bestTime": "光に角度のある午前 9〜11 時か午後 3〜5 時" },
+      "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
+      "lessons": [32], "palette": ["#5a8a4f", "#7a5a3a", "#2d3e3a", "#5f7d6b", "#c7a27c"],
+      "links": { "eigacom": "https://eiga.com/movie/1491/", "trailer": null, "wikipedia": null }
     },
     {
       "id": "you-only-live-twice-himeji-castle",
