@@ -907,6 +907,390 @@
         "wb": { "mode": "kelvin", "kelvin": 5900 }, "wbShift": { "r": 3, "b": -5 },
         "highlight": -1, "shadow": 1, "color": -1, "sharpness": -2, "nr": -4,
         "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["街", "昭和", "夏"] }
+    },
+    {
+      "id": "joker-stairs-bronx",
+      "title": "ジョーカー", "titleEn": "Joker", "year": 2019, "director": "トッド・フィリップス",
+      "place": "ジョーカー階段（Shakespeare Ave〜W 167th St）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.8361, "lng": -73.9239, "confidence": "high", "streets": true,
+      "scene": "アーサーが真っ赤なスーツで長い階段を踊りながら下りる。主人公が変貌したことを示す場面。",
+      "look": "くすんだ緑と黄の街に、赤いスーツが浮かぶ。暖色寄りで粒子感のある色。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Joker_Stairs",
+        "https://www.timeout.com/newyork/news/photos-the-bronx-stairs-made-famous-by-the-joker-are-making-a-comeback-in-its-dc-sequel-040323"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr200", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 4, "b": -5 },
+        "highlight": -1, "shadow": 1, "color": 2, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 320〜1600", "exposureNote": "-1/3EV", "tags": ["街", "階段", "人物"] }
+    },
+    {
+      "id": "once-upon-a-time-in-america-dumbo",
+      "title": "ワンス・アポン・ア・タイム・イン・アメリカ", "titleEn": "Once Upon a Time in America", "year": 1984, "director": "セルジオ・レオーネ",
+      "place": "ワシントン・ストリートとウォーター・ストリートの角（ダンボ）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.7034, "lng": -73.9894, "confidence": "high", "streets": true,
+      "scene": "少年たちが石畳の通りを歩き、正面にマンハッタン橋がそびえる。ポスターにも使われた構図。",
+      "look": "セピアがかった暖色と霞んだ橋。柔らかく懐かしいトーン。",
+      "sources": [
+        "https://www.imdb.com/title/tt0087843/locations",
+        "https://www.movie-locations.com/movies/o/Once-Upon-A-Time-In-America.php"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6200 }, "wbShift": { "r": 3, "b": -5 },
+        "highlight": -1, "shadow": -1, "color": -2, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["街", "橋", "ノスタルジー"] }
+    },
+    {
+      "id": "ghostbusters-hook-ladder-8",
+      "title": "ゴーストバスターズ", "titleEn": "Ghostbusters", "year": 1984, "director": "アイヴァン・ライトマン",
+      "place": "消防署 Hook & Ladder 8", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.7196, "lng": -74.0066, "confidence": "high", "streets": true,
+      "scene": "幽霊退治の会社を始めた 3 人が本部にする古い消防署。外観はこの現役の消防署で撮られた。",
+      "look": "赤レンガと昼の明るい光。80 年代らしいややマゼンタ寄りの色。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Firehouse,_Hook_%26_Ladder_Company_8",
+        "https://www.untappedcities.com/ghostbusters-1984-nyc-filming-locations/"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": 1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["街", "建築", "日中"] }
+    },
+    {
+      "id": "when-harry-met-sally-katzs",
+      "title": "恋人たちの予感", "titleEn": "When Harry Met Sally...", "year": 1989, "director": "ロブ・ライナー",
+      "place": "カッツ・デリカテッセン", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.7223, "lng": -73.9874, "confidence": "high", "streets": true,
+      "scene": "ハリーとサリーが向かい合って食事をする老舗のデリ。店内の客を巻き込む有名な場面が撮られ、今も席に目印がある。",
+      "look": "蛍光灯と白熱灯が混じる店内。黄みがかった温かい色。",
+      "sources": [
+        "https://www.untappedcities.com/when-harry-met-sally-nyc-film-locations-35-years-later/",
+        "https://movie-locations.com/movies/w/When-Harry-Met-Sally.php"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": -1, "shadow": 0, "color": 0, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "食", "人物"] }
+    },
+    {
+      "id": "when-harry-met-sally-washington-square",
+      "title": "恋人たちの予感", "titleEn": "When Harry Met Sally...", "year": 1989, "director": "ロブ・ライナー",
+      "place": "ワシントン・スクエア公園の凱旋門", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.7313, "lng": -73.9971, "confidence": "high", "streets": true,
+      "scene": "シカゴから車で一緒に来たふたりが別れる場所。白い大理石の門の向こうに街が広がる。",
+      "look": "秋の柔らかな日差しと白い門。暖かく落ち着いた色。",
+      "sources": [
+        "https://www.untappedcities.com/when-harry-met-sally-nyc-film-locations-35-years-later/",
+        "https://movie-locations.com/movies/w/When-Harry-Met-Sally.php"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 2, "b": -3 },
+        "highlight": 0, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["公園", "秋", "日中"] }
+    },
+    {
+      "id": "godfather-old-st-patricks",
+      "title": "ゴッドファーザー", "titleEn": "The Godfather", "year": 1972, "director": "フランシス・フォード・コッポラ",
+      "place": "旧セント・パトリック大聖堂", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.7237, "lng": -73.9953, "confidence": "high", "streets": true,
+      "scene": "マイケルが洗礼式に立ち会う教会。式の進行と、街のあちこちで起きる粛清が交互に映される。",
+      "look": "琥珀色の暗い堂内、深く沈む影。黄色みの強いアンダー気味の色。",
+      "sources": [
+        "https://untappedcities.com/2014/02/27/an-offer-you-cant-refuse-10-nyc-film-locations-for-the-godfather/8/",
+        "https://scoutingny.com/the-godfather-the-new-york-city-filming-locations-then-and-now/3"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 3800 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 2, "color": 0, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-2/3EV", "tags": ["室内", "教会", "低照度"] }
+    },
+    {
+      "id": "home-alone-2-plaza-hotel",
+      "title": "ホーム・アローン2", "titleEn": "Home Alone 2: Lost in New York", "year": 1992, "director": "クリス・コロンバス",
+      "place": "プラザ・ホテル", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.7646, "lng": -73.9744, "confidence": "high", "streets": true,
+      "scene": "ひとりでニューヨークに来たケビンが、父のカードで泊まる高級ホテル。クリスマスの装飾が華やか。",
+      "look": "冬の街の青と金色の照明。暖色の光がきらめく。",
+      "sources": [
+        "https://movie-locations.com/movies/h/Home-Alone-2.php",
+        "https://onlocationtours.com/locations/home-alone-2-lost-in-new-york/"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 2, "b": -3 },
+        "highlight": -1, "shadow": 0, "color": 1, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["冬", "ホテル", "夜"] }
+    },
+    {
+      "id": "night-at-the-museum-amnh",
+      "title": "ナイト ミュージアム", "titleEn": "Night at the Museum", "year": 2006, "director": "ショーン・レヴィ",
+      "place": "アメリカ自然史博物館（外観）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.7811, "lng": -73.973, "confidence": "high", "streets": true,
+      "scene": "夜警として働き始めた男の職場になる博物館。外観はセントラル・パーク・ウエストの本物の建物。",
+      "look": "夜の石造りの建物と街灯の黄。青い夜空とのコントラスト。",
+      "sources": [
+        "https://movielocationsguide.com/night-at-the-museum/filming-locations/museum-of-natural-history",
+        "https://thecinemaholic.com/night-at-the-museum-filming-location"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 4300 }, "wbShift": { "r": 1, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "建築", "街"] }
+    },
+    {
+      "id": "youve-got-mail-cafe-lalo",
+      "title": "ユー・ガット・メール", "titleEn": "You've Got Mail", "year": 1998, "director": "ノーラ・エフロン",
+      "place": "カフェ・ラロ", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.786, "lng": -73.9776, "confidence": "high", "streets": true,
+      "scene": "メールで文通するふたりが初めて会う約束をするカフェ。窓辺の席で待つキャスリーンを、ジョーが外から見つける。",
+      "look": "店内の暖かい電球色と窓の外の夕方の青。柔らかい。",
+      "sources": [
+        "https://untappedcities.com/2023/12/11/film-locations-youve-got-mail-nyc/",
+        "https://movie-locations.com/movies/y/Youve-Got-Mail.php"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -2, "shadow": 0, "color": 0, "sharpness": -3, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "カフェ", "夕方"] }
+    },
+    {
+      "id": "youve-got-mail-riverside-park",
+      "title": "ユー・ガット・メール", "titleEn": "You've Got Mail", "year": 1998, "director": "ノーラ・エフロン",
+      "place": "リバーサイド・パーク 91 丁目ガーデン", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.7935, "lng": -73.9775, "confidence": "high", "streets": true,
+      "scene": "物語の最後に、ふたりが花に囲まれた小さな庭で再会する。",
+      "look": "花の色と木漏れ日。明るく甘いパステル調。",
+      "sources": [
+        "https://untappedcities.com/2023/12/11/film-locations-youve-got-mail-nyc/",
+        "https://iamnotastalker.com/2007/12/16/youve-got-filming-locations"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
+        "highlight": -2, "shadow": -2, "color": 1, "sharpness": -1, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["公園", "花", "日中"] }
+    },
+    {
+      "id": "do-the-right-thing-stuyvesant-ave",
+      "title": "ドゥ・ザ・ライト・シング", "titleEn": "Do the Right Thing", "year": 1989, "director": "スパイク・リー",
+      "place": "スタイヴェサント・アベニュー（クインシー通り〜レキシントン通り）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.6876, "lng": -73.9333, "confidence": "high", "streets": true,
+      "scene": "真夏の一日、ひとつの街区で人々の緊張が高まっていく。撮影はこの一区画を借り切って行われた。",
+      "look": "赤とオレンジを強めた暑い色、濃い影。高彩度で熱っぽい。",
+      "sources": [
+        "https://www.brownstoner.com/brooklyn-life/spike-lee-making-do-the-right-thing-st-clair-bourne-bed-stuy-metrograph/",
+        "https://atlasobscura.com/places/do-the-right-thing-way"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": 4, "b": -5 },
+        "highlight": 0, "shadow": 1, "color": 3, "sharpness": 0, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["夏", "街", "日中"] }
+    },
+    {
+      "id": "sex-and-the-city-nypl",
+      "title": "セックス・アンド・ザ・シティ", "titleEn": "Sex and the City", "year": 2008, "director": "マイケル・パトリック・キング",
+      "place": "ニューヨーク公共図書館 本館", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.7532, "lng": -73.9822, "confidence": "high", "streets": true,
+      "scene": "キャリーが結婚式の会場に選ぶ図書館。新郎が現れず、ウエディングドレスのまま階段を去る。",
+      "look": "白い大理石とやわらかな昼光。明るく上品な色。",
+      "sources": [
+        "https://www.iamnotastalker.com/2010/05/27/the-new-york-public-library-from-sex-and-the-city-the-movie/",
+        "https://otsony.com/sexandthecity.html"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
+        "highlight": -2, "shadow": -2, "color": 0, "sharpness": -1, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["建築", "日中", "人物"] }
+    },
+    {
+      "id": "warriors-coney-island",
+      "title": "ウォリアーズ", "titleEn": "The Warriors", "year": 1979, "director": "ウォルター・ヒル",
+      "place": "コニーアイランド（ワンダー・ホイール）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.574, "lng": -73.9787, "confidence": "high", "streets": true,
+      "scene": "冒頭の夜の観覧車と、一晩中追われたギャングがようやく帰り着く夜明けの海辺。",
+      "look": "夜のネオンと夜明けの淡い青。粒子の荒い 70 年代の夜景。",
+      "sources": [
+        "https://timeout.com/newyork/news/the-6-new-york-locations-that-helped-turn-the-warriors-into-a-cult-classic-101624",
+        "https://scoutingny.com/the-new-york-city-filming-locations-of-the-warriors-ny-youve-changed"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "strong", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 3800 }, "wbShift": { "r": 1, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 2, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "遊園地", "海"] }
+    },
+    {
+      "id": "john-wick-beaver-building",
+      "title": "ジョン・ウィック", "titleEn": "John Wick", "year": 2014, "director": "チャド・スタエルスキ",
+      "place": "ビーバー・ビルディング（コンチネンタル・ホテルの外観）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.705, "lng": -74.0087, "confidence": "high", "streets": true,
+      "scene": "殺し屋たちが泊まる中立地帯のホテル。三角形の古いビルが外観に使われた。",
+      "look": "夜の青緑と街灯のオレンジ。濃い黒と冷たい肌色。",
+      "sources": [
+        "https://atlasofwonders.com/2021/12/continental-hotel-john-wick.html",
+        "https://downtownny.com/news/film-locations-visit-downtown/"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 2, "color": 2, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "建築", "街"] }
+    },
+    {
+      "id": "birdman-st-james-theatre",
+      "title": "バードマン", "titleEn": "Birdman", "year": 2014, "director": "アレハンドロ・G・イニャリトゥ",
+      "place": "セント・ジェームズ劇場", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.759, "lng": -73.9884, "confidence": "high", "streets": true,
+      "scene": "落ち目の俳優が舞台に挑むブロードウェイの劇場。撮影の大半がこの劇場の中と周辺で行われた。",
+      "look": "楽屋の暖色と舞台照明、狭い廊下の影。長回しの生々しい色。",
+      "sources": [
+        "https://onlocationtours.com/blog/birdman-locations-nyc/",
+        "https://www.untappedcities.com/nyc-film-locations-birdman-by-alejandro-gonzalez-inarritu-with-michael-keaton/"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 1, "color": 1, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "劇場", "夜"] }
+    },
+    {
+      "id": "oceans-8-met",
+      "title": "オーシャンズ8", "titleEn": "Ocean's 8", "year": 2018, "director": "ゲイリー・ロス",
+      "place": "メトロポリタン美術館", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.7794, "lng": -73.9632, "confidence": "high", "streets": true,
+      "scene": "ファッションの祭典の夜に宝石を盗む計画の舞台。館内の展示室で夜間の撮影が行われた。",
+      "look": "華やかな照明、ドレスの色、黒の締まった画面。リッチで鮮やか。",
+      "sources": [
+        "https://www.screenglobalproduction.com/news/2018/06/08/heist-movie-oceans-8-filmed-in-new-yorks-met",
+        "https://news.artnet.com/art-world/oceans-8-met-gala-heist-1297880"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4500 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": 1, "shadow": 1, "color": 3, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["室内", "美術館", "夜"] }
+    },
+    {
+      "id": "moonstruck-cranberry-street",
+      "title": "月の輝く夜に", "titleEn": "Moonstruck", "year": 1987, "director": "ノーマン・ジュイソン",
+      "place": "19 Cranberry St（カストリーニ家）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.6993, "lng": -73.9947, "confidence": "high", "streets": true,
+      "scene": "イタリア系の一家が暮らすれんが造りの家。満月の夜に家族それぞれの恋が動き出す。",
+      "look": "冬の夜の青と窓の暖かい光。少しくすんだ 80 年代の色。",
+      "sources": [
+        "https://www.timeout.com/newyork/news/see-inside-that-famous-moonstruck-townhouse-in-brooklyn-heights-030221",
+        "https://www.brickunderground.com/blog/2014/11/reel_estate_moonstruck"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 5200 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["夜", "住宅", "冬"] }
+    },
+    {
+      "id": "royal-tenenbaums-convent-ave",
+      "title": "ザ・ロイヤル・テネンバウムズ", "titleEn": "The Royal Tenenbaums", "year": 2001, "director": "ウェス・アンダーソン",
+      "place": "339 Convent Ave（テネンバウム家）", "city": "ニューヨーク", "country": "アメリカ", "region": "north-america",
+      "lat": 40.8237, "lng": -73.9476, "confidence": "high", "streets": true,
+      "scene": "天才児だったきょうだいが育った家。久しぶりに家族が戻り、再び同じ屋根の下で暮らす。",
+      "look": "赤レンガ、くすんだ黄と赤。左右対称の画面に合う暖かい色。",
+      "sources": [
+        "https://www.movie-locations.com/movies/r/Royal-Tenenbaums.php",
+        "https://6sqft.com/manhattan/upper-manhattan/hamilton-heights/339-convent-avenue"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["住宅", "日中", "人物"] }
+    },
+    {
+      "id": "paterson-great-falls",
+      "title": "パターソン", "titleEn": "Paterson", "year": 2016, "director": "ジム・ジャームッシュ",
+      "place": "グレート・フォールズ", "city": "パターソン", "country": "アメリカ", "region": "north-america",
+      "lat": 40.9156, "lng": -74.181, "confidence": "high", "streets": true,
+      "scene": "バス運転手で詩を書くパターソンが、昼休みに座る滝の前のベンチ。",
+      "look": "秋の曇り空と水しぶきの白。落ち着いた低彩度。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Paterson_(film)",
+        "https://njmonthly.com/articles/jersey-living/film-television/jarmuschs-love-letter-paterson/"
+      ],
+      "recipe": { "filmSim": "pro-neg-std", "dr": "dr200", "grain": "weak", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 1, "b": -1 },
+        "highlight": -1, "shadow": -1, "color": -1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["滝", "秋", "日常"] }
+    },
+    {
+      "id": "la-la-land-angels-flight",
+      "title": "ラ・ラ・ランド", "titleEn": "La La Land", "year": 2016, "director": "デイミアン・チャゼル",
+      "place": "エンジェルズ・フライト", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
+      "lat": 34.0515, "lng": -118.2498, "confidence": "high", "streets": true,
+      "scene": "ミアとセバスチャンが短いケーブルカーに乗る。ふたりの幸せな日々を描く場面のひとつ。",
+      "look": "オレンジの車体と夜の街の青。原色を生かした鮮やかな色。",
+      "sources": [
+        "https://www.discoverlosangeles.com/things-to-do/the-best-places-to-experience-la-la-land-in-los-angeles",
+        "https://movie-locations.com/movies/l/La-La-Land.php"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4800 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": 1, "shadow": 1, "color": 3, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["夜", "街", "乗り物"] }
+    },
+    {
+      "id": "la-la-land-hermosa-pier",
+      "title": "ラ・ラ・ランド", "titleEn": "La La Land", "year": 2016, "director": "デイミアン・チャゼル",
+      "place": "ハーモサビーチ・ピア", "city": "ハーモサビーチ", "country": "アメリカ", "region": "north-america",
+      "lat": 33.8619, "lng": -118.4036, "confidence": "high", "streets": true,
+      "scene": "セバスチャンが夕暮れの桟橋をひとり歩き、歌い踊る。",
+      "look": "マジックアワーの紫と橙。空のグラデーションを生かす。",
+      "sources": [
+        "https://www.hmdb.org/m.asp?m=205495",
+        "https://www.cbsnews.com/losangeles/news/15-memorable-l-a-locations-featured-in-la-la-land"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6800 }, "wbShift": { "r": 3, "b": -1 },
+        "highlight": -1, "shadow": 1, "color": 2, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["夕方", "海", "マジックアワー"] }
+    },
+    {
+      "id": "500-days-of-summer-angels-knoll",
+      "title": "(500)日のサマー", "titleEn": "(500) Days of Summer", "year": 2009, "director": "マーク・ウェブ",
+      "place": "エンジェルズ・ノール（現在は閉鎖）", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
+      "lat": 34.0518, "lng": -118.2506, "confidence": "high", "streets": true,
+      "scene": "建築好きのトムがお気に入りのベンチから街のビルを眺める丘の公園。",
+      "look": "淡い青と黄、レトロな色合わせ。柔らかい日差し。",
+      "sources": [
+        "https://discoverlosangeles.com/things-to-do/los-angeles-locations-featured-in-500-days-of-summer",
+        "https://iamnotastalker.com/2010/04/15/the-500-days-of-summer-bench"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 1, "b": 1 },
+        "highlight": -2, "shadow": -2, "color": 1, "sharpness": -1, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["公園", "日中", "街"] }
+    },
+    {
+      "id": "pretty-woman-beverly-wilshire",
+      "title": "プリティ・ウーマン", "titleEn": "Pretty Woman", "year": 1990, "director": "ゲイリー・マーシャル",
+      "place": "ビバリー・ウィルシャー・ホテル（外観）", "city": "ビバリーヒルズ", "country": "アメリカ", "region": "north-america",
+      "lat": 34.0672, "lng": -118.4007, "confidence": "high", "streets": true,
+      "scene": "実業家エドワードが滞在する高級ホテル。ヴィヴィアンが初めて足を踏み入れ、場違いさに戸惑う。",
+      "look": "明るい日差しと白い外壁、ヤシの緑。華やかで暖かい色。",
+      "sources": [
+        "https://historichotelsthenandnow.com/beverlywilshirebeverlyhills.html",
+        "https://www.lamag.com/culturefiles/pretty-woman-30-years/"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 2, "b": -3 },
+        "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["ホテル", "日中", "街"] }
+    },
+    {
+      "id": "back-to-the-future-gamble-house",
+      "title": "バック・トゥ・ザ・フューチャー", "titleEn": "Back to the Future", "year": 1985, "director": "ロバート・ゼメキス",
+      "place": "ギャンブル・ハウス（ドクの家の外観）", "city": "パサデナ", "country": "アメリカ", "region": "north-america",
+      "lat": 34.152, "lng": -118.1605, "confidence": "high", "streets": true,
+      "scene": "1955 年のドクが住む木造の屋敷。マーティが過去で頼る相手を訪ねる。",
+      "look": "木の褐色と庭の緑、昼の穏やかな光。暖かく懐かしい色。",
+      "sources": [
+        "https://www.discoverlosangeles.com/things-to-do/go-back-to-the-future-with-these-la-film-locations",
+        "https://laist.com/news/entertainment/back-to-the-future-locations"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -3 },
+        "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["住宅", "建築", "日中"] }
     }
   ]
 }
