@@ -1,0 +1,2361 @@
+{
+ "version": 1,
+ "source": "Protomaps basemap (OpenStreetMap, ODbL)",
+ "radiusKm": 1,
+ "minzoom": 10,
+ "maxzoom": 15,
+ "files": [
+  {
+   "id": "lost-in-translation-park-hyatt",
+   "file": "lost-in-translation-park-hyatt.pmtiles",
+   "bytes": 1891782,
+   "sha256": "ac5ae425f44fdae9897bedbfcd82a61f614dbd92dc77a2ffbec2f26a15a7b85e",
+   "bbox": [
+    139.67954,
+    35.67656,
+    139.70166,
+    35.69464
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "chungking-express-escalator",
+   "file": "chungking-express-escalator.pmtiles",
+   "bytes": 1345648,
+   "sha256": "084dcf03fe8c76033eedc930c97033415a1f369124e8e99c19ccf3f89b54d91e",
+   "bbox": [
+    114.14509,
+    22.27326,
+    114.16451,
+    22.29134
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "tokyo-story-onomichi",
+   "file": "tokyo-story-onomichi.pmtiles",
+   "bytes": 557259,
+   "sha256": "8e9efabd71ae8f9445ee39997c8872c25a285360fc517dd80b4f9bbef8fc0275",
+   "bbox": [
+    133.19971,
+    34.40036,
+    133.22149,
+    34.41844
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "amelie-cafe-des-2-moulins",
+   "file": "amelie-cafe-des-2-moulins.pmtiles",
+   "bytes": 2521978,
+   "sha256": "ca3e5dfd469a738fba1a155b81c9955e322a014063b45b6c25c570a9e8f21869",
+   "bbox": [
+    2.31994,
+    48.87586,
+    2.34726,
+    48.89394
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "la-dolce-vita-trevi",
+   "file": "la-dolce-vita-trevi.pmtiles",
+   "bytes": 2606669,
+   "sha256": "b3257ca4d8b6e5711873d95d4ca6f67c54840b0dc3f6587013a699b057460c3f",
+   "bbox": [
+    12.47123,
+    41.89186,
+    12.49537,
+    41.90994
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "roman-holiday-bocca-della-verita",
+   "file": "roman-holiday-bocca-della-verita.pmtiles",
+   "bytes": 1864389,
+   "sha256": "048d17a080962f8f0fa603956214cdab9ee3953f7f837956a65641ed22c04d40",
+   "bbox": [
+    12.46953,
+    41.87906,
+    12.49367,
+    41.89714
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "the-third-man-riesenrad",
+   "file": "the-third-man-riesenrad.pmtiles",
+   "bytes": 2155523,
+   "sha256": "992363481a54369518ee2dffb633ed110f7053ef1b29874b32e4146604572061",
+   "bbox": [
+    16.38232,
+    48.20756,
+    16.40928,
+    48.22564
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "wings-of-desire-victory-column",
+   "file": "wings-of-desire-victory-column.pmtiles",
+   "bytes": 2526149,
+   "sha256": "d050d788a456f36615480ecec0f08bc92adb43bc7159588eb4d1b4773b3e6c59",
+   "bbox": [
+    13.33534,
+    52.50546,
+    13.36486,
+    52.52354
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "call-me-by-your-name-crema",
+   "file": "call-me-by-your-name-crema.pmtiles",
+   "bytes": 577454,
+   "sha256": "1b11343d1947214a263ff7b81cceadb81f3994cc64cddcffcd324e4a95bf2ba4",
+   "bbox": [
+    9.67261,
+    45.35356,
+    9.69819,
+    45.37164
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "walter-mitty-seydisfjordur",
+   "file": "walter-mitty-seydisfjordur.pmtiles",
+   "bytes": 146163,
+   "sha256": "201a6825350e34a62fb85ed79549b1bb72309f6286de5de8a9549e6f36b10064",
+   "bbox": [
+    -14.03117,
+    65.25126,
+    -13.98823,
+    65.26934
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "breakfast-at-tiffanys-fifth-avenue",
+   "file": "breakfast-at-tiffanys-fifth-avenue.pmtiles",
+   "bytes": 1531137,
+   "sha256": "cae364e1aec7d0e4631cf16c48c8ac21008f11618faed91156222b8047f4b63f",
+   "bbox": [
+    -73.98576,
+    40.75346,
+    -73.96204,
+    40.77154
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "manhattan-sutton-place",
+   "file": "manhattan-sutton-place.pmtiles",
+   "bytes": 1212897,
+   "sha256": "8c70ac2b23302624eef4306cf7bb0b55bf9aba065e1151ef021a9d216283bd83",
+   "bbox": [
+    -73.97086,
+    40.74996,
+    -73.94714,
+    40.76804
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "blade-runner-bradbury-building",
+   "file": "blade-runner-bradbury-building.pmtiles",
+   "bytes": 1205656,
+   "sha256": "80acc6cf05215137de055fa431830f7bf30299065bea0457e885385fad19b652",
+   "bbox": [
+    -118.25864,
+    34.04146,
+    -118.23696,
+    34.05954
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "perfect-days-yoyogi-hachiman-toilet",
+   "file": "perfect-days-yoyogi-hachiman-toilet.pmtiles",
+   "bytes": 1969139,
+   "sha256": "42c3e9fb4f211d7b6a725d60d1470c1a6ae97ae4ac13f6e4991f90ab6a35a1b1",
+   "bbox": [
+    139.67554,
+    35.65976,
+    139.69766,
+    35.67784
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "perfect-days-sakurabashi",
+   "file": "perfect-days-sakurabashi.pmtiles",
+   "bytes": 2018886,
+   "sha256": "c5ae60b1f23c8d89039ef5070249393251d0902e138a9c3607ae6ff61542bb3e",
+   "bbox": [
+    139.79084,
+    35.70646,
+    139.81296,
+    35.72454
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "perfect-days-asakusa-chikagai",
+   "file": "perfect-days-asakusa-chikagai.pmtiles",
+   "bytes": 2700672,
+   "sha256": "1ba90d415b18d3e03fc96ee91c625027ce8ad725ea00da9e6080d6221f6784c7",
+   "bbox": [
+    139.78614,
+    35.70176,
+    139.80826,
+    35.71984
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "drive-my-car-naka-incineration-plant",
+   "file": "drive-my-car-naka-incineration-plant.pmtiles",
+   "bytes": 1366359,
+   "sha256": "34d57f4d2ef035e212f7988547c16a22ecc60473d2e2ac46ac78a3fdd21dea11",
+   "bbox": [
+    132.43412,
+    34.36296,
+    132.45588,
+    34.38104
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "black-rain-dotonbori",
+   "file": "black-rain-dotonbori.pmtiles",
+   "bytes": 1915001,
+   "sha256": "5b7ad9c4aaaa14202db2d8a5d8493cd7cfa4311459ac6ca2d4003fce368b3c0e",
+   "bbox": [
+    135.49038,
+    34.65966,
+    135.51222,
+    34.67774
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "memoirs-of-a-geisha-fushimi-inari",
+   "file": "memoirs-of-a-geisha-fushimi-inari.pmtiles",
+   "bytes": 1158530,
+   "sha256": "4585957c1849f686c07d48e085fee20598560063085b11bf1a742b9deba95df7",
+   "bbox": [
+    135.76854,
+    34.95806,
+    135.79046,
+    34.97614
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "you-only-live-twice-himeji-castle",
+   "file": "you-only-live-twice-himeji-castle.pmtiles",
+   "bytes": 799822,
+   "sha256": "c3da9cabcfdc8b36cf4297a17ef9d66e9aa4fc13e7ba87a85b81d96b04608a96",
+   "bbox": [
+    134.68296,
+    34.83036,
+    134.70484,
+    34.84844
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "you-only-live-twice-new-otani",
+   "file": "you-only-live-twice-new-otani.pmtiles",
+   "bytes": 1780162,
+   "sha256": "b8782df71a2c4c8565c101e3b61cf099c1628de40b28950a2dedd2b63bc58fd3",
+   "bbox": [
+    139.72264,
+    35.67066,
+    139.74476,
+    35.68874
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "departures-kappo-obata",
+   "file": "departures-kappo-obata.pmtiles",
+   "bytes": 494466,
+   "sha256": "c1088ce7f470f02b27e6d15b58619a0a85d4dc9f930c7c2bcb6ca2782040b460",
+   "bbox": [
+    139.81425,
+    38.91356,
+    139.83735,
+    38.93164
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "our-little-sister-gokurakuji-station",
+   "file": "our-little-sister-gokurakuji-station.pmtiles",
+   "bytes": 1102962,
+   "sha256": "46829ef1156a05c3810404ecaef52b15d2513e3c7d5d41601a17425d8bc756da",
+   "bbox": [
+    139.51989,
+    35.30106,
+    139.54191,
+    35.31914
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "tora-san-shibamata-sando",
+   "file": "tora-san-shibamata-sando.pmtiles",
+   "bytes": 1390556,
+   "sha256": "0a664ba4cff38cdeb63bc0c1c0d51c5f8eb8b3fa35852fa6fae8daaace0b2e44",
+   "bbox": [
+    139.86693,
+    35.74886,
+    139.88907,
+    35.76694
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "lost-in-translation-heian-shrine",
+   "file": "lost-in-translation-heian-shrine.pmtiles",
+   "bytes": 1533634,
+   "sha256": "3b1135fddd692a9f47e3b1c1b31d4d761456775de3f44b25da9db7d3620e319e",
+   "bbox": [
+    135.77203,
+    35.00716,
+    135.79397,
+    35.02524
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "lost-in-translation-shibuya-crossing",
+   "file": "lost-in-translation-shibuya-crossing.pmtiles",
+   "bytes": 1782727,
+   "sha256": "dd0cf627ff7553b646be826439654d5fe1a7b1947b39403e29084fc80c5ad5bb",
+   "bbox": [
+    139.68944,
+    35.65046,
+    139.71156,
+    35.66854
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "lost-in-translation-karaoke-kan",
+   "file": "lost-in-translation-karaoke-kan.pmtiles",
+   "bytes": 1782727,
+   "sha256": "872c4f2758a9f188c0944d16e8cd17dfdefc84ccee23bba584080614dd17f24a",
+   "bbox": [
+    139.68714,
+    35.65156,
+    139.70926,
+    35.66964
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "lost-in-translation-nanzenji",
+   "file": "lost-in-translation-nanzenji.pmtiles",
+   "bytes": 1167940,
+   "sha256": "1e3f81de2e29e2ee2b746f98bc2baaf0e4791feac8854759fa3d3325cec463e1",
+   "bbox": [
+    135.78223,
+    35.00226,
+    135.80417,
+    35.02034
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "love-letter-otaru-nyk",
+   "file": "love-letter-otaru-nyk.pmtiles",
+   "bytes": 505859,
+   "sha256": "60f7d1dd8ceff73f2e7845049fc65956f256f33d6f4478bc40ad0e8548ae51ba",
+   "bbox": [
+    140.99118,
+    43.19496,
+    141.01582,
+    43.21304
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "exchange-students-misode-tenmangu",
+   "file": "exchange-students-misode-tenmangu.pmtiles",
+   "bytes": 711288,
+   "sha256": "609bc0a966ca5006391fc5ff17b08e746314a10f10942e76dd3399de2c6b43e8",
+   "bbox": [
+    133.18811,
+    34.40176,
+    133.20989,
+    34.41984
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "girl-who-leapt-takehara",
+   "file": "girl-who-leapt-takehara.pmtiles",
+   "bytes": 486067,
+   "sha256": "8973672eff594dea2261e8e4bf6ba1f9b7ae6109a3b33af085d360315c663273",
+   "bbox": [
+    132.89862,
+    34.33456,
+    132.92038,
+    34.35264
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "after-the-storm-asahigaoka-danchi",
+   "file": "after-the-storm-asahigaoka-danchi.pmtiles",
+   "bytes": 1208576,
+   "sha256": "4d9e72edf6e646f8f13254503135f6327c6299932500e4269ce4125fc4004a4d",
+   "bbox": [
+    139.49793,
+    35.77596,
+    139.52007,
+    35.79404
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "wolverine-zojoji",
+   "file": "wolverine-zojoji.pmtiles",
+   "bytes": 1881712,
+   "sha256": "5cf6ed1a954f516337cfe29ba44603505947eb4881b10df768cb83ffb2bbbcb3",
+   "bbox": [
+    139.73714,
+    35.64846,
+    139.75926,
+    35.66654
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "wolverine-tomonoura",
+   "file": "wolverine-tomonoura.pmtiles",
+   "bytes": 326371,
+   "sha256": "0102b4c3bff9b3f14c41f9b849affa4a9c1ab8063dc6b5d31bbc664a7942f7c8",
+   "bbox": [
+    133.37092,
+    34.37416,
+    133.39268,
+    34.39224
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "chihayafuru-omi-jingu",
+   "file": "chihayafuru-omi-jingu.pmtiles",
+   "bytes": 696383,
+   "sha256": "eb39d2062027a7b108941f83832adbf3c3409c5680f7cd183f64996d5521dca0",
+   "bbox": [
+    135.84683,
+    35.01956,
+    135.86877,
+    35.03764
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "station-mashike",
+   "file": "station-mashike.pmtiles",
+   "bytes": 135508,
+   "sha256": "f9a2b778565cb719a3db09d123956dd1e143fe603c41c88685a7d4e5aee50e05",
+   "bbox": [
+    141.50974,
+    43.84396,
+    141.53466,
+    43.86204
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "golden-slumber-jozenji-dori",
+   "file": "golden-slumber-jozenji-dori.pmtiles",
+   "bytes": 1512587,
+   "sha256": "24003e0686467496483f85cead09a09c58cf615a09de61c5a6de06dfc27f5189",
+   "bbox": [
+    140.85656,
+    38.25766,
+    140.87944,
+    38.27574
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "monster-tateishi-park",
+   "file": "monster-tateishi-park.pmtiles",
+   "bytes": 403869,
+   "sha256": "cd0e2fac008dd67ca5bbceae9a89513aa9078ff13f76e58ed4e1ac6aeb6bb05d",
+   "bbox": [
+    138.11509,
+    36.03876,
+    138.13731,
+    36.05684
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "enter-the-void-kabukicho",
+   "file": "enter-the-void-kabukicho.pmtiles",
+   "bytes": 1943714,
+   "sha256": "c283b1445081a6f9b0d454f7361d1c38c73efb1f6461b51147d914cd7f4ab60b",
+   "bbox": [
+    139.69084,
+    35.68476,
+    139.71296,
+    35.70284
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "blood-of-wolves-kure-nakadori",
+   "file": "blood-of-wolves-kure-nakadori.pmtiles",
+   "bytes": 681071,
+   "sha256": "7a8a843d3544630fb94830c1cc345252fe10d8d1eaaf268756e3f2933a0a43b3",
+   "bbox": [
+    132.55413,
+    34.23876,
+    132.57587,
+    34.25684
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "joker-stairs-bronx",
+   "file": "joker-stairs-bronx.pmtiles",
+   "bytes": 1118227,
+   "sha256": "1d41ec4af165dae8f2da8256915f62a568b0e621954ede5d4b0ff63d257dfe19",
+   "bbox": [
+    -73.93577,
+    40.82706,
+    -73.91203,
+    40.84514
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "once-upon-a-time-in-america-dumbo",
+   "file": "once-upon-a-time-in-america-dumbo.pmtiles",
+   "bytes": 1051722,
+   "sha256": "72728af28145543748ec8a6c8439d015e77e072f7959c46d32401f8583cc64f1",
+   "bbox": [
+    -74.00125,
+    40.69436,
+    -73.97755,
+    40.71244
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "ghostbusters-hook-ladder-8",
+   "file": "ghostbusters-hook-ladder-8.pmtiles",
+   "bytes": 2194498,
+   "sha256": "2ea0a17722eed5fa81dca440ba3ba9040a3ed9bf9e6797ad7367c43feab38ccb",
+   "bbox": [
+    -74.01845,
+    40.71056,
+    -73.99475,
+    40.72864
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "when-harry-met-sally-katzs",
+   "file": "when-harry-met-sally-katzs.pmtiles",
+   "bytes": 2132865,
+   "sha256": "0e92dc78080ed8e57a57ba09be2f6a49e79a8aedd6c019a31dc4f89620137272",
+   "bbox": [
+    -73.99925,
+    40.71326,
+    -73.97555,
+    40.73134
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "when-harry-met-sally-washington-square",
+   "file": "when-harry-met-sally-washington-square.pmtiles",
+   "bytes": 2155673,
+   "sha256": "2799d06c340a8339a343e30fd27456404aedcafe5a23624916aa9a2a01c092bf",
+   "bbox": [
+    -74.00895,
+    40.72226,
+    -73.98525,
+    40.74034
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "godfather-old-st-patricks",
+   "file": "godfather-old-st-patricks.pmtiles",
+   "bytes": 1909818,
+   "sha256": "c05ff7b346750a1f1bb186625c77aa3e82941b5a76f6a52f417f0dd86ee703c8",
+   "bbox": [
+    -74.00715,
+    40.71466,
+    -73.98345,
+    40.73274
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "home-alone-2-plaza-hotel",
+   "file": "home-alone-2-plaza-hotel.pmtiles",
+   "bytes": 1715779,
+   "sha256": "1031426d0eadfd2908f012f92288afdf7ceb3effd2b2bc1d5908889b26c8939a",
+   "bbox": [
+    -73.98626,
+    40.75556,
+    -73.96254,
+    40.77364
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "night-at-the-museum-amnh",
+   "file": "night-at-the-museum-amnh.pmtiles",
+   "bytes": 1420737,
+   "sha256": "fc8e10237dcdc949301733db0c8779f3f2fa34f3222df2d7f2220f6c09cf3807",
+   "bbox": [
+    -73.98486,
+    40.77206,
+    -73.96114,
+    40.79014
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "youve-got-mail-cafe-lalo",
+   "file": "youve-got-mail-cafe-lalo.pmtiles",
+   "bytes": 1191307,
+   "sha256": "661f2b32fed932fa085b4f1d02cf64459f4b60b8c471625a58e1b2a14171729c",
+   "bbox": [
+    -73.98946,
+    40.77696,
+    -73.96574,
+    40.79504
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "youve-got-mail-riverside-park",
+   "file": "youve-got-mail-riverside-park.pmtiles",
+   "bytes": 865090,
+   "sha256": "ae8c6f2aefa2f9c93f01b6c6b6fc2a7a8fbc2be48b3923f6cf9c3f72a3f0b718",
+   "bbox": [
+    -73.98937,
+    40.78446,
+    -73.96563,
+    40.80254
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "do-the-right-thing-stuyvesant-ave",
+   "file": "do-the-right-thing-stuyvesant-ave.pmtiles",
+   "bytes": 1270349,
+   "sha256": "01f558d453f549964dfb1815b1082938d4a6db3f90ab2bed5b158c99bcfeeae5",
+   "bbox": [
+    -73.94515,
+    40.67856,
+    -73.92145,
+    40.69664
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "sex-and-the-city-nypl",
+   "file": "sex-and-the-city-nypl.pmtiles",
+   "bytes": 1855286,
+   "sha256": "75bdc1f96653b0345beebce440c69bb46d453e3cf5f204d4711e106b99fcf48d",
+   "bbox": [
+    -73.99406,
+    40.74416,
+    -73.97034,
+    40.76224
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "warriors-coney-island",
+   "file": "warriors-coney-island.pmtiles",
+   "bytes": 673337,
+   "sha256": "9efab182486e809b96ea6a451d3309a06a5063aa0ea8bbc86c5345c6ff2ad9bd",
+   "bbox": [
+    -73.99053,
+    40.56496,
+    -73.96687,
+    40.58304
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "john-wick-beaver-building",
+   "file": "john-wick-beaver-building.pmtiles",
+   "bytes": 2403745,
+   "sha256": "3db71b8a3e42cd69a18bf646e22ff72b87de5ac10a069b6e919b003513ecbd8b",
+   "bbox": [
+    -74.02055,
+    40.69596,
+    -73.99685,
+    40.71404
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "birdman-st-james-theatre",
+   "file": "birdman-st-james-theatre.pmtiles",
+   "bytes": 1475924,
+   "sha256": "369f7e83a824678fcbfab287ea5db9067058a3e76a12340146484d923a49e0ad",
+   "bbox": [
+    -74.00026,
+    40.74996,
+    -73.97654,
+    40.76804
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "oceans-8-met",
+   "file": "oceans-8-met.pmtiles",
+   "bytes": 1578764,
+   "sha256": "a4e636a75fcb1f74bdfb35d229ca66f98927f0d31f6771e49085e64bef5dec41",
+   "bbox": [
+    -73.97506,
+    40.77036,
+    -73.95134,
+    40.78844
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "moonstruck-cranberry-street",
+   "file": "moonstruck-cranberry-street.pmtiles",
+   "bytes": 1390426,
+   "sha256": "3e5391a99c5f8eadb732afc5698ec00874546aff9f1cee784122e99a9a5ecd4f",
+   "bbox": [
+    -74.00655,
+    40.69026,
+    -73.98285,
+    40.70834
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "royal-tenenbaums-convent-ave",
+   "file": "royal-tenenbaums-convent-ave.pmtiles",
+   "bytes": 953484,
+   "sha256": "835118d5cad83bc9f24f5421f8864379dace80d7dac4725c8fc2de802a74e703",
+   "bbox": [
+    -73.95947,
+    40.81466,
+    -73.93573,
+    40.83274
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "paterson-great-falls",
+   "file": "paterson-great-falls.pmtiles",
+   "bytes": 1019748,
+   "sha256": "555092285471ebc3a908f4b7100a093752373441f1b79c1d3f8cdfa6a1344ea8",
+   "bbox": [
+    -74.19289,
+    40.90656,
+    -74.16911,
+    40.92464
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "la-la-land-angels-flight",
+   "file": "la-la-land-angels-flight.pmtiles",
+   "bytes": 1205656,
+   "sha256": "3958dc1a20215bdd9e921eee195cfcf8301d0ca600611ead4aab85b785ec1f61",
+   "bbox": [
+    -118.26064,
+    34.04246,
+    -118.23896,
+    34.06054
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "la-la-land-hermosa-pier",
+   "file": "la-la-land-hermosa-pier.pmtiles",
+   "bytes": 731252,
+   "sha256": "7e51b2f7c0208ec98a642c8e55b0d416146849f8bb0ab17924c95f5c2862b283",
+   "bbox": [
+    -118.41442,
+    33.85286,
+    -118.39278,
+    33.87094
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "500-days-of-summer-angels-knoll",
+   "file": "500-days-of-summer-angels-knoll.pmtiles",
+   "bytes": 1205656,
+   "sha256": "288b1b7bd6b646a2a5bae4db7508ba17f3ea7b84fb52ca78ee99ae07f1c207cd",
+   "bbox": [
+    -118.26144,
+    34.04276,
+    -118.23976,
+    34.06084
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "pretty-woman-beverly-wilshire",
+   "file": "pretty-woman-beverly-wilshire.pmtiles",
+   "bytes": 1074260,
+   "sha256": "dffdae1b41d1cd8ee07df64408325b1722171c9879c7dd56fd17d9989ce54616",
+   "bbox": [
+    -118.41154,
+    34.05816,
+    -118.38986,
+    34.07624
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "back-to-the-future-gamble-house",
+   "file": "back-to-the-future-gamble-house.pmtiles",
+   "bytes": 811043,
+   "sha256": "36346f8e60aba216c4a586f2599f8d3bc0b34c78f854b2759c070c6c225c51ab",
+   "bbox": [
+    -118.17136,
+    34.14296,
+    -118.14964,
+    34.16104
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "back-to-the-future-puente-hills-mall",
+   "file": "back-to-the-future-puente-hills-mall.pmtiles",
+   "bytes": 581186,
+   "sha256": "10fbbadc401cfd83f46d52a7823d3967772bf39569d770e74d9e68cffa07a776",
+   "bbox": [
+    -117.93983,
+    33.98356,
+    -117.91817,
+    34.00164
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "blade-runner-union-station",
+   "file": "blade-runner-union-station.pmtiles",
+   "bytes": 1018058,
+   "sha256": "35f13eb25b87e04a847c748449d67ae61647be772b80e6928a022824fd649a5a",
+   "bbox": [
+    -118.24734,
+    34.04716,
+    -118.22566,
+    34.06524
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "once-upon-a-time-in-hollywood-musso-frank",
+   "file": "once-upon-a-time-in-hollywood-musso-frank.pmtiles",
+   "bytes": 1009044,
+   "sha256": "fe01e87f8c46300b7caf40a0b7f2d424a2bb42b2beb98a805abeaa074933b0a3",
+   "bbox": [
+    -118.34635,
+    34.09256,
+    -118.32465,
+    34.11064
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "die-hard-fox-plaza",
+   "file": "die-hard-fox-plaza.pmtiles",
+   "bytes": 1143317,
+   "sha256": "128841037115d6580659c9fb3bd6f2ca602c786a9b012482134e148e1e9792f7",
+   "bbox": [
+    -118.42214,
+    34.04636,
+    -118.40046,
+    34.06444
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "et-lonzo-street",
+   "file": "et-lonzo-street.pmtiles",
+   "bytes": 621798,
+   "sha256": "9dd62f6666d1efb18995d5c0f3a676dc64a72002654abfdb5b662c734941b716",
+   "bbox": [
+    -118.29787,
+    34.25096,
+    -118.27613,
+    34.26904
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "top-gun-kansas-city-barbeque",
+   "file": "top-gun-kansas-city-barbeque.pmtiles",
+   "bytes": 879893,
+   "sha256": "4fe99a30c2c78c2803896e2799db2b9cc09f9e519332e3d12b81bd883e262248",
+   "bbox": [
+    -117.17838,
+    32.69946,
+    -117.15702,
+    32.71754
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "some-like-it-hot-hotel-del-coronado",
+   "file": "some-like-it-hot-hotel-del-coronado.pmtiles",
+   "bytes": 411818,
+   "sha256": "7dce85e5c75dc912c634522e0124c772122957a7652df76919c231ba09c70fb6",
+   "bbox": [
+    -117.18917,
+    32.67176,
+    -117.16783,
+    32.68984
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "sideways-hitching-post",
+   "file": "sideways-hitching-post.pmtiles",
+   "bytes": 144616,
+   "sha256": "dd984582b2cc0522efafb6d779c572fc3705e9812319ef323dfd72056301dc92",
+   "bbox": [
+    -120.19912,
+    34.60456,
+    -120.17728,
+    34.62264
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "vertigo-mission-dolores",
+   "file": "vertigo-mission-dolores.pmtiles",
+   "bytes": 1569874,
+   "sha256": "72350d6313be72c64f864e7520f615e2325ec394ec4728c1dc41c0182ce10b5c",
+   "bbox": [
+    -122.43826,
+    37.75526,
+    -122.41554,
+    37.77334
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "bullitt-taylor-filbert",
+   "file": "bullitt-taylor-filbert.pmtiles",
+   "bytes": 1062715,
+   "sha256": "3015864b8bce8a6847ef39ea1c52b942e49708dff2396790e22a054e035f95bf",
+   "bbox": [
+    -122.42537,
+    37.79276,
+    -122.40263,
+    37.81084
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "mrs-doubtfire-steiner-street",
+   "file": "mrs-doubtfire-steiner-street.pmtiles",
+   "bytes": 1594342,
+   "sha256": "3e2f8a140d42e5b1a80bb5c2dc1c493e531e3ea6f4383b42a32d3745f2689458",
+   "bbox": [
+    -122.44777,
+    37.78466,
+    -122.42503,
+    37.80274
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "milk-castro-theatre",
+   "file": "milk-castro-theatre.pmtiles",
+   "bytes": 2198597,
+   "sha256": "03733c670b53541b5fa113059759f24ebd015ea4f06492ee730d0114273cd58c",
+   "bbox": [
+    -122.44616,
+    37.75296,
+    -122.42344,
+    37.77104
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "the-conversation-union-square",
+   "file": "the-conversation-union-square.pmtiles",
+   "bytes": 1587763,
+   "sha256": "27e0de52d858d8e33d1b8d616265ca22fb7eb4be41757313b6c90228c7660cd7",
+   "bbox": [
+    -122.41887,
+    37.77896,
+    -122.39613,
+    37.79704
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "dark-knight-lower-wacker",
+   "file": "dark-knight-lower-wacker.pmtiles",
+   "bytes": 1330644,
+   "sha256": "7f2a38acc60dd970c15a484f94b56c20f336877bd5fe8ee610fb0c064a18d88f",
+   "bbox": [
+    -87.64437,
+    41.87776,
+    -87.62023,
+    41.89584
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "ferris-bueller-art-institute",
+   "file": "ferris-bueller-art-institute.pmtiles",
+   "bytes": 1253928,
+   "sha256": "81f4633b9a96ae37f492600f13c88e13a1c07a0fa4cf0601a263fed907f728c4",
+   "bbox": [
+    -87.63577,
+    41.87056,
+    -87.61163,
+    41.88864
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "home-alone-winnetka-house",
+   "file": "home-alone-winnetka-house.pmtiles",
+   "bytes": 246145,
+   "sha256": "2ad3000e4e75a5e17f114a857a4d1d61cd91a930b6fd17e2eb82c1598b8c11df",
+   "bbox": [
+    -87.74551,
+    42.10066,
+    -87.72129,
+    42.11874
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "blues-brothers-daley-plaza",
+   "file": "blues-brothers-daley-plaza.pmtiles",
+   "bytes": 1359383,
+   "sha256": "b3dd268ab36462f68809fbb3aae75b049930f6251e7489ef7bcd0790a0d128a7",
+   "bbox": [
+    -87.64217,
+    41.87496,
+    -87.61803,
+    41.89304
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "untouchables-union-station",
+   "file": "untouchables-union-station.pmtiles",
+   "bytes": 1213343,
+   "sha256": "24879989f17faf573a604cd28ac6a4c195b3a5c81d505200f208a47445788c4f",
+   "bbox": [
+    -87.65146,
+    41.86966,
+    -87.62734,
+    41.88774
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "groundhog-day-woodstock-square",
+   "file": "groundhog-day-woodstock-square.pmtiles",
+   "bytes": 297338,
+   "sha256": "d4ec2d4f94941638d5bc946a138e8d297c7b3c4a0997206001235b6233ae3b64",
+   "bbox": [
+    -88.45895,
+    42.30596,
+    -88.43465,
+    42.32404
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "shawshank-ohio-state-reformatory",
+   "file": "shawshank-ohio-state-reformatory.pmtiles",
+   "bytes": 458627,
+   "sha256": "f7db2ff8f91df960e9c07aabaf6c028464849e4a2005870453df0a6be478cfb2",
+   "bbox": [
+    -82.51416,
+    40.77486,
+    -82.49044,
+    40.79294
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "christmas-story-house",
+   "file": "christmas-story-house.pmtiles",
+   "bytes": 901350,
+   "sha256": "72fb7acc1c8ea21fd1a8bf8b3f132ce09e0d6080b96f3e932162d571041fa2ad",
+   "bbox": [
+    -81.69929,
+    41.45956,
+    -81.67531,
+    41.47764
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "deer-hunter-st-theodosius",
+   "file": "deer-hunter-st-theodosius.pmtiles",
+   "bytes": 891757,
+   "sha256": "85d2532b7248e4686bf3e3d5a9fad386ee30c7c4e6c740cb14aa41c19a4502ba",
+   "bbox": [
+    -81.69859,
+    41.47066,
+    -81.67461,
+    41.48874
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "rocky-art-museum-steps",
+   "file": "rocky-art-museum-steps.pmtiles",
+   "bytes": 1635112,
+   "sha256": "309abab392e0075bc5dcb320c600b9253706e798442e3fb86e7f321755d08d51",
+   "bbox": [
+    -75.19172,
+    39.95656,
+    -75.16828,
+    39.97464
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "rocky-italian-market",
+   "file": "rocky-italian-market.pmtiles",
+   "bytes": 2288204,
+   "sha256": "4cdd826c570ded9d5626d4a9cbf81b5081939eaedf959ddac64239f11bfbb352",
+   "bbox": [
+    -75.16972,
+    39.93026,
+    -75.14628,
+    39.94834
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "perks-fort-pitt-tunnel",
+   "file": "perks-fort-pitt-tunnel.pmtiles",
+   "bytes": 700020,
+   "sha256": "2690131c075892ace0fc412faf804c5ed8c2b7cf5f91faa39c178ffc3199f647",
+   "bbox": [
+    -80.0274,
+    40.42486,
+    -80.0038,
+    40.44294
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "good-will-hunting-public-garden",
+   "file": "good-will-hunting-public-garden.pmtiles",
+   "bytes": 2010007,
+   "sha256": "744dd5b9e3d8c81cf7d69f8137a19ffafc9814f405aadc8868dedbcaa375404e",
+   "bbox": [
+    -71.08226,
+    42.34556,
+    -71.05794,
+    42.36364
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "exorcist-steps",
+   "file": "exorcist-steps.pmtiles",
+   "bytes": 1351437,
+   "sha256": "619366b436d6e9121e5c4782a954522f8a11d2b010d34b6dd5935ed2b55c7038",
+   "bbox": [
+    -77.08174,
+    38.89656,
+    -77.05866,
+    38.91464
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "forrest-gump-reflecting-pool",
+   "file": "forrest-gump-reflecting-pool.pmtiles",
+   "bytes": 1399073,
+   "sha256": "82ea1bccc1219698238d710a203fe5c6bd5dc404b2461c816162eeeddbf8e51c",
+   "bbox": [
+    -77.05574,
+    38.88026,
+    -77.03266,
+    38.89834
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "hachi-woonsocket-depot",
+   "file": "hachi-woonsocket-depot.pmtiles",
+   "bytes": 912892,
+   "sha256": "f7c7e1f587131cf1cd917ba94f5e2d9db1c29f7d461cfb8a485da6b4a0297ae7",
+   "bbox": [
+    -71.52649,
+    41.99336,
+    -71.50231,
+    42.01144
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "mystery-train-arcade-restaurant",
+   "file": "mystery-train-arcade-restaurant.pmtiles",
+   "bytes": 516545,
+   "sha256": "d64dd20d8bfc7db92115d1ef9230863d4436c4f9d888411119ed3a9defe0851c",
+   "bbox": [
+    -90.06798,
+    35.12566,
+    -90.04602,
+    35.14374
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "florida-project-magic-castle-inn",
+   "file": "florida-project-magic-castle-inn.pmtiles",
+   "bytes": 530006,
+   "sha256": "65e97270fdfc200507f07735a87d3779b7cf164925b44c64466cb4cbb82c45e8",
+   "bbox": [
+    -81.51071,
+    28.32246,
+    -81.49029,
+    28.34054
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "scarface-728-ocean-drive",
+   "file": "scarface-728-ocean-drive.pmtiles",
+   "bytes": 372134,
+   "sha256": "582ae470b0d19f27eae467732d9cc1e5d84a232a84249520b2c2f403656ef87a",
+   "bbox": [
+    -80.14088,
+    25.76956,
+    -80.12092,
+    25.78764
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "truman-show-seaside",
+   "file": "truman-show-seaside.pmtiles",
+   "bytes": 528877,
+   "sha256": "bbd9689794e7dd0dac3500c7ca0c983c0958d2255808bc9772b5f5b36f1b8691",
+   "bbox": [
+    -86.14981,
+    30.31236,
+    -86.12899,
+    30.33044
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "edward-scissorhands-tinsmith-circle",
+   "file": "edward-scissorhands-tinsmith-circle.pmtiles",
+   "bytes": 799701,
+   "sha256": "ba2d10d8e5a4b17bf7ea81e7d13a0e6004044a5d78f3d65435ab8d2cd84bad67",
+   "bbox": [
+    -82.49909,
+    28.18156,
+    -82.47871,
+    28.19964
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "last-picture-show-royal-theater",
+   "file": "last-picture-show-royal-theater.pmtiles",
+   "bytes": 58346,
+   "sha256": "e369b780253c4555207328cc594d7d9db79808d3a722786082eb09e3ee33f07d",
+   "bbox": [
+    -98.63688,
+    33.58626,
+    -98.61532,
+    33.60434
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "forrest-gump-chippewa-square",
+   "file": "forrest-gump-chippewa-square.pmtiles",
+   "bytes": 585352,
+   "sha256": "9ac6cfd1cb7148535a819eea52f198061a354375570bcea07691f15400890c26",
+   "bbox": [
+    -81.1024,
+    32.06796,
+    -81.0812,
+    32.08604
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "goonies-haystack-rock",
+   "file": "goonies-haystack-rock.pmtiles",
+   "bytes": 142960,
+   "sha256": "87d93c87ab6005b4d100b3b4b50f06b96c9e9edc1d439df35d535c2ac534c3cc",
+   "bbox": [
+    -123.9815,
+    45.87506,
+    -123.9557,
+    45.89314
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "cuckoos-nest-oregon-state-hospital",
+   "file": "cuckoos-nest-oregon-state-hospital.pmtiles",
+   "bytes": 704582,
+   "sha256": "1b5a2eefd676f060ba964226aa014eee74716e397e5390dee1eba264d2a07af1",
+   "bbox": [
+    -123.01979,
+    44.92816,
+    -122.99441,
+    44.94624
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "sleepless-in-seattle-houseboat",
+   "file": "sleepless-in-seattle-houseboat.pmtiles",
+   "bytes": 1607405,
+   "sha256": "ada2f2758c3583a970378daf7538c01c9bde393d03ecb6072ab82915f1b3fb42",
+   "bbox": [
+    -122.35313,
+    47.63276,
+    -122.32647,
+    47.65084
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "napoleon-dynamite-preston-high",
+   "file": "napoleon-dynamite-preston-high.pmtiles",
+   "bytes": 229491,
+   "sha256": "e482a073837fbece5f939e39f47722849621df1c2eebae525723f8b049758dec",
+   "bbox": [
+    -111.88581,
+    42.08596,
+    -111.86159,
+    42.10404
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "oceans-eleven-bellagio-fountains",
+   "file": "oceans-eleven-bellagio-fountains.pmtiles",
+   "bytes": 754940,
+   "sha256": "6298d2bd275e01d88a034aa5d468cd23a7d282e659fc0051a35d5f68e89a77ac",
+   "bbox": [
+    -115.18502,
+    36.10356,
+    -115.16278,
+    36.12164
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "parasite-jahamun-stairs",
+   "file": "parasite-jahamun-stairs.pmtiles",
+   "bytes": 775876,
+   "sha256": "5f3e1071ee1beadb7d19ad5229518e0df15971b16d4673dba306ffdc4cde6b25",
+   "bbox": [
+    126.95516,
+    37.58246,
+    126.97784,
+    37.60054
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "in-the-mood-for-love-goldfinch",
+   "file": "in-the-mood-for-love-goldfinch.pmtiles",
+   "bytes": 1280051,
+   "sha256": "d2206df561f144dec3cf4c07b8599b83cc801bd45a79840c0efc88cc4c084081",
+   "bbox": [
+    114.17369,
+    22.26986,
+    114.19311,
+    22.28794
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "infernal-affairs-north-point-rooftop",
+   "file": "infernal-affairs-north-point-rooftop.pmtiles",
+   "bytes": 1379077,
+   "sha256": "c61c34c96839127ba32464762bd3d4264c7de77f20b09bd878a41ecaa3ca60e2",
+   "bbox": [
+    114.18859,
+    22.28276,
+    114.20801,
+    22.30084
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "city-of-sadness-jiufen",
+   "file": "city-of-sadness-jiufen.pmtiles",
+   "bytes": 292765,
+   "sha256": "20f694d9c86ebbcf8aa8cc2583ad8d36ec1c710a5c0995fa06ce7cc9aacf0f95",
+   "bbox": [
+    121.83468,
+    25.10026,
+    121.85452,
+    25.11834
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "last-emperor-forbidden-city",
+   "file": "last-emperor-forbidden-city.pmtiles",
+   "bytes": 1038833,
+   "sha256": "4fb6027d04485050cbc7389744abc9744366137618734f2d8172c8894278d03a",
+   "bbox": [
+    116.37909,
+    39.90636,
+    116.40251,
+    39.92444
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "crazy-rich-asians-newton-food-centre",
+   "file": "crazy-rich-asians-newton-food-centre.pmtiles",
+   "bytes": 1997425,
+   "sha256": "8b6ec9986447b2932c377a7a9a25cd79d5bbe9db1776a2d52f560e143057e5b2",
+   "bbox": [
+    103.83061,
+    1.30296,
+    103.84859,
+    1.32104
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "slumdog-millionaire-cst",
+   "file": "slumdog-millionaire-cst.pmtiles",
+   "bytes": 473104,
+   "sha256": "4e4f27bae09fa2d84de4803fe98cd5c553c4c14361cb345f2a3be945b0c6bd13",
+   "bbox": [
+    72.826,
+    18.93076,
+    72.845,
+    18.94884
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "life-of-pi-botanical-garden",
+   "file": "life-of-pi-botanical-garden.pmtiles",
+   "bytes": 778153,
+   "sha256": "d393b8ce827c7ab64621b31eec024bf1546ef8240a2de55fd236c34be7184718",
+   "bbox": [
+    79.81122,
+    11.92596,
+    79.82958,
+    11.94404
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "ghost-protocol-burj-khalifa",
+   "file": "ghost-protocol-burj-khalifa.pmtiles",
+   "bytes": 970473,
+   "sha256": "18090aff5ef8938cc8f5a46ea9b549b33764633c9eea5c812b50c113b770872c",
+   "bbox": [
+    55.26447,
+    25.18816,
+    55.28433,
+    25.20624
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "notting-hill-blue-door",
+   "file": "notting-hill-blue-door.pmtiles",
+   "bytes": 1342858,
+   "sha256": "90b99a17927a781e971f4b253629120b076f204b478ce60073069b65365d78a7",
+   "bbox": [
+    -0.21704,
+    51.50876,
+    -0.18816,
+    51.52684
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "bridget-jones-borough-market",
+   "file": "bridget-jones-borough-market.pmtiles",
+   "bytes": 2714102,
+   "sha256": "c13b0b6904eedadd7ff0b434898c447542bed225fd746786655f3d5a11d1b0b2",
+   "bbox": [
+    -0.10493,
+    51.49656,
+    -0.07607,
+    51.51464
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "clockwork-orange-southmere-lake",
+   "file": "clockwork-orange-southmere-lake.pmtiles",
+   "bytes": 871315,
+   "sha256": "1d9f221baea88e8a17143c778b64b6d7028a8e8c3ecffc3b478b1b990bea915c",
+   "bbox": [
+    0.10807,
+    51.49046,
+    0.13693,
+    51.50854
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "harry-potter-leadenhall-market",
+   "file": "harry-potter-leadenhall-market.pmtiles",
+   "bytes": 2595543,
+   "sha256": "2b58f71bda9ba0ed8e1020cd9be539f11faf73fe1499254781b6d5e304de5e32",
+   "bbox": [
+    -0.09793,
+    51.50376,
+    -0.06907,
+    51.52184
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "paddington-chalcot-crescent",
+   "file": "paddington-chalcot-crescent.pmtiles",
+   "bytes": 1900312,
+   "sha256": "d8777dd1f9640ad48ed11664bf3a947de75b38ff8b03fcd5ae5cc3e0a4c6d257",
+   "bbox": [
+    -0.16994,
+    51.53266,
+    -0.14106,
+    51.55074
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "harry-potter-alnwick-castle",
+   "file": "harry-potter-alnwick-castle.pmtiles",
+   "bytes": 437455,
+   "sha256": "e9e22efc7176354ecdcc4ecf4d3f9997ba1d8d013b9ff2012c37b59e08dc0cbe",
+   "bbox": [
+    -1.72163,
+    55.40666,
+    -1.68997,
+    55.42474
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "trainspotting-princes-street",
+   "file": "trainspotting-princes-street.pmtiles",
+   "bytes": 2373736,
+   "sha256": "d69a75849018980d343c6e1908bcf2ee09c8c74a54e05959e9482d6c0afad07d",
+   "bbox": [
+    -3.21454,
+    55.94356,
+    -3.18246,
+    55.96164
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "midnight-in-paris-saint-etienne-du-mont",
+   "file": "midnight-in-paris-saint-etienne-du-mont.pmtiles",
+   "bytes": 1967991,
+   "sha256": "964e7db4e50032123ff93b27614bd75dae5ad628866b6060b265c14e97500647",
+   "bbox": [
+    2.33435,
+    48.83726,
+    2.36165,
+    48.85534
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "breathless-champs-elysees",
+   "file": "breathless-champs-elysees.pmtiles",
+   "bytes": 2259770,
+   "sha256": "e68acd1aa221dc56880bde97d42bee6dfcd04b10d802050b2d4721bd7f5a3c7e",
+   "bbox": [
+    2.28984,
+    48.86256,
+    2.31716,
+    48.88064
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "last-tango-bir-hakeim",
+   "file": "last-tango-bir-hakeim.pmtiles",
+   "bytes": 2016971,
+   "sha256": "9dc2e95c0d071b9b3f08c2c53a244dae2c3154123f814491a2004367bfb45647",
+   "bbox": [
+    2.27395,
+    48.84646,
+    2.30125,
+    48.86454
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "before-sunset-shakespeare-and-company",
+   "file": "before-sunset-shakespeare-and-company.pmtiles",
+   "bytes": 2091662,
+   "sha256": "1a00f22319cd93fcd71aec603dfd7c57860b1e56b91368be3fbee7fdfa238e4d",
+   "bbox": [
+    2.33345,
+    48.84356,
+    2.36075,
+    48.86164
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "da-vinci-code-louvre",
+   "file": "da-vinci-code-louvre.pmtiles",
+   "bytes": 2477026,
+   "sha256": "1ec060bd1e2b646b43c5a8f520c6e38260e70bfed40a63bb46ef38aa0b3c7fd7",
+   "bbox": [
+    2.32215,
+    48.85206,
+    2.34945,
+    48.87014
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "umbrellas-of-cherbourg-rue-du-port",
+   "file": "umbrellas-of-cherbourg-rue-du-port.pmtiles",
+   "bytes": 1044245,
+   "sha256": "57d86324b0ee90e3353f02d9ceb0665ef9938551cd437226834a025cc5cccd2d",
+   "bbox": [
+    -1.63817,
+    49.63176,
+    -1.61043,
+    49.64984
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "young-girls-rochefort-place-colbert",
+   "file": "young-girls-rochefort-place-colbert.pmtiles",
+   "bytes": 797000,
+   "sha256": "df420fadb6a6e718915594fbe26b182535d428c337612e47e1eb2e7fb75a73b7",
+   "bbox": [
+    -0.97412,
+    45.92826,
+    -0.94828,
+    45.94634
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "a-man-and-a-woman-deauville",
+   "file": "a-man-and-a-woman-deauville.pmtiles",
+   "bytes": 614950,
+   "sha256": "2589cffe4aad82e7146050a9588b82537b5e1f71e0fc97cbb8af274975df5a1d",
+   "bbox": [
+    0.05741,
+    49.35216,
+    0.08499,
+    49.37024
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "dunkirk-malo-les-bains",
+   "file": "dunkirk-malo-les-bains.pmtiles",
+   "bytes": 467132,
+   "sha256": "0d1c9489245e6e62412bbf7a1e2954ecc4ec3448782b3c9a96b45ed13b427789",
+   "bbox": [
+    2.36171,
+    51.04546,
+    2.39029,
+    51.06354
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "in-bruges-belfry",
+   "file": "in-bruges-belfry.pmtiles",
+   "bytes": 1652221,
+   "sha256": "91b836eae84b95d7486f656e1838966b9686c28d37f5ceec9e719d1a2b9653ed",
+   "bbox": [
+    3.21046,
+    51.19946,
+    3.23914,
+    51.21754
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "fault-in-our-stars-leidsegracht",
+   "file": "fault-in-our-stars-leidsegracht.pmtiles",
+   "bytes": 3730326,
+   "sha256": "89ff675322f98afd6f9eaba7f57284f21c3c0ea51ce952fcdd3525eccf7e7334",
+   "bbox": [
+    4.87109,
+    52.35926,
+    4.90051,
+    52.37734
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "malena-siracusa-piazza-duomo",
+   "file": "malena-siracusa-piazza-duomo.pmtiles",
+   "bytes": 667370,
+   "sha256": "ccf505d89588daebd3705dfee5e1114a52e097b873263ae0c2a8e0eed2a72e25",
+   "bbox": [
+    15.28214,
+    37.05056,
+    15.30466,
+    37.06864
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "roman-holiday-spanish-steps",
+   "file": "roman-holiday-spanish-steps.pmtiles",
+   "bytes": 2470654,
+   "sha256": "600ffcd4e04b211476a5499551308eb23432531dc708955a9d2e75b43b7de16a",
+   "bbox": [
+    12.47023,
+    41.89676,
+    12.49437,
+    41.91484
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "great-beauty-acqua-paola",
+   "file": "great-beauty-acqua-paola.pmtiles",
+   "bytes": 1265614,
+   "sha256": "007e8ad200efcccd7f44decf6835c55798a5a5cc5f16ee871a52e4081c3eeb7f",
+   "bbox": [
+    12.45403,
+    41.87986,
+    12.47817,
+    41.89794
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "talented-mr-ripley-corricella",
+   "file": "talented-mr-ripley-corricella.pmtiles",
+   "bytes": 261880,
+   "sha256": "b62d2f10b4229223e035aa404b52cc12ab1a03569e21191330e42c6d4d5a1725",
+   "bbox": [
+    14.01584,
+    40.75096,
+    14.03956,
+    40.76904
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "death-in-venice-hotel-des-bains",
+   "file": "death-in-venice-hotel-des-bains.pmtiles",
+   "bytes": 387719,
+   "sha256": "4bf75f934d090810752198d04099120ce5521ea18a613366008a4a0c0064de38",
+   "bbox": [
+    12.3578,
+    45.39946,
+    12.3834,
+    45.41754
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "no-time-to-die-matera",
+   "file": "no-time-to-die-matera.pmtiles",
+   "bytes": 550135,
+   "sha256": "affa8973c50ebe3c6d3ec698303ae0c82be0a41631efe5cde568225eeb5a8cb5",
+   "bbox": [
+    16.59316,
+    40.65876,
+    16.61684,
+    40.67684
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "room-with-a-view-piazza-della-signoria",
+   "file": "room-with-a-view-piazza-della-signoria.pmtiles",
+   "bytes": 2127361,
+   "sha256": "9c0a9b3ec499347402fa7022d7d857fbb6bfa45563409fbd2237dd135ef8f42c",
+   "bbox": [
+    11.24336,
+    43.76056,
+    11.26824,
+    43.77864
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "lawrence-of-arabia-plaza-de-espana",
+   "file": "lawrence-of-arabia-plaza-de-espana.pmtiles",
+   "bytes": 1375948,
+   "sha256": "e88e44cb2a6187bfa8a3305be0f1e52455f209f5daf0bb2a4ed89caccc9bace8",
+   "bbox": [
+    -5.9982,
+    37.36816,
+    -5.9756,
+    37.38624
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "vicky-cristina-park-guell",
+   "file": "vicky-cristina-park-guell.pmtiles",
+   "bytes": 2726337,
+   "sha256": "3126cceab1c780baa0cedc37beef226d1a4fde148984eb84a3ed3ed01dbf21b7",
+   "bbox": [
+    2.14072,
+    41.40436,
+    2.16468,
+    41.42244
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "grand-budapest-gorlitzer-warenhaus",
+   "file": "grand-budapest-gorlitzer-warenhaus.pmtiles",
+   "bytes": 1106649,
+   "sha256": "a15f4d294b852781b6df0e2746194dc2436a01073720c00697144374842c0934",
+   "bbox": [
+    14.97058,
+    51.14326,
+    14.99922,
+    51.16134
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "good-bye-lenin-karl-marx-allee",
+   "file": "good-bye-lenin-karl-marx-allee.pmtiles",
+   "bytes": 1764339,
+   "sha256": "525bc8ddfd270f2158d5c7cb46dd66d6460d96215e14ca177db5d0349a2539f6",
+   "bbox": [
+    13.41374,
+    52.50896,
+    13.44326,
+    52.52704
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "run-lola-run-oberbaum-bridge",
+   "file": "run-lola-run-oberbaum-bridge.pmtiles",
+   "bytes": 2045524,
+   "sha256": "119fe79f06f722fce2f55b5cf50059f301c487de73d24df79e06e1d8e4821fe1",
+   "bbox": [
+    13.43094,
+    52.49266,
+    13.46046,
+    52.51074
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "sound-of-music-mirabell-gardens",
+   "file": "sound-of-music-mirabell-gardens.pmtiles",
+   "bytes": 2046244,
+   "sha256": "235799b894ef5f415c19f9b89594425a9ef09d21a9b14e35b3dcebcd11d1b51a",
+   "bbox": [
+    13.02853,
+    47.79656,
+    13.05527,
+    47.81464
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "mission-impossible-charles-bridge",
+   "file": "mission-impossible-charles-bridge.pmtiles",
+   "bytes": 2854276,
+   "sha256": "de945e8ec83872aeecf05ccf250fc7306f597eab1d0e7331f17e38d5d2a2a7dd",
+   "bbox": [
+    14.3974,
+    50.07746,
+    14.4254,
+    50.09554
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "kamome-diner-kahvila-suomi",
+   "file": "kamome-diner-kahvila-suomi.pmtiles",
+   "bytes": 1306677,
+   "sha256": "c25b6c82b5d44ceb187af882bc515f12d07b09211962391844360df2b0afa764",
+   "bbox": [
+    24.92315,
+    60.15066,
+    24.95925,
+    60.16874
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  }
+ ]
+}
