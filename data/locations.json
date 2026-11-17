@@ -1291,6 +1291,406 @@
         "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -3 },
         "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
         "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["住宅", "建築", "日中"] }
+    },
+    {
+      "id": "back-to-the-future-puente-hills-mall",
+      "title": "バック・トゥ・ザ・フューチャー", "titleEn": "Back to the Future", "year": 1985, "director": "ロバート・ゼメキス",
+      "place": "プエンテ・ヒルズ・モール（劇中のツイン・パインズ・モール）", "city": "シティ・オブ・インダストリー", "country": "アメリカ", "region": "north-america",
+      "lat": 33.9926, "lng": -117.929, "confidence": "high", "streets": true,
+      "scene": "深夜の駐車場で、ドクが改造した車のタイムトラベル実験をマーティに見せる。",
+      "look": "夜の駐車場のナトリウム灯と青い影。80 年代らしい硬い夜景。",
+      "sources": [
+        "https://www.discoverlosangeles.com/things-to-do/go-back-to-the-future-with-these-la-film-locations",
+        "https://laist.com/news/entertainment/back-to-the-future-locations"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 4000 }, "wbShift": { "r": 1, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "駐車場", "SF"] }
+    },
+    {
+      "id": "blade-runner-union-station",
+      "title": "ブレードランナー", "titleEn": "Blade Runner", "year": 1982, "director": "リドリー・スコット",
+      "place": "ロサンゼルス・ユニオン駅（劇中の警察署）", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
+      "lat": 34.0562, "lng": -118.2365, "confidence": "high", "streets": true,
+      "scene": "デッカードが連れて来られる警察署として使われた駅舎。高い天井と巨大な窓が近未来の役所に見える。",
+      "look": "窓からの光の筋と煙、暗い琥珀色。重く湿った空気感。",
+      "sources": [
+        "https://brmovie.com/Locations/Police_Station.htm",
+        "https://www.timeout.com/los-angeles/things-to-do/blade-runner-filming-locations-in-l-a-that-you-can-visit"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 2, "color": -1, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-2/3EV", "tags": ["室内", "建築", "SF"] }
+    },
+    {
+      "id": "once-upon-a-time-in-hollywood-musso-frank",
+      "title": "ワンス・アポン・ア・タイム・イン・ハリウッド", "titleEn": "Once Upon a Time in Hollywood", "year": 2019, "director": "クエンティン・タランティーノ",
+      "place": "ムッソ＆フランク・グリル", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
+      "lat": 34.1016, "lng": -118.3355, "confidence": "high", "streets": true,
+      "scene": "落ち目の俳優リックが映画プロデューサーと会う老舗レストラン。撮影は数日間、実際の店内で行われた。",
+      "look": "赤い革張りの席と木の壁、暖かい照明。60 年代末の濃い色。",
+      "sources": [
+        "https://afar.com/magazine/once-upon-a-time-in-hollywood-filming-locations-you-can-visit-in-los-angeles",
+        "https://www.thelocationguide.com/?p=166775"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 4, "b": -4 },
+        "highlight": -1, "shadow": 0, "color": 1, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "レストラン", "昼"] }
+    },
+    {
+      "id": "die-hard-fox-plaza",
+      "title": "ダイ・ハード", "titleEn": "Die Hard", "year": 1988, "director": "ジョン・マクティアナン",
+      "place": "フォックス・プラザ（劇中のナカトミ・プラザ）", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
+      "lat": 34.0554, "lng": -118.4113, "confidence": "high", "streets": true,
+      "scene": "クリスマス・イブの夜、テロリストに占拠された高層ビル。外観と一部の階がこのビルで撮影された。",
+      "look": "夜のビルの冷たい青と、オフィスの蛍光灯。爆発の橙が差す。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/2121_Avenue_of_the_Stars",
+        "https://movie-locations.com/movies/d/Die-Hard.php"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 1, "color": 2, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "建築", "アクション"] }
+    },
+    {
+      "id": "et-lonzo-street",
+      "title": "E.T.", "titleEn": "E.T. the Extra-Terrestrial", "year": 1982, "director": "スティーヴン・スピルバーグ",
+      "place": "エリオットの家（7121 Lonzo St）", "city": "ロサンゼルス", "country": "アメリカ", "region": "north-america",
+      "lat": 34.26, "lng": -118.287, "confidence": "high", "streets": true,
+      "scene": "少年エリオットが宇宙人をかくまう郊外の家。山を背にした住宅地にある。",
+      "look": "夕方の逆光と霧、暖かい室内灯。柔らかい郊外の色。",
+      "sources": [
+        "https://www.iamnotastalker.com/2010/09/16/the-e-t-house",
+        "https://movie-locations.com/movies/e/ET.php"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["住宅", "夕方", "SF"] }
+    },
+    {
+      "id": "top-gun-kansas-city-barbeque",
+      "title": "トップガン", "titleEn": "Top Gun", "year": 1986, "director": "トニー・スコット",
+      "place": "カンザス・シティ・バーベキュー", "city": "サンディエゴ", "country": "アメリカ", "region": "north-america",
+      "lat": 32.7085, "lng": -117.1677, "confidence": "high", "streets": true,
+      "scene": "パイロット仲間のたまり場のバー。ピアノを囲んでみんなで歌う場面がここで撮られ、ピアノは今も店にある。",
+      "look": "バーの暖色の電球と木の色。夕方の金色の光。",
+      "sources": [
+        "https://timesofsandiego.com/arts/2018/05/13/barbecue-restaurant-where-top-gun-scenes-filmed-celebrates-35th-year/",
+        "https://www.sdmts.com/rider-info/rider-insider/let-mts-be-your-wingman-these-top-gun-filming-locations"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4500 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 0, "color": 1, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["室内", "バー", "夕方"] }
+    },
+    {
+      "id": "some-like-it-hot-hotel-del-coronado",
+      "title": "お熱いのがお好き", "titleEn": "Some Like It Hot", "year": 1959, "director": "ビリー・ワイルダー",
+      "place": "ホテル・デル・コロナド", "city": "コロナド", "country": "アメリカ", "region": "north-america",
+      "lat": 32.6808, "lng": -117.1785, "confidence": "high", "streets": true,
+      "scene": "女装した楽団員ふたりが逃げ込む海辺のリゾートホテル。劇中ではフロリダの設定で、外観の場面をここで撮影した。",
+      "look": "白黒の明るい浜辺と白いホテル。軽やかな高めのキー。",
+      "sources": [
+        "https://hoteldel.com/press/like-hot-filmed-hotel-del-coronado/",
+        "https://www.movie-locations.com/movies/s/Some-Like-It-Hot.php"
+      ],
+      "recipe": { "filmSim": "acros", "monoFilter": "ye", "dr": "dr200", "grain": "weak", "colorChrome": "off",
+        "wb": { "mode": "auto", "kelvin": null}, "wbShift": { "r": 0, "b": 0 },
+        "highlight": 0, "shadow": 0, "color": 0, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "+1/3EV", "tags": ["モノクロ", "海", "ホテル"] }
+    },
+    {
+      "id": "sideways-hitching-post",
+      "title": "サイドウェイ", "titleEn": "Sideways", "year": 2004, "director": "アレクサンダー・ペイン",
+      "place": "ヒッチング・ポスト II", "city": "ビュエルトン", "country": "アメリカ", "region": "north-america",
+      "lat": 34.6136, "lng": -120.1882, "confidence": "high", "streets": true,
+      "scene": "ワイン好きのマイルスが通うステーキハウス。ウェイトレスのマヤと親しくなる。",
+      "look": "ワインの赤と夕方の金色、柔らかい室内灯。温かく落ち着いた色。",
+      "sources": [
+        "https://www.hitchingpost2.com/sideways.html",
+        "https://movie-locations.com/movies/s/Sideways.php"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 2, "b": -3 },
+        "highlight": 0, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["室内", "レストラン", "旅"] }
+    },
+    {
+      "id": "bagdad-cafe-newberry-springs",
+      "title": "バグダッド・カフェ", "titleEn": "Bagdad Cafe", "year": 1987, "director": "パーシー・アドロン",
+      "place": "バグダッド・カフェ（撮影当時のサイドワインダー・カフェ）", "city": "ニューベリー・スプリングス", "country": "アメリカ", "region": "north-america",
+      "lat": 34.8213, "lng": -116.6885, "confidence": "high", "streets": false,
+      "scene": "砂漠の道ばたの寂れたカフェ兼モーテル。ドイツから来た女性が、店の人々と心を通わせていく。",
+      "look": "黄色い空と強いマゼンタや緑。極端な色づけの砂漠。",
+      "sources": [
+        "https://www.atlasobscura.com/places/bagdad-cafe-newberry-springs",
+        "https://movie-locations.com/movies/b/Bagdad-Cafe.php"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 5, "b": -6 },
+        "highlight": 0, "shadow": 2, "color": 3, "sharpness": 1, "nr": -3,
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["砂漠", "夕方", "ロードムービー"] }
+    },
+    {
+      "id": "vertigo-legion-of-honor",
+      "title": "めまい", "titleEn": "Vertigo", "year": 1958, "director": "アルフレッド・ヒッチコック",
+      "place": "リージョン・オブ・オナー美術館", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
+      "lat": 37.7845, "lng": -122.5008, "confidence": "high", "streets": false,
+      "scene": "尾行されるマデリンが、ひとりの女性の肖像画の前に長く座り込む美術館の展示室。",
+      "look": "淡い緑がかった光と静かな展示室。夢のようにかすむ色。",
+      "sources": [
+        "https://hitchcock.zone/wiki/Palace_of_the_Legion_of_Honor",
+        "https://www.movie-locations.com/movies/v/Vertigo.php"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": -1, "b": 1 },
+        "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["美術館", "室内", "日中"] }
+    },
+    {
+      "id": "vertigo-mission-dolores",
+      "title": "めまい", "titleEn": "Vertigo", "year": 1958, "director": "アルフレッド・ヒッチコック",
+      "place": "ミッション・ドロレス", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
+      "lat": 37.7643, "lng": -122.4269, "confidence": "high", "streets": true,
+      "scene": "マデリンが訪れる古い教会の墓地。霧のような光の中、ある女性の墓の前に立つ。",
+      "look": "白く飛んだ柔らかい光と墓地の緑。ソフトフォーカスの夢見るような色。",
+      "sources": [
+        "https://hitchcock.zone/wiki/Mission_Dolores",
+        "https://reelsf.com/vertigo-1958"
+      ],
+      "recipe": { "filmSim": "pro-neg-hi", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 0, "b": -2 },
+        "highlight": -2, "shadow": 0, "color": 0, "sharpness": -3, "nr": -3,
+        "isoNote": "ISO 320〜1600", "exposureNote": "0EV", "tags": ["教会", "墓地", "日中"] }
+    },
+    {
+      "id": "bullitt-taylor-filbert",
+      "title": "ブリット", "titleEn": "Bullitt", "year": 1968, "director": "ピーター・イエーツ",
+      "place": "テイラー通りとフィルバート通りの交差点（ラシアン・ヒル）", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
+      "lat": 37.8018, "lng": -122.414, "confidence": "high", "streets": true,
+      "scene": "2 台の車が急な坂を跳ねながら走り抜ける有名なカーチェイス。",
+      "look": "曇り空の灰色とくすんだ車の緑。粒子の荒い 60 年代の色。",
+      "sources": [
+        "https://www.movie-locations.com/movies/b/Bullitt.php",
+        "https://projects.sfchronicle.com/2020/movie-car-chases"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 3, "b": -5 },
+        "highlight": -1, "shadow": 1, "color": -2, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["坂", "車", "アクション"] }
+    },
+    {
+      "id": "mrs-doubtfire-steiner-street",
+      "title": "ミセス・ダウト", "titleEn": "Mrs. Doubtfire", "year": 1993, "director": "クリス・コロンバス",
+      "place": "2640 Steiner St（ヒラード家）", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
+      "lat": 37.7937, "lng": -122.4364, "confidence": "high", "streets": true,
+      "scene": "離婚した父親が家政婦に変装して通う一家の家。外観はこの角の家で撮られた。",
+      "look": "明るい日差しと白い家、パステルの街並み。やさしく明るい色。",
+      "sources": [
+        "https://movie-locations.com/movies/m/Mrs-Doubtfire.php",
+        "https://movielocationsguide.com/mrs-doubtfire/filming-locations/doubtfire-house"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
+        "highlight": -2, "shadow": -2, "color": 0, "sharpness": -1, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["住宅", "日中", "坂"] }
+    },
+    {
+      "id": "the-rock-alcatraz",
+      "title": "ザ・ロック", "titleEn": "The Rock", "year": 1996, "director": "マイケル・ベイ",
+      "place": "アルカトラズ島", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
+      "lat": 37.8267, "lng": -122.423, "confidence": "high", "streets": false,
+      "scene": "元兵士たちが観光客を人質に立てこもる旧刑務所の島。撮影の大半が島内で行われた。",
+      "look": "強いティールとオレンジ、硬い逆光。コントラストの高いアクションの色。",
+      "sources": [
+        "https://www.movie-locations.com/movies/r/Rock-1996.php",
+        "https://www.thenationalnews.com/arts/the-rock-and-roles-movies-filmed-at-alcatraz-1.299041"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr200", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 2, "color": 2, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 320〜1600", "exposureNote": "-1/3EV", "tags": ["島", "アクション", "日中"] }
+    },
+    {
+      "id": "milk-castro-theatre",
+      "title": "ミルク", "titleEn": "Milk", "year": 2008, "director": "ガス・ヴァン・サント",
+      "place": "カストロ・シアター", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
+      "lat": 37.762, "lng": -122.4348, "confidence": "high", "streets": true,
+      "scene": "ハーヴェイ・ミルクが活動の拠点にしたカストロ通り。映画館の屋上からも撮影された。",
+      "look": "70 年代の色あせた暖色とネオンの看板。粒子のある記録映像風。",
+      "sources": [
+        "https://cinematreasures.org/blog/2008/2/4/milk-filming-benefits-the-castro",
+        "https://www.broadwayworld.com/bwwtv/article/Photo-Flash-MILK-Premiere-at-San-Franciscos-Castro-Theatre-20010101"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 3, "b": -5 },
+        "highlight": -1, "shadow": -1, "color": -2, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["街", "70年代", "人物"] }
+    },
+    {
+      "id": "the-conversation-union-square",
+      "title": "カンバセーション…盗聴…", "titleEn": "The Conversation", "year": 1974, "director": "フランシス・フォード・コッポラ",
+      "place": "ユニオン・スクエア", "city": "サンフランシスコ", "country": "アメリカ", "region": "north-america",
+      "lat": 37.788, "lng": -122.4075, "confidence": "high", "streets": true,
+      "scene": "昼休みの人でにぎわう広場で、盗聴の専門家がある男女の会話を録音する冒頭の場面。",
+      "look": "冬の昼の低い日差しと人混み。くすんだ 70 年代の色。",
+      "sources": [
+        "https://catalog.afi.com/Film/53857-THE-CONVERSATION",
+        "https://reelsf.com/the-conversation-1974"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 3, "b": -5 },
+        "highlight": -1, "shadow": -1, "color": -1, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["広場", "日中", "街"] }
+    },
+    {
+      "id": "dark-knight-lower-wacker",
+      "title": "ダークナイト", "titleEn": "The Dark Knight", "year": 2008, "director": "クリストファー・ノーラン",
+      "place": "ロウワー・ワッカー・ドライブ", "city": "シカゴ", "country": "アメリカ", "region": "north-america",
+      "lat": 41.8868, "lng": -87.6323, "confidence": "high", "streets": true,
+      "scene": "地下道路で護送車がジョーカーの一味に襲われ、バットマンが追う。",
+      "look": "ナトリウム灯の橙と冷たい影。高コントラストの夜の地下。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Wacker_Drive",
+        "https://thecinemaholic.com/where-did-the-shooting-of-the-dark-knight-take-place"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 2, "color": 2, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "トンネル", "アクション"] }
+    },
+    {
+      "id": "ferris-bueller-art-institute",
+      "title": "フェリスはある朝突然に", "titleEn": "Ferris Bueller's Day Off", "year": 1986, "director": "ジョン・ヒューズ",
+      "place": "シカゴ美術館", "city": "シカゴ", "country": "アメリカ", "region": "north-america",
+      "lat": 41.8796, "lng": -87.6237, "confidence": "high", "streets": true,
+      "scene": "学校をさぼった 3 人が美術館を巡る。点描画の前で、ひとりが絵の細部に引き込まれていく。",
+      "look": "展示室の柔らかな光と絵画の色。明るく穏やか。",
+      "sources": [
+        "https://www.imdb.com/title/tt0091042/locations",
+        "https://movie-locations.com/movies/f/Ferris-Buellers-Day-Off.php"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -1 },
+        "highlight": -2, "shadow": -2, "color": 0, "sharpness": -1, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["美術館", "室内", "青春"] }
+    },
+    {
+      "id": "home-alone-winnetka-house",
+      "title": "ホーム・アローン", "titleEn": "Home Alone", "year": 1990, "director": "クリス・コロンバス",
+      "place": "マカリスター家（671 Lincoln Ave）", "city": "ウィネトカ", "country": "アメリカ", "region": "north-america",
+      "lat": 42.1097, "lng": -87.7334, "confidence": "high", "streets": true,
+      "scene": "家族に置き去りにされた少年が、泥棒から家を守る。外観と一部の室内がこの家で撮られた。",
+      "look": "赤レンガと雪、クリスマスの赤と緑。暖かい室内の光。",
+      "sources": [
+        "https://www.atlasofwonders.com/2023/01/home-alone-house-location.html",
+        "https://movie-locations.com/movies/h/Home-Alone.php"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 0, "color": 2, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜3200", "exposureNote": "-1/3EV", "tags": ["冬", "住宅", "クリスマス"] }
+    },
+    {
+      "id": "blues-brothers-daley-plaza",
+      "title": "ブルース・ブラザース", "titleEn": "The Blues Brothers", "year": 1980, "director": "ジョン・ランディス",
+      "place": "デイリー・プラザ", "city": "シカゴ", "country": "アメリカ", "region": "north-america",
+      "lat": 41.884, "lng": -87.6301, "confidence": "high", "streets": true,
+      "scene": "大量のパトカーに追われた兄弟が広場に突っ込み、市庁舎へ駆け込むクライマックス。",
+      "look": "曇り空の灰色と黒いスーツ、パトカーの青白。",
+      "sources": [
+        "https://www.choosechicago.com/blog/post/your-chicago-location-guide-to-the-blues-brothers/",
+        "https://movielocationsguide.com/blues-brothers-the/filming-locations/richard-j-daley-center-chase"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
+        "highlight": -1, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["広場", "車", "アクション"] }
+    },
+    {
+      "id": "untouchables-union-station",
+      "title": "アンタッチャブル", "titleEn": "The Untouchables", "year": 1987, "director": "ブライアン・デ・パルマ",
+      "place": "シカゴ・ユニオン駅の大階段", "city": "シカゴ", "country": "アメリカ", "region": "north-america",
+      "lat": 41.8787, "lng": -87.6394, "confidence": "high", "streets": true,
+      "scene": "駅の大階段で、ベビーカーが転がり落ちる中の銃撃戦がスローモーションで描かれる。",
+      "look": "深夜の駅の琥珀色と深い影。重厚なクラシックの色。",
+      "sources": [
+        "https://www.denofgeek.com/movies/iconic-movie-scene-the-untouchables-union-station-shoot-out/",
+        "https://www.dnainfo.com/chicago/20151112/west-loop/union-station-just-replaced-its-movie-famous-marble-stairs-video"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 4200 }, "wbShift": { "r": 3, "b": -4 },
+        "highlight": -1, "shadow": 2, "color": 0, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-2/3EV", "tags": ["駅", "夜", "階段"] }
+    },
+    {
+      "id": "groundhog-day-woodstock-square",
+      "title": "恋はデジャ・ブ", "titleEn": "Groundhog Day", "year": 1993, "director": "ハロルド・ライミス",
+      "place": "ウッドストックの広場", "city": "ウッドストック", "country": "アメリカ", "region": "north-america",
+      "lat": 42.315, "lng": -88.4468, "confidence": "high", "streets": true,
+      "scene": "同じ 2 月 2 日を繰り返す気象予報士。祭りの広場で毎朝同じ出来事が起こる。",
+      "look": "冬の曇り空と雪の白、街の赤レンガ。冷たく少しくすんだ色。",
+      "sources": [
+        "https://movie-locations.com/movies/g/Groundhog-Day.php",
+        "https://avclub.com/we-visit-the-town-that-brought-groundhog-day-to-life-1798163370"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6200 }, "wbShift": { "r": -2, "b": 3 },
+        "highlight": -1, "shadow": 1, "color": -1, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["冬", "広場", "街"] }
+    },
+    {
+      "id": "field-of-dreams-dyersville",
+      "title": "フィールド・オブ・ドリームス", "titleEn": "Field of Dreams", "year": 1989, "director": "フィル・アルデン・ロビンソン",
+      "place": "フィールド・オブ・ドリームスの野球場", "city": "ダイアーズビル", "country": "アメリカ", "region": "north-america",
+      "lat": 42.4979, "lng": -91.0555, "confidence": "high", "streets": false,
+      "scene": "農夫がトウモロコシ畑をつぶしてつくった野球場。夕暮れのグラウンドに不思議な選手たちが現れる。",
+      "look": "トウモロコシの金色と芝の緑、夕方の柔らかい逆光。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Field_of_Dreams_(Dubuque_County,_Iowa)",
+        "https://www.imdb.com/title/tt0097351/locations"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "-1/3EV", "tags": ["夕方", "田園", "野球"] }
+    },
+    {
+      "id": "shawshank-ohio-state-reformatory",
+      "title": "ショーシャンクの空に", "titleEn": "The Shawshank Redemption", "year": 1994, "director": "フランク・ダラボン",
+      "place": "オハイオ州立少年院", "city": "マンスフィールド", "country": "アメリカ", "region": "north-america",
+      "lat": 40.7839, "lng": -82.5023, "confidence": "high", "streets": true,
+      "scene": "無実の罪で収監された銀行員が長い年月を過ごす刑務所。威圧的な石造りの外観が舞台になる。",
+      "look": "くすんだ緑と灰色、重い曇り空。低彩度で硬い。",
+      "sources": [
+        "https://www.npr.org/2011/08/04/138986482/on-location-mansfield-ohios-shawshank-industry",
+        "https://www.movie-locations.com/movies/s/Shawshank-Redemption.php"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": -2, "b": 3 },
+        "highlight": -1, "shadow": 2, "color": -3, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["建築", "曇り", "監獄"] }
+    },
+    {
+      "id": "christmas-story-house",
+      "title": "クリスマス・ストーリー", "titleEn": "A Christmas Story", "year": 1983, "director": "ボブ・クラーク",
+      "place": "ラルフィーの家（3159 W 11th St）", "city": "クリーブランド", "country": "アメリカ", "region": "north-america",
+      "lat": 41.4686, "lng": -81.6873, "confidence": "high", "streets": true,
+      "scene": "クリスマスにおもちゃの銃が欲しい少年ラルフィーの家。外観はこの家で撮られ、今は博物館になっている。",
+      "look": "雪の白と家の黄色っぽい外壁、暖かい窓明かり。",
+      "sources": [
+        "https://www.ohiomagazine.com/arts/article/christmas-cheer",
+        "https://movie-locations.com/movies/c/Christmas-Story.php"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5200 }, "wbShift": { "r": 3, "b": -5 },
+        "highlight": -1, "shadow": -1, "color": 0, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["冬", "住宅", "クリスマス"] }
     }
   ]
 }
