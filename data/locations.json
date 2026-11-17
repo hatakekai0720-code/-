@@ -2891,6 +2891,294 @@
         "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 2, "b": -2 },
         "highlight": -1, "shadow": 1, "color": 3, "sharpness": -1, "nr": -3,
         "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["噴水", "日中", "街"] }
+    },
+    {
+      "id": "talented-mr-ripley-corricella",
+      "title": "リプリー", "titleEn": "The Talented Mr. Ripley", "year": 1999, "director": "アンソニー・ミンゲラ",
+      "place": "マリーナ・ディ・コリチェッラ（劇中のモンジベッロ）", "city": "プローチダ島", "country": "イタリア", "region": "europe",
+      "lat": 40.76, "lng": 14.0277, "confidence": "high", "streets": true,
+      "scene": "富豪の息子ディッキーが暮らす南イタリアの港町。色とりどりの家が並ぶ港をスクーターで走る。",
+      "look": "パステルの家並みと深い青の海、50 年代の強い日差し。",
+      "sources": [
+        "https://movie-locations.com/movies/t/Talented-Mr-Ripley.php",
+        "https://italyformovies.com/film-serie-tv-games/detail/6935/the-talented-mr-ripley"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 1, "b": -1 },
+        "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["港", "夏", "50年代"] }
+    },
+    {
+      "id": "death-in-venice-hotel-des-bains",
+      "title": "ベニスに死す", "titleEn": "Death in Venice", "year": 1971, "director": "ルキノ・ヴィスコンティ",
+      "place": "オテル・デ・バン（閉館）", "city": "ヴェネツィア", "country": "イタリア", "region": "europe",
+      "lat": 45.4085, "lng": 12.3706, "confidence": "high", "streets": true,
+      "scene": "静養に来た作曲家が滞在するリド島の豪華ホテル。浜辺で美しい少年を見つめ続ける。",
+      "look": "霞んだ夏の浜辺、白い服と淡い光。ソフトで退廃的な色。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Death_in_Venice_(film)",
+        "https://www.bfi.org.uk/sight-and-sound/features/on-set-death-venice-visconti-bogarde"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -1 },
+        "highlight": -2, "shadow": -2, "color": 1, "sharpness": -3, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["ホテル", "海", "夏"] }
+    },
+    {
+      "id": "no-time-to-die-matera",
+      "title": "007／ノー・タイム・トゥ・ダイ", "titleEn": "No Time to Die", "year": 2021, "director": "キャリー・ジョージ・フクナガ",
+      "place": "マテーラ旧市街のサン・ジョヴァンニ・バッティスタ広場", "city": "マテーラ", "country": "イタリア", "region": "europe",
+      "lat": 40.6678, "lng": 16.605, "confidence": "high", "streets": true,
+      "scene": "ボンドが敵に囲まれ、車の機関銃で応戦しながら広場で回転する。石造りの洞窟住居の町が舞台。",
+      "look": "石灰岩の黄白色と強い日差し、深い影。乾いた暖色。",
+      "sources": [
+        "https://www.thejamesbonddossier.com/lifestyle/locations/matera-james-bond.htm",
+        "https://www.mi6-hq.com/sections/articles/bond-25-filming-italy15"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 2, "b": -3 },
+        "highlight": 0, "shadow": 2, "color": 1, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["街", "石造り", "アクション"] }
+    },
+    {
+      "id": "room-with-a-view-piazza-della-signoria",
+      "title": "眺めのいい部屋", "titleEn": "A Room with a View", "year": 1985, "director": "ジェームズ・アイヴォリー",
+      "place": "シニョリーア広場（ネプチューンの噴水付近）", "city": "フィレンツェ", "country": "イタリア", "region": "europe",
+      "lat": 43.7696, "lng": 11.2558, "confidence": "high", "streets": true,
+      "scene": "旅行中の英国の令嬢ルーシーが、広場で喧嘩を目撃して気を失い、青年ジョージに助けられる。",
+      "look": "石の広場の黄土色と柔らかい午後の光。上品で温かい色。",
+      "sources": [
+        "https://www.movie-locations.com/movies/r/Room-With-A-View.php",
+        "https://www.silverpetticoatreview.com/filmed-in-italy-travel-classic-cinema-romantic-period-dramas/"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 2, "b": -3 },
+        "highlight": -1, "shadow": 1, "color": 0, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["広場", "旅", "人物"] }
+    },
+    {
+      "id": "good-bad-ugly-sad-hill",
+      "title": "続・夕陽のガンマン", "titleEn": "The Good, the Bad and the Ugly", "year": 1966, "director": "セルジオ・レオーネ",
+      "place": "サッド・ヒル墓地", "city": "ブルゴス県", "country": "スペイン", "region": "europe",
+      "lat": 41.982, "lng": -3.441, "confidence": "high", "streets": false,
+      "scene": "三人のガンマンが円形の墓地の中央で向かい合う決闘。撮影のために造られた墓地が、今は有志により復元されている。",
+      "look": "乾いた土の黄と青空、日焼けした色。高コントラスト。",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Sad_Hill_Cemetery",
+        "https://turismoburgos.org/documentos-accesibles/pdfs/Santo-Domingo-de-Silos/Sad-Hill.pdf"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "strong", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": 4, "b": -5 },
+        "highlight": 0, "shadow": 2, "color": 1, "sharpness": 1, "nr": -3,
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["荒野", "西部劇", "日中"] }
+    },
+    {
+      "id": "lawrence-of-arabia-plaza-de-espana",
+      "title": "アラビアのロレンス", "titleEn": "Lawrence of Arabia", "year": 1962, "director": "デヴィッド・リーン",
+      "place": "スペイン広場（劇中のカイロ）", "city": "セビリア", "country": "スペイン", "region": "europe",
+      "lat": 37.3772, "lng": -5.9869, "confidence": "high", "streets": true,
+      "scene": "カイロの英国軍司令部として使われた半円形の広場の建物群。",
+      "look": "れんがの赤茶と陶板の青、強い日差し。乾いた暖色。",
+      "sources": [
+        "https://andaluciadestinodecine.com/en/localizacion/plaza-de-espana/",
+        "https://www.europeanfilmawards.eu/seville-plaza-de-espana/"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 3, "b": -3 },
+        "highlight": 0, "shadow": 2, "color": 1, "sharpness": 1, "nr": -3,
+        "isoNote": "ISO 640〜", "exposureNote": "-2/3EV", "tags": ["建築", "広場", "日中"] }
+    },
+    {
+      "id": "vicky-cristina-park-guell",
+      "title": "それでも恋するバルセロナ", "titleEn": "Vicky Cristina Barcelona", "year": 2008, "director": "ウディ・アレン",
+      "place": "グエル公園（ドラゴンの階段）", "city": "バルセロナ", "country": "スペイン", "region": "europe",
+      "lat": 41.4134, "lng": 2.1527, "confidence": "high", "streets": true,
+      "scene": "夏のバルセロナで、旅行者のヴィッキーと画家が再会する公園の階段。",
+      "look": "黄みがかった暖かい夏の光、モザイクの色。全体に琥珀色。",
+      "sources": [
+        "https://www.woodyallenpages.com/2017/12/vicky-cristina-barcelona-filming-locations-barcelona-oviedo-spain-new-york/",
+        "https://qantas.com/travelinsider/en/explore/europe/spain/barcelona/vicky-cristina-barcelona-filming-locations.html"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 4, "b": -5 },
+        "highlight": 0, "shadow": 1, "color": 1, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["公園", "夏", "旅"] }
+    },
+    {
+      "id": "grand-budapest-gorlitzer-warenhaus",
+      "title": "グランド・ブダペスト・ホテル", "titleEn": "The Grand Budapest Hotel", "year": 2014, "director": "ウェス・アンダーソン",
+      "place": "ゲルリッツ百貨店", "city": "ゲルリッツ", "country": "ドイツ", "region": "europe",
+      "lat": 51.1523, "lng": 14.9849, "confidence": "high", "streets": true,
+      "scene": "閉店していた古い百貨店の吹き抜けが、ホテルのロビーとして飾り付けられた。",
+      "look": "ピンクと赤、金の装飾。左右対称の画面に合うキャンディのような色。",
+      "sources": [
+        "https://www.atlasofwonders.com/2014/10/grand-budapest-hotel-filming-locations.html",
+        "https://www.nationalgeographic.com/travel/article/150223-oscars-grand-budapest-hotel-europe-culture"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5800 }, "wbShift": { "r": 3, "b": -1 },
+        "highlight": -2, "shadow": -2, "color": 3, "sharpness": -1, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["室内", "ホテル", "ポップ"] }
+    },
+    {
+      "id": "good-bye-lenin-karl-marx-allee",
+      "title": "グッバイ、レーニン！", "titleEn": "Good Bye, Lenin!", "year": 2003, "director": "ヴォルフガング・ベッカー",
+      "place": "カール・マルクス・アレー（シュトラウスベルガー広場）", "city": "ベルリン", "country": "ドイツ", "region": "europe",
+      "lat": 52.518, "lng": 13.4285, "confidence": "high", "streets": true,
+      "scene": "東ドイツが消えたことを母に隠そうとする青年の物語。社会主義建築の大通りと周辺の集合住宅で撮影された。",
+      "look": "くすんだ黄と灰色、少し色あせた東ドイツの色。",
+      "sources": [
+        "https://movie-locations.com/movies/g/Good-Bye-Lenin.php",
+        "https://en.wikipedia.org/wiki/Good_Bye,_Lenin!"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "strong", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5400 }, "wbShift": { "r": 3, "b": -5 },
+        "highlight": -1, "shadow": -1, "color": -1, "sharpness": -2, "nr": -4,
+        "isoNote": "ISO 640〜3200", "exposureNote": "+1/3EV", "tags": ["街", "建築", "ノスタルジー"] }
+    },
+    {
+      "id": "run-lola-run-oberbaum-bridge",
+      "title": "ラン・ローラ・ラン", "titleEn": "Run Lola Run", "year": 1998, "director": "トム・ティクヴァ",
+      "place": "オーバーバウム橋", "city": "ベルリン", "country": "ドイツ", "region": "europe",
+      "lat": 52.5017, "lng": 13.4457, "confidence": "high", "streets": true,
+      "scene": "恋人を救うため 20 分で大金を集めようと、赤い髪のローラが二階建ての橋を走り抜ける。",
+      "look": "赤い髪と緑のジャケット、原色の強い対比。テンポの速い高彩度。",
+      "sources": [
+        "https://visitberlin.de/en/oberbaumbrucke-run-lola-run-unknown",
+        "https://www.movie-locations.com/movies/l/Lola-Rennt.php"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 1, "b": -1 },
+        "highlight": 0, "shadow": 2, "color": 3, "sharpness": 0, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["橋", "疾走", "街"] }
+    },
+    {
+      "id": "sound-of-music-mirabell-gardens",
+      "title": "サウンド・オブ・ミュージック", "titleEn": "The Sound of Music", "year": 1965, "director": "ロバート・ワイズ",
+      "place": "ミラベル庭園（ペガサスの噴水と階段）", "city": "ザルツブルク", "country": "オーストリア", "region": "europe",
+      "lat": 47.8056, "lng": 13.0419, "confidence": "high", "streets": true,
+      "scene": "家庭教師のマリアと子どもたちが歌いながら庭園を巡り、階段で歌の最後を迎える。",
+      "look": "花壇の鮮やかな色と緑、晴れた空。明るい 60 年代のカラー。",
+      "sources": [
+        "https://www.salzburgerland.com/en/the-film-locations/",
+        "https://freewalkingtoursalzburg.com/sound-of-music-filming-locations/"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 },
+        "highlight": 1, "shadow": 1, "color": 2, "sharpness": -1, "nr": -3,
+        "isoNote": "ISO 320〜800", "exposureNote": "0EV", "tags": ["庭園", "ミュージカル", "日中"] }
+    },
+    {
+      "id": "ohmss-piz-gloria",
+      "title": "女王陛下の007", "titleEn": "On Her Majesty's Secret Service", "year": 1969, "director": "ピーター・R・ハント",
+      "place": "ピッツ・グロリア（シルトホルン山頂）", "city": "ミューレン", "country": "スイス", "region": "europe",
+      "lat": 46.558, "lng": 7.8352, "confidence": "high", "streets": false,
+      "scene": "悪役が研究所を構える雪山の山頂の建物。ボンドが潜入し、スキーでの追跡劇へ続く。",
+      "look": "雪の白と澄んだ青空、強い反射光。",
+      "sources": [
+        "https://www.movie-locations.com/movies/o/On-Her-Majestys-Secret-Service.php",
+        "https://www.irishtimes.com/life-and-style/travel/a-view-to-a-kill-in-the-swiss-alps-1.1740291"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6000 }, "wbShift": { "r": -2, "b": 3 },
+        "highlight": 0, "shadow": 1, "color": -2, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "+2/3EV", "tags": ["雪", "山", "アクション"] }
+    },
+    {
+      "id": "mission-impossible-charles-bridge",
+      "title": "ミッション:インポッシブル", "titleEn": "Mission: Impossible", "year": 1996, "director": "ブライアン・デ・パルマ",
+      "place": "カレル橋", "city": "プラハ", "country": "チェコ", "region": "europe",
+      "lat": 50.0865, "lng": 14.4114, "confidence": "high", "streets": true,
+      "scene": "作戦が失敗した夜、チームのリーダーが石の橋から川へ落ちる。",
+      "look": "夜の石橋と街灯の黄、川の暗い青。冷たいサスペンスの色。",
+      "sources": [
+        "https://filmcommission.gov.cz/en/film/mission-impossible/",
+        "https://movie-locations.com/movies/m/Mission-Impossible.php"
+      ],
+      "recipe": { "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "strong",
+        "wb": { "mode": "kelvin", "kelvin": 4300 }, "wbShift": { "r": 1, "b": -2 },
+        "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -4,
+        "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["夜", "橋", "サスペンス"] }
+    },
+    {
+      "id": "kamome-diner-kahvila-suomi",
+      "title": "かもめ食堂", "titleEn": "Kamome Diner", "year": 2006, "director": "荻上直子",
+      "place": "カハヴィラ・スオミ（現 Ravintola KAMOME）", "city": "ヘルシンキ", "country": "フィンランド", "region": "europe",
+      "lat": 60.1597, "lng": 24.9412, "confidence": "high", "streets": true,
+      "scene": "日本人女性サチエがヘルシンキで開いた小さな食堂。客の来ない日々から、少しずつ人が集まってくる。",
+      "look": "白い店内と木の家具、北欧の淡い光。明るく穏やかなパステル。",
+      "sources": [
+        "https://www.travel.co.jp/guide/article/7490/",
+        "https://allabout.co.jp/gm/gc/408813"
+      ],
+      "recipe": { "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "off",
+        "wb": { "mode": "kelvin", "kelvin": 5600 }, "wbShift": { "r": 2, "b": -1 },
+        "highlight": -2, "shadow": -2, "color": 0, "sharpness": -1, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "+2/3EV", "tags": ["室内", "食", "北欧"] }
+    },
+    {
+      "id": "fallout-preikestolen",
+      "title": "ミッション:インポッシブル／フォールアウト", "titleEn": "Mission: Impossible – Fallout", "year": 2018, "director": "クリストファー・マッカリー",
+      "place": "プレーケストーレン", "city": "ローガラン", "country": "ノルウェー", "region": "europe",
+      "lat": 58.9864, "lng": 6.1903, "confidence": "high", "streets": false,
+      "scene": "クライマックスで、ヘリから落ちたイーサンが切り立った岩の台地の縁にぶら下がる。劇中ではカシミールの設定。",
+      "look": "灰色の岩とフィヨルドの深い青。冷たく雄大な色。",
+      "sources": [
+        "https://www.wnfc.no/filmography/mission-impossible-fallout",
+        "https://kftv.com/news/2018/7/19/mission-impossible-fallout-driven-by-exciting-locations"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 6500 }, "wbShift": { "r": -2, "b": 3 },
+        "highlight": -1, "shadow": 2, "color": -1, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["崖", "フィヨルド", "アクション"] }
+    },
+    {
+      "id": "interstellar-svinafellsjokull",
+      "title": "インターステラー", "titleEn": "Interstellar", "year": 2014, "director": "クリストファー・ノーラン",
+      "place": "スヴィナフェルスヨークトル氷河", "city": "ヴァトナヨークトル国立公園", "country": "アイスランド", "region": "europe",
+      "lat": 64.0073, "lng": -16.879, "confidence": "high", "streets": false,
+      "scene": "探査チームが降り立つ、凍りついた雲と氷に覆われた惑星の地表。",
+      "look": "氷の白と灰色、冷たい青。ほぼ無彩色の世界。",
+      "sources": [
+        "https://www.movie-locations.com/movies/i/Interstellar.php",
+        "https://www.thelocationguide.com/2014/11/ng-film-christopher-nolan-films-sci-fi-epic-interstellar-in-alberta-and-iceland/"
+      ],
+      "recipe": { "filmSim": "classic-chrome", "dr": "dr400", "grain": "weak", "colorChrome": "weak",
+        "wb": { "mode": "kelvin", "kelvin": 7500 }, "wbShift": { "r": -2, "b": 3 },
+        "highlight": -1, "shadow": 1, "color": -3, "sharpness": 0, "nr": -3,
+        "isoNote": "ISO 640〜1600", "exposureNote": "0EV", "tags": ["氷河", "SF", "風景"] }
+    },
+    {
+      "id": "mamma-mia-agios-ioannis-kastri",
+      "title": "マンマ・ミーア！", "titleEn": "Mamma Mia!", "year": 2008, "director": "フィリダ・ロイド",
+      "place": "アギオス・ヨアニス・カストリ礼拝堂", "city": "スコペロス島", "country": "ギリシャ", "region": "europe",
+      "lat": 39.177, "lng": 23.6207, "confidence": "high", "streets": false,
+      "scene": "岩の上の小さな礼拝堂へ続く長い石段を、結婚式の一行が登っていく。",
+      "look": "エーゲ海の青と白い礼拝堂、松の緑。明るく鮮やか。",
+      "sources": [
+        "https://greeka.com/sporades/skopelos/skopelos-churches/agios-ioannis-kastri.htm",
+        "https://www.visitgreece.gr/en/experiences/nature/religious-tourism/agios-ioannis-at-kastri"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": 1, "b": -1 },
+        "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "教会", "夏"] }
+    },
+    {
+      "id": "big-blue-agia-anna",
+      "title": "グラン・ブルー", "titleEn": "The Big Blue", "year": 1988, "director": "リュック・ベッソン",
+      "place": "アモルゴス島 アギア・アンナ", "city": "アモルゴス島", "country": "ギリシャ", "region": "europe",
+      "lat": 36.8207, "lng": 25.901, "confidence": "high", "streets": false,
+      "scene": "少年時代のふたりが素潜りを競う、断崖の下の透明な入り江。",
+      "look": "深い群青とターコイズ、白い岩。海と空が溶け合う青一色。",
+      "sources": [
+        "https://movie-locations.com/movies/g/Grand-Bleu.php",
+        "https://greeka.com/cyclades/amorgos/beaches/agia-anna"
+      ],
+      "recipe": { "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong",
+        "wb": { "mode": "daylight", "kelvin": null}, "wbShift": { "r": -2, "b": 3 },
+        "highlight": 0, "shadow": 1, "color": 2, "sharpness": 0, "nr": -2,
+        "isoNote": "ISO 320〜800", "exposureNote": "-1/3EV", "tags": ["海", "夏", "青"] }
     }
   ]
 }
