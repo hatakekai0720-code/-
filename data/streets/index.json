@@ -2356,6 +2356,358 @@
    "radiusKm": 1,
    "minzoom": 10,
    "maxzoom": 15
+  },
+  {
+   "id": "roma-tepeji-22",
+   "file": "roma-tepeji-22.pmtiles",
+   "bytes": 1031678,
+   "sha256": "7a1dd004fc5e1a090b750e1205acbc5d6031f3b35d1a84f7ad2eb4e859ebf589",
+   "bbox": [
+    -99.17052,
+    19.39886,
+    -99.15148,
+    19.41694
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "happy-together-bar-sur",
+   "file": "happy-together-bar-sur.pmtiles",
+   "bytes": 896157,
+   "sha256": "4365fe1178a49283294a3a50e91486fe1d22b40240558b7e8322ce1796804bc3",
+   "bbox": [
+    -58.38212,
+    -34.62754,
+    -58.36028,
+    -34.60946
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "enchanted-bethesda-terrace",
+   "file": "enchanted-bethesda-terrace.pmtiles",
+   "bytes": 1815059,
+   "sha256": "05e43da8fb87e749e5669b17b46d69e63f4fcfdce4531674c828bf46cf406d6f",
+   "bbox": [
+    -73.98286,
+    40.76496,
+    -73.95914,
+    40.78304
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "miracle-34th-street-macys",
+   "file": "miracle-34th-street-macys.pmtiles",
+   "bytes": 1687934,
+   "sha256": "6b748608a2cae6358adc2566c594aba5469db7fa4312cbcecefd11f6ef1f8c81",
+   "bbox": [
+    -74.00086,
+    40.74176,
+    -73.97714,
+    40.75984
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "ghost-prince-street",
+   "file": "ghost-prince-street.pmtiles",
+   "bytes": 1909818,
+   "sha256": "df0d801b216227e6bfa026b5d2a20d14a857a80cd7e7932485783147bb2f002f",
+   "bbox": [
+    -74.01055,
+    40.71546,
+    -73.98685,
+    40.73354
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "superman-daily-news-building",
+   "file": "superman-daily-news-building.pmtiles",
+   "bytes": 1610685,
+   "sha256": "258cb3e0f10afc02c97cb99aef77dab75a3716164ecd0a85ebd7c2c6eed7a005",
+   "bbox": [
+    -73.98476,
+    40.74116,
+    -73.96104,
+    40.75924
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "national-treasure-trinity-church",
+   "file": "national-treasure-trinity-church.pmtiles",
+   "bytes": 2161262,
+   "sha256": "23486a3cc1e8e878295a3b8b7ee663e856c800c43cd71e66c807904b8218983e",
+   "bbox": [
+    -74.02395,
+    40.69906,
+    -74.00025,
+    40.71714
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "hangover-caesars-palace",
+   "file": "hangover-caesars-palace.pmtiles",
+   "bytes": 754940,
+   "sha256": "fb8e354f4f26e439237b8119358965c5ff3cac489891c041b6f3520117d7dcde",
+   "bbox": [
+    -115.18562,
+    36.10716,
+    -115.16338,
+    36.12524
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "fast-furious-toretto-house",
+   "file": "fast-furious-toretto-house.pmtiles",
+   "bytes": 1092980,
+   "sha256": "ab94c087a97b1426026c894c7780dd9e622685dbecaace5791a76947ea042c13",
+   "bbox": [
+    -118.26584,
+    34.06196,
+    -118.24416,
+    34.08004
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "grease-venice-high",
+   "file": "grease-venice-high.pmtiles",
+   "bytes": 730444,
+   "sha256": "658e26b4c0fb0dd124ac4069ad8482cecffa55b81900928c6f01ca6fb54c103b",
+   "bbox": [
+    -118.45434,
+    33.98806,
+    -118.43266,
+    34.00614
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "american-graffiti-petaluma",
+   "file": "american-graffiti-petaluma.pmtiles",
+   "bytes": 679076,
+   "sha256": "04622461d6a77abc47d6eb07db5e9c4f177743ed07d17483c835cfca7e5815a6",
+   "bbox": [
+    -122.65274,
+    38.22616,
+    -122.62986,
+    38.24424
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "sister-act-st-pauls",
+   "file": "sister-act-st-pauls.pmtiles",
+   "bytes": 1744169,
+   "sha256": "9aeef20ba267d81b26aceb8bcb2a298ea397ee7fff3865112702b5cc83f22d48",
+   "bbox": [
+    -122.43816,
+    37.73606,
+    -122.41544,
+    37.75414
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "lost-boys-santa-cruz-boardwalk",
+   "file": "lost-boys-santa-cruz-boardwalk.pmtiles",
+   "bytes": 740018,
+   "sha256": "1b78d71c5a79653c62eba68931aa98aa20da43974e913b933d43f16fdf552e45",
+   "bbox": [
+    -122.02974,
+    36.95496,
+    -122.00726,
+    36.97304
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "dark-knight-rises-heinz-field",
+   "file": "dark-knight-rises-heinz-field.pmtiles",
+   "bytes": 1244071,
+   "sha256": "8c43f007079dba99d02ad8749854c4d5cdeb6e4a6b677f73d707c6d855771e41",
+   "bbox": [
+    -80.0276,
+    40.43776,
+    -80.004,
+    40.45584
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "breakfast-club-maine-north",
+   "file": "breakfast-club-maine-north.pmtiles",
+   "bytes": 378044,
+   "sha256": "9dc067ffa34965bc82576c6a5919a513222bdfdf647c9adeb72c697f3a871f18",
+   "bbox": [
+    -87.8746,
+    42.05116,
+    -87.8504,
+    42.06924
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "jumanji-keene-main-street",
+   "file": "jumanji-keene-main-street.pmtiles",
+   "bytes": 728725,
+   "sha256": "71becf5657771321d6a172111a919a24abcb5e4eaac09c8e7ae3fe940faaeb2c",
+   "bbox": [
+    -72.29037,
+    42.92466,
+    -72.26583,
+    42.94274
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "hocus-pocus-old-burial-hill",
+   "file": "hocus-pocus-old-burial-hill.pmtiles",
+   "bytes": 465084,
+   "sha256": "6f0d0b41aba2e78fa2ac5a5f39c095ffd0b2b0b8d248781e438235c22091d59e",
+   "bbox": [
+    -70.86119,
+    42.49586,
+    -70.83681,
+    42.51394
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "bourne-ultimatum-waterloo",
+   "file": "bourne-ultimatum-waterloo.pmtiles",
+   "bytes": 2620209,
+   "sha256": "537add2eac90fdcc9178018b2225451e4371f3d30277b898be915aa56824d82f",
+   "bbox": [
+    -0.12763,
+    51.49406,
+    -0.09877,
+    51.51214
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "philosophers-stone-christ-church-staircase",
+   "file": "philosophers-stone-christ-church-staircase.pmtiles",
+   "bytes": 1180020,
+   "sha256": "10fb8f1133d9bf7a75d10c361bd374030d15747075447825a0e2b878b2faeed5",
+   "bbox": [
+    -1.27041,
+    51.74096,
+    -1.24139,
+    51.75904
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "philosophers-stone-kings-cross",
+   "file": "philosophers-stone-kings-cross.pmtiles",
+   "bytes": 2126809,
+   "sha256": "56fe52f35fe1c13613509d84e06013f81c0f319ed774c626bf57d481373cd906",
+   "bbox": [
+    -0.13834,
+    51.52296,
+    -0.10946,
+    51.54104
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "love-actually-st-lukes-mews",
+   "file": "love-actually-st-lukes-mews.pmtiles",
+   "bytes": 1342858,
+   "sha256": "793954bf1fc18bf294b888cda377485a989349277fd76fbc5c6d65587336239d",
+   "bbox": [
+    -0.21804,
+    51.51046,
+    -0.18916,
+    51.52854
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
+  },
+  {
+   "id": "kings-speech-portland-place",
+   "file": "kings-speech-portland-place.pmtiles",
+   "bytes": 2261672,
+   "sha256": "866c6a785143a1e3e95a9f2faa72f4de7d3af88e67428566c571fb1968da224c",
+   "bbox": [
+    -0.15964,
+    51.51116,
+    -0.13076,
+    51.52924
+   ],
+   "build": "20261117",
+   "radiusKm": 1,
+   "minzoom": 10,
+   "maxzoom": 15
   }
  ]
 }
