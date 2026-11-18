@@ -13,6 +13,18 @@ export function creditLine(credit) {
     ' / ', ext(credit.sourceUrl, 'Wikimedia Commons'));
 }
 
+// 表示用の object URL はロケ地ごとに 1 つ作って使い回す（load 直後に revoke すると、再描画で画像が消えることがある）。
+// 全件でも数 MB なので、アプリを開いている間は持っておく
+const urls = new Map();
+const urlFor = (loc, blob) => {
+  const cur = urls.get(loc.id);
+  if (cur && cur.size === blob.size) return cur.url;
+  if (cur) URL.revokeObjectURL(cur.url);
+  const url = URL.createObjectURL(blob);
+  urls.set(loc.id, { url, size: blob.size });
+  return url;
+};
+
 /** 写真とクレジット。写真が無いロケ地は null */
 export function photoFigure(loc, { alt } = {}) {
   if (!loc?.photo) return null;
@@ -21,10 +33,8 @@ export function photoFigure(loc, { alt } = {}) {
   photoFor(loc).then((res) => {
     if (res?.entry) fig.lastChild.replaceWith(creditLine(creditOf(loc, res.entry)));
     if (!res?.blob) { box.replaceChildren(h('div', { class: 'photo-wait small muted' }, '写真はまだダウンロードされていません（オンラインのときに自動で保存されます）')); return; }
-    const url = URL.createObjectURL(res.blob);
-    const img = h('img', { src: url, alt: alt || `${loc.place}（${loc.city}）の写真`, decoding: 'async', loading: 'lazy' });
-    img.addEventListener('load', () => URL.revokeObjectURL(url), { once: true });
-    img.addEventListener('error', () => { URL.revokeObjectURL(url); box.replaceChildren(h('div', { class: 'photo-wait small muted' }, '写真を表示できませんでした')); }, { once: true });
+    const img = h('img', { src: urlFor(loc, res.blob), alt: alt || `${loc.place}（${loc.city}）の写真`, decoding: 'async' });
+    img.addEventListener('error', () => box.replaceChildren(h('div', { class: 'photo-wait small muted' }, '写真を表示できませんでした')), { once: true });
     box.replaceChildren(img);
   }).catch(() => box.replaceChildren(h('div', { class: 'photo-wait small muted' }, '写真を表示できませんでした')));
   return fig;

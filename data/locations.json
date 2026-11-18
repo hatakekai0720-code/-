@@ -55,7 +55,7 @@
       "visitNotes": null,
       "lessons": [42, 29], "palette": ["#5a8a4f", "#b8322a", "#e0c048", "#2b3a42", "#6f7f7a"],
       "links": { "eigacom": null, "trailer": null, "wikipedia": null },
-      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Central-Mid-Levels_Escalator_and_Walkway_System_2017.jpg", "author": "Wpcpey", "license": "CC BY 3.0", "licenseUrl": "https://creativecommons.org/licenses/by/3.0/" }
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Central-Mid-Levels_Escalator_and_Walkway_System_2017.jpg", "author": "Wpcpey", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "in-the-mood-for-love-angkor-wat",
@@ -1253,7 +1253,7 @@
       "visitNotes": "参拝や礼拝の妨げにならないように。境内・堂内での撮影や三脚の可否は現地の掲示に従ってください。",
       "lessons": [17], "palette": ["#b8322a", "#2f4a32", "#5a8a4f", "#13365c", "#2e7d4f"],
       "links": { "eigacom": null, "trailer": null, "wikipedia": null },
-      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Omi-jingu02n4592.jpg", "author": "663highland", "license": "CC BY-SA 3.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/" }
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:Omi-jingu02n4592.jpg", "author": "663highland", "license": "CC BY 2.5", "licenseUrl": "https://creativecommons.org/licenses/by/2.5/" }
     },
     {
       "id": "poppoya-ikutora-station",
