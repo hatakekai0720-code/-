@@ -69,16 +69,40 @@ node tests/map.test.mjs        # 距離計算・ロケ地データ（必須項�
 node tests/lessons.test.mjs    # 講座データ・練習用レシピ
 node tests/sw.test.mjs         # Service Worker のキャッシュ一覧・外部 URL が無いこと
 node tests/streets.test.mjs    # 街路地図のダウンロード計画・範囲判定・PMTiles の Range 読み込み
+node tests/photos.test.mjs     # ロケ地写真のライセンス判定・クレジット・index.json
+node tests/film.test.mjs       # 作品のまとめ・検索・年代・代表色・保存データ v3（行った・パレット）
+node tests/locations.test.mjs  # locations.json のスキーマ（作品情報・撮影ガイド・links・photo）と外部リンクの形式
 ```
+
+## 街路地図とロケ地写真を GitHub Actions で作る（スマホの GitHub アプリから）
+
+街路地図（`data/streets/`）とロケ地写真（`data/photos/`）は、GitHub Actions のワークフローが作ってこのブランチにコミットします。
+`data/locations.json` を変更して push すると自動で動きます。手動で動かすときは、スマホの GitHub アプリで次の手順です。
+
+1. GitHub アプリでこのリポジトリを開き、**Actions** を開きます（リポジトリのトップ画面の下の方にあります。見つからなければ「…」→「Actions」）。
+2. 一覧から **「街路データを生成」**（`extract-streets.yml`）または **「ロケ地写真を取得」**（`fetch-photos.yml`）を選びます。
+3. 右上の **「Run workflow」**（または「…」→「Run workflow」）を押し、ブランチを選びます。
+   - 街路地図: `refresh`（すべて作り直す）、`radius_km`（半径 km、既定 1）、`limit_mb`（合計の上限 MB、既定 500）を指定できます。
+   - 写真: `refresh`（すべて取得し直す）を指定できます。
+4. **Run** を押すと実行が始まります。終わると、ワークフローの画面の **Summary** にファイルごとのサイズと合計が出ます（95MB を超えるファイルがあると失敗します）。
+5. 成功すると `github-actions[bot]` が `data/streets/` または `data/photos/` をコミットします。アプリは次に開いたときに裏でダウンロードします。
+
+補足:
+- 写真のワークフローは Commons API でライセンスを確認し、CC0 / パブリックドメイン / CC BY / CC BY-SA 以外が 1 件でもあると何もせずに失敗します。その場合は `data/locations.json` の該当する `photo` を別の写真にするか `null` にしてください。
+- Wikimedia が混み合っていると（HTTP 429）一部の写真を取得できないことがあります。取得できた分はコミットされるので、時間をおいてもう一度「Run workflow」を押すと続きから取得します。
+  Wikimedia に名乗る連絡先を付けたいときは、リポジトリの Settings → Secrets and variables → Actions → **Variables** に `WIKIMEDIA_CONTACT`（例: 連絡用の URL）を追加します（任意）。
+- `data/streets/` や `data/photos/` だけの変更ではワークフローは動きません（bot のコミットで無限に動かないように）。
 
 ## データとプライバシー
 
-- **写真はどこにも保存・送信しません。** 解析はブラウザ内の Canvas で行い、結果の数値だけをレシピとして保存できます。
+- **あなたの写真はどこにも保存・送信しません。** 解析はブラウザ内の Canvas で行い、結果の数値（レシピ・代表色）だけを保存できます。
+- 「行った」チェックは日付とメモだけを保存します（写真は持ちません）。
 - 保存先は端末の `localStorage` だけで、キーは `xt3cine:db` です（GitHub Pages では同じユーザーの全リポジトリが同じオリジンになるため、`xt3cine:` を接頭辞にしています）。
 - Service Worker のキャッシュ名も `xt3cine-` で始まり、このアプリのキャッシュ以外は削除しません。
 - 現在地は「近い順」の計算に使うだけで、保存しません。
 - 外部サーバーへの通信はありません（Web フォント・CDN・外部の地図タイルも使っていません）。
-- ロケ地周辺の街路地図（OpenStreetMap）は、このアプリと同じサイトから裏で 1 件ずつダウンロードし、Cache Storage（`xt3cine-streets`）に保存します。設定画面でオフ・全削除できます。
+- ロケ地周辺の街路地図（OpenStreetMap）とロケ地写真（Wikimedia Commons の自由ライセンス写真）は、このアプリと同じサイトから裏で 1 件ずつダウンロードし、Cache Storage（`xt3cine-streets`・`xt3cine-photos`）に保存します。設定画面でオフ・全削除できます。
+- ロケ地の出典・映画.com などの外部リンク・写真のクレジットは表示するだけで、アプリは通信しません。タップしたときだけブラウザで開きます。
 - 機種変更やバックアップには、設定画面の「エクスポート」で JSON ファイルを書き出し、新しい端末で「インポート」します。
 
 ## ファイル構成
@@ -102,11 +126,16 @@ data/countries-10m.json  国境・海岸線 10m（ズーム 5 以上）
 data/admin1-10m.json     県・州の境界線（ズーム 4 以上）
 data/places-10m.json     主要都市名（ズーム 6 以上）
 data/streets/            ロケ地周辺の街路地図 PMTiles（scripts/extract-streets.sh で作成。プリキャッシュしない）
+data/photos/             ロケ地写真 WebP と index.json（scripts/fetch-photos.mjs で作成。プリキャッシュしない）
 js/analyze-worker.js     全ピクセル解析の Web Worker
+js/bgdownload.js         同梱データを裏で 1 件ずつ Cache Storage に保存する共通部品
 js/streets.js            街路地図のダウンロードと読み出し
+js/photos.js             ロケ地写真のダウンロードとクレジット
+js/film.js               作品ごとのまとめ・検索・年代・講座との対応
 js/cluster.js            地図のピンのクラスタと地域・国の絞り込み
 vendor/                  Leaflet・topojson-client・pmtiles・protomaps-leaflet
 scripts/                 データ作成用スクリプト（アプリの実行には不要）
+.github/workflows/       街路地図・写真を作る GitHub Actions
 icons/                   アプリアイコン
 tests/                   Node.js のテスト
 SPEC.md                  開発仕様書
@@ -129,3 +158,16 @@ SPEC.md                  開発仕様書
 | [pmtiles](https://github.com/protomaps/PMTiles) | 4.5.0 | BSD-3-Clause | `vendor/pmtiles/LICENSE` |
 | [protomaps-leaflet](https://github.com/protomaps/protomaps-leaflet) | 5.1.0 | BSD-3-Clause | `vendor/protomaps-leaflet/LICENSE` |
 | [OpenStreetMap](https://www.openstreetmap.org/copyright)（Protomaps basemap） | daily build | ODbL 1.0 | `data/streets/LICENSE` |
+
+### 同梱データ
+
+| データ | 出典 | ライセンス | 表示・ファイル |
+|---|---|---|---|
+| 国境・海岸線・県境・都市名 | [Natural Earth](https://www.naturalearthdata.com/)・[world-atlas](https://github.com/topojson/world-atlas) | パブリックドメイン / ISC | `data/natural-earth.LICENSE`・`data/world-atlas.LICENSE` |
+| ロケ地周辺の街路地図 | [OpenStreetMap](https://www.openstreetmap.org/copyright)（[Protomaps](https://protomaps.com/) basemap） | ODbL 1.0 | 地図に「© OpenStreetMap contributors」・`data/streets/LICENSE` |
+| ロケ地写真 | [Wikimedia Commons](https://commons.wikimedia.org/) | 写真ごとに CC0 / パブリックドメイン / CC BY / CC BY-SA | 写真の下に撮影者・ライセンス・Commons へのリンク。`data/photos/index.json` に記録 |
+| ロケ地・作品情報（`data/locations.json`） | 各ロケ地の `sources` に記した出典で確認した事実。あらすじ・撮影ガイド・レシピ・パレットはこのアプリのオリジナル | — | 出典はロケ地の詳細に表示 |
+| 講座（`data/lessons.json`）・初期レシピ | このアプリのオリジナル | — | — |
+
+- 写真は CC BY-SA のものを含みます。写真を取り出して再配布するときは、各写真のライセンス（表示・継承）に従ってください。
+- 作品のタイトル・人名・会社名は事実として記載しています。ポスター・場面写真・予告編の画像は同梱していません。

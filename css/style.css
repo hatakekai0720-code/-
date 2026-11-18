@@ -336,3 +336,39 @@ body.fullscreen .update-banner { bottom: calc(env(safe-area-inset-bottom) + 8px)
 .chip-count { margin-left: 6px; color: var(--muted); }
 .chip.on .chip-count { color: var(--accent); }
 .sources a { color: var(--muted); text-decoration: underline; }
+
+/* 地図右上のダウンロード進捗（街路・写真） */
+.map-progress { position: absolute; top: 10px; right: 10px; z-index: 500; pointer-events: none; font-size: 11px; line-height: 1;
+  padding: 5px 8px; border-radius: 10px; background: var(--card); color: var(--muted); border: 1px solid var(--line); opacity: .92; }
+.map-progress[hidden] { display: none; }
+/* ロケ地写真（同梱の Commons 写真）とクレジット */
+.loc-photo { margin: 10px 0 0; }
+.photo-box { border-radius: 10px; overflow: hidden; background: var(--card); border: 1px solid var(--line); aspect-ratio: 3 / 2;
+  display: flex; align-items: center; justify-content: center; }
+.photo-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo-wait { padding: 12px; text-align: center; }
+.photo-credit { margin-top: 4px; line-height: 1.5; overflow-wrap: anywhere; }
+.photo-credit a { color: var(--muted); text-decoration: underline; }
+
+/* ---- ロケ地の詳細（タブ）・作品ページ・検索 ---- */
+.loc-title { font-size: 19px; line-height: 1.4; }
+.tabs { display: flex; gap: 0; border-bottom: 1px solid var(--line); margin-top: 6px; }
+.tab { flex: 1; min-height: 44px; background: none; border: 0; border-bottom: 2px solid transparent; color: var(--muted); font: inherit; font-size: 14px; cursor: pointer; }
+.tab[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.tab-panel { padding-top: 4px; }
+.synopsis { line-height: 1.7; }
+.kv-list { display: grid; gap: 0; padding: 0; }
+.kv { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 8px; padding: 9px 12px; border-top: 1px solid var(--line); }
+.kv:first-child { border-top: 0; }
+.kv .v { overflow-wrap: anywhere; }
+.name-link { color: var(--text); text-decoration: underline; text-decoration-color: var(--muted); text-underline-offset: 3px; }
+.palette { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+.pal-cell { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.pal-swatch { display: block; height: 40px; border-radius: 4px; border: 1px solid var(--line); }
+.pal-hex { font-size: 10px; color: var(--muted); text-align: center; overflow: hidden; text-overflow: ellipsis; }
+.pal-dot { width: 12px; height: 12px; border-radius: 50%; flex: none; border: 1px solid var(--line); }
+.chip.visited { color: var(--accent); border-color: var(--accent); }
+a.chip { text-decoration: none; }
+.visit-card textarea { min-height: 56px; }
+a.list-btn { text-decoration: none; color: var(--text); display: flex; align-items: center; gap: 10px; }

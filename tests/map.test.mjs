@@ -42,18 +42,21 @@ test('ロケ地: 必須項目・座標・confidence・ID 重複なし', () => {
     assert.ok(Math.abs(l.lat) <= 90 && Math.abs(l.lng) <= 180, `${l.id} 座標`);
     assert.ok(['high', 'medium'].includes(l.confidence), `${l.id}.confidence`);
     assert.ok(!ids.has(l.id), `重複 ${l.id}`); ids.add(l.id);
-    const { sources, ...rest } = l;
-    assert.ok(!/\.(jpe?g|png|webp|gif)|https?:/i.test(JSON.stringify(rest)), `${l.id} に画像や URL が含まれる（出典 sources 以外）`);
+    const { sources, links, photo, ...rest } = l; // 外部 URL を書いてよいのは出典・リンク・写真のクレジットだけ
+    assert.ok(!/\.(jpe?g|png|webp|gif)|https?:/i.test(JSON.stringify(rest)), `${l.id} に画像や URL が含まれる（sources / links / photo 以外）`);
     assert.equal(typeof l.streets, 'boolean', `${l.id}.streets`);
     assert.ok(/^-?\d+(\.\d{1,4})?$/.test(String(l.lat)) && /^-?\d+(\.\d{1,4})?$/.test(String(l.lng)), `${l.id} 座標は小数 4 桁まで`);
   }
 });
-test('ロケ地: 出典 sources は 1 件以上の https URL（重複なし）、confidence は件数と一致', () => {
+test('ロケ地: 出典 sources は 1 件以上の https URL（重複なし）、confidence は撮影地点の出典の件数と一致', () => {
   for (const l of locs) {
     assert.ok(Array.isArray(l.sources) && l.sources.length >= 1, `${l.id} に出典がない`);
     assert.equal(new Set(l.sources).size, l.sources.length, `${l.id} の出典が重複`);
     for (const u of l.sources) assert.ok(/^https:\/\/[^\s/]+\.[^\s/]+\/\S*$/.test(u) && !/\.(jpe?g|png|webp|gif)(\?|$)/i.test(u), `${l.id}: ${u}`);
-    assert.equal(l.confidence, l.sources.length >= 2 ? 'high' : 'medium', `${l.id}.confidence`);
+    // 先頭 spotSources 件が撮影地点を確認できる出典（残りは作品情報の出典）。未設定なら全件
+    const spot = l.spotSources ?? l.sources.length;
+    assert.ok(Number.isInteger(spot) && spot >= 1 && spot <= l.sources.length, `${l.id}.spotSources`);
+    assert.equal(l.confidence, spot >= 2 ? 'high' : 'medium', `${l.id}.confidence`);
   }
 });
 test('ロケ地: 同じ作品・同じ場所の重複がない', () => {

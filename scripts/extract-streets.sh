@@ -68,6 +68,15 @@ total_bytes() { local t=0 f; for f in "$OUT"/*.pmtiles; do [[ -e "$f" ]] && t=$(
 LIMIT_BYTES=$((LIMIT_MB * 1024 * 1024))
 PLANNED=$(grep -c . <<< "$PLAN" || true)
 
+# 前回の切り出し条件（半径・ズーム）が今回と違うファイルは作り直す
+SAME_SETTINGS=$(node -e '
+const fs = require("fs");
+const [out, r, minz, maxz] = process.argv.slice(1);
+try {
+  for (const f of JSON.parse(fs.readFileSync(`${out}/index.json`, "utf8")).files)
+    if (f.radiusKm === Number(r) && f.minzoom === Number(minz) && f.maxzoom === Number(maxz)) console.log(f.id);
+} catch {}' "$OUT" "$RADIUS_KM" "$MINZOOM" "$MAXZOOM")
+
 # 切り出し（この実行で切り出したロケ地は EXTRACTED に記録し、index.json の build 日付を更新する）
 EXTRACTED=""
 STOPPED=""
@@ -76,7 +85,7 @@ while read -r id bbox; do
   [[ -n "$id" ]] || continue
   N=$((N + 1))
   file="$OUT/$id.pmtiles"
-  if [[ $REFRESH -eq 0 && -s "$file" ]]; then echo "skip  $id（既存）"; continue; fi
+  if [[ $REFRESH -eq 0 && -s "$file" ]] && grep -qx "$id" <<< "$SAME_SETTINGS"; then echo "skip  $id（既存）"; continue; fi
   echo "extract $id  bbox=$bbox"
   tmp="$file.part"
   rm -f "$tmp"
@@ -103,27 +112,29 @@ done
 # index.json（アプリが差し替えの判定に使う）とサイズの報告
 node -e '
 const fs = require("fs"), crypto = require("crypto");
-const [out, radius, maxzoom, plan, build, extracted] = process.argv.slice(1);
-const builds = {};
-try { for (const f of JSON.parse(fs.readFileSync(`${out}/index.json`, "utf8")).files) builds[f.id] = f.build; } catch {}
-for (const id of extracted.split(" ").filter(Boolean)) builds[id] = build;
+const [out, radius, minzoom, maxzoom, plan, build, extracted] = process.argv.slice(1);
+const prev = {};
+try { for (const f of JSON.parse(fs.readFileSync(`${out}/index.json`, "utf8")).files) prev[f.id] = f; } catch {}
+const fresh = new Set(extracted.split(" ").filter(Boolean));
 const files = [];
 for (const line of plan.trim().split("\n")) {
   const [id, bbox] = line.split(" ");
   const p = `${out}/${id}.pmtiles`;
   if (!fs.existsSync(p)) continue;
   const buf = fs.readFileSync(p);
+  const old = fresh.has(id) ? null : prev[id];
   files.push({ id, file: `${id}.pmtiles`, bytes: buf.length, sha256: crypto.createHash("sha256").update(buf).digest("hex"),
-    bbox: bbox.split(",").map(Number), build: builds[id] || null });
+    bbox: old?.bbox || bbox.split(",").map(Number), build: fresh.has(id) ? build : (old?.build || null),
+    radiusKm: old ? old.radiusKm : Number(radius), minzoom: old ? old.minzoom : Number(minzoom), maxzoom: old ? old.maxzoom : Number(maxzoom) });
 }
-const index = { version: 1, source: "Protomaps basemap (OpenStreetMap, ODbL)", radiusKm: Number(radius), maxzoom: Number(maxzoom), files };
+const index = { version: 1, source: "Protomaps basemap (OpenStreetMap, ODbL)", radiusKm: Number(radius), minzoom: Number(minzoom), maxzoom: Number(maxzoom), files };
 fs.writeFileSync(`${out}/index.json`, JSON.stringify(index, null, 1) + "\n");
 const mb = (b) => (b / 1048576).toFixed(2).padStart(7) + " MB";
 let total = 0;
 console.log("\nファイル                                         サイズ");
 for (const f of files) { total += f.bytes; console.log(`${f.file.padEnd(48)} ${mb(f.bytes)}`); }
 console.log(`合計 ${files.length} 件: ${(total / 1048576).toFixed(2)} MB`);
-' "$OUT" "$RADIUS_KM" "$MAXZOOM" "$PLAN" "$BUILD" "$EXTRACTED"
+' "$OUT" "$RADIUS_KM" "$MINZOOM" "$MAXZOOM" "$PLAN" "$BUILD" "$EXTRACTED"
 
 if [[ -n "$STOPPED" ]]; then
   echo "合計サイズが上限を超えそうなため途中で止めました（$STOPPED）。半径（RADIUS_KM）や対象を見直してください。" >&2

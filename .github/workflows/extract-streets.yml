@@ -1,0 +1,93 @@
+# 街路データ（OpenStreetMap / Protomaps の PMTiles）を生成して data/streets/ にコミットする。
+# ・手動実行（Actions タブ → 「街路データを生成」→ Run workflow）、または
+#   data/locations.json / scripts/extract-streets.sh を変更した push で動く
+# ・data/streets/ だけの変更では動かない（paths に含めていない。bot の push は GITHUB_TOKEN なので再実行もされない）
+name: 街路データを生成
+
+on:
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: すべて最新の build から切り出し直す
+        type: boolean
+        default: false
+      radius_km:
+        description: 切り出す半径（km）
+        type: string
+        default: '1'
+      limit_mb:
+        description: 合計サイズの上限（MB）。超えそうなら途中で止まって失敗する
+        type: string
+        default: '500'
+  push:
+    paths:
+      - data/locations.json
+      - scripts/extract-streets.sh
+
+permissions:
+  contents: write
+
+concurrency:
+  group: extract-streets-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  extract:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      # go-pmtiles のリリースバイナリ（バージョン固定。SHA-256 で改ざん・破損を確認する）
+      PMTILES_VERSION: 1.31.2
+      PMTILES_SHA256: 3ed7dbf4ec2e6dfe5e25b6f70d1ffc932729f93c86db353bf514dd71010a312f
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: go-pmtiles を用意
+        run: |
+          curl -fsSL -o /tmp/pmtiles.tar.gz \
+            "https://github.com/protomaps/go-pmtiles/releases/download/v${PMTILES_VERSION}/go-pmtiles_${PMTILES_VERSION}_Linux_x86_64.tar.gz"
+          echo "${PMTILES_SHA256}  /tmp/pmtiles.tar.gz" | sha256sum -c -
+          mkdir -p /tmp/pmtiles && tar xzf /tmp/pmtiles.tar.gz -C /tmp/pmtiles pmtiles
+          echo "/tmp/pmtiles" >> "$GITHUB_PATH"
+          /tmp/pmtiles/pmtiles version
+
+      - name: 入力を確認
+        env:
+          RADIUS_KM: ${{ inputs.radius_km || '1' }}
+          LIMIT_MB: ${{ inputs.limit_mb || '500' }}
+        run: |
+          [[ "$RADIUS_KM" =~ ^[0-9]+(\.[0-9]+)?$ ]] || { echo "radius_km は数値で指定してください: $RADIUS_KM"; exit 1; }
+          [[ "$LIMIT_MB" =~ ^[0-9]+$ ]] || { echo "limit_mb は整数で指定してください: $LIMIT_MB"; exit 1; }
+
+      - name: 切り出し（scripts/extract-streets.sh）
+        env:
+          RADIUS_KM: ${{ inputs.radius_km || '1' }}
+          LIMIT_MB: ${{ inputs.limit_mb || '500' }}
+          REFRESH: ${{ inputs.refresh && '--refresh' || '' }}
+          PMTILES: pmtiles
+        run: bash scripts/extract-streets.sh $REFRESH
+
+      - name: サイズの確認と報告（95MB を超えるファイルがあれば失敗）
+        if: always()
+        run: node scripts/size-report.mjs data/streets .pmtiles "街路データ（data/streets/）" 95
+
+      - name: コミットして push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/streets
+          if git diff --cached --quiet; then echo "変更なし"; exit 0; fi
+          git commit -m "街路データを更新（GitHub Actions）"
+          for i in 1 2 3 4; do
+            # 同時に動いた実行と衝突したら、この実行で作り直したデータ（生成物）を優先する
+            if git pull --rebase -X theirs origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME"; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((i * 15))
+          done
+          echo "push できませんでした" >&2
+          exit 1

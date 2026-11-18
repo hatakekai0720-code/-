@@ -14,7 +14,7 @@ const walk = (dir) => readdirSync(dir).flatMap((f) => { const p = join(dir, f); 
 // アプリの実行に必要なファイル（ライセンス文書・テスト・仕様書・README は除く）
 const required = ['index.html', 'manifest.webmanifest',
   ...['css', 'js', 'data', 'vendor', 'icons'].flatMap((d) => walk(join(root, d)).map((p) => relative(root, p).split('\\').join('/')))]
-  .filter((p) => !/LICENSE/i.test(p) && !p.startsWith('data/streets/')); // 街路データは別途ダウンロードする
+  .filter((p) => !/LICENSE/i.test(p) && !p.startsWith('data/streets/') && !p.startsWith('data/photos/')); // 街路データ・写真は別途ダウンロードする
 
 test('ASSETS に重複がない・すべて相対パス', () => {
   assert.equal(new Set(assets).size, assets.length);
@@ -28,21 +28,23 @@ test('アプリに必要なファイルがすべて ASSETS に入っている', 
   const missing = required.filter((p) => !set.has(p));
   assert.deepEqual(missing, [], `ASSETS に未登録: ${missing.join(', ')}`);
 });
-test('キャッシュ名は xt3cine- で始まり、自分のキャッシュだけを削除する（街路地図のキャッシュは残す）', () => {
+test('キャッシュ名は xt3cine- で始まり、自分のキャッシュだけを削除する（街路地図・写真のキャッシュは残す）', () => {
   assert.match(sw, /const PREFIX = 'xt3cine-'/);
-  assert.match(sw, /k\.startsWith\(PREFIX\) && k !== CACHE && k !== STREETS_CACHE/);
+  assert.match(sw, /k\.startsWith\(PREFIX\) && !\[CACHE, STREETS_CACHE, PHOTOS_CACHE\]\.includes\(k\)/);
   assert.match(sw, /const STREETS_CACHE = `\$\{PREFIX\}streets`/);
+  assert.match(sw, /const PHOTOS_CACHE = `\$\{PREFIX\}photos`/);
   assert.match(readFileSync(join(root, 'js/streets.js'), 'utf8'), /export const STREETS_CACHE = 'xt3cine-streets'/);
+  assert.match(readFileSync(join(root, 'js/photos.js'), 'utf8'), /export const PHOTOS_CACHE = 'xt3cine-photos'/);
 });
-test('街路データ（data/streets/）は ASSETS に入れない', () => {
-  assert.deepEqual(assets.filter((a) => a.includes('data/streets')), []);
+test('街路データ（data/streets/）とロケ地写真（data/photos/）は ASSETS に入れない', () => {
+  assert.deepEqual(assets.filter((a) => a.includes('data/streets') || a.includes('data/photos')), []);
 });
 test('外部ドメインの URL を含まない（コード・HTML・CSS・データ）', () => {
   const files = required.filter((p) => /\.(js|css|html|json|webmanifest)$/.test(p) && !p.startsWith('vendor/'));
   for (const f of files) {
     let text = readFileSync(join(root, f), 'utf8');
-    // ロケ地の出典（sources）は表示するだけで、アプリは通信しない
-    if (f === 'data/locations.json') text = JSON.stringify(JSON.parse(text).locations.map(({ sources, ...l }) => l));
+    // ロケ地の出典（sources）・外部リンク（links）・写真のクレジット（photo）は表示するだけで、アプリは通信しない
+    if (f === 'data/locations.json') text = JSON.stringify(JSON.parse(text).locations.map(({ sources, links, photo, ...l }) => l));
     assert.ok(!/https?:\/\//.test(text.replace(/http:\/\/www\.w3\.org\/2000\/svg/g, '')), `${f} に外部 URL があります`);
   }
 });

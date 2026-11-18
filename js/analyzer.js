@@ -56,11 +56,13 @@ export class Accumulator {
     this.histR = new Uint32Array(256); this.histG = new Uint32Array(256); this.histB = new Uint32Array(256); this.histL = new Uint32Array(256);
     this.binLin = new Float64Array(256 * 3); // 輝度ビンごとのリニア RGB 合計
     this.sumChroma = 0; this.sumSatHsv = 0; this.skin = 0; this.sumLum = 0; this.sumLum2 = 0; this.sumA = 0; this.sumB = 0;
+    // 代表色用: RGB を各 4bit に量子化した 4096 ビンの件数と sRGB 合計
+    this.cbin = new Uint32Array(4096); this.cbinSum = new Float64Array(4096 * 3);
   }
 
   /** @param {Uint8ClampedArray|Uint8Array} data RGBA。count を省略すると data 全体 */
   add(data, count = data.length >> 2) {
-    const { histR, histG, histB, histL, binLin } = this;
+    const { histR, histG, histB, histL, binLin, cbin, cbinSum } = this;
     let sumChroma = 0, sumSatHsv = 0, skin = 0, sumLum = 0, sumLum2 = 0, sumA = 0, sumB = 0;
     for (let i = 0, p = 0; i < count; i++, p += 4) {
       const r = data[p], g = data[p + 1], b = data[p + 2];
@@ -70,6 +72,8 @@ export class Accumulator {
       const rl = LIN[r], gl = LIN[g], bl = LIN[b];
       const k = y * 3;
       binLin[k] += rl; binLin[k + 1] += gl; binLin[k + 2] += bl;
+      const ci = ((r >> 4) << 8) | ((g >> 4) << 4) | (b >> 4), ck = ci * 3;
+      cbin[ci]++; cbinSum[ck] += r; cbinSum[ck + 1] += g; cbinSum[ck + 2] += b;
       const mx = r > g ? (r > b ? r : b) : (g > b ? g : b), mn = r < g ? (r < b ? r : b) : (g < b ? g : b);
       if (mx === mn) continue; // 無彩色は彩度 0
       sumSatHsv += (mx - mn) / mx;
@@ -131,8 +135,33 @@ export class Accumulator {
       shadows: zone(zoneSum(0, p25)),
       highlights: zone(zoneSum(p75, 255)),
       overall: zone(zoneSum(0, 255)),
+      palette: dominantColors(this.cbin, this.cbinSum, 5), // 代表色（'#rrggbb'、多い順）
     };
   }
+}
+
+const hex2 = (v) => Math.round(v).toString(16).padStart(2, '0');
+/**
+ * 代表色: 量子化したビンを多い順に見て、すでに選んだ色と Lab で離れている色だけを採る（似た色ばかりにならないように）。
+ * 離れた色が足りなければ距離の条件をゆるめて、count 色になるまで足す。
+ */
+export function dominantColors(cbin, cbinSum, count = 5) {
+  const order = [];
+  for (let i = 0; i < cbin.length; i++) if (cbin[i]) order.push(i);
+  order.sort((a, b) => cbin[b] - cbin[a]);
+  const avg = (i) => [cbinSum[i * 3] / cbin[i], cbinSum[i * 3 + 1] / cbin[i], cbinSum[i * 3 + 2] / cbin[i]];
+  const lab = (c) => linToLab(LIN[Math.round(c[0])], LIN[Math.round(c[1])], LIN[Math.round(c[2])]);
+  const picked = [];
+  for (const minDist of [24, 14, 6, 0]) {
+    for (const i of order.slice(0, 600)) {
+      if (picked.length >= count) break;
+      if (picked.some((p) => p.i === i)) continue;
+      const c = avg(i), L = lab(c);
+      if (picked.every((p) => Math.hypot(p.L[0] - L[0], p.L[1] - L[1], p.L[2] - L[2]) >= minDist)) picked.push({ i, c, L });
+    }
+    if (picked.length >= count) break;
+  }
+  return picked.map((p) => `#${p.c.map(hex2).join('')}`);
 }
 
 /**
