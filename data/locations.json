@@ -6464,7 +6464,7 @@
       "visitNotes": "個人の住宅です。玄関先に立ち入らず、路地から短時間で。住人の迷惑にならないように。",
       "lessons": [13, 17], "palette": ["#2f5d8a", "#f3e3d6", "#e7b8a8", "#9cc2cf", "#cfd9b0"],
       "links": { "eigacom": "https://eiga.com/movie/1115/", "trailer": null, "wikipedia": null },
-      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:St_Lukes_Mews,_Notting_Hill,_London_(geograph_6086918).jpg", "author": "Chris Wood", "license": "CC BY-SA 2.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/" }
+      "photo": { "sourceUrl": "https://commons.wikimedia.org/wiki/File:St_Lukes_Mews,_Notting_Hill,_London_(geograph_6086918).jpg", "author": "Chris Wood", "license": "CC BY-SA 4.0", "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/" }
     },
     {
       "id": "kings-speech-portland-place", "type": "filming",
