@@ -13,7 +13,7 @@ import * as store from '../store.js';
 import * as streets from '../streets.js';
 import * as photos from '../photos.js';
 import { photoFigure } from '../ui/photo.js';
-import { clusterPoints, maxSpread, spiderOffsets, sizeTier, facetCounts, filterLocations, CLUSTER_RADIUS, CLUSTER_SIZES } from '../cluster.js';
+import { clusterPoints, maxSpread, spiderOffsets, sizeTier, facetCounts, filterLocations, typeCounts, CLUSTER_RADIUS, CLUSTER_SIZES } from '../cluster.js';
 
 const CONF_LABEL = { high: '確度 高', medium: '確度 中' };
 const MIN_ZOOM = 1, MAX_ZOOM = 8; // 通常の最大ズーム（県・都市が分かる程度まで）
@@ -65,7 +65,7 @@ const WORLD_BOUNDS = [[-85, -400], [85, 400]];
 
 // 現在地はメモリだけに持つ（保存しない）
 let here = null;
-const mapGeo = { region: 'all', country: 'all', decade: 'all' };
+const mapGeo = { type: 'all', region: 'all', country: 'all', decade: 'all' };
 const visibleLocs = (locations, geo) => filterLocations(locations, geo).filter((l) => inDecade(l.year, geo.decade));
 
 export function render(root, { id: focusId } = {}) {
@@ -85,7 +85,7 @@ export function render(root, { id: focusId } = {}) {
   streets.events.addEventListener('status', drawBadge);
   photos.events.addEventListener('status', drawBadge);
   drawBadge();
-  const geo = mapGeo; // ロケ地の地域・国・年代の絞り込み（メモリのみ。画面を移っても保つ）
+  const geo = mapGeo; // ロケ地の種類（実写／モデル地）・地域・国・年代の絞り込み（メモリのみ。画面を移っても保つ）
   const facetEl = h('div', { class: 'stack facets', style: 'gap:8px;margin:12px 0 4px' });
 
   root.append(
@@ -220,7 +220,8 @@ export function render(root, { id: focusId } = {}) {
   /* ---- 地域・国の絞り込み ---- */
   function drawFacets() {
     if (!locations.length) { facetEl.replaceChildren(); return; }
-    const f = facetCounts(locations, geo.region);
+    const typed = filterLocations(locations, { type: geo.type });
+    const f = facetCounts(typed, geo.region);
     const shown = visibleLocs(locations, geo).length;
     const inRegion = filterLocations(locations, geo);
     const dc = Object.fromEntries([['all', inRegion.length], ...decadeCounts(inRegion).map((d) => [d.id, d.count])]);
@@ -229,19 +230,25 @@ export function render(root, { id: focusId } = {}) {
       onclick: () => { geo.region = id; geo.country = 'all'; applyGeo(); },
     }, label, h('span', { class: 'num chip-count' }, count));
     const countryTotal = f.countries.reduce((s, c) => s + c.count, 0);
+    const typeChip = (id, label, count) => h('button', {
+      type: 'button', class: `chip ${geo.type === id ? 'on' : ''}`, 'aria-pressed': String(geo.type === id),
+      onclick: () => { geo.type = id; geo.region = 'all'; geo.country = 'all'; applyGeo(); },
+    }, label, h('span', { class: 'num chip-count' }, count));
     facetEl.replaceChildren(
+      h('div', { class: 'row wrap', style: 'gap:6px', role: 'group', 'aria-label': '実写の撮影地とモデル地で絞り込み' },
+        typeChip('all', 'すべての種類', locations.length), ...typeCounts(locations).map((t) => typeChip(t.id, t.label, t.count))),
       h('div', { class: 'row wrap', style: 'gap:6px', role: 'group', 'aria-label': '地域で絞り込み' },
         chip('all', 'すべて', f.total), ...f.regions.map((r) => chip(r.id, r.label, r.count))),
       h('div', { class: 'row', style: 'gap:10px' },
         h('div', { class: 'grow' }, select([{ id: 'all', label: `すべての国（${countryTotal}）` }, ...f.countries.map((c) => ({ id: c.id, label: `${c.id}（${c.count}）` }))],
           geo.country, (v) => { geo.country = v; applyGeo(); }, { 'aria-label': '国で絞り込み' })),
-        h('div', { class: 'small muted', style: 'white-space:nowrap' }, '表示 ', h('span', { class: 'num' }, shown), ' / ', h('span', { class: 'num' }, f.total), ' 件')),
+        h('div', { class: 'small muted', style: 'white-space:nowrap' }, '表示 ', h('span', { class: 'num' }, shown), ' / ', h('span', { class: 'num' }, locations.length), ' 件')),
       decadeChips(geo.decade, dc, (id) => { geo.decade = id; applyGeo(); }));
   }
   function applyGeo() {
     drawFacets(); drawPins(); drawList();
     const vis = visibleLocs(locations, geo);
-    if (map && vis.length && (geo.region !== 'all' || geo.country !== 'all' || geo.decade !== 'all')) {
+    if (map && vis.length && (geo.type !== 'all' || geo.region !== 'all' || geo.country !== 'all' || geo.decade !== 'all')) {
       map.fitBounds(L.latLngBounds(vis.map((l) => [l.lat, l.lng])).pad(0.25), { maxZoom: Math.min(map.getMaxZoom(), MAX_ZOOM) });
     }
   }

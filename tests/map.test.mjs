@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { haversine, formatKm, formatLatLng, unwrapAntimeridian, wrapLngNear, labelWidth, pickLabels } from '../js/geo.js';
 import { statSync } from 'node:fs';
-import { clusterPoints, maxSpread, spiderOffsets, sizeTier, facetCounts, filterLocations, CLUSTER_RADIUS, REGION_LABELS } from '../js/cluster.js';
+import { clusterPoints, maxSpread, spiderOffsets, sizeTier, facetCounts, filterLocations, typeCounts, typeOf, CLUSTER_RADIUS, REGION_LABELS } from '../js/cluster.js';
 import { locationRecipe } from '../js/locations.js';
 import { validateRecipe, drWarning } from '../js/xt3.js';
 
@@ -186,5 +186,21 @@ test('地域・国の絞り込みと件数', () => {
   assert.ok(jp.length > 0 && jp.every((l) => l.country === '日本'));
   assert.equal(filterLocations(locs, { region: 'europe', country: '日本' }).length, 0);
   assert.equal(filterLocations(locs).length, locs.length);
+});
+test('実写／モデル地の絞り込み: type が無いものは実写、地域・国と組み合わせられる', () => {
+  const sample = [
+    { id: 'a', type: 'filming', region: 'asia', country: '日本' },
+    { id: 'b', type: 'model', region: 'asia', country: '日本' },
+    { id: 'c', region: 'europe', country: 'フランス' },
+  ];
+  assert.equal(typeOf(sample[2]), 'filming');
+  assert.deepEqual(typeCounts(sample).map((t) => [t.id, t.label, t.count]), [['filming', '実写', 2], ['model', 'モデル地', 1]]);
+  assert.deepEqual(filterLocations(sample, { type: 'model' }).map((l) => l.id), ['b']);
+  assert.deepEqual(filterLocations(sample, { type: 'filming', country: '日本' }).map((l) => l.id), ['a']);
+  assert.deepEqual(filterLocations(sample, { type: 'filming', region: 'europe' }).map((l) => l.id), ['c']);
+  assert.equal(filterLocations(sample).length, 3);
+  const tc = typeCounts(locs);
+  assert.equal(tc.reduce((s, t) => s + t.count, 0), locs.length);
+  assert.equal(filterLocations(locs, { type: 'filming' }).length + filterLocations(locs, { type: 'model' }).length, locs.length);
 });
 console.log(`\n${count} 件のテストに合格`);

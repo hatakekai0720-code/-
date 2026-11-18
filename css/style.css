@@ -263,6 +263,8 @@ button.q-cell { cursor: pointer; }
 .dot.pin { border: 2px solid var(--accent); }
 .loc-place { margin-top: 8px; }
 .chip.conf-high { color: var(--accent); border-color: var(--accent); }
+.chip.type-model { color: #7dd3fc; border-color: #7dd3fc; }
+:root[data-theme="light"] .chip.type-model { color: #0369a1; border-color: #0369a1; }
 
 /* ---- academy ---- */
 .gauge { display: flex; flex-direction: column; gap: 8px; }
