@@ -117,6 +117,15 @@ export function facetCounts(locations, region = 'all') {
   };
 }
 
-export function filterLocations(locations, { region = 'all', country = 'all' } = {}) {
-  return locations.filter((l) => (region === 'all' || l.region === region) && (country === 'all' || l.country === country));
+/** ロケ地の種類: 実写の撮影地（filming）と、アニメなどのモデル地（model）。type が無いものは実写として扱う */
+export const TYPE_LABELS = { filming: '実写', model: 'モデル地' };
+export const typeOf = (l) => (l.type === 'model' ? 'model' : 'filming');
+export function typeCounts(locations) {
+  const c = { filming: 0, model: 0 };
+  for (const l of locations) c[typeOf(l)]++;
+  return Object.keys(TYPE_LABELS).map((id) => ({ id, label: TYPE_LABELS[id], count: c[id] }));
+}
+
+export function filterLocations(locations, { region = 'all', country = 'all', type = 'all' } = {}) {
+  return locations.filter((l) => (type === 'all' || typeOf(l) === type) && (region === 'all' || l.region === region) && (country === 'all' || l.country === country));
 }

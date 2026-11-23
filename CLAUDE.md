@@ -30,7 +30,7 @@
 - `js/app.js` ルーティング（ハッシュ）と下部ナビ / `js/store.js` 保存・移行・エクスポート / `js/xt3.js` パラメータ定義
 - `js/analyzer.js` 画像解析（全ピクセル。`Accumulator` で統計を累積、`tilePlan`/`analyzeTiled` で最大 4MP のタイルに分けて読む）/ `js/analyze-worker.js` 解析用 Worker（OffscreenCanvas。無ければ `views/analyze.js` がメインスレッドで 0.5MP ずつ await しながら処理）/ `js/translator.js` 推定レシピ（ルール表は冒頭）
 - `js/geo.js` 距離・日付変更線・都市名ラベルの間引き（`pickLabels`）
-- `js/cluster.js` 地図のピンのクラスタ（自前実装。ズームごとにワールドピクセル座標で貪欲法、半径 44px、件数で 3 段階）・放射状展開（`spiderOffsets`）・地域/国の絞り込み（`facetCounts`/`filterLocations`）。ロケ地とマイピンは別クラスタ。描画は単独ピン = Canvas の circleMarker、クラスタ = divIcon
+- `js/cluster.js` 地図のピンのクラスタ（自前実装。ズームごとにワールドピクセル座標で貪欲法、半径 44px、件数で 3 段階）・放射状展開（`spiderOffsets`）・地域/国の絞り込み（`facetCounts`/`filterLocations`）。ロケ地とマイピンは別クラスタ。地図の絞り込みは 種類（実写／モデル地。`typeOf`/`typeCounts`）・地域・国・年代。描画は単独ピン = Canvas の circleMarker、クラスタ = divIcon
 - `js/bgdownload.js` 同梱データを裏で 1 件ずつ Cache Storage に保存する共通部品（index.json の sha256 で更新判定・中断再開）。街路地図と写真で使う
 - `js/photos.js` ロケ地写真: `data/photos/index.json`（`scripts/fetch-photos.mjs` が Commons API で確認したクレジット入り）を見て Cache Storage `xt3cine-photos` に保存。ASSETS には入れない。表示は `js/ui/photo.js`（写真の下に必ず「撮影者 / ライセンス / Wikimedia Commons」）
 - `js/streets.js` 街路地図: `data/streets/index.json` を見て裏で 1 件ずつ Cache Storage `xt3cine-streets` に保存（sha256 で更新判定・中断再開）、`BlobSource` でキャッシュ済みファイルから PMTiles の Range を切り出す。SW はこのキャッシュを消さない
@@ -40,11 +40,12 @@
 - 保存データ v3: `visited`（行ったロケ地 `{ [locationId]: { date: 'YYYY-MM-DD', memo } }`。写真は持たない）・`palettes`（画像解析の代表色を作品のパレットとして `{ [workKey]: { colors: ['#rrggbb'…], savedAt } }`。数値のみ）。v2 からの移行あり、エクスポート/インポートに含む
 - 地図のズーム: 〜 国境 50m / 4〜 県・州の境界（`data/admin1-10m.json`）/ 5〜 国境・海岸線 10m（`data/countries-10m.json`）/ 6〜 都市名（`data/places-10m.json`）/ 通常の最大 8。ダウンロード済みのロケ地付近だけ 10〜 街路（`vendor/protomaps-leaflet` + `vendor/pmtiles`）、最大 18（データは 15 まで、それ以上は拡大表示）。ダウンロード中は地図の右上に進捗（n/N）
 - `data/lessons.json` 講座50回 / `data/countries-50m.json` 地図（Natural Earth 由来）
-- `data/locations.json` ロケ地（必須: id・作品情報・place/city/country・region（asia / middle-east / europe / north-america / latin-america / africa / oceania）・lat/lng（小数4桁）・confidence・spotSources・streets（市街地なら true）・scene/look（自分の言葉で）・sources・recipe）。追加は出典で撮影地点を確認できたものだけ
+- `data/locations.json` ロケ地（必須: id・`type`（実写の撮影地 `"filming"`／アニメなどのモデル地 `"model"`。モデル地は詳細画面に「撮影地ではなくモデル地」と出し、レシピは「その場所で撮るときの色作り」）・作品情報・place/city/country・region（asia / middle-east / europe / north-america / latin-america / africa / oceania）・lat/lng（小数4桁）・confidence・spotSources・streets（市街地なら true）・scene/look（自分の言葉で）・sources・recipe）。追加は出典で撮影地点を確認できたものだけ
   - `sources` は https の出典 URL。先頭の `spotSources` 件が撮影地点を確認できる出典、その後ろが作品情報の出典。`confidence` は撮影地点の出典の件数で決める（2 件以上で high、1 件で medium。作品情報の出典は数えない）
   - 作品情報（出典で確認できたものだけ。確認できなければ null。推測で埋めない）: `cinematographer`・`cast`（2〜3 人 `{ name, role }`）・`production`（最大 3 社。日本映画の製作委員会方式は制作会社を入れて `committee: true`）・`distributor`（`{ original, japan }`。japan は日本初公開時の配給。リバイバルは使わない。日本未公開なら null）・`genre`・`format`（`{ capture, aspect }`。1997 年以前の劇映画は capture をフィルムとしている）・`links`（`{ eigacom, trailer, wikipedia }`。eigacom は検索でタイトルと年が一致すると確認できた https://eiga.com/movie/<id>/ だけ。同じ作品は同じ URL。trailer は配給会社・公式チャンネルのものだけ。wikipedia は日本語版があれば日本語版）
   - 自分の言葉（ガイド）: `synopsis`（ネタバレなし 100 字以内）・`sceneTime`（朝/昼/夕方/マジックアワー/夜）・`weather`（晴れ/曇り/雨/雪/霧）・`guide`（`{ focal: 35mm 換算と近い XF, angle, bestTime }`）・`visitNotes`（最寄り駅・私有地や撮影の注意。料金・営業時間は書かない）・`lessons`（講座番号 1〜3 件）・`palette`（look に基づく 5 色）
   - `photo`: `{ sourceUrl: Commons のファイルページ, author, license, licenseUrl }` か null。ロケ地そのものを写した写真だけ（映画のスチル・ポスター・人物が主役の写真は不可）。CC0 / Public domain / CC BY / CC BY-SA のみ
+  - 同じ場所に複数の作品がある場合は作品ごとに別のエントリにし、座標は同じにする（地図では同じ地点のピンとしてクラスタ・放射状展開される）
   - 画面比が 1.85:1 以上なら `recipe.sizeNote` に「画像サイズ 16:9」を書く（X-T3 は 3:2 / 16:9 / 1:1）
 - `scripts/build-natural-earth.sh` Natural Earth データの再生成 / `scripts/extract-streets.sh` 街路データの切り出し（`streets: true` のロケ地だけ、半径約 1km・ズーム 10〜15。合計が 500MB を超えそうなら止まる。ロケ地を増やしたら再実行。要 pmtiles CLI と build.protomaps.com への接続）
 - `.github/workflows/extract-streets.yml`（街路データを生成）・`.github/workflows/fetch-photos.yml`（ロケ地写真を取得）: `data/locations.json` を変えた push と手動実行で動き、`github-actions[bot]` が `data/streets/`・`data/photos/` をコミットする（これらだけの変更では動かない）。95MB を超えるファイルがあれば失敗。サイズは Summary に出る

@@ -46,7 +46,8 @@ test('検索: 作品名・人物・会社。中黒や空白・全角半角の違
   assert.ok(search(locs, '東宝').names.some((x) => x.name === '東宝' && x.kind === 'company'));
   assert.ok(search(locs, 'ビル マーレイ').names.some((x) => x.name === 'ビル・マーレイ'));
   // 年代で絞ると 2000 年代の作品は出ない
-  assert.equal(search(locs, 'ロスト', { decade: '1980s' }).works.length, 0);
+  assert.ok(search(locs, 'ロスト・イン').works.length > 0);
+  assert.equal(search(locs, 'ロスト・イン', { decade: '1980s' }).works.length, 0);
   assert.deepEqual(search(locs, '  '), { works: [], names: [] });
 });
 test('名前 → 作品（役割つき・年の古い順）', () => {

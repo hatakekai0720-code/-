@@ -6,6 +6,7 @@ import { locationRecipe, loadLocations } from '../locations.js';
 import { loadLessons } from '../lessons.js';
 import { workKey, groupWorks, needs169, ROLE_LABEL } from '../film.js';
 import { formatLatLng } from '../geo.js';
+import { typeOf, TYPE_LABELS } from '../cluster.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
 
@@ -91,9 +92,11 @@ export function render(root, { id }) {
         h('div', { class: 'loc-place' }, h('div', { style: 'font-weight:600' }, l.place),
           h('div', { class: 'small muted' }, `${l.city}・${l.country} `, h('span', { class: 'num' }, formatLatLng(l.lat, l.lng)))),
         h('div', { class: 'row wrap', style: 'gap:6px;margin-top:6px' },
+          h('span', { class: `chip type-${typeOf(l)}` }, TYPE_LABELS[typeOf(l)]),
           h('span', { class: `chip conf-${l.confidence}` }, CONF_LABEL[l.confidence]),
           store.getVisited(l.id) ? h('span', { class: 'chip visited' }, '✓ 行った') : null,
-          work && work.locations.length > 1 ? h('a', { class: 'chip', href: `#/works/${work.key}` }, `この作品のロケ地 `, h('span', { class: 'num' }, work.locations.length), ' 件') : null)),
+          work && work.locations.length > 1 ? h('a', { class: 'chip', href: `#/works/${work.key}` }, `この作品のロケ地 `, h('span', { class: 'num' }, work.locations.length), ' 件') : null),
+        typeOf(l) === 'model' ? h('div', { class: 'notice small', style: 'margin-top:8px' }, '撮影地ではなくモデル地です（作品の舞台のモデルになった実在の場所）。レシピは、この場所で撮るときの色作りの目安です。') : null),
       tablist, panel,
       h('div', { class: 'row', style: 'gap:8px;margin-top:6px' },
         h('a', { class: 'btn grow', href: `#/map/${encodeURIComponent(l.id)}` }, '地図で見る'),

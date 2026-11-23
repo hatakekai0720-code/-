@@ -13,6 +13,9 @@ const KEYS = ['cinematographer', 'cast', 'production', 'distributor', 'genre', '
 test('すべてのロケ地に追加項目がある（確認できないものは null。推測で埋めない）', () => {
   for (const l of locs) for (const k of KEYS) assert.ok(k in l, `${l.id}.${k} がない`);
 });
+test('type: 実写の撮影地は "filming"、アニメなどのモデル地は "model"（すべてのロケ地に必須）', () => {
+  for (const l of locs) assert.ok(l.type === 'filming' || l.type === 'model', `${l.id}.type = ${l.type}`);
+});
 test('作品情報: 撮影監督・キャスト（2〜3 人、役名）・製作（最大 3 社）・配給（原題国／日本）・ジャンル', () => {
   for (const l of locs) {
     assert.ok(strOrNull(l.cinematographer), `${l.id}.cinematographer`);
