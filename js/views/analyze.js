@@ -11,6 +11,7 @@ import { loadLocations } from '../locations.js';
 import { groupWorks, fold } from '../film.js';
 import { paletteRow } from './location.js';
 import { similarWorks } from '../similar.js';
+import { calibrationEntry } from '../calibration.js';
 import { readExifFromFile, decodeFuji, shotInfo, recipeFromJpeg, notesFromJpeg, isXT3 } from '../exif.js';
 
 // 画面を切り替えても直前の結果を残す（メモリのみ。リロードで消える。画像ファイルも保存はしない）
@@ -389,6 +390,17 @@ export function render(root) {
           toast('レシピとして保存しました');
           location.hash = `#/recipes/${encodeURIComponent(res.recipe.id)}`;
         } }, 'レシピとして保存')));
+    // 較正データ: 解析の数値（統計値だけ）と実際の設定の組。画像は保存しない
+    const cal = calibrationEntry(e, last.result);
+    if (cal) {
+      card.append(
+        h('button', { type: 'button', class: 'btn', onclick: () => {
+          const res = store.addCalibration(cal);
+          if (res.errors) return toast(res.errors[0], 3500);
+          toast(res.replaced ? '較正データを更新しました' : `較正データに追加しました（${store.calibration().length} 件）`);
+        } }, '較正データに追加'),
+        h('div', { class: 'small muted' }, '解析の数値（彩度・コントラストなど）と実際の設定の組だけを保存します（画像は保存しません）。設定 → 較正 で、推定のルールと比べられます。'));
+    }
     return card;
   }
 

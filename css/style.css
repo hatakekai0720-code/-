@@ -381,3 +381,10 @@ body.fullscreen .update-banner { bottom: calc(env(safe-area-inset-bottom) + 8px)
 a.chip { text-decoration: none; }
 .visit-card textarea { min-height: 56px; }
 a.list-btn { text-decoration: none; color: var(--text); display: flex; align-items: center; gap: 10px; }
+
+/* ---- 較正（設定） ---- */
+.cal-film { border-top: 1px solid var(--line); padding-top: 10px; }
+.cal-bar { position: relative; height: 18px; background: var(--bg); border: 1px solid var(--line); border-radius: 3px; }
+.cal-range { position: absolute; top: 2px; bottom: 2px; border: 1px solid var(--accent); border-radius: 2px; }
+.cal-dot { position: absolute; top: 6px; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: var(--muted); }
+.cal-mean { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--accent-bg); }
