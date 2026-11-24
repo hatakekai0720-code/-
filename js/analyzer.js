@@ -14,6 +14,15 @@ export const RULES = {
   //   minDarkShare 以上を占める / minSize〜maxSize: 黒帯の太さ（辺の長さに対する割合）がこの範囲のときだけ採用
   //   （細すぎるのは縁取り、太すぎるのは暗い画像そのもの）
   bars: { maxMean: 12, pixelMax: 24, minDarkShare: 0.98, minSize: 0.01, maxSize: 0.35 },
+  // 暗部 / 明部の割合: 輝度がこの値以下 / 以上の画素（見た目の「暗い」「明るい」の目安。真っ黒・真っ白とは別）
+  dark: 64, bright: 192,
+  // 黒の浮き: p5（暗いほうから 5% の輝度）がこの値以上なら「黒が浮いている」
+  blackLift: 15,
+  // 露出の目安: 明るさの中央値（p50）をリニアにして、中間グレー（18%）と比べた EV 差
+  midGray: 0.18,
+  // 光源: 輝度の上位 top（2%）かつ輝度 minLuma 以上の画素。看板・ネオンなど、面積は小さくても印象を決める色を拾う。
+  //   同じ輝度の画素が多くて上位 maxRatio を超えるとき（単色に近い画像）は、しきい値より明るい画素だけにする
+  light: { top: 0.02, minLuma: 128, maxRatio: 0.1 },
 };
 export const CLIP = RULES.clip; // 互換のため（輝度がこの値以下 / 以上を黒つぶれ / 白飛びとみなす）
 
@@ -67,6 +76,7 @@ export class Accumulator {
     this.n = 0;
     this.histR = new Uint32Array(256); this.histG = new Uint32Array(256); this.histB = new Uint32Array(256); this.histL = new Uint32Array(256);
     this.binLin = new Float64Array(256 * 3); // 輝度ビンごとのリニア RGB 合計
+    this.binC = new Float64Array(256); // 輝度ビンごとの彩度 C* の合計（光源以外の彩度を出すため）
     this.sumChroma = 0; this.sumSatHsv = 0; this.skin = 0; this.sumLum = 0; this.sumLum2 = 0; this.sumA = 0; this.sumB = 0;
     // 代表色用: RGB を各 4bit に量子化した 4096 ビンの件数と sRGB 合計
     this.cbin = new Uint32Array(4096); this.cbinSum = new Float64Array(4096 * 3);
@@ -96,7 +106,7 @@ export class Accumulator {
 
   /** 画素番号 from〜to（to は含まない）を足す */
   addSpan(data, from, to) {
-    const { histR, histG, histB, histL, binLin, cbin, cbinSum } = this;
+    const { histR, histG, histB, histL, binLin, binC, cbin, cbinSum } = this;
     let sumChroma = 0, sumSatHsv = 0, skin = 0, sumLum = 0, sumLum2 = 0, sumA = 0, sumB = 0;
     for (let i = from, p = from * 4; i < to; i++, p += 4) {
       const r = data[p], g = data[p + 1], b = data[p + 2];
@@ -113,7 +123,7 @@ export class Accumulator {
       sumSatHsv += (mx - mn) / mx;
       const [L, a, bb] = linToLab(rl, gl, bl);
       const c = Math.hypot(a, bb);
-      sumChroma += c; sumA += a; sumB += bb;
+      sumChroma += c; sumA += a; sumB += bb; binC[y] += c;
       // 肌色域のおおまかな判定（Lab の色相 35〜75°、中程度の彩度と明るさ）
       if (c >= 12 && c <= 45 && L >= 30 && L <= 88) {
         const hue = Math.atan2(bb, a) * 180 / Math.PI;
@@ -132,7 +142,7 @@ export class Accumulator {
     if (!n) throw new Error('画像データが空です');
     const totalPixels = width * height || n;
     const pct = (p) => percentile(histL, n, p);
-    const p5 = pct(0.05), p25 = pct(0.25), p50 = pct(0.5), p75 = pct(0.75), p95 = pct(0.95);
+    const p1 = pct(0.01), p5 = pct(0.05), p25 = pct(0.25), p50 = pct(0.5), p75 = pct(0.75), p95 = pct(0.95), p98 = pct(1 - RULES.light.top);
 
     // シャドウ = 輝度 p25 以下、ハイライト = p75 以上、全体 = すべてのビン
     const zoneSum = (from, to) => {
@@ -146,6 +156,18 @@ export class Accumulator {
       return { L, a, b, rgb: lin.map(toSrgb), ...describeCast(L, a, b) };
     };
 
+    const count = (from, to) => { let c = 0; for (let y = from; y <= to; y++) c += histL[y]; return c; };
+
+    // 光源: 上位 2% かつ輝度 128 以上。無ければ null
+    const LR = RULES.light;
+    let lt = Math.max(p98, LR.minLuma);
+    if (count(lt, 255) / n > LR.maxRatio) lt += 1;
+    const lightN = lt <= 255 ? count(lt, 255) : 0;
+    let lightC = 0;
+    for (let y = lt; y <= 255; y++) lightC += this.binC[y];
+    const light = lightN ? { ...zone(zoneSum(lt, 255)), ratio: lightN / n, minLuma: lt } : null;
+    if (light) light.label = light.name === 'ニュートラル' ? '白（色なし）' : `${light.name}系`;
+
     let clipB = 0, clipW = 0;
     for (let i = 0; i <= RULES.clip.black; i++) clipB += histL[i];
     for (let i = RULES.clip.white; i < 256; i++) clipW += histL[i];
@@ -157,11 +179,16 @@ export class Accumulator {
       totalPixels, excludedRatio: Math.max(0, 1 - n / totalPixels), // 画像全体の画素数と、除外した割合（0〜1）
       hist: { r: this.histR, g: this.histG, b: this.histB, l: histL },
       clipBlack: clipB / n * 100, clipWhite: clipW / n * 100,
-      p5, p50, p95,
+      p1, p5, p25, p50, p75, p95,
       contrast: p95 - p5,                                  // コントラスト指標（0〜255）
+      darkRatio: count(0, RULES.dark) / n,                 // 暗部（輝度 64 以下）の割合（0〜1）
+      brightRatio: count(RULES.bright, 255) / n,           // 明部（輝度 192 以上）の割合（0〜1）
+      blackLift: p5 >= RULES.blackLift,                    // 黒が浮いている（p5 が 15 以上）
+      exposureEV: Math.log2(Math.max(LIN[p50], 1e-4) / RULES.midGray), // 露出の目安（中央値と中間グレーの EV 差）
       lumaStd: Math.sqrt(Math.max(0, this.sumLum2 / n - mean * mean)),
       meanLuma: mean,
       chroma: sumChroma / n,                               // 平均彩度（Lab C*）
+      chromaNonLight: n - lightN ? (sumChroma - lightC) / (n - lightN) : 0, // 光源以外の平均彩度
       saturation: this.sumSatHsv / n * 100,                // 平均彩度（HSV S, %）
       skinRatio: this.skin / n,
       // 色相のそろい具合（0〜1）。1 に近いほど画像全体が 1 色に染まっている（セピア調・調色モノクロ）
@@ -170,7 +197,9 @@ export class Accumulator {
       meanHue: (Math.atan2(sumB, sumA) * 180 / Math.PI + 360) % 360,
       shadows: zone(zoneSum(0, p25)),
       highlights: zone(zoneSum(p75, 255)),
+      midtones: zone(zoneSum(p25, p75)),                   // 中間調（輝度 p25〜p75）。WB はここから決める
       overall: zone(zoneSum(0, 255)),
+      light,                                               // 光源（上位 2% かつ輝度 128 以上）の平均色・面積。無ければ null
       palette: dominantColors(this.cbin, this.cbinSum, 5), // 代表色（'#rrggbb'、多い順）
     };
   }

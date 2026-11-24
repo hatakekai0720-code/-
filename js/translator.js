@@ -45,9 +45,76 @@ export const RULES = {
   // カラークローム・エフェクト: 彩度がこの値以上なら
   colorChrome: [[38, 'strong'], [26, 'weak'], [0, 'off']],
 
+  // 撮影条件（光源の種類）の自動推定。上から順に当てはめる
+  //   night: 露出の目安が maxEV 以下で、暗部（輝度 64 以下）が minDark 以上 → 夜の街
+  //   tungsten: 露出の目安が maxEV 以下で、中間調の b*（黄み）が minMidB 以上、色相が hue の範囲 → 室内（電球）
+  //   sunset: 光源の色相が hue の範囲（オレンジ〜イエロー）で彩度 C* が minLightC 以上、ハイライトの b* が minHighB 以上 → 夕方
+  //   cloudy: コントラスト（p95−p5）が maxContrast 以下・白飛びが maxClipWhite% 以下・露出の目安が ev の範囲 → 曇り・日陰
+  //   どれでもなければ昼光
+  scene: {
+    night: { maxEV: -2, minDark: 0.6 },
+    tungsten: { maxEV: -0.8, minMidB: 10, hue: [40, 100] },
+    sunset: { hue: [30, 100], minLightC: 20, minHighB: 15 },
+    cloudy: { maxContrast: 120, maxClipWhite: 0.5, ev: [-1.5, 1] },
+  },
+
+  // 要約の言葉: 露出の目安（EV）がこの値以下 → 言葉
+  summaryEV: [[-2.5, 'かなり暗い'], [-1.2, '暗め'], [1, null /* 標準 */], [2, '明るめ'], [Infinity, 'かなり明るい']],
+  // 要約: 光源の面積（割合）がこの値未満 → 言葉
+  summaryLightArea: [[0.02, '少しだけ'], [0.1, 'ところどころに'], [Infinity, '広く']],
+
   // 確度
   confidence: { lowClip: 30, lowContrast: 20, lowScore: 0.5, highScore: 0.95, highGap: 0.3, monoHighChroma: 1.5 },
 };
+
+/** 撮影条件。kelvin = その光の下で白が白に写る色温度（WB の K 値の基準） */
+export const SCENES = [
+  { id: 'auto', label: '自動' },
+  { id: 'daylight', label: '昼光', kelvin: 5500 },
+  { id: 'cloudy', label: '曇り・日陰', kelvin: 7000 },
+  { id: 'sunset', label: '夕方', kelvin: 4500 },
+  { id: 'night', label: '夜の街（街灯・ネオン）', kelvin: 4000 },
+  { id: 'tungsten', label: '室内（電球）', kelvin: 3200 },
+];
+export const sceneOf = (id) => SCENES.find((x) => x.id === id) ?? SCENES[1];
+
+const inRange = (x, [lo, hi]) => x >= lo && x <= hi;
+/** 暗さと光源の色から撮影条件を推定する（'auto' 以外の id を返す） */
+export function guessScene(a) {
+  const S = RULES.scene;
+  if (a.exposureEV <= S.night.maxEV && a.darkRatio >= S.night.minDark) return 'night';
+  const m = a.midtones;
+  if (m && a.exposureEV <= S.tungsten.maxEV && m.b >= S.tungsten.minMidB && inRange(m.hue, S.tungsten.hue)) return 'tungsten';
+  if (a.light && inRange(a.light.hue, S.sunset.hue) && a.light.chroma >= S.sunset.minLightC && a.highlights.b >= S.sunset.minHighB) return 'sunset';
+  if (a.contrast <= S.cloudy.maxContrast && a.clipWhite <= S.cloudy.maxClipWhite && inRange(a.exposureEV, S.cloudy.ev)) return 'cloudy';
+  return 'daylight';
+}
+
+// 色名 → 形容（要約用）
+const COLOR_WORD = { レッド: '赤い', オレンジ: 'オレンジの', アンバー: '琥珀色の', イエロー: '黄色い', グリーン: '緑の', ティール: '青緑の', シアン: '水色の',
+  ブルー: '青い', パープル: '紫の', マゼンタ: 'マゼンタの', ニュートラル: '白い' };
+const fmtEV = (ev) => { const v = Math.round(ev * 10) / 10; return `${v > 0 ? '+' : v < 0 ? '-' : '±'}${Math.abs(v).toFixed(1)}EV`; };
+
+/** 結果の冒頭に出す、言葉の要約（1〜2 文） */
+export function summarize(a, sceneId = guessScene(a)) {
+  const R = RULES;
+  const word = R.summaryEV.find(([max]) => a.exposureEV <= max)[1];
+  const noun = sceneId === 'night' ? '夜景' : '画像';
+  const first = word ? `全体が${word}（約${fmtEV(a.exposureEV)}）${noun}。` : `明るさは標準的（約${fmtEV(a.exposureEV)}）な${noun}。`;
+  const lift = a.blackLift ? '黒が浮いた' : a.clipBlack >= 5 ? '黒がつぶれた' : '';
+  const cast = (z) => (z.strength === 'なし' ? 'ニュートラルな' : `${z.name}寄りの`);
+  const dark = a.exposureEV <= R.summaryEV[1][0];
+  let second;
+  if (dark) {
+    second = `${lift}${cast(a.shadows)}暗部`;
+    if (a.light) second += `に、${COLOR_WORD[a.light.name] ?? ''}光源が${R.summaryLightArea.find(([max]) => a.light.ratio < max)[1]}ある`;
+    else second += 'で、明るい光源は無い';
+  } else {
+    second = `${lift ? `${lift}、` : ''}シャドウは${a.shadows.strength === 'なし' ? 'ニュートラル' : a.shadows.name}、ハイライトは${a.highlights.strength === 'なし' ? 'ニュートラル' : a.highlights.name}`;
+    if (a.light && a.light.strength !== 'なし' && a.light.chroma >= 20) second += `。${COLOR_WORD[a.light.name] ?? ''}光源がある`;
+  }
+  return `${first}${second}。`;
+}
 
 const clamp = (v, { min, max }) => Math.min(max, Math.max(min, v));
 const member = (x, [lo, hi], soft) => (x < lo ? Math.max(0, 1 - (lo - x) / soft) : x > hi ? Math.max(0, 1 - (x - hi) / soft) : 1);

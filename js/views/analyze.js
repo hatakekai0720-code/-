@@ -4,7 +4,7 @@ import { h, toast, sheet } from '../ui/dom.js';
 import { paramSummary } from '../ui/recipe-ui.js';
 import { themeColors } from '../ui/theme.js';
 import { analyzeTiled, canvasReader, fitSize, detectBars, excludedRects } from '../analyzer.js';
-import { estimate, buildRecipe, toneCurves, curvesText } from '../translator.js';
+import { estimate, buildRecipe, toneCurves, curvesText, summarize } from '../translator.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
 import { loadLocations } from '../locations.js';
@@ -251,11 +251,13 @@ export function render(root) {
     const { result: a } = last;
     const hist = h('canvas', { class: 'hist', 'aria-label': 'RGB と輝度のヒストグラム' });
     const stat = (k, v) => h('div', null, h('div', { class: 'k' }, k), h('div', { class: 'v' }, v));
-    const zone = (label, z) => h('div', { class: 'cast' },
+    const zone = (label, z, extra) => (z ? h('div', { class: 'cast' },
       h('span', { class: 'swatch', style: `background:rgb(${z.rgb.join(',')})` }),
-      h('div', { class: 'grow' }, h('div', { class: 'small muted' }, label), h('div', null, z.name, z.strength !== 'なし' ? h('span', { class: 'muted small' }, `（${z.strength}）`) : null)),
-      h('div', { class: 'num small muted', style: 'text-align:right' }, `h ${Math.round(z.hue)}°`, h('br'), `C ${z.chroma.toFixed(1)}`));
+      h('div', { class: 'grow' }, h('div', { class: 'small muted' }, label), h('div', null, z.label ?? z.name, z.strength !== 'なし' ? h('span', { class: 'muted small' }, `（${z.strength}）`) : null, extra)),
+      h('div', { class: 'num small muted', style: 'text-align:right' }, `h ${Math.round(z.hue)}°`, h('br'), `C ${z.chroma.toFixed(1)}`))
+      : h('div', { class: 'cast' }, h('span', { class: 'swatch' }), h('div', { class: 'grow' }, h('div', { class: 'small muted' }, label), h('div', null, 'なし'))));
     const total = a.totalPixels ?? a.pixels;
+    const ev = (v) => `${v > 0.05 ? '+' : v < -0.05 ? '−' : '±'}${Math.abs(v).toFixed(1)}EV`;
 
     out.replaceChildren(
       previewBlock(last),
@@ -263,15 +265,21 @@ export function render(root) {
         h('span', { class: 'num' }, a.pixels.toLocaleString('en-US')), ' / ', h('span', { class: 'num' }, total.toLocaleString('en-US')), ' 画素を解析',
         h('span', { class: 'num' }, `（除外 ${pct((a.excludedRatio ?? 0) * 100)}）`),
         last.mode ? h('span', { class: 'num' }, `・${last.mode === 'worker' ? 'Worker' : 'メインスレッド'}・${(last.ms / 1000).toFixed(1)} 秒`) : null),
+      h('div', { class: 'card summary' }, summarize(a)),
       h('div', { class: 'section-title' }, 'ヒストグラム'),
       h('div', { class: 'card' }, hist, h('div', { class: 'hist-scale num small muted' }, h('span', null, '0'), h('span', null, '128'), h('span', null, '255'))),
       h('div', { class: 'section-title' }, '輝度'),
       h('div', { class: 'spec' },
-        stat('黒つぶれ', pct(a.clipBlack)), stat('白飛び', pct(a.clipWhite)),
-        stat('p5', a.p5), stat('p50', a.p50), stat('p95', a.p95), stat('コントラスト（p95−p5）', a.contrast),
+        stat('露出の目安（中央値と中間グレーの差）', ev(a.exposureEV)),
+        stat('黒の浮き（p1 / p5）', h('span', null, `${a.p1} / ${a.p5}`, a.blackLift ? h('span', { class: 'small', style: 'color:var(--accent);margin-left:6px' }, '黒が浮いている') : null)),
+        stat('暗部（輝度64以下）', pct(a.darkRatio * 100)), stat('明部（輝度192以上）', pct(a.brightRatio * 100)),
+        stat('黒つぶれ（真っ黒・輝度0〜2）', pct(a.clipBlack)), stat('白飛び（真っ白・輝度253〜255）', pct(a.clipWhite)),
+        stat('p50', a.p50), stat('p95', a.p95), stat('コントラスト（p95−p5）', a.contrast),
         stat('平均彩度 C*', a.chroma.toFixed(1)), stat('平均彩度 HSV', pct(a.saturation))),
+      h('div', { class: 'small muted' }, '「暗部」は暗く見える部分、「黒つぶれ」は階調が残っていない真っ黒の部分です。暗い画像でも黒が浮いていれば黒つぶれは 0% になります。'),
       h('div', { class: 'section-title' }, '色被り（Lab）'),
-      h('div', { class: 'card stack', style: 'gap:8px' }, zone('シャドウ（輝度 下位25%）', a.shadows), zone('ハイライト（輝度 上位25%）', a.highlights)),
+      h('div', { class: 'card stack', style: 'gap:8px' }, zone('シャドウ（輝度 下位25%）', a.shadows), zone('ハイライト（輝度 上位25%）', a.highlights),
+        zone('光源（輝度 上位2%・128以上）', a.light, a.light ? h('span', { class: 'num small muted', style: 'margin-left:6px' }, `面積 ${pct(a.light.ratio * 100)}`) : null)),
       ...(a.palette?.length ? [h('div', { class: 'section-title' }, '代表色'), paletteBlock(a.palette)] : []),
       h('div', { class: 'section-title' }, '推定レシピ'),
       recipeBlock(),

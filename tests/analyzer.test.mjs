@@ -2,8 +2,8 @@
 // 実行: node tests/analyzer.test.mjs
 import assert from 'node:assert/strict';
 import { analyze, fitSize, tilePlan, analyzeTiled, Accumulator, TILE_MAX_AREA, TILE_MAX_EDGE, detectBars, excludedRects } from '../js/analyzer.js';
-import { makeImage, sceneImage, withBars } from './fixtures.mjs';
-import { estimate, buildRecipe, toneCurves, curvesText } from '../js/translator.js';
+import { makeImage, sceneImage, withBars, nightImage, NIGHT } from './fixtures.mjs';
+import { estimate, buildRecipe, toneCurves, curvesText, summarize } from '../js/translator.js';
 import { validateRecipe, RANGES, WB_MODES, FILM_SIMS } from '../js/xt3.js';
 import { validateDb, VERSION } from '../js/store.js';
 
@@ -331,6 +331,40 @@ test('除外範囲: 重なった長方形も二重に数えない・タイル分
   const t = await analyzeTiled(read, 100, 100, { exclude, maxArea: 1500, maxEdge: 64 });
   assert.equal(t.pixels, want); assert.deepEqual([...t.hist.l], [...a.hist.l]); assert.deepEqual(t.shadows.rgb, a.shadows.rgb);
   assert.throws(() => analyze(d, 100, 100, { exclude: { rects: [{ x: 0, y: 0, w: 1, h: 1 }] } }), /除外/);
+});
+
+/* ---- 指標: 暗部・明部・黒の浮き・露出の目安・光源 ---- */
+const night = analyze(nightImage(), NIGHT.w, NIGHT.h);
+test('夜景: 暗部・明部の割合、黒の浮き（p1・p5）、露出の目安', () => {
+  assert.equal(night.clipBlack, 0, '真っ黒（輝度 0〜2）は無い');
+  assert.ok(night.darkRatio > 0.98, `暗部（輝度 64 以下）${night.darkRatio}`);
+  near(night.brightRatio, 0, 0.001, '明部（輝度 192 以上）');
+  assert.ok(night.p1 >= 15 && night.p5 >= 15, `p1 ${night.p1} / p5 ${night.p5}`);
+  assert.equal(night.blackLift, true, '黒が浮いている');
+  assert.ok(night.exposureEV <= -2.5 && night.exposureEV >= -3.5, `露出の目安 ${night.exposureEV}`);
+});
+test('夜景: 光源（上位 2% かつ輝度 128 以上）の色はブルー系、面積は 0.8%', () => {
+  assert.ok(night.light, '光源がある');
+  assert.equal(night.light.name, 'ブルー'); assert.equal(night.light.label, 'ブルー系');
+  near(night.light.ratio, 0.008, 0.0001, '光源の面積');
+  assert.ok(!['ブルー'].includes(night.highlights.name) || night.highlights.L < 30, 'ハイライト（上位 25%）では看板の青を拾えない');
+  assert.ok(night.chromaNonLight < night.chroma, '光源以外の彩度');
+});
+test('光源: 明るい画素が無ければ null、単色グレーも null', () => {
+  assert.equal(solid(40, 40, 40).light, null); assert.equal(solid(128, 128, 128).light, null);
+  const a = image((x, y) => (x < 2 && y < 1 ? [255, 110, 90] : [60, 60, 60]));
+  assert.equal(a.light.label, 'レッド系');
+});
+test('露出の目安: 中間グレー（リニア 18%）で 0EV、1 段明るいと +1EV', () => {
+  near(solid(118, 118, 118).exposureEV, 0, 0.1, '18% グレー'); near(solid(161, 161, 161).exposureEV, 1, 0.1, '+1EV');
+  assert.equal(solid(130, 130, 130).blackLift, true); assert.equal(image((x) => (x < 4 ? [0, 0, 0] : [200, 200, 200])).blackLift, false);
+});
+test('要約: 夜景は「暗い」「黒が浮いた」「青い光源」を含む', () => {
+  const s = summarize(night);
+  assert.match(s, /暗い/); assert.match(s, /黒が浮いた/); assert.match(s, /青い光源/); assert.match(s, /夜景/);
+  assert.ok(s.length <= 90, s);
+  const day = summarize(analyze(sceneImage(200, 100), 200, 100));
+  assert.ok(!/夜景/.test(day), day);
 });
 
 for (const [name, fn] of queue) { await fn(); count++; console.log('ok  ', name); }
