@@ -53,6 +53,6 @@ export function tealOrangeImage(w, h) {
   return makeImage(w, h, (x) => {
     const t = x / (w - 1), v = 10 + 235 * t;
     const sh = Math.max(0, 1 - t / 0.4), hi = Math.max(0, (t - 0.6) / 0.4);
-    return [v - 22 * sh + 28 * hi, v + 4 * sh + 4 * hi, v + 18 * sh - 30 * hi];
+    return [v - 22 * sh + 28 * hi, v + 6 * sh + 4 * hi, v + 8 * sh - 30 * hi];
   });
 }

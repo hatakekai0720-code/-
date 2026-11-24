@@ -224,6 +224,8 @@ button.q-cell { cursor: pointer; }
 .preview-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .preview-stage.drawing { outline: 2px solid var(--accent); outline-offset: 2px; }
 .preview-stage.drawing .preview-overlay { pointer-events: auto; touch-action: none; cursor: crosshair; }
+.plan-notes { margin: 0; padding-left: 1.2em; line-height: 1.6; }
+.plan-notes li + li { margin-top: 4px; }
 .summary { line-height: 1.7; border-left: 3px solid var(--accent); }
 .hist { display: block; width: 100%; height: 140px; border-radius: 4px; }
 .hist-scale { display: flex; justify-content: space-between; margin-top: 4px; }

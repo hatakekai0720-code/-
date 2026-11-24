@@ -2,8 +2,8 @@
 // 実行: node tests/analyzer.test.mjs
 import assert from 'node:assert/strict';
 import { analyze, fitSize, tilePlan, analyzeTiled, Accumulator, TILE_MAX_AREA, TILE_MAX_EDGE, detectBars, excludedRects } from '../js/analyzer.js';
-import { makeImage, sceneImage, withBars, nightImage, NIGHT } from './fixtures.mjs';
-import { estimate, buildRecipe, toneCurves, curvesText, summarize } from '../js/translator.js';
+import { makeImage, sceneImage, withBars, nightImage, NIGHT, tealOrangeImage } from './fixtures.mjs';
+import { estimate, buildRecipe, toneCurves, curvesText, summarize, planRecipe, guessScene, SCENES, RULES as TR } from '../js/translator.js';
 import { validateRecipe, RANGES, WB_MODES, FILM_SIMS } from '../js/xt3.js';
 import { validateDb, VERSION } from '../js/store.js';
 
@@ -59,9 +59,10 @@ test('シャドウがティール、ハイライトがアンバーを分離し�
   const a = image((x, y) => (y < H / 2 ? [20, 70, 75] : [235, 190, 120]));
   assert.equal(a.shadows.name, 'ティール'); assert.ok(['アンバー', 'オレンジ'].includes(a.highlights.name), a.highlights.name);
   assert.deepEqual(a.shadows.rgb, [20, 70, 75]); assert.deepEqual(a.highlights.rgb, [235, 190, 120]);
-  const r = buildRecipe(a, estimate(a).candidates[0]);
-  assert.equal(r.wb.mode, 'kelvin'); assert.ok(r.wb.kelvin < 5500, `シャドウが青緑 → 色温度を下げる (${r.wb.kelvin})`);
-  assert.ok(r.wbShift.r > 0 && r.wbShift.b < 0, `ハイライトが暖色 → R+ / B- (${JSON.stringify(r.wbShift)})`);
+  // シャドウとハイライトの色の差は WB では表さない（スプリットトーンの注記になる）
+  const plan = planRecipe(a, estimate(a).candidates[0]);
+  assert.ok(Math.abs(plan.recipe.wbShift.r) < 4 && Math.abs(plan.recipe.wbShift.b) < 4, JSON.stringify(plan.recipe.wbShift));
+  assert.ok(plan.notes.some((n) => /スプリットトーン/.test(n)));
 });
 test('肌色域の割合', () => { near(solid(224, 172, 140).skinRatio, 1, 0, '肌色'); assert.equal(solid(0, 0, 255).skinRatio, 0); });
 
@@ -365,6 +366,75 @@ test('要約: 夜景は「暗い」「黒が浮いた」「青い光源」を含
   assert.ok(s.length <= 90, s);
   const day = summarize(analyze(sceneImage(200, 100), 200, 100));
   assert.ok(!/夜景/.test(day), day);
+});
+
+/* ---- 推定レシピの考え方 ---- */
+const near0 = (x) => Math.abs(x);
+test('ティール＆オレンジ: WB シフトが上限に張り付かず、スプリットトーンは注記とトーンカーブに出る', () => {
+  const a = analyze(tealOrangeImage(256, 8), 256, 8);
+  assert.equal(a.shadows.name, 'ティール'); assert.ok(['オレンジ', 'アンバー'].includes(a.highlights.name), a.highlights.name);
+  const est = estimate(a, { scene: 'daylight' });
+  const plan = planRecipe(a, est.candidates[0], { scene: 'daylight' });
+  const { wbShift, wb } = plan.recipe;
+  assert.ok(near0(wbShift.r) < TR.wb.shiftMax && near0(wbShift.b) < TR.wb.shiftMax, `WB シフト ${JSON.stringify(wbShift)}`);
+  assert.ok(!plan.warnings.length, plan.warnings.join());
+  if (wb.mode === 'kelvin') near(wb.kelvin, 5500, 400, '中間調がほぼニュートラル → 昼光の基準に近い');
+  assert.ok(plan.notes.some((n) => /スプリットトーン/.test(n) && /カメラ内では再現できない/.test(n) && /トーンカーブ/.test(n)), plan.notes.join('\n'));
+  const c = toneCurves(a);
+  assert.ok(c[2].points[1][1] > c[0].points[1][1], 'シャドウ側で B > R（ティール）'); assert.ok(c[0].points[5][1] > c[2].points[5][1], 'ハイライト側で R > B（オレンジ）');
+  assert.match(curvesText(c, a), /スプリットトーン/);
+});
+test('WB は中間調だけから決める: 中間調がグリーンに強く被ると WB シフトは ±4 で止まり、警告が出る', () => {
+  const a = image((x) => { const v = 60 + x * 4; return [v - 40, v + 25, v - 40]; });
+  const plan = planRecipe(a, estimate(a).candidates.find((c) => c.filmSim !== 'monochrome' && c.filmSim !== 'acros') ?? { filmSim: 'provia' }, { scene: 'daylight' });
+  assert.ok(near0(plan.recipe.wbShift.r) <= TR.wb.shiftMax && near0(plan.recipe.wbShift.b) <= TR.wb.shiftMax);
+  assert.ok(plan.recipe.wbShift.r < 0, 'グリーン → R−');
+  assert.ok(plan.warnings.some((w) => /WB シフト/.test(w)), plan.warnings.join());
+});
+test('撮影条件: K 値の基準が条件ごとに変わる（電球 < 夜の街 < 夕方 < 昼光 < 曇り・日陰）', () => {
+  assert.deepEqual(SCENES.map((s) => s.id), ['auto', 'daylight', 'cloudy', 'sunset', 'night', 'tungsten']);
+  const a = image((x) => { const v = 40 + x * 5; return [v + 6, v, v - 6]; });
+  const k = (scene) => planRecipe(a, { filmSim: 'provia' }, { scene }).recipe.wb.kelvin;
+  assert.ok(k('tungsten') < k('night') && k('night') < k('sunset') && k('sunset') < k('daylight') && k('daylight') < k('cloudy'),
+    ['tungsten', 'night', 'sunset', 'daylight', 'cloudy'].map(k).join(' < '));
+  const est = estimate(a, { scene: 'tungsten' });
+  assert.deepEqual([est.scene.id, est.scene.auto], ['tungsten', false]);
+});
+test('夜景: 撮影条件は自動で「夜の街」、露出補正・ISO の目安、シャドウトーン 0 以下、確度は「高」ではない', () => {
+  const est = estimate(night);
+  assert.deepEqual([est.scene.id, est.scene.auto], ['night', true]); assert.equal(guessScene(night), 'night');
+  const plan = planRecipe(night, est.candidates[0], { scene: est.scene.id });
+  const r = plan.recipe;
+  assert.ok(r.shadow <= 0, `シャドウトーン ${r.shadow}`);
+  assert.match(r.exposureNote, /^-3EV/); assert.ok(r.exposureNote.length <= 60);
+  assert.match(r.isoNote, /ISO \d+/); assert.match(r.isoNote, /夜景/); assert.ok(r.isoNote.length <= 60);
+  assert.notEqual(r.dr, 'dr100', '光源の面積を考えて DR を上げる');
+  assert.ok(plan.notes.some((n) => /黒の浮き/.test(n) && /トーンカーブ/.test(n)), plan.notes.join('\n'));
+  assert.notEqual(est.confidence.level, '高');
+  assert.ok(est.confidence.reasons.some((x) => /暗部/.test(x)), est.confidence.reasons.join());
+  assert.ok(toneCurves(night).every((c) => c.points[0][1] >= 15), 'トーンカーブで黒を持ち上げる');
+  assert.deepEqual(validateRecipe({ ...r, name: 't' }), []);
+});
+test('露出補正の目安は ±3EV に収める・1/3 段刻み', () => {
+  assert.match(buildRecipe(solid(250, 250, 250), { filmSim: 'provia' }).exposureNote, /^\+2 1\/3EV/);
+  const dark = planRecipe(solid(5, 5, 5), { filmSim: 'provia' });
+  assert.match(dark.recipe.exposureNote, /^-3EV/, 'ダイヤルの下限 -3EV で止める'); assert.ok(dark.notes.some((n) => /範囲/.test(n)));
+  assert.match(buildRecipe(solid(118, 118, 118), { filmSim: 'provia' }).exposureNote, /^±0EV/);
+  assert.match(buildRecipe(solid(94, 94, 94), { filmSim: 'provia' }).exposureNote, /^-2\/3EV/);
+});
+test('黒が浮いた画像のシャドウトーンは 0〜-2', () => {
+  for (const v of [16, 30, 60]) {
+    const a = image((x) => (x < W / 2 ? [v, v, v] : [200, 190, 180]));
+    const r = buildRecipe(a, { filmSim: 'provia' });
+    assert.ok(r.shadow <= 0 && r.shadow >= -2, `p5 ${a.p5} → ${r.shadow}`);
+  }
+});
+test('確度: 彩度 C* が 6 未満のカラー画像は「高」にしない', () => {
+  const a = image((x) => (x % 2 ? [110, 118, 120] : [150, 147, 140]));
+  assert.ok(a.chroma < 6 && a.chroma >= 3, `彩度 ${a.chroma}`);
+  const est = estimate(a);
+  assert.notEqual(est.confidence.level, '高');
+  assert.ok(est.confidence.reasons.some((x) => /彩度/.test(x)));
 });
 
 for (const [name, fn] of queue) { await fn(); count++; console.log('ok  ', name); }

@@ -4,7 +4,7 @@ import { h, toast, sheet } from '../ui/dom.js';
 import { paramSummary } from '../ui/recipe-ui.js';
 import { themeColors } from '../ui/theme.js';
 import { analyzeTiled, canvasReader, fitSize, detectBars, excludedRects } from '../analyzer.js';
-import { estimate, buildRecipe, toneCurves, curvesText, summarize } from '../translator.js';
+import { estimate, planRecipe, toneCurves, curvesText, summarize, SCENES } from '../translator.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
 import { loadLocations } from '../locations.js';
@@ -157,7 +157,7 @@ export function render(root) {
       const { result, mode } = await mine.promise;
       if (job !== mine) return;
       job = null;
-      last = Object.assign(state, { result, est: estimate(result), pick: 0, mode, ms: performance.now() - t0, dirty: false });
+      last = Object.assign(state, { result, est: estimate(result, { scene: state.scene }), pick: 0, mode, ms: performance.now() - t0, dirty: false });
       show();
     } catch (err) {
       if (mine && job !== mine) return; // 別の画像に切り替わった
@@ -265,7 +265,7 @@ export function render(root) {
         h('span', { class: 'num' }, a.pixels.toLocaleString('en-US')), ' / ', h('span', { class: 'num' }, total.toLocaleString('en-US')), ' 画素を解析',
         h('span', { class: 'num' }, `（除外 ${pct((a.excludedRatio ?? 0) * 100)}）`),
         last.mode ? h('span', { class: 'num' }, `・${last.mode === 'worker' ? 'Worker' : 'メインスレッド'}・${(last.ms / 1000).toFixed(1)} 秒`) : null),
-      h('div', { class: 'card summary' }, summarize(a)),
+      h('div', { class: 'card summary' }, summarize(a, last.est.scene.id)),
       h('div', { class: 'section-title' }, 'ヒストグラム'),
       h('div', { class: 'card' }, hist, h('div', { class: 'hist-scale num small muted' }, h('span', null, '0'), h('span', null, '128'), h('span', null, '255'))),
       h('div', { class: 'section-title' }, '輝度'),
@@ -292,24 +292,39 @@ export function render(root) {
     const { result: a, est } = last;
     const box = h('div', { class: 'stack' });
     const lvl = { 高: 'high', 中: 'mid', 低: 'low' }[est.confidence.level];
+    // 撮影条件（K 値の基準）。変えたら推定し直す（再解析はしない）
+    const sceneRow = h('div', { class: 'stack', style: 'gap:6px' },
+      h('div', { class: 'label small muted' }, '撮影条件（WB の色温度の基準）'),
+      h('div', { class: 'row wrap', style: 'gap:6px' }, SCENES.map((sc) => {
+        const on = (last.scene ?? 'auto') === sc.id;
+        return h('button', { type: 'button', class: `chip ${on ? 'on' : ''}`, 'aria-pressed': String(on), onclick: () => {
+          last.scene = sc.id; last.est = estimate(a, { scene: sc.id }); show();
+        } }, sc.id === 'auto' && est.scene.auto ? `自動（推定: ${est.scene.label}）` : sc.label);
+      })));
     const draw = () => {
       const cand = est.candidates[last.pick];
-      const r = buildRecipe(a, cand);
+      const plan = planRecipe(a, cand, { scene: est.scene.id });
+      const r = plan.recipe;
       const name = h('input', { class: 'input', type: 'text', maxLength: X.LIMITS.name, value: `推定: ${last.fileName}`.slice(0, X.LIMITS.name), 'aria-label': 'レシピ名' });
       box.replaceChildren(
         h('div', { class: 'card stack', style: 'gap:8px' },
           h('div', { class: 'row' }, h('span', { class: 'grow', style: 'font-weight:600' }, '推定レシピ'), h('span', { class: `conf ${lvl}` }, `確度 ${est.confidence.level}`)),
           h('div', { class: 'small muted' }, est.confidence.reasons.join(' / ')),
+          sceneRow,
           h('div', { class: 'label small muted' }, 'フィルムシミュレーション候補'),
           h('div', { class: 'row wrap', style: 'gap:6px' }, est.candidates.map((c, i) =>
             h('button', { type: 'button', class: `chip ${i === last.pick ? 'on' : ''}`, 'aria-pressed': String(i === last.pick), onclick: () => { last.pick = i; draw(); } },
               `${i + 1}. ${X.filmSim(c.filmSim).label}`))),
           h('div', { class: 'small muted' }, `理由: ${cand.why}`),
           paramSummary(r),
-          r.isoNote ? h('div', { class: 'small muted' }, `${X.labelOf(X.DR_MODES, r.dr)} のため `, h('span', { class: 'num' }, r.isoNote), ' で撮影') : null),
+          r.exposureNote ? h('div', { class: 'small muted' }, '露出補正 ', h('span', { class: 'num' }, r.exposureNote)) : null,
+          r.isoNote ? h('div', { class: 'small muted' }, `${X.labelOf(X.DR_MODES, r.dr)}・${est.scene.label} の `, h('span', { class: 'num' }, r.isoNote), ' で撮影') : null,
+          ...plan.warnings.map((w) => h('div', { class: 'notice' }, w)),
+          plan.notes.length ? h('ul', { class: 'small muted plan-notes' }, plan.notes.map((n) => h('li', null, n))) : null),
         h('div', { class: 'row' }, h('div', { class: 'grow' }, name),
           h('button', { type: 'button', class: 'btn primary', onclick: () => {
-            const res = store.saveRecipe({ ...r, name: name.value, notes: `画像解析からの推定レシピ（確度 ${est.confidence.level}）。\n${curvesText(toneCurves(a))}` });
+            const notes = [`画像解析からの推定レシピ（確度 ${est.confidence.level}・撮影条件 ${est.scene.label}）。`, ...plan.warnings, ...plan.notes, curvesText(toneCurves(a), a)].join('\n');
+            const res = store.saveRecipe({ ...r, name: name.value, notes: notes.slice(0, X.LIMITS.notes) });
             if (res.errors) return toast(res.errors[0], 4000);
             toast('レシピとして保存しました');
             location.hash = `#/recipes/${encodeURIComponent(res.recipe.id)}`;
@@ -344,7 +359,7 @@ export function render(root) {
   }
 
   function curveBlock() {
-    const text = curvesText(toneCurves(last.result));
+    const text = curvesText(toneCurves(last.result), last.result);
     return h('div', { class: 'card stack', style: 'gap:8px' },
       h('pre', { class: 'curve num' }, text),
       h('button', { type: 'button', class: 'btn', onclick: async () => {
