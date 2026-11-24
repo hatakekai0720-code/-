@@ -29,6 +29,10 @@
 ## 構成メモ
 - `js/app.js` ルーティング（ハッシュ）と下部ナビ / `js/store.js` 保存・移行・エクスポート / `js/xt3.js` パラメータ定義
 - `js/analyzer.js` 画像解析（全ピクセル。`Accumulator` で統計を累積、`tilePlan`/`analyzeTiled` で最大 4MP のタイルに分けて読む）/ `js/analyze-worker.js` 解析用 Worker（OffscreenCanvas。無ければ `views/analyze.js` がメインスレッドで 0.5MP ずつ await しながら処理）/ `js/translator.js` 推定レシピ（ルール表は冒頭）
+  - 解析範囲: 黒帯（端から連続する、ほぼ黒で均一な行・列）を `detectBars` で縮小プレビューから自動検出し、指で描いた長方形（字幕・再生バー・ロゴ）と合わせて除外（`exclude: { bars, rects }`、座標は画像に対する割合 0〜1。`excludedRects` でピクセルに変換し `addRegion` で除外）。結果に `pixels`（解析した画素数）・`totalPixels`・`excludedRatio`。除外範囲を変えたら画像ファイルをもう一度デコードして再解析（ファイルはメモリ上だけ）
+  - 指標: 黒つぶれ（真っ黒・輝度0〜2）・白飛び（真っ白・253〜255）・`darkRatio`（輝度64以下）・`brightRatio`（192以上）・`p1`/`p5`/`blackLift`（p5 ≥ 15）・`exposureEV`（中央値をリニアで 18% グレーと比べた EV 差）・`midtones`（p25〜p75 の平均色）・`light`（光源 = 輝度の上位 2% かつ 128 以上の平均色・`label`・面積。無ければ null）・`chromaNonLight`。しきい値は analyzer.js 冒頭の `RULES`
+  - 推定レシピ: `estimate(a, { scene })` → 候補・確度・撮影条件（`SCENES`: 自動 / 昼光 / 曇り・日陰 / 夕方 / 夜の街 / 室内（電球）。自動は `guessScene`）。`planRecipe(a, cand, { scene })` → `{ recipe, notes, warnings }`（`buildRecipe` は recipe だけ）。WB は中間調だけから（K = 撮影条件の基準 K をミレッドでずらす、WB シフトは ±4 まで・超えたら警告）。スプリットトーンは WB に入れず注記とトーンカーブへ。黒が浮いた画像はシャドウトーン 0〜-2・トーンカーブで黒を持ち上げる。露出補正の目安（±3EV・1/3 段）は `exposureNote`、夜景の ISO は `isoNote`、DR は暗い画像では光源の面積も見る。暗部 85% 超・C* 6 未満・光源以外の色が少ない画像は確度「高」にしない。`summarize` が結果冒頭の要約。しきい値は translator.js 冒頭の `RULES`
+  - テストの合成画像（黒帯・夜景・ティール＆オレンジなど）は `tests/fixtures.mjs`。ユーザーの写真はリポジトリに入れない
 - `js/geo.js` 距離・日付変更線・都市名ラベルの間引き（`pickLabels`）
 - `js/cluster.js` 地図のピンのクラスタ（自前実装。ズームごとにワールドピクセル座標で貪欲法、半径 44px、件数で 3 段階）・放射状展開（`spiderOffsets`）・地域/国の絞り込み（`facetCounts`/`filterLocations`）。ロケ地とマイピンは別クラスタ。地図の絞り込みは 種類（実写／モデル地。`typeOf`/`typeCounts`）・地域・国・年代。描画は単独ピン = Canvas の circleMarker、クラスタ = divIcon
 - `js/bgdownload.js` 同梱データを裏で 1 件ずつ Cache Storage に保存する共通部品（index.json の sha256 で更新判定・中断再開）。街路地図と写真で使う
