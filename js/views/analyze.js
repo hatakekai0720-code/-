@@ -10,6 +10,7 @@ import * as store from '../store.js';
 import { loadLocations } from '../locations.js';
 import { groupWorks, fold } from '../film.js';
 import { paletteRow } from './location.js';
+import { readExifFromFile, decodeFuji, shotInfo, recipeFromJpeg, notesFromJpeg, isXT3 } from '../exif.js';
 
 // 画面を切り替えても直前の結果を残す（メモリのみ。リロードで消える。画像ファイルも保存はしない）
 // { file, canvas, fileName, bars, auto, rects, result, est, pick, mode, ms }
@@ -122,6 +123,8 @@ export function render(root) {
   async function load(file) {
     job?.cancel(); job = null;
     try {
+      // JPEG なら EXIF / MakerNote（実際の設定）をファイルの先頭だけから読む。画像の解析と並行して進める
+      const exifP = /jpe?g$/i.test(file.type || '') || /\.jpe?g$/i.test(file.name || '') ? readExifFromFile(file).catch(() => null) : Promise.resolve(null);
       const img = await decode(file);
       const { width, height } = fitSize(img.width, img.height);
       const canvas = h('canvas', { class: 'preview', width, height });
@@ -129,7 +132,7 @@ export function render(root) {
       g.drawImage(img, 0, 0, width, height); // 表示用は縮小のまま
       // 黒帯は縮小プレビューで検出する（境目のにじんだ 1px も黒帯側に入れる）
       const bars = detectBars(g.getImageData(0, 0, width, height).data, width, height, { pad: 1 });
-      const state = { file, canvas, fileName: file.name.replace(/\.[^.]+$/, ''), bars, auto: true, rects: [], scene: last?.scene ?? 'auto' };
+      const state = { file, canvas, fileName: file.name.replace(/\.[^.]+$/, ''), bars, auto: true, rects: [], scene: last?.scene ?? 'auto', exif: await exifP };
       await run(state, img);
     } catch {
       out.replaceChildren(h('div', { class: 'notice' }, 'この画像は読み込めませんでした。JPEG / PNG / WebP などをお試しください。'));
@@ -281,6 +284,7 @@ export function render(root) {
       h('div', { class: 'card stack', style: 'gap:8px' }, zone('シャドウ（輝度 下位25%）', a.shadows), zone('ハイライト（輝度 上位25%）', a.highlights),
         zone('光源（輝度 上位2%・128以上）', a.light, a.light ? h('span', { class: 'num small muted', style: 'margin-left:6px' }, `面積 ${pct(a.light.ratio * 100)}`) : null)),
       ...(a.palette?.length ? [h('div', { class: 'section-title' }, '代表色'), paletteBlock(a.palette)] : []),
+      ...(last.exif ? [h('div', { class: 'section-title' }, '実際の設定（JPEG に記録された値）'), jpegBlock()] : []),
       h('div', { class: 'section-title' }, '推定レシピ'),
       recipeBlock(),
       h('div', { class: 'section-title' }, 'RAW 現像用トーンカーブ'),
@@ -332,6 +336,41 @@ export function render(root) {
     };
     draw();
     return box;
+  }
+
+  // JPEG の EXIF / MakerNote から読んだ「実際の設定」（推定ではない）。数値と文字だけで、画像は保存しない
+  function jpegBlock() {
+    const e = last.exif;
+    const items = decodeFuji(e.fuji);
+    const info = shotInfo(e);
+    const row = (k, v, note, bad) => h('div', null, h('div', { class: 'k' }, k), h('div', { class: 'v' }, v,
+      note ? h('div', { class: 'small', style: `color:var(${bad ? '--danger' : '--accent'});font-family:var(--sans)` }, note) : null));
+    const notices = [];
+    if (!e.fuji) notices.push('富士フイルムの MakerNote が無いため、撮影時の設定は読めません。読めた撮影情報だけを表示します。');
+    else if (!isXT3(e)) notices.push(`X-T3 以外（${e.model || '機種不明'}）で撮影された画像です。X-T3 に無い設定は「X-T3では設定できない」と表示します。`);
+    const card = h('div', { class: 'card stack', style: 'gap:8px' },
+      h('div', { class: 'row' }, h('span', { class: 'grow', style: 'font-weight:600' }, '実際の設定'), h('span', { class: 'conf high' }, '推定ではない')),
+      h('div', { class: 'small muted' }, 'カメラが JPEG に記録した値です（EXIF と富士フイルムの MakerNote）。位置情報（GPS）は読みません。'),
+      ...notices.map((t) => h('div', { class: 'notice' }, t)),
+      items.length ? h('div', { class: 'spec' }, items.map((it) => row(it.label, it.text, it.ok ? it.note : it.note || 'X-T3では設定できない', !it.ok))) : null,
+      info.length ? h('div', { class: 'label small muted' }, '撮影情報') : null,
+      info.length ? h('div', { class: 'spec' }, info.map((x) => row(x.label, x.text))) : null);
+    if (!items.length) return card;
+    const plan = recipeFromJpeg(e);
+    const stamp = (e.dateTime || '').slice(0, 10).replace(/:/g, '-');
+    const name = h('input', { class: 'input', type: 'text', maxLength: X.LIMITS.name, value: `JPEG: ${[e.model, stamp].filter(Boolean).join(' ') || last.fileName}`.slice(0, X.LIMITS.name), 'aria-label': 'レシピ名' });
+    card.append(
+      h('div', { class: 'label small muted' }, 'レシピとして保存する内容'),
+      paramSummary(plan.recipe),
+      plan.skipped.length ? h('div', { class: 'small muted' }, `X-T3では設定できない項目は既定値で保存します: ${plan.skipped.join(' / ')}`) : null,
+      h('div', { class: 'row' }, h('div', { class: 'grow' }, name),
+        h('button', { type: 'button', class: 'btn primary', onclick: () => {
+          const res = store.saveRecipe({ ...plan.recipe, name: name.value, notes: notesFromJpeg(e, plan).slice(0, X.LIMITS.notes) });
+          if (res.errors) return toast(res.errors[0], 4000);
+          toast('レシピとして保存しました');
+          location.hash = `#/recipes/${encodeURIComponent(res.recipe.id)}`;
+        } }, 'レシピとして保存')));
+    return card;
   }
 
   // 代表色を作品のパレットとして保存（色の数値だけ。画像は保存しない）
