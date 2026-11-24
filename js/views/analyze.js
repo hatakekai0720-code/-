@@ -10,6 +10,7 @@ import * as store from '../store.js';
 import { loadLocations } from '../locations.js';
 import { groupWorks, fold } from '../film.js';
 import { paletteRow } from './location.js';
+import { similarWorks } from '../similar.js';
 import { readExifFromFile, decodeFuji, shotInfo, recipeFromJpeg, notesFromJpeg, isXT3 } from '../exif.js';
 
 // 画面を切り替えても直前の結果を残す（メモリのみ。リロードで消える。画像ファイルも保存はしない）
@@ -289,7 +290,9 @@ export function render(root) {
       h('div', { class: 'section-title' }, '推定レシピ'),
       recipeBlock(),
       h('div', { class: 'section-title' }, 'RAW 現像用トーンカーブ'),
-      curveBlock());
+      curveBlock(),
+      h('div', { class: 'section-title' }, 'この写真に近い映画'),
+      similarBlock());
     requestAnimationFrame(() => drawHistogram(hist, a.hist));
   }
 
@@ -411,6 +414,26 @@ export function render(root) {
       paletteRow(colors, '代表色'),
       h('button', { type: 'button', class: 'btn', onclick: pick }, '作品のパレットとして保存'),
       h('div', { class: 'small muted' }, '色の数値だけを保存します（画像は保存しません）。作品ページとロケ地の作品情報に表示されます。'));
+  }
+
+  // 解析結果と各ロケ地（代表色・look・レシピ・時間帯）を比べ、雰囲気の近い作品（同じ作品は 1 件にまとめる）
+  function similarBlock() {
+    const box = h('div', { class: 'stack', style: 'gap:8px' }, h('div', { class: 'small muted' }, '読み込み中…'));
+    const a = last.result;
+    loadLocations().then((locs) => {
+      if (last?.result !== a) return;
+      const list = similarWorks(a, locs);
+      box.replaceChildren(...list.map((w, i) => h('div', { class: 'card stack', style: 'gap:6px' },
+        h('div', { class: 'row', style: 'gap:8px' },
+          h('span', { class: 'num muted' }, `${i + 1}`),
+          h('a', { class: 'grow', style: 'font-weight:600', href: `#/works/${w.key}` }, w.title, ' ', h('span', { class: 'num small muted' }, `(${w.year})`)),
+          h('span', { class: 'num small muted' }, `${Math.round(w.score * 100)}%`)),
+        h('div', { class: 'small' }, w.reason),
+        h('a', { class: 'small', href: `#/locations/${encodeURIComponent(w.location.id)}` }, `ロケ地: ${w.location.place}（${w.location.city}）`, w.count > 1 ? h('span', { class: 'muted' }, ` ほか ${w.count - 1} 件`) : null),
+        w.location.palette?.length ? h('div', { class: 'row', style: 'gap:2px' }, w.location.palette.map((c) => h('span', { class: 'swatch', style: `background:${c};width:22px;height:14px` }))) : null)),
+      h('div', { class: 'small muted' }, '代表色・中間調 / シャドウ / ハイライト / 光源の色・明るさ・コントラスト・彩度・黒の浮き・粒状感を、各ロケ地の色（代表色・look・推定レシピ・時間帯）と比べています。'));
+    }).catch(() => box.replaceChildren(h('div', { class: 'small muted' }, 'ロケ地データを読み込めませんでした')));
+    return box;
   }
 
   function curveBlock() {
