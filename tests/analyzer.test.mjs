@@ -2,8 +2,8 @@
 // 実行: node tests/analyzer.test.mjs
 import assert from 'node:assert/strict';
 import { analyze, fitSize, tilePlan, analyzeTiled, Accumulator, TILE_MAX_AREA, TILE_MAX_EDGE, detectBars, excludedRects } from '../js/analyzer.js';
-import { makeImage, sceneImage, withBars, nightImage, NIGHT, tealOrangeImage } from './fixtures.mjs';
-import { estimate, buildRecipe, toneCurves, curvesText, summarize, planRecipe, guessScene, SCENES, RULES as TR } from '../js/translator.js';
+import { makeImage, sceneImage, withBars, nightImage, NIGHT, tealOrangeImage, edgesImage, addNoise, blur } from './fixtures.mjs';
+import { estimate, buildRecipe, toneCurves, curvesText, summarize, planRecipe, guessScene, textureEstimate, SCENES, RULES as TR } from '../js/translator.js';
 import { validateRecipe, RANGES, WB_MODES, FILM_SIMS } from '../js/xt3.js';
 import { validateDb, VERSION } from '../js/store.js';
 
@@ -435,6 +435,71 @@ test('確度: 彩度 C* が 6 未満のカラー画像は「高」にしない',
   const est = estimate(a);
   assert.notEqual(est.confidence.level, '高');
   assert.ok(est.confidence.reasons.some((x) => /彩度/.test(x)));
+});
+
+/* ---- 質感（粒状感・シャープさ） ---- */
+const TW = 1200, TH = 800;
+const texBase = edgesImage(TW, TH);
+const tex = (d, w = TW, h = TH) => analyze(d, w, h).texture;
+test('質感: なめらかなグラデーションは粒子なし（グレイン OFF）', () => {
+  const g = makeImage(TW, TH, (x) => { const v = 40 + 170 * x / TW; return [v, v, v]; });
+  const t = tex(g);
+  assert.ok(t.grain < 1, `σ ${t.grain}`);
+  assert.equal(textureEstimate(t).grain, 'off');
+});
+test('質感: ガウスノイズの σ を粒状感として測れる・ノイズが強いほどグレインが強くなる', () => {
+  const s4 = tex(addNoise(texBase, 4)), s10 = tex(addNoise(texBase, 10)), s0 = tex(texBase);
+  near(s4.grain, 4, 0.6, 'σ4'); near(s10.grain, 10, 1.2, 'σ10');
+  assert.ok(s0.grain < s4.grain && s4.grain < s10.grain);
+  assert.equal(textureEstimate(s0).grain, 'off'); assert.equal(textureEstimate(s4).grain, 'strong'); assert.equal(textureEstimate(tex(addNoise(texBase, 2.5))).grain, 'weak');
+  const nr = [s0, s4, s10].map((t) => textureEstimate(t).nr);
+  assert.ok(nr[0] >= nr[1] && nr[1] >= nr[2], `ノイズが強いほど NR はマイナス: ${nr}`);
+});
+test('質感: ぼかした画像はシャープさが下がり、シャープネスがマイナスになる', () => {
+  const sharp = tex(texBase), b1 = tex(blur(texBase, TW, TH, 1)), b2 = tex(blur(texBase, TW, TH, 2));
+  assert.ok(sharp.sharpness > b1.sharpness && b1.sharpness > b2.sharpness, `${sharp.sharpness} > ${b1.sharpness} > ${b2.sharpness}`);
+  assert.ok(textureEstimate(sharp).sharpness > 0, 'くっきりした段差はプラス');
+  assert.ok(textureEstimate(b2).sharpness < 0, 'ぼかしたものはマイナス');
+  assert.ok(textureEstimate(b1).sharpness > textureEstimate(b2).sharpness);
+});
+test('質感: 粗い粒子 + 柔らかい（フィルム調）→ グレイン強・シャープネスと NR はマイナス寄り、要約に「フィルム調」', () => {
+  const d = addNoise(blur(texBase, TW, TH, 1.5), 9);
+  const a = analyze(d, TW, TH), tx = textureEstimate(a.texture);
+  assert.ok(tx.filmLike); assert.equal(tx.grain, 'strong');
+  assert.ok(tx.sharpness <= -2, `シャープネス ${tx.sharpness}`); assert.equal(tx.nr, -4);
+  const r = buildRecipe(a, { filmSim: 'classic-chrome' });
+  assert.equal(r.grain, 'strong'); assert.ok(r.sharpness <= -2); assert.equal(r.nr, -4);
+  assert.match(summarize(a), /粗い粒子のあるフィルム調/);
+  assert.match(summarize(analyze(texBase, TW, TH)), /質感はなめらか/);
+});
+test('質感: 低解像度（長辺 1000px 未満）・強い圧縮は確度を下げて理由を出す', () => {
+  const small = tex(addNoise(edgesImage(600, 400), 6), 600, 400);
+  assert.notEqual(small.reliability.level, '高'); assert.ok(small.reliability.reasons.some((x) => /解像度が低い/.test(x)));
+  assert.equal(tex(addNoise(texBase, 6)).reliability.level, '高');
+  // 8×8 ごとに平均で塗った画像（強い JPEG 圧縮の代わり）
+  const d = new Uint8ClampedArray(addNoise(texBase, 4));
+  for (let by = 0; by < TH; by += 8) for (let bx = 0; bx < TW; bx += 8) for (let c = 0; c < 3; c++) {
+    let s = 0;
+    for (let y = 0; y < 8; y++) for (let x = 0; x < 8; x++) s += d[((by + y) * TW + bx + x) * 4 + c];
+    for (let y = 0; y < 8; y++) for (let x = 0; x < 8; x++) d[((by + y) * TW + bx + x) * 4 + c] = s / 64;
+  }
+  const t = tex(d);
+  assert.ok(t.compressed, `境目の段差 ${t.blockiness}`);
+  assert.ok(t.reliability.reasons.some((x) => /圧縮/.test(x))); assert.notEqual(t.reliability.level, '高');
+});
+test('質感: タイル分割でも一括でも同じ結果（メモリ一定のタイル処理）', async () => {
+  const d = addNoise(blur(texBase, TW, TH, 1), 5);
+  const one = analyze(d, TW, TH).texture;
+  const read = (x, y, w, h) => { const out = new Uint8ClampedArray(w * h * 4); for (let r = 0; r < h; r++) out.set(d.subarray(((y + r) * TW + x) * 4, ((y + r) * TW + x + w) * 4), r * w * 4); return out; };
+  const tiled = (await analyzeTiled(read, TW, TH, { maxArea: 1200 * 64, maxEdge: 1200 })).texture;
+  assert.equal(tiled.flatBlocks, one.flatBlocks); assert.equal(tiled.edgeBlocks, one.edgeBlocks);
+  assert.equal(tiled.grain, one.grain); assert.equal(tiled.sharpness, one.sharpness);
+  for (const t of tilePlan(TW, 1000, 1200 * 100, 1200)) assert.ok(t.y % 8 === 0, 'タイルの境目は 8 の倍数');
+});
+test('質感: 除外した範囲のブロックは使わない', () => {
+  const d = addNoise(texBase, 6);
+  const all = analyze(d, TW, TH).texture, cut = analyze(d, TW, TH, { exclude: { rects: [{ x: 0, y: 0, w: 0.5, h: 1 }] } }).texture;
+  assert.ok(cut.flatBlocks < all.flatBlocks * 0.6);
 });
 
 for (const [name, fn] of queue) { await fn(); count++; console.log('ok  ', name); }

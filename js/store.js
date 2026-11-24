@@ -1,9 +1,10 @@
 // localStorage ラッパー。キーは必ず xt3cine: で始める。画像は一切保存しない。
 import { SLOT_IDS, validateRecipe, cleanRecipe, isMono } from './xt3.js';
+import { validateCalibration, cleanCalibration, CAL_LIMITS } from './calibration.js';
 
 export const PREFIX = 'xt3cine:';
 const KEY = PREFIX + 'db';
-export const VERSION = 3;
+export const VERSION = 4;
 const QUOTA_ESTIMATE = 5 * 1024 * 1024; // ブラウザの一般的な上限の目安
 
 let db = null;
@@ -16,6 +17,7 @@ const emptyDb = () => ({
   academy: { completed: [] },
   visited: {},   // 行ったロケ地: { [locationId]: { date: 'YYYY-MM-DD', memo } }（写真は持たない）
   palettes: {},  // 画像解析の代表色を作品のパレットとして保存: { [workKey]: { colors: ['#rrggbb', …], savedAt } }（数値のみ）
+  calibration: [], // 較正データ: [{ id, savedAt, model, shotAt, settings: { 実際の設定 }, stats: { 解析の数値 } }]（画像は持たない）
   settings: {},
 });
 
@@ -33,6 +35,8 @@ const MIGRATIONS = {
   }),
   // v2 → v3: 「行った」チェック（visited）と、作品ごとの解析パレット（palettes）を追加
   2: (d) => ({ ...d, version: 3, visited: isObj(d.visited) ? d.visited : {}, palettes: isObj(d.palettes) ? d.palettes : {} }),
+  // v3 → v4: 判定ルールの較正データ（calibration）を追加
+  3: (d) => ({ ...d, version: 4, calibration: Array.isArray(d.calibration) ? d.calibration : [] }),
 };
 function migrate(obj) {
   let d = obj;
@@ -195,6 +199,26 @@ export function savePalette(workKey, colors) {
 }
 export function deletePalette(workKey) { delete db.palettes[workKey]; save(); }
 
+/* ---- 較正データ（JPEG の実際の設定 + 解析の数値。画像は保存しない） ---- */
+export const calibration = () => db.calibration;
+/** 追加。同じ機種・撮影日時・フィルムの組があれば置き換える */
+export function addCalibration(entry) {
+  const errors = validateCalibration(entry);
+  if (errors.length) return { errors };
+  const clean = cleanCalibration(entry);
+  const same = (e) => clean.shotAt && e.shotAt === clean.shotAt && e.model === clean.model && e.settings.filmSim === clean.settings.filmSim;
+  const prev = db.calibration.find(same);
+  const rec = { id: prev?.id || uid(), savedAt: now(), ...clean };
+  if (prev) db.calibration[db.calibration.indexOf(prev)] = rec;
+  else {
+    if (db.calibration.length >= CAL_LIMITS.entries) return { errors: [`較正データは ${CAL_LIMITS.entries} 件までです`] };
+    db.calibration.push(rec);
+  }
+  return save() ? { entry: rec, replaced: !!prev } : { errors: ['保存できませんでした'] };
+}
+export function deleteCalibration(id) { db.calibration = db.calibration.filter((e) => e.id !== id); save(); }
+export function clearCalibration() { db.calibration = []; save(); }
+
 /* ---- settings ---- */
 export const getSetting = (k) => db.settings[k];
 export function setSetting(k, v) {
@@ -263,6 +287,16 @@ export function validateDb(obj) {
     if (!ok) { errors.push(`パレット「${String(k).slice(0, 40)}」: 形式が不正です`); continue; }
     out.palettes[k] = { colors: p.colors.map((c) => c.toLowerCase()), savedAt: isDate(p.savedAt) ? p.savedAt : now() };
   }
+  if (src.calibration != null && !Array.isArray(src.calibration)) errors.push('calibration が配列ではありません');
+  else {
+    const seen = new Set();
+    (src.calibration || []).slice(0, CAL_LIMITS.entries).forEach((e, i) => {
+      const errs = isObj(e) && typeof e.id === 'string' && e.id && e.id.length <= 80 && !seen.has(e.id) ? validateCalibration(e) : ['id が不正です'];
+      if (errs.length) return errors.push(`較正データ ${i + 1}: ${errs[0]}`);
+      seen.add(e.id);
+      out.calibration.push({ id: e.id, savedAt: isDate(e.savedAt) ? e.savedAt : now(), ...cleanCalibration(e) });
+    });
+  }
   if (src.settings != null && !isObj(src.settings)) errors.push('settings が不正です');
   else out.settings = sanitizeSettings(src.settings || {});
   return errors.length ? { ok: false, errors } : { ok: true, db: out };
@@ -294,6 +328,7 @@ export function importData(incoming, mode) {
     db.academy.completed = [...new Set([...db.academy.completed, ...incoming.academy.completed])].sort((a, b) => a - b);
     for (const [id, v] of Object.entries(incoming.visited || {})) if (!db.visited[id]) db.visited[id] = v;
     for (const [k, p] of Object.entries(incoming.palettes || {})) if (!db.palettes[k] || p.savedAt > db.palettes[k].savedAt) db.palettes[k] = p;
+    for (const e of incoming.calibration || []) if (!db.calibration.some((x) => x.id === e.id) && db.calibration.length < CAL_LIMITS.entries) db.calibration.push(e);
   }
   db.settings.seeded = true;
   return save();

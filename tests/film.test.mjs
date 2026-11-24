@@ -85,12 +85,12 @@ globalThis.localStorage = { getItem: (k) => (mem.has(k) ? mem.get(k) : null), se
   key: (i) => [...mem.keys()][i] ?? null, get length() { return mem.size; } };
 const store = await import('../js/store.js');
 
-test('保存データ: v2 → v3 の移行で visited・palettes が空で追加される', () => {
-  assert.equal(store.VERSION, 3);
+test('保存データ: v2 → v3 の移行で visited・palettes が空で追加される（その後 v4 まで移行）', () => {
+  assert.ok(store.VERSION >= 3);
   mem.set('xt3cine:db', JSON.stringify({ version: 2, recipes: [], slots: {}, pins: [], academy: { completed: [2] }, settings: { seeded: true } }));
   store.init();
   const saved = JSON.parse(mem.get('xt3cine:db'));
-  assert.equal(saved.version, 3);
+  assert.equal(saved.version, store.VERSION);
   assert.deepEqual(saved.visited, {}); assert.deepEqual(saved.palettes, {});
   assert.deepEqual(saved.academy.completed, [2]);
 });

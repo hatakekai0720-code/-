@@ -56,3 +56,52 @@ export function tealOrangeImage(w, h) {
     return [v - 22 * sh + 28 * hi, v + 6 * sh + 4 * hi, v + 8 * sh - 30 * hi];
   });
 }
+
+/* ---- 質感（粒状感・シャープさ）のテスト用 ---- */
+
+/** 決定的なガウス乱数（Box-Muller） */
+export function gauss(seed = 7) {
+  const r = rng(seed);
+  return () => Math.sqrt(-2 * Math.log(Math.max(1e-12, r()))) * Math.cos(2 * Math.PI * r());
+}
+
+/**
+ * 質感テストの元画像: なめらかなグラデーションの上に、くっきりした輪郭の長方形（段差）を並べた画像。
+ * 平らな部分（グラデーション・長方形の内側）とエッジ（長方形の縁）の両方がある
+ */
+export function edgesImage(w, h) {
+  return makeImage(w, h, (x, y) => {
+    let v = 70 + 90 * (x / w) + 30 * (y / h);
+    const cx = Math.floor(x / 120), cy = Math.floor(y / 120), ix = x % 120, iy = y % 120;
+    if (ix >= 30 && ix < 90 && iy >= 30 && iy < 90) v += (cx + cy) % 2 ? 70 : -55;
+    return [v * 1.05, v, v * 0.92];
+  });
+}
+
+/** ガウスノイズ（輝度 σ）を足す（フィルムの粒子・高感度ノイズの代わり） */
+export function addNoise(src, sigma, seed = 3) {
+  const g = gauss(seed), out = new Uint8ClampedArray(src);
+  for (let p = 0; p < out.length; p += 4) { const n = g() * sigma; out[p] += n; out[p + 1] += n; out[p + 2] += n; }
+  return out;
+}
+
+/** ガウスぼかし（半径 3σ の分離フィルター） */
+export function blur(src, w, h, sigma) {
+  const r = Math.ceil(sigma * 3), k = [];
+  for (let i = -r; i <= r; i++) k.push(Math.exp(-(i * i) / (2 * sigma * sigma)));
+  const ks = k.reduce((a, b) => a + b, 0);
+  const pass = (inp, dx, dy) => {
+    const out = new Uint8ClampedArray(inp.length);
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) for (let c = 0; c < 3; c++) {
+      let s = 0;
+      for (let i = -r; i <= r; i++) {
+        const xx = Math.min(w - 1, Math.max(0, x + dx * i)), yy = Math.min(h - 1, Math.max(0, y + dy * i));
+        s += inp[(yy * w + xx) * 4 + c] * k[i + r];
+      }
+      out[(y * w + x) * 4 + c] = s / ks;
+    }
+    for (let p = 3; p < out.length; p += 4) out[p] = 255;
+    return out;
+  };
+  return pass(pass(src, 1, 0), 0, 1);
+}
