@@ -4,12 +4,13 @@
 import { analyzeTiled, canvasReader } from './analyzer.js';
 
 self.onmessage = async (e) => {
-  const { bitmap } = e.data || {};
+  const { bitmap, exclude } = e.data || {};
   if (!bitmap) return;
   let last = 0;
   try {
     const read = canvasReader(bitmap, (w, h) => new OffscreenCanvas(w, h));
     const result = await analyzeTiled(read, bitmap.width, bitmap.height, {
+      exclude, // 黒帯・字幕など解析から除外する範囲（割合）
       onProgress: (done, total) => {
         const now = Date.now();
         if (done === total || now - last > 80) { last = now; self.postMessage({ type: 'progress', done, total }); }
