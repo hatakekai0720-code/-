@@ -4,7 +4,7 @@ import { h, toast, sheet } from '../ui/dom.js';
 import { paramSummary } from '../ui/recipe-ui.js';
 import { themeColors } from '../ui/theme.js';
 import { analyzeTiled, canvasReader, fitSize, detectBars, excludedRects } from '../analyzer.js';
-import { estimate, planRecipe, toneCurves, curvesText, summarize, SCENES } from '../translator.js';
+import { estimate, planRecipe, toneCurves, curvesText, summarize, textureEstimate, SCENES } from '../translator.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
 import { loadLocations } from '../locations.js';
@@ -283,6 +283,7 @@ export function render(root) {
       h('div', { class: 'section-title' }, '色被り（Lab）'),
       h('div', { class: 'card stack', style: 'gap:8px' }, zone('シャドウ（輝度 下位25%）', a.shadows), zone('ハイライト（輝度 上位25%）', a.highlights),
         zone('光源（輝度 上位2%・128以上）', a.light, a.light ? h('span', { class: 'num small muted', style: 'margin-left:6px' }, `面積 ${pct(a.light.ratio * 100)}`) : null)),
+      ...(a.texture ? [h('div', { class: 'section-title' }, '質感（粒状感・シャープさ）'), textureBlock(a.texture)] : []),
       ...(a.palette?.length ? [h('div', { class: 'section-title' }, '代表色'), paletteBlock(a.palette)] : []),
       ...(last.exif ? [h('div', { class: 'section-title' }, '実際の設定（JPEG に記録された値）'), jpegBlock()] : []),
       h('div', { class: 'section-title' }, '推定レシピ'),
@@ -336,6 +337,21 @@ export function render(root) {
     };
     draw();
     return box;
+  }
+
+  function textureBlock(t) {
+    const tx = textureEstimate(t);
+    const lvl = { 高: 'high', 中: 'mid', 低: 'low' }[t.reliability.level];
+    const stat = (k, v) => h('div', null, h('div', { class: 'k' }, k), h('div', { class: 'v' }, v));
+    return h('div', { class: 'card stack', style: 'gap:8px' },
+      h('div', { class: 'row' }, h('span', { class: 'grow' }, tx ? tx.words : '測れませんでした'), h('span', { class: `conf ${lvl}` }, `確度 ${t.reliability.level}`)),
+      t.reliability.reasons.length ? h('div', { class: 'small muted' }, t.reliability.reasons.join(' / ')) : null,
+      h('div', { class: 'spec' },
+        stat('粒状感（平らな部分のノイズ σ）', t.grain == null ? '—' : t.grain.toFixed(1)),
+        stat('シャープさ（輪郭の立ち上がり 0〜1）', t.sharpness == null ? '—' : t.sharpness.toFixed(2)),
+        stat('平らなブロック / 輪郭のブロック', `${t.flatBlocks.toLocaleString('en-US')} / ${t.edgeBlocks.toLocaleString('en-US')}`),
+        stat('8px 境目の段差（圧縮）', `${t.blockiness.toFixed(2)}×`)),
+      tx ? h('div', { class: 'small muted' }, `推定レシピへの反映: グレイン ${X.labelOf(X.EFFECT_LEVELS, tx.grain)}・シャープネス ${X.signed(tx.sharpness)}・NR ${X.signed(tx.nr)}`) : null);
   }
 
   // JPEG の EXIF / MakerNote から読んだ「実際の設定」（推定ではない）。数値と文字だけで、画像は保存しない

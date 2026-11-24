@@ -62,6 +62,20 @@ export const RULES = {
   // トーンカーブ: 黒が浮いている画像では、出力の黒を p1 × liftBlack まで持ち上げる（最大 maxBlack）
   curve: { liftBlack: 0.9, maxBlack: 48 },
 
+  // 質感（analyzer.js の texture）→ グレイン / シャープネス / ノイズリダクション
+  //   grain: 粒状感（平坦な部分のノイズ σ、輝度 0〜255）がこの値以上なら → グレイン
+  //   sharpness: シャープさ（エッジの「隣の画素との差の最大 ÷ 輝度の幅」0〜1）がこの値以上なら → シャープネス
+  //   nr: 粒状感がこの値以上なら → NR（粒子を残すほどマイナス）
+  //   film: 粒状感が grain の「強」以上で、シャープネスが maxSharp 以下の画像（粗い粒子で柔らかい＝フィルム写真）は、
+  //     シャープネスを sharp 以下、NR を nr にする
+  //   ※ X-T3 の実機の JPEG で較正していない目安値（設定 → 較正 で実機の分布と比べられる）
+  texture: {
+    grain: [[3.5, 'strong'], [1.5, 'weak'], [0, 'off']],
+    sharpness: [[0.85, 2], [0.7, 1], [0.5, 0], [0.4, -1], [0.3, -2], [0.22, -3], [0, -4]],
+    nr: [[6, -4], [3.5, -3], [1.5, -2], [0.5, -1], [0, 0]],
+    film: { maxSharp: -1, sharp: -2, nr: -4 },
+  },
+
   // カラークローム・エフェクト: 彩度がこの値以上なら
   colorChrome: [[38, 'strong'], [26, 'weak'], [0, 'off']],
 
@@ -139,7 +153,29 @@ export function summarize(a, sceneId = guessScene(a)) {
     second = `${lift ? `${lift}、` : ''}シャドウは${a.shadows.strength === 'なし' ? 'ニュートラル' : a.shadows.name}、ハイライトは${a.highlights.strength === 'なし' ? 'ニュートラル' : a.highlights.name}`;
     if (a.light && a.light.strength !== 'なし' && a.light.chroma >= R.summaryLightChroma) second += `。${COLOR_WORD[a.light.name] ?? ''}光源がある`;
   }
-  return `${first}${second}。`;
+  const tx = textureEstimate(a.texture);
+  const third = tx ? `質感は${tx.words}${tx.reliability.level === '低' ? '（参考）' : ''}。` : '';
+  return `${first}${second}。${third}`;
+}
+
+/**
+ * 質感（粒状感・シャープさ）→ グレイン / シャープネス / NR と、言葉（要約用）。texture が無ければ null
+ * @returns {{ grain, sharpness, nr, filmLike: boolean, words: string, reliability: { level, reasons } } | null}
+ */
+export function textureEstimate(t) {
+  if (!t || t.grain == null) return null;
+  const T = RULES.texture;
+  const grain = pickGE(T.grain, t.grain);
+  let sharpness = t.sharpness == null ? 0 : pickGE(T.sharpness, t.sharpness);
+  let nr = pickGE(T.nr, t.grain);
+  const filmLike = grain === 'strong' && sharpness <= T.film.maxSharp;
+  if (filmLike) { sharpness = Math.min(sharpness, T.film.sharp); nr = T.film.nr; }
+  let words;
+  if (filmLike) words = '粗い粒子のあるフィルム調';
+  else if (grain === 'strong') words = '粒子が粗い';
+  else if (grain === 'weak') words = sharpness <= -1 ? '細かい粒子のある柔らかい描写' : '細かい粒子がある';
+  else words = sharpness >= 1 ? 'なめらかでシャープ' : sharpness <= -2 ? 'なめらかで柔らかい' : 'なめらか';
+  return { grain, sharpness, nr, filmLike, words, reliability: t.reliability ?? { level: '中', reasons: [] } };
 }
 
 const clamp = (v, { min, max }) => Math.min(max, Math.max(min, v));
@@ -285,8 +321,16 @@ export function planRecipe(a, cand, { scene = 'auto' } = {}) {
     const sp = splitTone(a);
     if (sp) notes.push(`シャドウ（${sp.shadow}）とハイライト（${sp.highlight}）の色の差（スプリットトーン）はカメラ内では再現できない。WB には入れず、RAW現像のトーンカーブで再現（下のトーンカーブに反映済み）`);
   }
+  // 質感 → グレイン / シャープネス / NR
+  const tx = textureEstimate(a.texture);
+  if (tx) {
+    r.grain = tx.grain; r.sharpness = clamp(tx.sharpness, X.RANGES.sharpness); r.nr = clamp(tx.nr, X.RANGES.nr);
+    const g = a.texture.grain.toFixed(1), sh = a.texture.sharpness == null ? '—' : a.texture.sharpness.toFixed(2);
+    notes.push(`質感: ${tx.words}（粒状感 σ ${g}・シャープさ ${sh}）→ グレイン ${X.labelOf(X.EFFECT_LEVELS, r.grain)}・シャープネス ${X.signed(r.sharpness)}・NR ${X.signed(r.nr)}${tx.filmLike ? '。粗い粒子で柔らかいフィルム調なので、シャープネスと NR はマイナス寄り' : ''}`);
+    if (tx.reliability.level !== '高') notes.push(`質感の推定の確度は${tx.reliability.level}: ${tx.reliability.reasons.join(' / ')}`);
+  }
   r.source = 'analyzer';
-  return { recipe: r, notes, warnings, scene: { id: sceneId, label: sc.label } };
+  return { recipe: r, notes, warnings, scene: { id: sceneId, label: sc.label }, texture: tx };
 }
 
 /** 候補 1 件について X-T3 の範囲に収めたレシピ（name なし）を組み立てる */

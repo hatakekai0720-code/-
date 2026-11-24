@@ -23,6 +23,17 @@ export const RULES = {
   // 光源: 輝度の上位 top（2%）かつ輝度 minLuma 以上の画素。看板・ネオンなど、面積は小さくても印象を決める色を拾う。
   //   同じ輝度の画素が多くて上位 maxRatio を超えるとき（単色に近い画像）は、しきい値より明るい画素だけにする
   light: { top: 0.02, minLuma: 128, maxRatio: 0.1 },
+  // 粒状感とシャープさ（質感）。画像を block×block 画素のブロックに分け、ブロックごとに輝度を見る
+  //   minLuma〜maxLuma: ブロックの平均輝度がこの範囲のブロックだけ使う（真っ黒・真っ白では粒子が消えるため）
+  //   平坦なブロック: 4 つの小ブロック（4×4）の平均の差が flatBase + flatK × そのブロックのノイズ σ 未満。
+  //     粒状感 = 平坦なブロックの高周波成分（2 次差分の絶対値の平均 ÷ 1.954 = ガウスノイズなら σ に一致）の中央値
+  //   エッジのブロック: 小ブロックの平均の差が edgeQuad 以上で、輝度の幅（最大−最小）が edgeRange 以上。
+  //     シャープさ = エッジのブロックの「隣の画素との差の最大 ÷ 輝度の幅」の中央値（くっきりした段差ほど 1 に近い）
+  //   確度を下げる条件: 長辺 minLongEdge px 未満 / 平坦なブロックの 8px 境目の段差が内側の maxBlockiness 倍以上で、
+  //     差が平均 minBlockStep 以上（強い JPEG 圧縮のブロックノイズ）/
+  //     平坦なブロックが minFlat 未満・エッジのブロックが minEdge 未満
+  texture: { block: 8, minLuma: 16, maxLuma: 240, flatBase: 4, flatK: 0.8, edgeQuad: 24, edgeRange: 40,
+    minLongEdge: 1000, maxBlockiness: 1.35, minBlockStep: 0.5, minFlat: 30, minEdge: 20 },
 };
 export const CLIP = RULES.clip; // 互換のため（輝度がこの値以下 / 以上を黒つぶれ / 白飛びとみなす）
 
@@ -80,6 +91,7 @@ export class Accumulator {
     this.sumChroma = 0; this.sumSatHsv = 0; this.skin = 0; this.sumLum = 0; this.sumLum2 = 0; this.sumA = 0; this.sumB = 0;
     // 代表色用: RGB を各 4bit に量子化した 4096 ビンの件数と sRGB 合計
     this.cbin = new Uint32Array(4096); this.cbinSum = new Float64Array(4096 * 3);
+    this.texture = new TextureAccumulator(); // 粒状感・シャープさ（addRegion で足したときだけ）
   }
 
   /** @param {Uint8ClampedArray|Uint8Array} data RGBA。count を省略すると data 全体 */
@@ -90,6 +102,7 @@ export class Accumulator {
    * に入らない画素だけを足す。
    */
   addRegion(data, tx, ty, tw, th, rects) {
+    this.texture.add(data, tx, ty, tw, th, rects);
     if (!rects?.length) return this.addSpan(data, 0, tw * th);
     for (let r = 0; r < th; r++) {
       const y = ty + r;
@@ -201,7 +214,110 @@ export class Accumulator {
       overall: zone(zoneSum(0, 255)),
       light,                                               // 光源（上位 2% かつ輝度 128 以上）の平均色・面積。無ければ null
       palette: dominantColors(this.cbin, this.cbinSum, 5), // 代表色（'#rrggbb'、多い順）
+      texture: this.texture.result(width, height),          // 粒状感・シャープさ（addRegion で足していなければ null）
     };
+  }
+}
+
+/* ---- 粒状感とシャープさ ---- */
+
+const GRAIN_BIN = 0.1, GRAIN_BINS = 600;   // ノイズ σ のヒストグラム（0〜60、0.1 刻み）
+const SHARP_BINS = 100;                    // シャープさ（0〜1）のヒストグラム
+
+function histMedian(hist, n) {
+  if (!n) return null;
+  let acc = 0;
+  for (let i = 0; i < hist.length; i++) { acc += hist[i]; if (acc >= n / 2) return i; }
+  return hist.length - 1;
+}
+
+/**
+ * 質感（粒状感・シャープさ・JPEG 圧縮の強さ）の累積器。タイルごとに 8×8 のブロックを見て、ヒストグラムだけを残す。
+ * ブロックは画像全体の座標で 8 の倍数に揃える（タイルの境目をまたぐブロックは使わない）。メモリはタイル 1 枚分の輝度だけ。
+ */
+export class TextureAccumulator {
+  constructor() {
+    this.grainHist = new Uint32Array(GRAIN_BINS); this.sharpHist = new Uint32Array(SHARP_BINS);
+    this.flat = 0; this.edge = 0; this.blocks = 0;
+    this.bdSum = 0; this.inSum = 0; this.bdN = 0; // 平坦なブロックの 8px 境目の段差 / 内側の段差 / 比べた組の数
+    this.luma = null; this.used = false;
+  }
+
+  add(data, tx, ty, tw, th, rects) {
+    const T = RULES.texture, B = T.block, n = tw * th;
+    this.used = true;
+    if (!this.luma || this.luma.length < n) this.luma = new Uint8Array(n);
+    const L = this.luma;
+    for (let i = 0, p = 0; i < n; i++, p += 4) L[i] = (0.2126 * data[p] + 0.7152 * data[p + 1] + 0.0722 * data[p + 2] + 0.5) | 0;
+    const x0 = Math.ceil(tx / B) * B - tx, y0 = Math.ceil(ty / B) * B - ty;
+    const q = new Float64Array(4);
+    for (let by = y0; by + B <= th; by += B) {
+      for (let bx = x0; bx + B <= tw; bx += B) {
+        if (rects?.length) {
+          const ax = tx + bx, ay = ty + by;
+          if (rects.some((r) => ax < r.x1 && ax + B > r.x0 && ay < r.y1 && ay + B > r.y0)) continue;
+        }
+        let sum = 0, mn = 255, mx = 0, lap = 0, maxD = 0;
+        q[0] = q[1] = q[2] = q[3] = 0;
+        for (let y = 0; y < B; y++) {
+          const row = (by + y) * tw + bx;
+          for (let x = 0; x < B; x++) {
+            const v = L[row + x];
+            sum += v; if (v < mn) mn = v; if (v > mx) mx = v;
+            q[(y >= B / 2 ? 2 : 0) + (x >= B / 2 ? 1 : 0)] += v;
+            if (x + 1 < B) { const d = Math.abs(L[row + x + 1] - v); if (d > maxD) maxD = d; }
+            if (y + 1 < B) { const d = Math.abs(L[row + tw + x] - v); if (d > maxD) maxD = d; }
+            if (x > 0 && x < B - 1) lap += Math.abs(2 * v - L[row + x - 1] - L[row + x + 1]);
+            if (y > 0 && y < B - 1) lap += Math.abs(2 * v - L[row - tw + x] - L[row + tw + x]);
+          }
+        }
+        const mean = sum / (B * B);
+        if (mean < T.minLuma || mean > T.maxLuma) continue;
+        this.blocks++;
+        const qa = 4 / (B * B);
+        const qMax = Math.max(q[0], q[1], q[2], q[3]) * qa, qMin = Math.min(q[0], q[1], q[2], q[3]) * qa, quad = qMax - qMin;
+        const sigma = lap / (2 * B * (B - 2)) / 1.954;
+        if (quad < T.flatBase + T.flatK * sigma) {
+          this.flat++;
+          this.grainHist[Math.min(GRAIN_BINS - 1, Math.floor(sigma / GRAIN_BIN))]++;
+          // JPEG のブロックノイズ: 右と下の 8px 境目の段差と、ブロック内側（4 列目 / 4 行目）の段差を比べる
+          const h2 = B / 2;
+          for (let k = 0; k < B; k++) {
+            const row = (by + k) * tw + bx;
+            if (bx + B < tw) { this.bdN++; this.bdSum += Math.abs(L[row + B] - L[row + B - 1]); this.inSum += Math.abs(L[row + h2] - L[row + h2 - 1]); }
+            if (by + B < th) {
+              const c = (by + B) * tw + bx + k, c1 = (by + B - 1) * tw + bx + k;
+              const m = (by + h2) * tw + bx + k, m1 = (by + h2 - 1) * tw + bx + k;
+              this.bdN++; this.bdSum += Math.abs(L[c] - L[c1]); this.inSum += Math.abs(L[m] - L[m1]);
+            }
+          }
+        } else if (quad >= T.edgeQuad && mx - mn >= T.edgeRange) {
+          this.edge++;
+          this.sharpHist[Math.min(SHARP_BINS - 1, Math.floor(maxD / (mx - mn) * SHARP_BINS))]++;
+        }
+      }
+    }
+  }
+
+  /** 解析結果: grain = ノイズ σ（輝度 0〜255）、sharpness = 0〜1、blockiness = 境目 ÷ 内側の段差、reliability = 確度と理由 */
+  result(width, height) {
+    if (!this.used) return null;
+    const T = RULES.texture;
+    const g = histMedian(this.grainHist, this.flat), sh = histMedian(this.sharpHist, this.edge);
+    const grain = g == null ? null : (g + 0.5) * GRAIN_BIN;
+    const sharpness = sh == null ? null : (sh + 0.5) / SHARP_BINS;
+    // 内側の段差がほぼ 0（ブロックの中が平らに塗られた）でも比が出るよう、分母は 1 組あたり 0.25 を下限にする
+    const blockiness = this.bdN ? this.bdSum / Math.max(this.inSum, 0.25 * this.bdN) : 1;
+    const blockStep = this.bdN ? (this.bdSum - this.inSum) / this.bdN : 0; // 境目の段差が内側より平均どれだけ大きいか
+    const longEdge = Math.max(width || 0, height || 0);
+    const reasons = [];
+    if (longEdge < T.minLongEdge) reasons.push(`解像度が低い（長辺 ${longEdge}px）ため、粒子とシャープさは参考程度`);
+    const compressed = this.flat >= T.minFlat && blockiness >= T.maxBlockiness && blockStep >= T.minBlockStep;
+    if (compressed) reasons.push('強い JPEG 圧縮のブロックノイズがあり、細かい粒子が残っていない可能性がある');
+    if (this.flat < T.minFlat) reasons.push('平らな部分が少なく、粒子を測りにくい');
+    if (this.edge < T.minEdge) reasons.push('はっきりした輪郭が少なく、シャープさを測りにくい');
+    const level = !reasons.length ? '高' : reasons.length === 1 && longEdge >= T.minLongEdge ? '中' : '低';
+    return { grain, sharpness, flatBlocks: this.flat, edgeBlocks: this.edge, blocks: this.blocks, blockiness, compressed, longEdge, reliability: { level, reasons } };
   }
 }
 
@@ -308,7 +424,9 @@ export const TILE_MAX_EDGE = 4096;
 export function tilePlan(width, height, maxArea = TILE_MAX_AREA, maxEdge = TILE_MAX_EDGE) {
   if (!(width > 0 && height > 0)) throw new Error('画像サイズが不正です');
   const tw = Math.min(width, maxEdge);
-  const th = Math.max(1, Math.min(height, maxEdge, Math.floor(maxArea / tw)));
+  let th = Math.max(1, Math.min(height, maxEdge, Math.floor(maxArea / tw)));
+  if (th < height && th >= 8) th -= th % 8; // 質感のブロック（8×8）がタイルの境目をまたがないよう 8 の倍数に
+
   const tiles = [];
   for (let y = 0; y < height; y += th) for (let x = 0; x < width; x += tw) tiles.push({ x, y, w: Math.min(tw, width - x), h: Math.min(th, height - y) });
   return tiles;
