@@ -16,6 +16,7 @@ import { paletteRow } from './location.js';
 let last = null;
 
 const MAIN_TILE_AREA = 524_288;
+const MIN_RECT = 0.02; // 手動除外: 幅・高さがこの割合未満の長方形は、指が少し触れただけとみなして無視する
 
 /** Worker + OffscreenCanvas で解析できる環境か */
 function workerCapable() {
@@ -213,8 +214,7 @@ export function render(root) {
     const end = () => {
       if (!start) return;
       const r = dragRect; start = null; dragRect = null;
-      // 指が少し触れただけ（2% 未満）の長方形は無視する
-      if (r && Math.abs(r.w) >= 0.02 && Math.abs(r.h) >= 0.02) {
+      if (r && Math.abs(r.w) >= MIN_RECT && Math.abs(r.h) >= MIN_RECT) {
         state.rects.push({ x: Math.min(r.x, r.x + r.w), y: Math.min(r.y, r.y + r.h), w: Math.abs(r.w), h: Math.abs(r.h) });
         state.dirty = true; sync();
       }

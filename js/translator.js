@@ -56,8 +56,9 @@ export const RULES = {
   drLight: { maxEV: -1, table: [[3, 'dr400'], [0.5, 'dr200'], [0, 'dr100']] },
   // 夜景（撮影条件が夜の街）の ISO の目安
   nightIso: [3200, 6400],
-  // 露出補正の目安: X-T3 のダイヤルの範囲（±3EV、1/3 段刻み）に収める
-  exposure: { max: 3 },
+  // 露出補正の目安: X-T3 のダイヤルの範囲（±max EV、1/3 段刻み）に収める。
+  //   元画像の明るさがこの範囲を overNote EV 以上はみ出すときは「残りは RAW 現像で」と注記する
+  exposure: { max: 3, overNote: 1 / 6 },
   // トーンカーブ: 黒が浮いている画像では、出力の黒を p1 × liftBlack まで持ち上げる（最大 maxBlack）
   curve: { liftBlack: 0.9, maxBlack: 48 },
 
@@ -77,10 +78,12 @@ export const RULES = {
     cloudy: { maxContrast: 120, maxClipWhite: 0.5, ev: [-1.5, 1] },
   },
 
-  // 要約の言葉: 露出の目安（EV）がこの値以下 → 言葉
+  // 要約の言葉: 露出の目安（EV）がこの値以下 → 言葉。「暗め」以下の画像では、暗部の色と光源を中心に述べる
   summaryEV: [[-2.5, 'かなり暗い'], [-1.2, '暗め'], [1, null /* 標準 */], [2, '明るめ'], [Infinity, 'かなり明るい']],
   // 要約: 光源の面積（割合）がこの値未満 → 言葉
   summaryLightArea: [[0.02, '少しだけ'], [0.1, 'ところどころに'], [Infinity, '広く']],
+  // 要約: 黒つぶれ（%）がこの値以上なら「黒がつぶれた」/ 明るい画像では光源の彩度 C* がこの値以上のときだけ光源の色に触れる
+  summaryCrushed: 5, summaryLightChroma: 20,
 
   // 確度
   //   以下のどれかに当てはまる画像は、色の情報が少ないので「高」を出さない（理由を表示する）
@@ -124,7 +127,7 @@ export function summarize(a, sceneId = guessScene(a)) {
   const word = R.summaryEV.find(([max]) => a.exposureEV <= max)[1];
   const noun = sceneId === 'night' ? '夜景' : '画像';
   const first = word ? `全体が${word}（約${fmtEV(a.exposureEV)}）${noun}。` : `明るさは標準的（約${fmtEV(a.exposureEV)}）な${noun}。`;
-  const lift = a.blackLift ? '黒が浮いた' : a.clipBlack >= 5 ? '黒がつぶれた' : '';
+  const lift = a.blackLift ? '黒が浮いた' : a.clipBlack >= R.summaryCrushed ? '黒がつぶれた' : '';
   const cast = (z) => (z.strength === 'なし' ? 'ニュートラルな' : `${z.name}寄りの`);
   const dark = a.exposureEV <= R.summaryEV[1][0];
   let second;
@@ -134,7 +137,7 @@ export function summarize(a, sceneId = guessScene(a)) {
     else second += 'で、明るい光源は無い';
   } else {
     second = `${lift ? `${lift}、` : ''}シャドウは${a.shadows.strength === 'なし' ? 'ニュートラル' : a.shadows.name}、ハイライトは${a.highlights.strength === 'なし' ? 'ニュートラル' : a.highlights.name}`;
-    if (a.light && a.light.strength !== 'なし' && a.light.chroma >= 20) second += `。${COLOR_WORD[a.light.name] ?? ''}光源がある`;
+    if (a.light && a.light.strength !== 'なし' && a.light.chroma >= R.summaryLightChroma) second += `。${COLOR_WORD[a.light.name] ?? ''}光源がある`;
   }
   return `${first}${second}。`;
 }
@@ -261,7 +264,7 @@ export function planRecipe(a, cand, { scene = 'auto' } = {}) {
 
   // 露出補正の目安（中央値と中間グレーの差。ダイヤルの ±3EV に収める）
   r.exposureNote = `${formatEV(a.exposureEV)}（目安。元画像の中央値は${a.exposureEV >= 0 ? '+' : '-'}${Math.abs(a.exposureEV).toFixed(1)}EV）`;
-  if (Math.abs(a.exposureEV) > R.exposure.max + 1 / 6) notes.push(`元画像の明るさは露出補正の範囲（±${R.exposure.max}EV）を超えている。残りは RAW 現像で調整`);
+  if (Math.abs(a.exposureEV) > R.exposure.max + R.exposure.overNote) notes.push(`元画像の明るさは露出補正の範囲（±${R.exposure.max}EV）を超えている。残りは RAW 現像で調整`);
 
   if (X.hasColor(cand.filmSim)) {
     r.color = clamp(Math.round((a.chroma - R.colorCenter[cand.filmSim]) / R.colorStep), X.RANGES.color);
