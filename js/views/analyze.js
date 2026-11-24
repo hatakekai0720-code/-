@@ -3,7 +3,7 @@
 import { h, toast, sheet } from '../ui/dom.js';
 import { paramSummary } from '../ui/recipe-ui.js';
 import { themeColors } from '../ui/theme.js';
-import { analyzeTiled, canvasReader, fitSize } from '../analyzer.js';
+import { analyzeTiled, canvasReader, fitSize, detectBars, excludedRects } from '../analyzer.js';
 import { estimate, buildRecipe, toneCurves, curvesText } from '../translator.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
@@ -11,8 +11,9 @@ import { loadLocations } from '../locations.js';
 import { groupWorks, fold } from '../film.js';
 import { paletteRow } from './location.js';
 
-// 画面を切り替えても直前の結果を残す（メモリのみ。リロードで消える）
-let last = null; // { canvas, result, est, pick, fileName, mode, ms }
+// 画面を切り替えても直前の結果を残す（メモリのみ。リロードで消える。画像ファイルも保存はしない）
+// { file, canvas, fileName, bars, auto, rects, result, est, pick, mode, ms }
+let last = null;
 
 const MAIN_TILE_AREA = 524_288;
 
@@ -26,14 +27,14 @@ function workerCapable() {
  * 全ピクセル解析のジョブ。Worker が使えればそこで、使えなければメインスレッドでタイルごとに await しながら処理する。
  * @returns {{ promise: Promise<{result, mode}>, cancel: () => void }}
  */
-function startAnalysis(img, file, onProgress) {
+function startAnalysis(img, file, onProgress, exclude) {
   let cancelled = false, worker = null, reject = null;
   const ctrl = { aborted: false };
   const mainThread = async (source) => {
     const read = canvasReader(source, (w, h) => h_canvas(w, h));
     const result = await analyzeTiled(read, source.width, source.height, {
       // メインスレッドではタイルを小さく（0.5MP ≒ 数十 ms）して、1 タイルごとに描画・操作を譲る
-      maxArea: MAIN_TILE_AREA, onProgress, signal: ctrl, yieldFn: () => new Promise((r) => setTimeout(r, 0)),
+      maxArea: MAIN_TILE_AREA, onProgress, signal: ctrl, exclude, yieldFn: () => new Promise((r) => setTimeout(r, 0)),
     });
     return { result, mode: 'main' };
   };
@@ -47,7 +48,7 @@ function startAnalysis(img, file, onProgress) {
       else if (m.type === 'error') { worker.terminate(); rej(new Error(m.message)); }
     };
     worker.onerror = (e) => { e.preventDefault?.(); worker.terminate(); rej(new Error('worker')); };
-    worker.postMessage({ bitmap: img }, [img]); // ImageBitmap は Worker に移す（メインスレッドからは消える）
+    worker.postMessage({ bitmap: img, exclude }, [img]); // ImageBitmap は Worker に移す（メインスレッドからは消える）
   });
   const promise = (async () => {
     if (workerCapable() && typeof ImageBitmap === 'function' && img instanceof ImageBitmap) {
@@ -116,30 +117,47 @@ export function render(root) {
   root.append(drop, fileInput, out);
 
   let job = null;
+  /** 画像を選んだとき: 縮小プレビューを作り、黒帯を検出してから解析する */
   async function load(file) {
+    job?.cancel(); job = null;
+    try {
+      const img = await decode(file);
+      const { width, height } = fitSize(img.width, img.height);
+      const canvas = h('canvas', { class: 'preview', width, height });
+      const g = canvas.getContext('2d', { willReadFrequently: true });
+      g.drawImage(img, 0, 0, width, height); // 表示用は縮小のまま
+      // 黒帯は縮小プレビューで検出する（境目のにじんだ 1px も黒帯側に入れる）
+      const bars = detectBars(g.getImageData(0, 0, width, height).data, width, height, { pad: 1 });
+      const state = { file, canvas, fileName: file.name.replace(/\.[^.]+$/, ''), bars, auto: true, rects: [], scene: last?.scene ?? 'auto' };
+      await run(state, img);
+    } catch {
+      out.replaceChildren(h('div', { class: 'notice' }, 'この画像は読み込めませんでした。JPEG / PNG / WebP などをお試しください。'));
+    }
+  }
+
+  const excludeOf = (st) => ({ bars: st.auto ? st.bars : null, rects: st.rects });
+
+  /** state の除外範囲で全ピクセルを解析する。img を省略するとファイルからもう一度デコードする（Worker に渡すと手元から消えるため） */
+  async function run(state, img) {
     job?.cancel(); job = null;
     const bar = h('span');
     const meter = h('div', { class: 'progress', role: 'progressbar', 'aria-label': '解析の進捗', 'aria-valuemin': '0', 'aria-valuemax': '100', 'aria-valuenow': '0' }, bar);
     const label = h('span', { class: 'num small muted grow' }, '読み込み中…');
     const cancelBtn = h('button', { type: 'button', class: 'btn', onclick: () => job?.cancel() }, 'キャンセル');
-    out.replaceChildren(h('div', { class: 'card stack', style: 'gap:8px' }, h('div', null, '全ピクセルを解析中'), meter, h('div', { class: 'row' }, label, cancelBtn)));
+    out.replaceChildren(previewBlock(state, false), h('div', { class: 'card stack', style: 'gap:8px' }, h('div', null, '全ピクセルを解析中'), meter, h('div', { class: 'row' }, label, cancelBtn)));
     const t0 = performance.now();
     let mine = null;
     try {
-      const img = await decode(file);
-      const { width, height } = fitSize(img.width, img.height);
-      const canvas = h('canvas', { class: 'preview', width, height });
-      canvas.getContext('2d').drawImage(img, 0, 0, width, height); // 表示用は縮小のまま
-      const fileName = file.name.replace(/\.[^.]+$/, '');
-      mine = job = startAnalysis(img, file, (done, total) => {
+      img ??= await decode(state.file);
+      mine = job = startAnalysis(img, state.file, (done, total) => {
         const p = total ? done / total * 100 : 0;
         bar.style.width = `${p}%`; meter.setAttribute('aria-valuenow', String(Math.round(p)));
         label.textContent = `${(done / 1e6).toFixed(1)} / ${(total / 1e6).toFixed(1)} MP（${Math.round(p)}%）`;
-      });
+      }, excludeOf(state));
       const { result, mode } = await mine.promise;
       if (job !== mine) return;
       job = null;
-      last = { canvas, result, est: estimate(result), pick: 0, fileName, mode, ms: performance.now() - t0 };
+      last = Object.assign(state, { result, est: estimate(result), pick: 0, mode, ms: performance.now() - t0, dirty: false });
       show();
     } catch (err) {
       if (mine && job !== mine) return; // 別の画像に切り替わった
@@ -149,24 +167,102 @@ export function render(root) {
         if (last) show(); else out.replaceChildren();
         return;
       }
+      if (/除外/.test(err?.message || '')) {
+        toast('除外した範囲が画像全体です。範囲を減らしてください', 3500);
+        state.rects = []; state.dirty = false;
+        return run(state);
+      }
       out.replaceChildren(h('div', { class: 'notice' }, 'この画像は読み込めませんでした。JPEG / PNG / WebP などをお試しください。'));
     }
   }
 
+  /**
+   * プレビューと解析範囲の操作。除外した範囲は斜線で表示する。
+   * interactive = false のとき（解析中）は操作できない。
+   */
+  function previewBlock(state, interactive = true) {
+    const { canvas } = state;
+    const overlay = h('canvas', { class: 'preview-overlay', width: canvas.width, height: canvas.height, 'aria-hidden': 'true' });
+    const stage = h('div', { class: 'preview-stage' }, canvas, overlay);
+    let drawing = false, dragRect = null;
+    const paint = () => {
+      const g = overlay.getContext('2d');
+      const W = overlay.width, H = overlay.height;
+      g.clearRect(0, 0, W, H);
+      const rects = excludedRects(excludeOf(state), W, H);
+      if (dragRect) rects.push(...excludedRects({ rects: [dragRect] }, W, H));
+      if (!rects.length) return;
+      const s = Math.max(1, W / 400); // 斜線の間隔（表示サイズに合わせる）
+      g.save();
+      g.beginPath();
+      for (const r of rects) g.rect(r.x0, r.y0, r.x1 - r.x0, r.y1 - r.y0);
+      g.clip();
+      g.fillStyle = 'rgba(0,0,0,.45)'; g.fillRect(0, 0, W, H);
+      g.strokeStyle = 'rgba(245,158,11,.85)'; g.lineWidth = 1.5 * s;
+      g.beginPath();
+      for (let x = -H; x < W; x += 10 * s) { g.moveTo(x, H); g.lineTo(x + H, 0); }
+      g.stroke();
+      g.restore();
+      g.strokeStyle = '#f59e0b'; g.lineWidth = 1.5 * s; g.setLineDash([4 * s, 3 * s]);
+      for (const r of rects) g.strokeRect(r.x0 + 0.5, r.y0 + 0.5, r.x1 - r.x0 - 1, r.y1 - r.y0 - 1);
+    };
+    const frac = (e) => { const b = overlay.getBoundingClientRect(); return [Math.min(1, Math.max(0, (e.clientX - b.left) / b.width)), Math.min(1, Math.max(0, (e.clientY - b.top) / b.height))]; };
+    let start = null;
+    overlay.addEventListener('pointerdown', (e) => { if (!drawing) return; e.preventDefault(); overlay.setPointerCapture(e.pointerId); start = frac(e); dragRect = { x: start[0], y: start[1], w: 0, h: 0 }; });
+    overlay.addEventListener('pointermove', (e) => { if (!start) return; const [x, y] = frac(e); dragRect = { x: start[0], y: start[1], w: x - start[0], h: y - start[1] }; paint(); });
+    const end = () => {
+      if (!start) return;
+      const r = dragRect; start = null; dragRect = null;
+      // 指が少し触れただけ（2% 未満）の長方形は無視する
+      if (r && Math.abs(r.w) >= 0.02 && Math.abs(r.h) >= 0.02) {
+        state.rects.push({ x: Math.min(r.x, r.x + r.w), y: Math.min(r.y, r.y + r.h), w: Math.abs(r.w), h: Math.abs(r.h) });
+        state.dirty = true; sync();
+      }
+      paint();
+    };
+    overlay.addEventListener('pointerup', end); overlay.addEventListener('pointercancel', end);
+
+    const b = state.bars, has = b.top + b.bottom + b.left + b.right > 0;
+    const barText = has ? [b.top + b.bottom > 0 ? `上下 ${((b.top + b.bottom) * 100).toFixed(1)}%` : '', b.left + b.right > 0 ? `左右 ${((b.left + b.right) * 100).toFixed(1)}%` : ''].filter(Boolean).join('・') : '見つかりません';
+    const autoBtn = h('button', { type: 'button', class: `chip ${state.auto && has ? 'on' : ''}`, 'aria-pressed': String(state.auto && has), disabled: !has || !interactive,
+      onclick: () => { state.auto = !state.auto; run(state); } }, `黒帯を自動で除外（${barText}）`);
+    const drawBtn = h('button', { type: 'button', class: 'chip', 'aria-pressed': 'false', disabled: !interactive, onclick: () => { drawing = !drawing; sync(); } });
+    const undoBtn = h('button', { type: 'button', class: 'chip', disabled: !interactive, onclick: () => { state.rects.pop(); state.dirty = true; sync(); paint(); } }, '1 つ戻す');
+    const clearBtn = h('button', { type: 'button', class: 'chip', disabled: !interactive, onclick: () => { state.rects = []; state.dirty = true; sync(); paint(); } }, '手動の除外を全部消す');
+    const rerun = h('button', { type: 'button', class: 'btn primary', disabled: !interactive, onclick: () => { drawing = false; run(state); } }, 'この範囲で再解析');
+    const hint = h('div', { class: 'small muted' });
+    const sync = () => {
+      stage.classList.toggle('drawing', drawing);
+      drawBtn.classList.toggle('on', drawing); drawBtn.setAttribute('aria-pressed', String(drawing));
+      drawBtn.textContent = drawing ? '範囲を描く: オン' : '範囲を除外（指で長方形を描く）';
+      undoBtn.hidden = clearBtn.hidden = !state.rects.length;
+      rerun.hidden = !state.dirty;
+      hint.textContent = drawing ? '字幕・再生バー・ロゴなどを囲んでください（いくつでも）。描き終えたら「この範囲で再解析」' : '';
+    };
+    sync();
+    requestAnimationFrame(paint);
+    return h('div', { class: 'stack', style: 'gap:8px' },
+      h('div', { class: 'preview-wrap' }, stage),
+      h('div', { class: 'row wrap', style: 'gap:6px' }, autoBtn, drawBtn, undoBtn, clearBtn),
+      hint, rerun);
+  }
+
   function show() {
-    const { canvas, result: a, est } = last;
+    const { result: a } = last;
     const hist = h('canvas', { class: 'hist', 'aria-label': 'RGB と輝度のヒストグラム' });
     const stat = (k, v) => h('div', null, h('div', { class: 'k' }, k), h('div', { class: 'v' }, v));
     const zone = (label, z) => h('div', { class: 'cast' },
       h('span', { class: 'swatch', style: `background:rgb(${z.rgb.join(',')})` }),
       h('div', { class: 'grow' }, h('div', { class: 'small muted' }, label), h('div', null, z.name, z.strength !== 'なし' ? h('span', { class: 'muted small' }, `（${z.strength}）`) : null)),
       h('div', { class: 'num small muted', style: 'text-align:right' }, `h ${Math.round(z.hue)}°`, h('br'), `C ${z.chroma.toFixed(1)}`));
+    const total = a.totalPixels ?? a.pixels;
 
     out.replaceChildren(
-      h('div', { class: 'preview-wrap' }, canvas),
-      h('div', { class: 'small muted' }, h('span', { class: 'num' }, `${a.width}×${a.height}px`), ' の全 ',
-        h('span', { class: 'num' }, a.pixels.toLocaleString('en-US')), ' ピクセルを解析',
-        last.mode ? h('span', { class: 'num' }, `（${last.mode === 'worker' ? 'Worker' : 'メインスレッド'}・${(last.ms / 1000).toFixed(1)} 秒）`) : null),
+      previewBlock(last),
+      h('div', { class: 'small muted' }, h('span', { class: 'num' }, `${a.width}×${a.height}px`), ' のうち ',
+        h('span', { class: 'num' }, a.pixels.toLocaleString('en-US')), ' / ', h('span', { class: 'num' }, total.toLocaleString('en-US')), ' 画素を解析',
+        h('span', { class: 'num' }, `（除外 ${pct((a.excludedRatio ?? 0) * 100)}）`),
+        last.mode ? h('span', { class: 'num' }, `・${last.mode === 'worker' ? 'Worker' : 'メインスレッド'}・${(last.ms / 1000).toFixed(1)} 秒`) : null),
       h('div', { class: 'section-title' }, 'ヒストグラム'),
       h('div', { class: 'card' }, hist, h('div', { class: 'hist-scale num small muted' }, h('span', null, '0'), h('span', null, '128'), h('span', null, '255'))),
       h('div', { class: 'section-title' }, '輝度'),

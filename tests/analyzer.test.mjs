@@ -1,7 +1,8 @@
 // 解析ロジックの数値テスト。単色などの合成画像（RGBA 配列）で検証する。
 // 実行: node tests/analyzer.test.mjs
 import assert from 'node:assert/strict';
-import { analyze, fitSize, tilePlan, analyzeTiled, Accumulator, TILE_MAX_AREA, TILE_MAX_EDGE } from '../js/analyzer.js';
+import { analyze, fitSize, tilePlan, analyzeTiled, Accumulator, TILE_MAX_AREA, TILE_MAX_EDGE, detectBars, excludedRects } from '../js/analyzer.js';
+import { makeImage, sceneImage, withBars } from './fixtures.mjs';
 import { estimate, buildRecipe, toneCurves, curvesText } from '../js/translator.js';
 import { validateRecipe, RANGES, WB_MODES, FILM_SIMS } from '../js/xt3.js';
 import { validateDb, VERSION } from '../js/store.js';
@@ -267,6 +268,69 @@ test('Accumulator: 空のまま result() はエラー、add を分けても同�
   const a = new Accumulator().add(d.subarray(0, 1234 * 4)).add(d.subarray(1234 * 4)).result(4000, 1);
   const b = analyze(d, 4000, 1);
   assert.deepEqual(a.shadows.rgb, b.shadows.rgb); near(a.chroma, b.chroma, 1e-9, 'chroma');
+});
+
+
+/* ---- 解析範囲（黒帯の自動除外・手動除外） ---- */
+// 2.39:1 の映画を 16:9 の画面でスクショした想定: 400×168 の本編の上下に 28〜29px の黒帯
+const SW = 400, SH = 168;
+const scene = sceneImage(SW, SH);
+const barred = withBars(scene, SW, SH, { top: 28, bottom: 29 });
+const mainKeys = (a) => { const e = estimate(a); const r = buildRecipe(a, e.candidates[0]); return { shadowCast: a.shadows.name, shadow: r.shadow, highlight: r.highlight, first: e.candidates[0].filmSim }; };
+
+test('黒帯: 除外しないと結果が変わってしまう（問題の再現）', () => {
+  const plain = analyze(scene, SW, SH), withBar = analyze(barred.data, barred.width, barred.height);
+  assert.ok(withBar.clipBlack > 15, `黒帯込みの黒つぶれ ${withBar.clipBlack}`);
+  assert.notDeepEqual(mainKeys(withBar), mainKeys(plain));
+});
+test('黒帯: 上下の黒帯を自動検出し、除外すると黒帯なしと主要な結果が一致', () => {
+  const bars = detectBars(barred.data, barred.width, barred.height);
+  near(bars.top * barred.height, 28, 1, '上の黒帯'); near(bars.bottom * barred.height, 29, 1, '下の黒帯');
+  assert.equal(bars.left, 0); assert.equal(bars.right, 0);
+  const a = analyze(barred.data, barred.width, barred.height, { exclude: { bars } });
+  const plain = analyze(scene, SW, SH);
+  assert.deepEqual(mainKeys(a), mainKeys(plain));
+  assert.equal(a.pixels, SW * SH, '解析した画素数 = 本編だけ');
+  assert.equal(a.totalPixels, barred.width * barred.height);
+  near(a.excludedRatio * 100, 57 / 225 * 100, 0.01, '除外した割合（%）');
+  near(a.clipBlack, plain.clipBlack, 0.01, '黒つぶれ');
+});
+test('黒帯: 左右の黒帯（ピラーボックス）も検出', () => {
+  const pb = withBars(scene, SW, SH, { left: 40, right: 40 });
+  const bars = detectBars(pb.data, pb.width, pb.height);
+  near(bars.left * pb.width, 40, 1, '左'); near(bars.right * pb.width, 40, 1, '右'); assert.equal(bars.top, 0); assert.equal(bars.bottom, 0);
+});
+test('黒帯: ふつうの写真・暗い夜景・黒い服などは黒帯と誤検出しない', () => {
+  for (const [d, w, h] of [[scene, SW, SH], [makeImage(200, 100, (x, y) => (y < 20 ? [30, 32, 30] : [90, 100, 110])), 200, 100],
+    [makeImage(200, 100, (x, y) => (y > 70 && x > 60 && x < 140 ? [2, 2, 2] : [120, 120, 120])), 200, 100]]) {
+    assert.deepEqual(detectBars(d, w, h), { top: 0, bottom: 0, left: 0, right: 0 });
+  }
+});
+test('手動除外: 字幕を模した白い帯を除外すると白飛び率が下がる', () => {
+  // 本編の下のほうに白い字幕（横 60%・高さ 10px）
+  const sub = makeImage(SW, SH, (x, y) => (y >= 140 && y < 150 && x >= 80 && x < 320 ? [255, 255, 255] : scene.subarray((y * SW + x) * 4, (y * SW + x) * 4 + 3)));
+  const before = analyze(sub, SW, SH);
+  const after = analyze(sub, SW, SH, { exclude: { rects: [{ x: 70 / SW, y: 136 / SH, w: 260 / SW, h: 18 / SH }] } });
+  assert.ok(before.clipWhite > 3, `字幕込みの白飛び ${before.clipWhite}`);
+  assert.ok(after.clipWhite < before.clipWhite && after.clipWhite < 0.5, `除外後の白飛び ${after.clipWhite}`);
+  assert.equal(after.pixels, SW * SH - 260 * 18);
+});
+test('除外範囲: 重なった長方形も二重に数えない・タイル分割でも同じ結果', async () => {
+  const exclude = { bars: { top: 0.1, bottom: 0.1, left: 0, right: 0 }, rects: [{ x: 0.1, y: 0.05, w: 0.3, h: 0.3 }, { x: 0.2, y: 0.2, w: 0.3, h: 0.3 }] };
+  const rects = excludedRects(exclude, 100, 100);
+  assert.ok(rects.every((r) => r.x0 >= 0 && r.y0 >= 0 && r.x1 <= 100 && r.y1 <= 100));
+  const d = makeImage(100, 100, (x, y) => [x * 2, y * 2, 100]);
+  const a = analyze(d, 100, 100, { exclude });
+  let want = 0;
+  for (let y = 0; y < 100; y++) for (let x = 0; x < 100; x++) {
+    const ex = y < 10 || y >= 90 || (x >= 10 && x < 40 && y >= 5 && y < 35) || (x >= 20 && x < 50 && y >= 20 && y < 50);
+    if (!ex) want++;
+  }
+  assert.equal(a.pixels, want);
+  const read = (x, y, w, h) => { const o = new Uint8ClampedArray(w * h * 4); for (let r = 0; r < h; r++) o.set(d.subarray(((y + r) * 100 + x) * 4, ((y + r) * 100 + x + w) * 4), r * w * 4); return o; };
+  const t = await analyzeTiled(read, 100, 100, { exclude, maxArea: 1500, maxEdge: 64 });
+  assert.equal(t.pixels, want); assert.deepEqual([...t.hist.l], [...a.hist.l]); assert.deepEqual(t.shadows.rgb, a.shadows.rgb);
+  assert.throws(() => analyze(d, 100, 100, { exclude: { rects: [{ x: 0, y: 0, w: 1, h: 1 }] } }), /除外/);
 });
 
 for (const [name, fn] of queue) { await fn(); count++; console.log('ok  ', name); }
