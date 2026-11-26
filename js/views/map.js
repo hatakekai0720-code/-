@@ -14,6 +14,7 @@ import * as streets from '../streets.js';
 import * as photos from '../photos.js';
 import { photoFigure } from '../ui/photo.js';
 import { clusterPoints, maxSpread, spiderOffsets, sizeTier, facetCounts, filterLocations, typeCounts, CLUSTER_RADIUS, CLUSTER_SIZES } from '../cluster.js';
+import { viewConfig, regionOf, restoreView, rememberView, switchPlan, WORLD_DEFAULT } from '../japan.js';
 import { loadSpots, loadCategories, MODES, normalizeMode, modeShows, normalizeSelection, toggleCategory, filterSpots, prefCounts, inBounds, nearest, events as spotEvents } from '../spots.js';
 
 const OSM_ATTRIBUTION = '撮影スポット © OpenStreetMap contributors（ODbL）';
@@ -21,7 +22,6 @@ const LIST_LIMIT = 100; // 「近い順」に並べる件数の上限（数千�
 const VIEW_PAD = 0.3;   // 表示範囲の外側この割合までのピンだけ描く
 
 const CONF_LABEL = { high: '確度 高', medium: '確度 中' };
-const MIN_ZOOM = 1, MAX_ZOOM = 8; // 通常の最大ズーム（県・都市が分かる程度まで）
 export const LAYER_ZOOM = { admin1: 4, detail: 5, places: 6 }; // このズーム以上で表示
 
 /* ---- ライブラリとデータの読み込み（一度だけ） ---- */
@@ -66,7 +66,6 @@ function loadStreetLibs() {
   streetLibs.catch(() => { streetLibs = null; });
   return streetLibs;
 }
-const WORLD_BOUNDS = [[-85, -400], [85, 400]];
 
 // 撮影スポットのピン: Canvas に角丸の四角 + カテゴリの 1 文字（映画ロケ地の丸いピンと形で区別する）。
 // DOM の要素を作らないので数千件でも軽い。当たり判定は CircleMarker と同じ円
@@ -315,10 +314,38 @@ export function render(root, { id: focusId } = {}) {
   function drawMode() {
     modeEl.replaceChildren(...MODES.map((m) => h('button', { type: 'button', 'aria-pressed': String(mode === m.id), onclick: () => {
       if (mode === m.id) return;
-      mode = m.id; store.setSetting('mapMode', mode);
-      if (!modeShows(mode).spots && filter.kind === 'spot') filter.kind = 'all';
-      drawMode(); drawAttribution(); applyGeo(false);
+      setMode(m.id);
     } }, m.label)));
+  }
+  // モードを切り替える: 今の表示位置をそのモードに覚えてから、次のモードの表示範囲・ズーム・最後の表示位置に移る
+  function setMode(next) {
+    const prev = mode;
+    mode = next; store.setSetting('mapMode', mode);
+    if (!modeShows(mode).spots && filter.kind === 'spot') filter.kind = 'all';
+    drawMode(); drawAttribution();
+    if (map) applyRegion(prev);
+    applyGeo(false);
+  }
+  const baseMax = () => viewConfig(mode).maxZoom;
+  // 地図の種類（世界 / 日本）に合わせて、動かせる範囲・ズームの範囲・表示位置を設定する。from: 切り替える前のモード
+  function applyRegion(from = null) {
+    const c = map.getCenter().wrap();
+    const plan = switchPlan({ views: store.getSetting('mapViews'), from, to: mode, current: from ? { lat: c.lat, lng: c.lng, zoom: map.getZoom() } : null, legacy: store.getSetting('mapView') });
+    if (from) store.setSetting('mapViews', plan.views);
+    const cfg = plan.config;
+    switching = true;
+    map.setMaxBounds(null);
+    // 日本: 日本全体が入るズームより引けないようにする（大きな画面でも 5 まで引ける）
+    map.setMinZoom(1);
+    map.setMinZoom(cfg.region === 'japan' ? Math.min(5, map.getBoundsZoom(cfg.fit)) : cfg.minZoom);
+    const inStreet = plan.view && streetAreas.some((a) => streets.bboxContains(a.bbox, plan.view.lat, plan.view.lng));
+    map.setMaxZoom(inStreet ? streets.STREET_MAX_ZOOM : cfg.maxZoom);
+    if (plan.view) map.setView([plan.view.lat, plan.view.lng], Math.min(plan.view.zoom, map.getMaxZoom()), { animate: false });
+    else map.fitBounds(cfg.fit, { animate: false });
+    boundsKey = null; // updateStreets で動かせる範囲を設定し直す
+    switching = false;
+    region = cfg.region;
+    updateStreets(); updateLayers();
   }
   function drawAttribution() {
     if (!map) return;
@@ -387,7 +414,7 @@ export function render(root, { id: focusId } = {}) {
     if (!fit || !map) return;
     const filmFiltered = geo.type !== 'all' || geo.region !== 'all' || geo.country !== 'all' || geo.decade !== 'all';
     const vis = [...(filmFiltered ? shownFilms() : []), ...(geo.pref !== 'all' ? shownSpots() : [])];
-    if (vis.length) map.fitBounds(L.latLngBounds(vis.map((l) => [l.lat, l.lng])).pad(0.25), { maxZoom: Math.min(map.getMaxZoom(), MAX_ZOOM) });
+    if (vis.length) map.fitBounds(L.latLngBounds(vis.map((l) => [l.lat, l.lng])).pad(0.25), { maxZoom: Math.min(map.getMaxZoom(), baseMax()) });
   }
 
   async function init() {
@@ -399,13 +426,11 @@ export function render(root, { id: focusId } = {}) {
     root.querySelector('.map-loading')?.remove();
     streetAreas = await streets.cachedAreas();
     if (!alive) return;
-    const saved = store.getSetting('mapView');
-    const savedMax = saved && streetAreas.some((a) => streets.bboxContains(a.bbox, saved.lat, saved.lng)) ? streets.STREET_MAX_ZOOM : MAX_ZOOM;
+    const cfg = viewConfig(mode);
     map = L.map(mapEl, {
-      preferCanvas: true, zoomSnap: 0.5, minZoom: MIN_ZOOM, maxZoom: savedMax, worldCopyJump: true,
-      maxBounds: WORLD_BOUNDS, maxBoundsViscosity: 0.8,
-      attributionControl: true, tapHold: true,
-    }).setView(saved ? [saved.lat, saved.lng] : [30, 60], saved ? Math.min(saved.zoom, savedMax) : 1.5);
+      preferCanvas: true, zoomSnap: 0.5, minZoom: cfg.minZoom, maxZoom: cfg.maxZoom, worldCopyJump: true,
+      maxBoundsViscosity: 0.8, attributionControl: true, tapHold: true,
+    }).setView([WORLD_DEFAULT.lat, WORLD_DEFAULT.lng], WORLD_DEFAULT.zoom);
     map.attributionControl.setPrefix(false).addAttribution('Natural Earth');
     // 重なり順: 陸地（国境）→ 県・州の境界 →（街路）→ 都市名 → ピン
     for (const [name, z] of [['ne-land', 200], ['ne-admin', 210], ['streets', 220], ['ne-labels', 390]]) map.createPane(name).style.zIndex = z;
@@ -423,12 +448,17 @@ export function render(root, { id: focusId } = {}) {
     map.on('moveend', drawPins); // ズーム・パンのたびに表示範囲のピンだけ描き直す
     map.on('zoomstart click', unspider);
     map.on('moveend', () => { drawLabels(); updateStreets(); });
-    updateLayers();
-    updateStreets();
-    map.on('moveend', () => { const c = map.getCenter(); store.setSetting('mapView', { lat: +c.lat.toFixed(4), lng: +c.lng.toFixed(4), zoom: map.getZoom() }); });
+    applyRegion(); // モードの表示範囲と最後の表示位置（無ければ世界全体／日本全体）
+    // 表示位置はモードごとに覚える（settings.mapViews）
+    map.on('moveend', () => {
+      if (switching) return;
+      const c = map.getCenter().wrap();
+      store.setSetting('mapViews', rememberView(store.getSetting('mapViews'), mode, { lat: c.lat, lng: c.lng, zoom: map.getZoom() }));
+    });
     drawList();
     // #/map/<ロケ地 ID>: そのロケ地を中心に（街路データがあれば街路が見えるズームで）表示してシートを開く
     const target = focusId && locations.find((x) => x.id === focusId);
+    if (target && !modeShows(mode).films) setMode('all'); // 撮影スポットだけのモードでは映画ロケ地が出ないので「すべて」にする
     if (focusId && !target) focusSpot(focusId);
     if (target) {
       const hasStreet = streetAreas.some((a) => a.id === target.id);
@@ -440,6 +470,7 @@ export function render(root, { id: focusId } = {}) {
 
   /* ---- ズームに応じた詳細レイヤー ---- */
   let renderers = null;
+  let region = regionOf(mode), switching = false;
   function updateLayers() {
     if (!map) return;
     const z = map.getZoom();
@@ -486,19 +517,20 @@ export function render(root, { id: focusId } = {}) {
   }
 
   /* ---- 街路（OpenStreetMap / PMTiles） ---- */
-  let boundsKey = 'world';
+  let boundsKey = null;
   function updateStreets() {
     if (!map) return;
     const z = map.getZoom(), b = map.getBounds(), c = map.getCenter();
     const off = c.lng - c.wrap().lng; // worldCopyJump で横にずれた分
     const area = streets.areasInView(streetAreas, [b.getWest() - off, b.getSouth(), b.getEast() - off, b.getNorth()])[0];
-    // 街路データのある範囲だけ最大ズームを 18 に。範囲から外れたら通常の 8 に戻す
-    map.setMaxZoom(area ? streets.STREET_MAX_ZOOM : MAX_ZOOM);
-    // ズーム 9 以上では、その範囲の外へ動かせないようにする（外へ行くにはズームアウト）
-    const key = area && z > MAX_ZOOM ? area.id : 'world';
+    // 街路データのある範囲だけ最大ズームを 18 に。範囲から外れたら通常（世界 8・日本 12）に戻す
+    const max = baseMax();
+    map.setMaxZoom(area ? streets.STREET_MAX_ZOOM : max);
+    // 通常の最大ズームより拡大しているときは、その範囲の外へ動かせないようにする（外へ行くにはズームアウト）
+    const key = area && z > max ? area.id : `base:${mode}`;
     if (key !== boundsKey) {
       boundsKey = key;
-      if (key === 'world') map.setMaxBounds(WORLD_BOUNDS);
+      if (key.startsWith('base:')) map.setMaxBounds(viewConfig(mode).maxBounds);
       else {
         const [w, s, e, n] = area.bbox, pad = 0.01;
         map.setMaxBounds([[s - pad + 0, w - pad + off], [n + pad, e + pad + off]]);
@@ -591,11 +623,11 @@ export function render(root, { id: focusId } = {}) {
     await spotsReady;
     const sp = alive && map && spots.find((x) => x.id === id);
     if (!sp) return;
-    if (!modeShows(mode).spots) { mode = 'all'; store.setSetting('mapMode', mode); drawMode(); }
+    if (!modeShows(mode).spots) setMode('all');
     if (!sel.includes(sp.category)) { sel = [...sel, sp.category]; store.setSetting('spotCats', sel); }
     if (geo.pref !== 'all' && geo.pref !== sp.pref) geo.pref = 'all';
     applyGeo(false);
-    map.setView([sp.lat, sp.lng], MAX_ZOOM);
+    map.setView([sp.lat, sp.lng], Math.min(baseMax(), 10));
     openSpot(sp);
   }
   function openSpot(sp) {

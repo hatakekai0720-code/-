@@ -1,6 +1,7 @@
 // localStorage ラッパー。キーは必ず xt3cine: で始める。画像は一切保存しない。
 import { SLOT_IDS, validateRecipe, cleanRecipe, isMono } from './xt3.js';
 import { validateCalibration, cleanCalibration, CAL_LIMITS } from './calibration.js';
+import { sanitizeViews } from './japan.js';
 
 export const PREFIX = 'xt3cine:';
 const KEY = PREFIX + 'db';
@@ -309,6 +310,8 @@ function sanitizeSettings(s) {
   if (s.theme === 'light' || s.theme === 'dark') out.theme = s.theme;
   if (s.streetsAuto === false) out.streetsAuto = false; // 街路地図の自動ダウンロード（未設定 = オン）
   if (isObj(s.mapView) && Number.isFinite(s.mapView.lat) && Number.isFinite(s.mapView.lng) && Number.isFinite(s.mapView.zoom)) out.mapView = { lat: s.mapView.lat, lng: s.mapView.lng, zoom: s.mapView.zoom };
+  const views = sanitizeViews(s.mapViews); // モードごとの最後の表示位置
+  if (views) out.mapViews = views;
   if (['films', 'spots', 'all'].includes(s.mapMode)) out.mapMode = s.mapMode; // 地図の表示モード
   if (Array.isArray(s.spotCats) && s.spotCats.length <= 50 && s.spotCats.every((k) => typeof k === 'string' && /^[a-z0-9-]{1,40}$/.test(k))) out.spotCats = [...new Set(s.spotCats)]; // 撮影スポットの選択中のカテゴリ
   if (Array.isArray(s.qmenuOrder) && s.qmenuOrder.length === 16 && s.qmenuOrder.every((k) => typeof k === 'string' && k.length < 20)) out.qmenuOrder = [...s.qmenuOrder];
