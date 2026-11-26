@@ -5,6 +5,7 @@ import { applyTheme } from './ui/theme.js';
 import { initPwa } from './pwa.js';
 import { autoDownloadStreets } from './streets.js';
 import { autoDownloadPhotos } from './photos.js';
+import { autoDownloadSpots } from './spots.js';
 import * as compare from './views/compare.js';
 import * as analyze from './views/analyze.js';
 import * as recipes from './views/recipes.js';
@@ -14,6 +15,8 @@ import * as qmenu from './views/qmenu.js';
 import * as map from './views/map.js';
 import * as locationView from './views/location.js';
 import * as work from './views/work.js';
+import * as spotView from './views/spot.js';
+import * as spotsView from './views/spots.js';
 import * as search from './views/search.js';
 import * as names from './views/names.js';
 import * as academy from './views/academy.js';
@@ -32,8 +35,10 @@ const ROUTES = [
   { re: /^\/map$/, view: map, tab: 'map', title: 'ロケ地マップ' },
   { re: /^\/map\/([^/]+)$/, view: map, tab: 'map', title: 'ロケ地マップ' },
   { re: /^\/locations\/([^/]+)$/, view: locationView, tab: 'map', title: 'ロケ地', back: '#/map' },
+  { re: /^\/spots$/, view: spotsView, tab: 'map', title: '撮影スポットの制覇率', back: '#/map' },
+  { re: /^\/spots\/([^/]+)$/, view: spotView, tab: 'map', title: '撮影スポット', back: '#/map' },
   { re: /^\/works\/([^/]+)$/, view: work, tab: 'map', title: '作品', back: '#/search' },
-  { re: /^\/search$/, view: search, tab: 'map', title: '作品・人物を探す', back: '#/map' },
+  { re: /^\/search$/, view: search, tab: 'map', title: '作品・人物・撮影スポットを探す', back: '#/map' },
   { re: /^\/names\/(.+)$/, view: names, tab: 'map', title: '作品一覧', back: '#/search' },
   { re: /^\/academy$/, view: academy, tab: 'academy', title: '撮影講座' },
   { re: /^\/academy\/(\d{1,2})$/, view: lesson, tab: 'academy', title: '撮影講座', back: '#/academy' },
@@ -89,3 +94,5 @@ initPwa();
 // 街路地図とロケ地写真の自動ダウンロード（SW のインストールとは別に、少し待ってから裏で 1 ファイルずつ）
 autoDownloadPhotos(() => store.getSetting('streetsAuto') !== false);
 autoDownloadStreets(() => store.getSetting('streetsAuto') !== false);
+// 撮影スポット: 5MB 以下なら SW がインストール時に保存済み（ここでは更新だけ確かめる）。超えるときは街路地図と同じく設定に従う
+autoDownloadSpots(() => store.getSetting('streetsAuto') !== false);

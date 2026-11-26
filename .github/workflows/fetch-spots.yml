@@ -1,0 +1,58 @@
+# 日本の撮影スポットのデータを作って data/spots/ にコミットする。
+# ・手動実行（Actions タブ → 「撮影スポットを取得」→ Run workflow）と、毎月 1 回の定期実行
+#   （定期実行はデフォルトブランチだけで動く）
+# ・OpenStreetMap（Overpass API）から動物園・水族館・植物園・展望台・絶景・灯台・城・滝・砂浜・温泉街を都道府県ごとに取得し、
+#   公的リスト（重要伝統的建造物群保存地区・日本の棚田百選）と厳選した神社仏閣の座標を OpenStreetMap と照合して決める
+#   （scripts/fetch-spots.mjs。元のリストは scripts/spot-lists/）
+# ・検証（scripts/validate-spots.mjs）に通らなければコミットしない。件数・照合できなかったもの・合計サイズは Summary に出る
+name: 撮影スポットを取得
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 18 3 * *' # 毎月 4 日 3:17（日本時間）
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-spots-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 取得・照合・重複のまとめ（scripts/fetch-spots.mjs）
+        env:
+          # 任意: Overpass API に名乗る連絡先（リポジトリの Settings → Variables で OVERPASS_CONTACT を設定。未設定でも動く）
+          CONTACT: ${{ vars.OVERPASS_CONTACT }}
+        run: node scripts/fetch-spots.mjs
+
+      - name: 検証（日本の範囲・名前・ID の重複・件数・サイズ）
+        run: node scripts/validate-spots.mjs
+
+      - name: テスト
+        run: node tests/spots.test.mjs && node tests/sw.test.mjs
+
+      - name: コミットして push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/spots
+          if git diff --cached --quiet; then echo "変更なし"; exit 0; fi
+          git commit -m "撮影スポットのデータを更新（GitHub Actions）"
+          for i in 1 2 3 4; do
+            if git pull --rebase -X theirs origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME"; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((i * 15))
+          done
+          echo "push できませんでした" >&2
+          exit 1

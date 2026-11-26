@@ -1,0 +1,148 @@
+{
+  "note": "撮影スポットのカテゴリ定義。order の順が優先度（重複したときは前にあるカテゴリに 1 件でまとめる）。recipe は js/xt3.js の範囲内の部分レシピ（X.fromPartial で補う）。lessons は data/lessons.json の回番号。",
+  "categories": [
+    {
+      "id": "shrine", "name": "神社仏閣", "icon": "社", "color": "#be123c", "group": "curated",
+      "recipe": { "name": "神社仏閣 — 朱と陰影", "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "strong", "wb": { "mode": "daylight" }, "wbShift": { "r": 1, "b": -1 }, "highlight": -1, "shadow": 1, "color": 1, "sharpness": 0, "nr": -2, "isoNote": "ISO 320〜1600", "exposureNote": "-1/3EV", "tags": ["神社仏閣", "陰影"] },
+      "tips": [
+        "参道や鳥居をリーディングラインにして、奥の社殿へ視線を導く",
+        "木陰の境内は明暗差が大きいので DR200 でハイライトを守り、-1/3EV から始める",
+        "朱色はカラークローム・エフェクトで飽和を抑えると階調が残る",
+        "参拝者や祭事の妨げにならない位置から撮り、撮影禁止の掲示に従う"
+      ],
+      "lessons": [15, 17, 23]
+    },
+    {
+      "id": "townscape", "name": "古い町並み", "icon": "町", "color": "#a16207", "group": "public",
+      "recipe": { "name": "古い町並み — 木と漆喰", "filmSim": "classic-chrome", "dr": "dr200", "grain": "weak", "colorChrome": "weak", "wb": { "mode": "kelvin", "kelvin": 5300 }, "wbShift": { "r": 2, "b": -2 }, "highlight": -1, "shadow": 1, "color": 0, "sharpness": -1, "nr": -2, "isoNote": "ISO 320〜1600", "exposureNote": "0〜-1/3EV", "tags": ["町並み", "旅"] },
+      "tips": [
+        "通りの奥へ消える軒線を消失点に置き、16:9 で横に広く切り取る",
+        "格子戸や暖簾を前ボケにして、額縁構図で奥行きを出す",
+        "朝夕の斜光で壁の質感が出る。日中は日陰側の通りを選ぶ",
+        "人が住んでいる町なので、玄関先や室内にレンズを向けない"
+      ],
+      "lessons": [15, 17, 45]
+    },
+    {
+      "id": "tanada", "name": "棚田", "icon": "棚", "color": "#65a30d", "group": "public",
+      "recipe": { "name": "棚田 — 水鏡と緑", "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "weak", "wb": { "mode": "daylight" }, "wbShift": { "r": 0, "b": 0 }, "highlight": -1, "shadow": 0, "color": 1, "sharpness": 1, "nr": -2, "isoNote": "ISO 320", "exposureNote": "-1/3EV", "tags": ["棚田", "風景"] },
+      "tips": [
+        "水を張った時期は夕方の空が水面に映る。CPL で反射の量を調整する",
+        "中望遠で段を圧縮すると、畦のカーブが重なって見える",
+        "三脚を使うなら畦や農道をふさがない場所に立てる",
+        "田んぼや畦には入らない（私有地・耕作地）"
+      ],
+      "lessons": [13, 19, 33, 37]
+    },
+    {
+      "id": "castle", "name": "城・城跡", "icon": "城", "color": "#c026d3", "group": "osm",
+      "recipe": { "name": "城 — 石垣と空", "filmSim": "pro-neg-std", "dr": "dr400", "grain": "weak", "colorChrome": "weak", "wb": { "mode": "daylight" }, "wbShift": { "r": 1, "b": -1 }, "highlight": -1, "shadow": 1, "color": 0, "sharpness": 0, "nr": -2, "isoNote": "ISO 640〜1600", "exposureNote": "-1/3EV", "tags": ["城", "歴史"] },
+      "tips": [
+        "石垣の反りを見上げるローアングルで、天守の量感を強調する",
+        "堀の水面に映る天守はリフレクションで上下対称に",
+        "城跡は土塁や曲輪の起伏を斜光で浮かび上がらせる",
+        "中望遠で遠くから城と城下町を重ねると圧縮効果が出る"
+      ],
+      "lessons": [18, 19, 33]
+    },
+    {
+      "id": "lighthouse", "name": "灯台", "icon": "灯", "color": "#ef4444", "group": "osm",
+      "recipe": { "name": "灯台 — 白と群青", "filmSim": "classic-chrome", "dr": "dr400", "grain": "off", "colorChrome": "strong", "wb": { "mode": "daylight" }, "wbShift": { "r": -1, "b": 1 }, "highlight": -2, "shadow": 1, "color": 1, "sharpness": 1, "nr": -2, "isoNote": "ISO 640", "exposureNote": "-2/3EV", "tags": ["海", "灯台"] },
+      "tips": [
+        "白い塔は白飛びしやすい。-2/3EV と DR400 でハイライトを残す",
+        "CPL で空と海の青を深くし、塔の白を際立たせる",
+        "日没後のブルーアワーは灯火が点いて、空との色の対比が出る",
+        "岬は風が強い。カメラはストラップで体に固定する"
+      ],
+      "lessons": [11, 13, 37]
+    },
+    {
+      "id": "waterfall", "name": "滝", "icon": "滝", "color": "#3b82f6", "group": "osm",
+      "recipe": { "name": "滝 — 絹の流れ", "filmSim": "provia", "dr": "dr100", "grain": "off", "colorChrome": "weak", "wb": { "mode": "shade" }, "wbShift": { "r": 0, "b": 0 }, "highlight": -1, "shadow": 0, "color": 1, "sharpness": 0, "nr": -2, "isoNote": "ISO 160（拡張 80 も可）", "exposureNote": "-1/3EV", "tags": ["滝", "低速シャッター"] },
+      "tips": [
+        "1/4〜2 秒の低速シャッターで流れを絹のように。明るいときは ND を使う",
+        "三脚が無ければ岩に置き、セルフタイマー 2 秒でぶれを防ぐ（X-T3 はボディ内手ブレ補正なし）",
+        "CPL で濡れた岩と葉の反射を抑えると、緑が深くなる",
+        "しぶきでレンズが濡れるので、拭くための布を手元に"
+      ],
+      "lessons": [5, 37, 39]
+    },
+    {
+      "id": "zoo", "name": "動物園", "icon": "動", "color": "#84cc16", "group": "osm",
+      "recipe": { "name": "動物園 — 望遠ポートレート", "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "weak", "wb": { "mode": "auto" }, "wbShift": { "r": 0, "b": 0 }, "highlight": -1, "shadow": 0, "color": 0, "sharpness": 1, "nr": -1, "isoNote": "ISO 400〜3200（オート ISO）", "exposureNote": "0EV", "tags": ["動物", "望遠"] },
+      "tips": [
+        "望遠で絞り開放にし、檻や柵にレンズを近づけるとボケて消える",
+        "X-T3 の顔・瞳検出は人向け。動物はシングルポイント AF を小さくして瞳に合わせる",
+        "動く動物は AF-C とシャッター 1/500 秒以上。暗い屋内展示はオート ISO で",
+        "フラッシュは使わない。ガラス越しは映り込みに注意する"
+      ],
+      "lessons": [4, 7, 33]
+    },
+    {
+      "id": "aquarium", "name": "水族館", "icon": "水", "color": "#0ea5e9", "group": "osm",
+      "recipe": { "name": "水族館 — 水槽ブルー", "filmSim": "provia", "dr": "auto", "grain": "off", "colorChrome": "off", "wb": { "mode": "kelvin", "kelvin": 7000 }, "wbShift": { "r": 1, "b": -1 }, "highlight": -1, "shadow": -1, "color": 1, "sharpness": 0, "nr": 0, "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["水族館", "高感度"] },
+      "tips": [
+        "暗いので高 ISO（1600〜6400）と明るい単焦点。シャッターは 1/125 秒以上",
+        "フラッシュは禁止。AF 補助光もオフにする",
+        "レンズをガラスに近づける（ラバーフードを当てる）と、館内の映り込みが消える",
+        "水槽の照明に合わせて WB を K で決める（青を残すなら低め、自然な色なら高め）"
+      ],
+      "lessons": [6, 19, 21]
+    },
+    {
+      "id": "botanical", "name": "植物園", "icon": "植", "color": "#10b981", "group": "osm",
+      "recipe": { "name": "植物園 — 柔らかな緑", "filmSim": "astia", "dr": "dr200", "grain": "off", "colorChrome": "weak", "wb": { "mode": "auto" }, "wbShift": { "r": 1, "b": -1 }, "highlight": -1, "shadow": -1, "color": 1, "sharpness": -1, "nr": -2, "isoNote": "ISO 320〜800", "exposureNote": "+1/3EV", "tags": ["花", "マクロ"] },
+      "tips": [
+        "曇りの日の柔らかい光は花の色が素直に出る",
+        "手前の花を前ボケにして、主役の花を中景に置く",
+        "温室はレンズが曇るので、入ってしばらく待ってから撮る",
+        "通路から外れず、植物に触れない"
+      ],
+      "lessons": [4, 12, 16]
+    },
+    {
+      "id": "onsen", "name": "温泉街", "icon": "湯", "color": "#f97316", "group": "osm",
+      "recipe": { "name": "温泉街 — 湯けむりの灯", "filmSim": "eterna", "dr": "dr400", "grain": "weak", "colorChrome": "weak", "wb": { "mode": "kelvin", "kelvin": 4300 }, "wbShift": { "r": 2, "b": -2 }, "highlight": -1, "shadow": 1, "color": 1, "sharpness": -1, "nr": -3, "isoNote": "ISO 1600〜6400", "exposureNote": "-1/3EV", "tags": ["温泉", "夜"] },
+      "tips": [
+        "湯けむりは逆光や街灯の光で浮かび上がる。暗い背景を選ぶ",
+        "ブルーアワーに灯りが点くと、空の青と提灯の橙が対比になる",
+        "浴場・脱衣所の近くではカメラを出さない",
+        "浴衣の人を撮るときは必ず声をかける"
+      ],
+      "lessons": [13, 42, 45]
+    },
+    {
+      "id": "observatory", "name": "展望台", "icon": "展", "color": "#8b5cf6", "group": "osm",
+      "recipe": { "name": "展望台 — 都市の夕景", "filmSim": "classic-chrome", "dr": "dr400", "grain": "off", "colorChrome": "strong", "wb": { "mode": "kelvin", "kelvin": 5000 }, "wbShift": { "r": -1, "b": 1 }, "highlight": -2, "shadow": 1, "color": 1, "sharpness": 1, "nr": -2, "isoNote": "ISO 640〜3200", "exposureNote": "-2/3EV", "tags": ["夜景", "展望"] },
+      "tips": [
+        "ガラス越しはレンズをガラスに付け、黒い服で映り込みを防ぐ",
+        "日没 20〜30 分後のブルーアワーが、空と街の灯りの釣り合いがよい",
+        "広角は端が伸びるので、水平・垂直をグリッドで合わせる",
+        "三脚禁止の展望台が多い。手すりにカメラを押し当てて固定する"
+      ],
+      "lessons": [13, 19, 31]
+    },
+    {
+      "id": "beach", "name": "砂浜・海岸", "icon": "浜", "color": "#eab308", "group": "osm",
+      "recipe": { "name": "海岸 — 夏の光", "filmSim": "pro-neg-hi", "dr": "dr400", "grain": "weak", "colorChrome": "weak", "wb": { "mode": "daylight" }, "wbShift": { "r": 1, "b": -2 }, "highlight": -2, "shadow": 0, "color": 1, "sharpness": 0, "nr": -2, "isoNote": "ISO 640", "exposureNote": "-1/3EV", "tags": ["海", "夏"] },
+      "tips": [
+        "砂と海面の照り返しで白飛びしやすい。DR400 とハイライト -2",
+        "水平線は傾けない。三分割で空と海の比率を決める",
+        "逆光の波打ち際は、きらめきを玉ボケにできる",
+        "砂と潮風はカメラの大敵。レンズ交換は風下で手早く"
+      ],
+      "lessons": [11, 14, 24]
+    },
+    {
+      "id": "viewpoint", "name": "絶景", "icon": "景", "color": "#06b6d4", "group": "osm",
+      "recipe": { "name": "絶景 — 深い空", "filmSim": "velvia", "dr": "dr200", "grain": "off", "colorChrome": "strong", "wb": { "mode": "daylight" }, "wbShift": { "r": 0, "b": 0 }, "highlight": -1, "shadow": 0, "color": 1, "sharpness": 1, "nr": -2, "isoNote": "ISO 320", "exposureNote": "-1/3EV", "tags": ["風景"] },
+      "tips": [
+        "朝夕のゴールデンアワーに、光が斜めから入る向きで撮る",
+        "前景（岩・木・人）を入れると、広角でもスケール感が出る",
+        "CPL で空の青と雲の立体感を出す（広角では空のムラに注意）",
+        "柵の外や立入禁止の場所には入らない"
+      ],
+      "lessons": [13, 16, 37]
+    }
+  ]
+}

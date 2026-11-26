@@ -9,7 +9,7 @@
 ## 絶対に守るルール
 1. **ビルド不要**：Vanilla JS（ES Modules）＋素の CSS。npm ビルド・バンドラー・Tailwind・フレームワークは入れない。
 2. **完全オフライン**：CDN・Web フォント・地図タイル・外部 API など外部ドメインへの通信は禁止。ライブラリは `vendor/`、データは `data/` に同梱する（街路地図 `data/streets/` とロケ地写真 `data/photos/` も同じオリジンから配信し、Cache Storage に保存して使う）。
-   - 外部 URL を書いてよいのは `data/locations.json` の `sources`（出典）・`links`（映画.com／予告編／Wikipedia）・`photo`（写真のクレジット）だけ。アプリはこれらに通信せず、ユーザーがタップしたときに外部ブラウザで開くだけ（`target="_blank" rel="noopener noreferrer"`）。
+   - 外部 URL を書いてよいのは `data/locations.json` の `sources`（出典）・`links`（映画.com／予告編／Wikipedia）・`photo`（写真のクレジット）と、`data/spots/*.json` の `sources`（出典）・`website`（OSM の公式サイト）だけ。アプリはこれらに通信せず、ユーザーがタップしたときに外部ブラウザで開くだけ（`target="_blank" rel="noopener noreferrer"`）。
 3. **ユーザーの画像は保存しない**：ユーザーがアップロード・選択した画像（解析画像など）はメモリ上（Canvas）だけで扱い、localStorage / IndexedDB / Cache に書かない。保存してよいのは解析結果の数値（レシピ・代表色など）だけ。
    - アプリに同梱する自由ライセンスのロケ地写真（`data/photos/`、Wikimedia Commons の CC0 / パブリックドメイン / CC BY / CC BY-SA）はこのルールの対象外。表示するときは必ず撮影者・ライセンス・Wikimedia Commons のクレジットを添える。
 4. **保存は localStorage のみ**：キーは `xt3cine:` 接頭辞（本体は `xt3cine:db`）。スキーマを変えるときは `js/store.js` に移行処理を書き、バージョンを上げる。エクスポート/インポートとの互換性を保つ。
@@ -18,10 +18,10 @@
 7. **スマホ縦画面優先**（375px 幅で崩れないこと）。デザインはダーク基調（#0a0a0a / #1a1a1a / 境界線 #2a2a2a / 文字 #f3f4f6・#9ca3af / アクセント #f59e0b）、数値はすべて等幅フォント（`.num`）。ライトテーマも維持する。
 
 ## 変更したら毎回やること
-- アプリのファイルを変えたら `sw.js` の `CACHE_VERSION` を上げる。ファイルを追加・削除したら `sw.js` の `ASSETS` も更新する（`data/streets/` の街路データと `data/photos/` の写真は ASSETS に入れない）。
+- アプリのファイルを変えたら `sw.js` の `CACHE_VERSION` を上げる。ファイルを追加・削除したら `sw.js` の `ASSETS` も更新する（`data/streets/` の街路データ・`data/photos/` の写真・`data/spots/` の撮影スポットは ASSETS に入れない）。
 - テストを全部通す：
   ```sh
-  node tests/analyzer.test.mjs && node tests/map.test.mjs && node tests/lessons.test.mjs && node tests/sw.test.mjs && node tests/streets.test.mjs && node tests/photos.test.mjs && node tests/film.test.mjs && node tests/locations.test.mjs && node tests/exif.test.mjs && node tests/similar.test.mjs && node tests/calibration.test.mjs
+  node tests/analyzer.test.mjs && node tests/map.test.mjs && node tests/lessons.test.mjs && node tests/sw.test.mjs && node tests/streets.test.mjs && node tests/photos.test.mjs && node tests/film.test.mjs && node tests/locations.test.mjs && node tests/exif.test.mjs && node tests/similar.test.mjs && node tests/calibration.test.mjs && node tests/spots.test.mjs
   ```
 - ロジックを足したら対応するテストも足す。
 - 作業はブランチで行い、終わったら変更内容を日本語で報告して止まる（main へのマージは私が確認してから）。
@@ -60,13 +60,21 @@
 - `scripts/build-natural-earth.sh` Natural Earth データの再生成 / `scripts/extract-streets.sh` 街路データの切り出し（`streets: true` のロケ地だけ、半径約 1km・ズーム 10〜15。合計が 500MB を超えそうなら止まる。ロケ地を増やしたら再実行。要 pmtiles CLI と build.protomaps.com への接続）
 - `.github/workflows/extract-streets.yml`（街路データを生成）・`.github/workflows/fetch-photos.yml`（ロケ地写真を取得）: `data/locations.json` を変えた push と手動実行で動き、`github-actions[bot]` が `data/streets/`・`data/photos/` をコミットする（これらだけの変更では動かない）。95MB を超えるファイルがあれば失敗。サイズは Summary に出る
 - `scripts/fetch-photos.mjs` 写真の取得: Commons API でライセンスを再確認（許可外が 1 件でもあれば何もせず失敗）、長辺 1000px・WebP 品質 75。429 は再試行し、取得できた分だけでもコミットして次回は続きから。任意でリポジトリ変数 `WIKIMEDIA_CONTACT` を User-Agent に付ける
-- 設定 `settings.streetsAuto === false` で街路地図と写真の自動ダウンロードをオフ（未設定 = オン）
+- 設定 `settings.streetsAuto === false` で街路地図と写真の自動ダウンロードをオフ（未設定 = オン。撮影スポットは precache なら SW が保存するので影響しない）
+- 日本の撮影スポット: `js/spots.js`（DOM 非依存の検証・`dedupeSpots`・`filterSpots`・`nearest`・`inBounds`・`completion`、日本の範囲 `inJapan` は多角形 + 離島の矩形）・`js/views/spot.js`（`#/spots/<id>` 詳細）・`js/views/spots.js`（`#/spots` 制覇率）
+  - カテゴリ: `data/spot-categories.json`（並び順 = 重複時の優先度。名前・1 文字のアイコン・色・おすすめレシピ（xt3.js の範囲。source `spot`・sourceRef = カテゴリ）・コツ 3〜5 行・講座）。Qメニューは保存しなくても `#/qmenu/spot-<カテゴリ>` で開ける
+  - データ: `data/spots/<カテゴリ>.json`（`{ id, category, name, lat, lng, pref, city, source（osm / jyudenken / tanada100 / curated）, osmId, sources, website, note, verified?, alsoIn? }`）・`index.json`（sha256・件数・`precache` = 合計 5MB 以下）・`report.md`・`LICENSE`（ODbL）。Cache Storage `xt3cine-spots`（precache なら SW のインストール時、そうでなければ bgdownload で裏で）
+  - 生成: `.github/workflows/fetch-spots.yml`（手動 + 月 1 回）→ `scripts/fetch-spots.mjs`（Overpass で都道府県ごと。タグの判定は `scripts/spots-osm.mjs`）→ `scripts/validate-spots.mjs`。公的リスト・厳選の元は `scripts/spot-lists/`（`match` = OSM と照合する名前、`approx` = 探索の中心）。照合できなかったものは概略座標のまま `verified: false`（詳細画面に注記）。ネットワークなしでは `--offline`
+  - 地図: 表示モード `settings.mapMode`（films / spots / all）・カテゴリの選択 `settings.spotCats`（未設定 = 全選択）。スポットのピンとクラスタは Canvas の `L.SpotMarker`（角丸の四角 + 1 文字）。カテゴリごとにクラスタ、ズームごとにキャッシュ、表示範囲の外は描かない。都道府県の絞り込みは撮影スポットだけ（ロケ地は都道府県を持たない）
+  - 「行った」はロケ地と同じ `visited`（ID が重ならない形式: osm-n… / shrine-… / jyudenken-… / tanada-…）
 
 ## 作品情報の調べ方（追加・更新するとき）
 - 1 作品ずつ検索し（例:「映画.com <邦題> <年> 撮影 キャスト 役名 配給」）、出典に書いてあることだけを使う。映画.com の URL は、そのページのタイトルと製作年が一致すると確認できたときだけ（eiga.com の製作年が違う・候補が複数ならnull）
 - 写真は Commons のファイルページで撮影者とライセンスを確かめてから。GFDL のみ・NC/ND は不可（GFDL と CC BY-SA の併記は可。ワークフローがカテゴリーから判定する）
 
 ## 未確認事項
+- 撮影スポットの元リスト（`scripts/spot-lists/`）は外部に接続できない環境で作った。重伝建の一覧（124 件。公式は約 130 件）・棚田百選（35 件のみ。全 134 地区）・神社仏閣の選定理由と出典 URL は公式の一覧で確認して直す。座標はワークフローで OSM と照合するまで概略
+- 星空スポットは、使える公的リスト（環境省）を確認できていないのでカテゴリを作っていない
 - JPEG の MakerNote の対応で【要確認】のもの（実機のサンプルで確かめたら `js/exif.js` とここを直す。`tests/fixtures/README.md` の表）:
   - WB シフト（WhiteBalanceFineTune 0x100A）の記録値 → 表示値の換算（今は ÷20。`WB_SHIFT.confirmed = false`）と R/B の順番
   - DR（DynamicRangeSetting 0x1402 = 1 + DevelopmentDynamicRange 0x1403 = 100/200/400 で DR100/200/400 になるか。0x100 の扱い）

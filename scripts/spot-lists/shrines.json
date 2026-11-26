@@ -1,0 +1,224 @@
+{
+ "listName": "有名な神社仏閣（手作業で選定）",
+ "listUrl": "https://kunishitei.bunka.go.jp/",
+ "category": "shrine",
+ "source": "curated",
+ "criteria": "国宝の建造物（彫刻を含む）がある寺社 / 世界遺産の構成資産 / 参拝者数や知名度で全国的に有名なもの。1 都道府県に偏りすぎないよう、少ない県は知名度で補った。",
+ "caution": "外部サイトに接続できない環境で作成した。選定理由（国宝・世界遺産・重要文化財の別）と出典 URL は、国指定文化財等データベース（kunishitei.bunka.go.jp）・ユネスコ世界遺産センターで確認して直すこと。approx は OpenStreetMap と照合するときの探索の中心（概略）。",
+ "entries": [
+  { "id": "shrine-001", "name": "北海道神宮", "pref": "北海道", "city": "札幌市", "match": [ "北海道神宮" ], "approx": [ 43.0545, 141.308 ], "note": "全国的に有名（北海道の総鎮守・初詣の参拝者が道内最多）", "sources": [ "https://www.hokkaidojingu.or.jp/" ]
+  },
+  { "id": "shrine-002", "name": "岩木山神社", "pref": "青森県", "city": "弘前市", "match": [ "岩木山神社" ], "approx": [ 40.644, 140.331 ], "note": "全国的に有名（津軽の総鎮守。社殿は重要文化財）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-003", "name": "中尊寺", "pref": "岩手県", "city": "平泉町", "match": [ "中尊寺" ], "approx": [ 39.001, 141.099 ], "note": "世界遺産「平泉」の構成資産・国宝の金色堂", "sources": [ "https://whc.unesco.org/en/list/1277", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-004", "name": "大崎八幡宮", "pref": "宮城県", "city": "仙台市", "match": [ "大崎八幡宮" ], "approx": [ 38.277, 140.846 ], "note": "国宝の社殿（本殿・石の間・拝殿）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-005", "name": "瑞巌寺", "pref": "宮城県", "city": "松島町", "match": [ "瑞巌寺" ], "approx": [ 38.371, 141.06 ], "note": "国宝の本堂・庫裏", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-006", "name": "太平山三吉神社", "pref": "秋田県", "city": "秋田市", "match": [ "太平山三吉神社", "三吉神社" ], "approx": [ 39.728, 140.167 ], "note": "全国的に有名（三吉神社の総本宮。梵天奉納）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-007", "name": "立石寺（山寺）", "pref": "山形県", "city": "山形市", "match": [ "立石寺", "山寺" ], "approx": [ 38.312, 140.437 ], "note": "全国的に有名（松尾芭蕉の句で知られる山寺。根本中堂は重要文化財）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-008", "name": "出羽三山神社（羽黒山）", "pref": "山形県", "city": "鶴岡市", "match": [ "出羽三山神社", "羽黒山五重塔", "出羽神社" ], "approx": [ 38.702, 139.984 ], "note": "国宝の羽黒山五重塔", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-009", "name": "白水阿弥陀堂", "pref": "福島県", "city": "いわき市", "match": [ "白水阿弥陀堂", "願成寺" ], "approx": [ 37.056, 140.858 ], "note": "国宝の阿弥陀堂", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-010", "name": "鹿島神宮", "pref": "茨城県", "city": "鹿嶋市", "match": [ "鹿島神宮" ], "approx": [ 35.969, 140.631 ], "note": "全国的に有名（常陸国一宮・東国三社。社殿は重要文化財）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-011", "name": "日光東照宮", "pref": "栃木県", "city": "日光市", "match": [ "日光東照宮", "東照宮" ], "approx": [ 36.758, 139.599 ], "note": "世界遺産「日光の社寺」・国宝の陽明門ほか", "sources": [ "https://whc.unesco.org/en/list/913", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-012", "name": "日光山輪王寺", "pref": "栃木県", "city": "日光市", "match": [ "輪王寺", "大猷院" ], "approx": [ 36.756, 139.596 ], "note": "世界遺産「日光の社寺」・国宝の大猷院", "sources": [ "https://whc.unesco.org/en/list/913", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-013", "name": "榛名神社", "pref": "群馬県", "city": "高崎市", "match": [ "榛名神社" ], "approx": [ 36.459, 138.85 ], "note": "全国的に有名（巨岩と杉並木の参道。社殿は重要文化財）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-014", "name": "武蔵一宮 氷川神社", "pref": "埼玉県", "city": "さいたま市", "match": [ "氷川神社" ], "approx": [ 35.916, 139.63 ], "note": "全国的に有名（初詣の参拝者が多い武蔵国一宮）", "sources": [ "https://musashiichinomiya-hikawa.or.jp/" ]
+  },
+  { "id": "shrine-015", "name": "成田山新勝寺", "pref": "千葉県", "city": "成田市", "match": [ "新勝寺", "成田山新勝寺" ], "approx": [ 35.786, 140.318 ], "note": "全国的に有名（初詣の参拝者が全国有数。三重塔などは重要文化財）", "sources": [ "https://www.naritasan.or.jp/" ]
+  },
+  { "id": "shrine-016", "name": "香取神宮", "pref": "千葉県", "city": "香取市", "match": [ "香取神宮" ], "approx": [ 35.886, 140.528 ], "note": "全国的に有名（下総国一宮・東国三社。本殿は重要文化財）", "sources": [ "https://katori-jingu.or.jp/" ]
+  },
+  { "id": "shrine-017", "name": "浅草寺", "pref": "東京都", "city": "台東区", "match": [ "浅草寺" ], "approx": [ 35.7148, 139.7967 ], "note": "全国的に有名（都内最古の寺とされ、参拝者数が全国有数）", "sources": [ "https://www.senso-ji.jp/" ]
+  },
+  { "id": "shrine-018", "name": "明治神宮", "pref": "東京都", "city": "渋谷区", "match": [ "明治神宮" ], "approx": [ 35.6764, 139.6993 ], "note": "全国的に有名（初詣の参拝者が全国最多級。社殿は重要文化財）", "sources": [ "https://www.meijijingu.or.jp/" ]
+  },
+  { "id": "shrine-019", "name": "高尾山薬王院", "pref": "東京都", "city": "八王子市", "match": [ "薬王院", "高尾山薬王院" ], "approx": [ 35.626, 139.25 ], "note": "全国的に有名（登山者・参拝者の多い高尾山の寺）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-020", "name": "鶴岡八幡宮", "pref": "神奈川県", "city": "鎌倉市", "match": [ "鶴岡八幡宮" ], "approx": [ 35.326, 139.556 ], "note": "全国的に有名（鎌倉の象徴。若宮は重要文化財）", "sources": [ "https://www.hachimangu.or.jp/" ]
+  },
+  { "id": "shrine-021", "name": "円覚寺", "pref": "神奈川県", "city": "鎌倉市", "match": [ "円覚寺" ], "approx": [ 35.337, 139.548 ], "note": "国宝の舎利殿", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-022", "name": "高徳院（鎌倉大仏）", "pref": "神奈川県", "city": "鎌倉市", "match": [ "高徳院", "鎌倉大仏" ], "approx": [ 35.317, 139.536 ], "note": "国宝の銅造阿弥陀如来坐像（鎌倉大仏）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-023", "name": "彌彦神社", "pref": "新潟県", "city": "弥彦村", "match": [ "彌彦神社", "弥彦神社" ], "approx": [ 37.705, 138.824 ], "note": "全国的に有名（越後国一宮。初詣の参拝者が県内最多級）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-024", "name": "瑞龍寺", "pref": "富山県", "city": "高岡市", "match": [ "瑞龍寺" ], "approx": [ 36.733, 137.013 ], "note": "国宝の仏殿・法堂・山門", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-025", "name": "那谷寺", "pref": "石川県", "city": "小松市", "match": [ "那谷寺" ], "approx": [ 36.323, 136.443 ], "note": "全国的に有名（奇岩の境内。本殿などは重要文化財）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-026", "name": "白山比咩神社", "pref": "石川県", "city": "白山市", "match": [ "白山比咩神社" ], "approx": [ 36.44, 136.625 ], "note": "全国的に有名（全国の白山神社の総本宮）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-027", "name": "大本山永平寺", "pref": "福井県", "city": "永平寺町", "match": [ "永平寺" ], "approx": [ 36.055, 136.355 ], "note": "全国的に有名（曹洞宗の大本山）", "sources": [ "https://daihonzan-eiheiji.com/" ]
+  },
+  { "id": "shrine-028", "name": "明通寺", "pref": "福井県", "city": "小浜市", "match": [ "明通寺" ], "approx": [ 35.466, 135.787 ], "note": "国宝の本堂・三重塔", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-029", "name": "身延山久遠寺", "pref": "山梨県", "city": "身延町", "match": [ "久遠寺" ], "approx": [ 35.377, 138.423 ], "note": "全国的に有名（日蓮宗の総本山。しだれ桜）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-030", "name": "清白寺", "pref": "山梨県", "city": "甲州市", "match": [ "清白寺" ], "approx": [ 35.692, 138.699 ], "note": "国宝の仏殿", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-031", "name": "北口本宮冨士浅間神社", "pref": "山梨県", "city": "富士吉田市", "match": [ "北口本宮冨士浅間神社" ], "approx": [ 35.478, 138.793 ], "note": "世界遺産「富士山」の構成資産", "sources": [ "https://whc.unesco.org/en/list/1418" ]
+  },
+  { "id": "shrine-032", "name": "善光寺", "pref": "長野県", "city": "長野市", "match": [ "善光寺" ], "approx": [ 36.661, 138.188 ], "note": "国宝の本堂", "sources": [ "https://www.zenkoji.jp/", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-033", "name": "安楽寺", "pref": "長野県", "city": "上田市", "match": [ "安楽寺" ], "approx": [ 36.353, 138.205 ], "note": "国宝の八角三重塔", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-034", "name": "諏訪大社 上社本宮", "pref": "長野県", "city": "諏訪市", "match": [ "諏訪大社上社本宮", "上社本宮" ], "approx": [ 35.999, 138.119 ], "note": "全国的に有名（全国の諏訪神社の総本社。御柱祭）", "sources": [ "https://suwataisha.or.jp/" ]
+  },
+  { "id": "shrine-035", "name": "虎渓山永保寺", "pref": "岐阜県", "city": "多治見市", "match": [ "永保寺" ], "approx": [ 35.333, 137.115 ], "note": "国宝の観音堂・開山堂", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-036", "name": "富士山本宮浅間大社", "pref": "静岡県", "city": "富士宮市", "match": [ "富士山本宮浅間大社" ], "approx": [ 35.224, 138.61 ], "note": "世界遺産「富士山」の構成資産・全国の浅間神社の総本宮", "sources": [ "https://whc.unesco.org/en/list/1418" ]
+  },
+  { "id": "shrine-037", "name": "久能山東照宮", "pref": "静岡県", "city": "静岡市", "match": [ "久能山東照宮" ], "approx": [ 34.967, 138.469 ], "note": "国宝の社殿", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-038", "name": "熱田神宮", "pref": "愛知県", "city": "名古屋市", "match": [ "熱田神宮" ], "approx": [ 35.128, 136.909 ], "note": "全国的に有名（参拝者数が全国有数）", "sources": [ "https://www.atsutajingu.or.jp/" ]
+  },
+  { "id": "shrine-039", "name": "豊川稲荷（妙厳寺）", "pref": "愛知県", "city": "豊川市", "match": [ "豊川稲荷", "妙厳寺" ], "approx": [ 34.827, 137.392 ], "note": "全国的に有名（日本三大稲荷の一つとされる）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-040", "name": "伊勢神宮 内宮（皇大神宮）", "pref": "三重県", "city": "伊勢市", "match": [ "皇大神宮", "内宮" ], "approx": [ 34.455, 136.725 ], "note": "全国的に有名（参拝者数が全国最多級）", "sources": [ "https://www.isejingu.or.jp/" ]
+  },
+  { "id": "shrine-041", "name": "伊勢神宮 外宮（豊受大神宮）", "pref": "三重県", "city": "伊勢市", "match": [ "豊受大神宮", "外宮" ], "approx": [ 34.487, 136.703 ], "note": "全国的に有名（伊勢神宮の外宮）", "sources": [ "https://www.isejingu.or.jp/" ]
+  },
+  { "id": "shrine-042", "name": "比叡山延暦寺", "pref": "滋賀県", "city": "大津市", "match": [ "延暦寺", "根本中堂" ], "approx": [ 35.07, 135.841 ], "note": "世界遺産「古都京都の文化財」・国宝の根本中堂", "sources": [ "https://whc.unesco.org/en/list/688", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-043", "name": "石山寺", "pref": "滋賀県", "city": "大津市", "match": [ "石山寺" ], "approx": [ 34.96, 135.906 ], "note": "国宝の本堂・多宝塔", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-044", "name": "園城寺（三井寺）", "pref": "滋賀県", "city": "大津市", "match": [ "園城寺", "三井寺" ], "approx": [ 35.013, 135.853 ], "note": "国宝の金堂・新羅善神堂", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-045", "name": "西明寺", "pref": "滋賀県", "city": "甲良町", "match": [ "西明寺" ], "approx": [ 35.165, 136.293 ], "note": "国宝の本堂・三重塔", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-046", "name": "清水寺", "pref": "京都府", "city": "京都市", "match": [ "清水寺" ], "approx": [ 34.9949, 135.785 ], "note": "世界遺産「古都京都の文化財」・国宝の本堂", "sources": [ "https://whc.unesco.org/en/list/688", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-047", "name": "鹿苑寺（金閣寺）", "pref": "京都府", "city": "京都市", "match": [ "鹿苑寺", "金閣寺" ], "approx": [ 35.0394, 135.7292 ], "note": "世界遺産「古都京都の文化財」", "sources": [ "https://whc.unesco.org/en/list/688" ]
+  },
+  { "id": "shrine-048", "name": "慈照寺（銀閣寺）", "pref": "京都府", "city": "京都市", "match": [ "慈照寺", "銀閣寺" ], "approx": [ 35.027, 135.7982 ], "note": "世界遺産「古都京都の文化財」・国宝の銀閣・東求堂", "sources": [ "https://whc.unesco.org/en/list/688", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-049", "name": "伏見稲荷大社", "pref": "京都府", "city": "京都市", "match": [ "伏見稲荷大社" ], "approx": [ 34.9671, 135.7727 ], "note": "全国的に有名（全国の稲荷神社の総本宮・千本鳥居）", "sources": [ "https://inari.jp/" ]
+  },
+  { "id": "shrine-050", "name": "東寺（教王護国寺）", "pref": "京都府", "city": "京都市", "match": [ "東寺", "教王護国寺" ], "approx": [ 34.9806, 135.7478 ], "note": "世界遺産「古都京都の文化財」・国宝の五重塔ほか", "sources": [ "https://whc.unesco.org/en/list/688", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-051", "name": "醍醐寺", "pref": "京都府", "city": "京都市", "match": [ "醍醐寺" ], "approx": [ 34.9512, 135.8192 ], "note": "世界遺産「古都京都の文化財」・国宝の五重塔ほか", "sources": [ "https://whc.unesco.org/en/list/688", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-052", "name": "賀茂御祖神社（下鴨神社）", "pref": "京都府", "city": "京都市", "match": [ "賀茂御祖神社", "下鴨神社" ], "approx": [ 35.039, 135.7728 ], "note": "世界遺産「古都京都の文化財」・国宝の本殿", "sources": [ "https://whc.unesco.org/en/list/688", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-053", "name": "賀茂別雷神社（上賀茂神社）", "pref": "京都府", "city": "京都市", "match": [ "賀茂別雷神社", "上賀茂神社" ], "approx": [ 35.0601, 135.7525 ], "note": "世界遺産「古都京都の文化財」・国宝の本殿・権殿", "sources": [ "https://whc.unesco.org/en/list/688", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-054", "name": "蓮華王院（三十三間堂）", "pref": "京都府", "city": "京都市", "match": [ "三十三間堂", "蓮華王院" ], "approx": [ 34.9879, 135.7718 ], "note": "国宝の本堂", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-055", "name": "知恩院", "pref": "京都府", "city": "京都市", "match": [ "知恩院" ], "approx": [ 35.0055, 135.7835 ], "note": "国宝の御影堂・三門", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-056", "name": "八坂神社", "pref": "京都府", "city": "京都市", "match": [ "八坂神社" ], "approx": [ 35.0036, 135.7785 ], "note": "国宝の本殿", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-057", "name": "北野天満宮", "pref": "京都府", "city": "京都市", "match": [ "北野天満宮" ], "approx": [ 35.0312, 135.7351 ], "note": "国宝の本殿・石の間・拝殿・楽の間", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-058", "name": "平等院", "pref": "京都府", "city": "宇治市", "match": [ "平等院" ], "approx": [ 34.8893, 135.8077 ], "note": "世界遺産「古都京都の文化財」・国宝の鳳凰堂", "sources": [ "https://whc.unesco.org/en/list/688", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-059", "name": "宇治上神社", "pref": "京都府", "city": "宇治市", "match": [ "宇治上神社" ], "approx": [ 34.8925, 135.8106 ], "note": "世界遺産「古都京都の文化財」・国宝の本殿・拝殿", "sources": [ "https://whc.unesco.org/en/list/688", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-060", "name": "浄瑠璃寺", "pref": "京都府", "city": "木津川市", "match": [ "浄瑠璃寺" ], "approx": [ 34.715, 135.873 ], "note": "国宝の本堂・三重塔", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-061", "name": "東大寺", "pref": "奈良県", "city": "奈良市", "match": [ "東大寺" ], "approx": [ 34.689, 135.8398 ], "note": "世界遺産「古都奈良の文化財」・国宝の大仏殿ほか", "sources": [ "https://whc.unesco.org/en/list/870", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-062", "name": "興福寺", "pref": "奈良県", "city": "奈良市", "match": [ "興福寺" ], "approx": [ 34.683, 135.8318 ], "note": "世界遺産「古都奈良の文化財」・国宝の五重塔・東金堂", "sources": [ "https://whc.unesco.org/en/list/870", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-063", "name": "春日大社", "pref": "奈良県", "city": "奈良市", "match": [ "春日大社" ], "approx": [ 34.6813, 135.8484 ], "note": "世界遺産「古都奈良の文化財」・国宝の本社本殿", "sources": [ "https://whc.unesco.org/en/list/870", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-064", "name": "薬師寺", "pref": "奈良県", "city": "奈良市", "match": [ "薬師寺" ], "approx": [ 34.6684, 135.7843 ], "note": "世界遺産「古都奈良の文化財」・国宝の東塔", "sources": [ "https://whc.unesco.org/en/list/870", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-065", "name": "法隆寺", "pref": "奈良県", "city": "斑鳩町", "match": [ "法隆寺" ], "approx": [ 34.6143, 135.7344 ], "note": "世界遺産「法隆寺地域の仏教建造物」・国宝の金堂・五重塔ほか", "sources": [ "https://whc.unesco.org/en/list/660", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-066", "name": "長谷寺", "pref": "奈良県", "city": "桜井市", "match": [ "長谷寺" ], "approx": [ 34.5361, 135.9068 ], "note": "国宝の本堂", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-067", "name": "室生寺", "pref": "奈良県", "city": "宇陀市", "match": [ "室生寺" ], "approx": [ 34.541, 136.043 ], "note": "国宝の金堂・五重塔", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-068", "name": "金峯山寺", "pref": "奈良県", "city": "吉野町", "match": [ "金峯山寺", "蔵王堂" ], "approx": [ 34.369, 135.858 ], "note": "世界遺産「紀伊山地の霊場と参詣道」・国宝の本堂（蔵王堂）", "sources": [ "https://whc.unesco.org/en/list/1142", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-069", "name": "住吉大社", "pref": "大阪府", "city": "大阪市", "match": [ "住吉大社" ], "approx": [ 34.6129, 135.493 ], "note": "国宝の本殿", "sources": [ "https://www.sumiyoshitaisha.net/", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-070", "name": "四天王寺", "pref": "大阪府", "city": "大阪市", "match": [ "四天王寺" ], "approx": [ 34.654, 135.516 ], "note": "全国的に有名（聖徳太子の創建と伝わる）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-071", "name": "書寫山圓教寺", "pref": "兵庫県", "city": "姫路市", "match": [ "圓教寺", "円教寺", "書写山圓教寺" ], "approx": [ 34.892, 134.663 ], "note": "全国的に有名（西国三十三所。大講堂などは重要文化財）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-072", "name": "浄土寺（播磨）", "pref": "兵庫県", "city": "小野市", "match": [ "浄土寺" ], "approx": [ 34.868, 134.953 ], "note": "国宝の浄土堂", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-073", "name": "熊野本宮大社", "pref": "和歌山県", "city": "田辺市", "match": [ "熊野本宮大社" ], "approx": [ 33.84, 135.774 ], "note": "世界遺産「紀伊山地の霊場と参詣道」", "sources": [ "https://whc.unesco.org/en/list/1142" ]
+  },
+  { "id": "shrine-074", "name": "熊野那智大社・青岸渡寺", "pref": "和歌山県", "city": "那智勝浦町", "match": [ "熊野那智大社", "青岸渡寺" ], "approx": [ 33.669, 135.89 ], "note": "世界遺産「紀伊山地の霊場と参詣道」", "sources": [ "https://whc.unesco.org/en/list/1142" ]
+  },
+  { "id": "shrine-075", "name": "金剛峯寺（高野山）", "pref": "和歌山県", "city": "高野町", "match": [ "金剛峯寺", "壇上伽藍" ], "approx": [ 34.213, 135.584 ], "note": "世界遺産「紀伊山地の霊場と参詣道」・国宝の不動堂", "sources": [ "https://whc.unesco.org/en/list/1142", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-076", "name": "根来寺", "pref": "和歌山県", "city": "岩出市", "match": [ "根来寺" ], "approx": [ 34.286, 135.317 ], "note": "国宝の大塔", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-077", "name": "三徳山三佛寺", "pref": "鳥取県", "city": "三朝町", "match": [ "三佛寺", "投入堂" ], "approx": [ 35.4, 133.96 ], "note": "国宝の奥院（投入堂）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-078", "name": "出雲大社", "pref": "島根県", "city": "出雲市", "match": [ "出雲大社" ], "approx": [ 35.402, 132.6855 ], "note": "国宝の本殿", "sources": [ "https://izumooyashiro.or.jp/", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-079", "name": "神魂神社", "pref": "島根県", "city": "松江市", "match": [ "神魂神社" ], "approx": [ 35.429, 133.105 ], "note": "国宝の本殿", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-080", "name": "吉備津神社", "pref": "岡山県", "city": "岡山市", "match": [ "吉備津神社" ], "approx": [ 34.672, 133.851 ], "note": "国宝の本殿・拝殿", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-081", "name": "厳島神社", "pref": "広島県", "city": "廿日市市", "match": [ "厳島神社" ], "approx": [ 34.2959, 132.3199 ], "note": "世界遺産「厳島神社」・国宝の本社本殿ほか", "sources": [ "https://whc.unesco.org/en/list/776", "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-082", "name": "明王院", "pref": "広島県", "city": "福山市", "match": [ "明王院" ], "approx": [ 34.487, 133.346 ], "note": "国宝の本堂・五重塔", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-083", "name": "浄土寺（尾道）", "pref": "広島県", "city": "尾道市", "match": [ "浄土寺" ], "approx": [ 34.411, 133.216 ], "note": "国宝の本堂・多宝塔", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-084", "name": "瑠璃光寺", "pref": "山口県", "city": "山口市", "match": [ "瑠璃光寺" ], "approx": [ 34.191, 131.473 ], "note": "国宝の五重塔", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-085", "name": "住吉神社（長門国一宮）", "pref": "山口県", "city": "下関市", "match": [ "住吉神社" ], "approx": [ 34.043, 130.952 ], "note": "国宝の本殿", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-086", "name": "霊山寺（四国八十八ヶ所 第一番）", "pref": "徳島県", "city": "鳴門市", "match": [ "霊山寺" ], "approx": [ 34.159, 134.503 ], "note": "全国的に有名（四国遍路の一番札所）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-087", "name": "金刀比羅宮", "pref": "香川県", "city": "琴平町", "match": [ "金刀比羅宮" ], "approx": [ 34.184, 133.81 ], "note": "全国的に有名（「こんぴらさん」の長い石段）", "sources": [ "https://www.konpira.or.jp/" ]
+  },
+  { "id": "shrine-088", "name": "本山寺", "pref": "香川県", "city": "三豊市", "match": [ "本山寺" ], "approx": [ 34.15, 133.69 ], "note": "国宝の本堂", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-089", "name": "善通寺", "pref": "香川県", "city": "善通寺市", "match": [ "善通寺" ], "approx": [ 34.225, 133.774 ], "note": "全国的に有名（弘法大師の生誕地とされる。五重塔は重要文化財）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-090", "name": "大山祇神社", "pref": "愛媛県", "city": "今治市", "match": [ "大山祇神社" ], "approx": [ 34.249, 133.005 ], "note": "全国的に有名（全国の山祇神社の総本社。国宝の武具を多く伝える）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-091", "name": "石手寺", "pref": "愛媛県", "city": "松山市", "match": [ "石手寺" ], "approx": [ 33.848, 132.798 ], "note": "国宝の二王門", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-092", "name": "竹林寺", "pref": "高知県", "city": "高知市", "match": [ "竹林寺" ], "approx": [ 33.547, 133.577 ], "note": "全国的に有名（五台山の札所。本堂は重要文化財）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-093", "name": "土佐神社", "pref": "高知県", "city": "高知市", "match": [ "土佐神社" ], "approx": [ 33.594, 133.581 ], "note": "全国的に有名（土佐国一宮。社殿は重要文化財）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-094", "name": "太宰府天満宮", "pref": "福岡県", "city": "太宰府市", "match": [ "太宰府天満宮" ], "approx": [ 33.521, 130.535 ], "note": "全国的に有名（参拝者数が全国有数。本殿は重要文化財）", "sources": [ "https://www.dazaifutenmangu.or.jp/" ]
+  },
+  { "id": "shrine-095", "name": "宗像大社 辺津宮", "pref": "福岡県", "city": "宗像市", "match": [ "宗像大社", "辺津宮" ], "approx": [ 33.83, 130.514 ], "note": "世界遺産「『神宿る島』宗像・沖ノ島と関連遺産群」", "sources": [ "https://whc.unesco.org/en/list/1535" ]
+  },
+  { "id": "shrine-096", "name": "祐徳稲荷神社", "pref": "佐賀県", "city": "鹿島市", "match": [ "祐徳稲荷神社" ], "approx": [ 33.096, 130.078 ], "note": "全国的に有名（日本三大稲荷の一つとされる）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-097", "name": "崇福寺", "pref": "長崎県", "city": "長崎市", "match": [ "崇福寺" ], "approx": [ 32.74, 129.884 ], "note": "国宝の第一峰門・大雄宝殿", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-098", "name": "鎮西大社 諏訪神社", "pref": "長崎県", "city": "長崎市", "match": [ "諏訪神社" ], "approx": [ 32.755, 129.883 ], "note": "全国的に有名（長崎くんちで知られる）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-099", "name": "阿蘇神社", "pref": "熊本県", "city": "阿蘇市", "match": [ "阿蘇神社" ], "approx": [ 32.948, 131.118 ], "note": "全国的に有名（肥後国一宮。楼門などは重要文化財）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-100", "name": "青井阿蘇神社", "pref": "熊本県", "city": "人吉市", "match": [ "青井阿蘇神社" ], "approx": [ 32.213, 130.765 ], "note": "国宝の本殿・楼門ほか", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-101", "name": "宇佐神宮", "pref": "大分県", "city": "宇佐市", "match": [ "宇佐神宮" ], "approx": [ 33.525, 131.374 ], "note": "国宝の本殿", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-102", "name": "富貴寺", "pref": "大分県", "city": "豊後高田市", "match": [ "富貴寺" ], "approx": [ 33.537, 131.484 ], "note": "国宝の大堂", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-103", "name": "高千穂神社", "pref": "宮崎県", "city": "高千穂町", "match": [ "高千穂神社" ], "approx": [ 32.712, 131.308 ], "note": "全国的に有名（高千穂の夜神楽。本殿は重要文化財）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-104", "name": "鵜戸神宮", "pref": "宮崎県", "city": "日南市", "match": [ "鵜戸神宮" ], "approx": [ 31.65, 131.469 ], "note": "全国的に有名（海食洞の中の本殿）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-105", "name": "霧島神宮", "pref": "鹿児島県", "city": "霧島市", "match": [ "霧島神宮" ], "approx": [ 31.859, 130.871 ], "note": "国宝の本殿・幣殿・拝殿", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-106", "name": "波上宮", "pref": "沖縄県", "city": "那覇市", "match": [ "波上宮" ], "approx": [ 26.221, 127.671 ], "note": "全国的に有名（琉球八社の一つ。海に臨む崖の上の社）", "sources": [ "https://kunishitei.bunka.go.jp/" ]
+  },
+  { "id": "shrine-107", "name": "斎場御嶽", "pref": "沖縄県", "city": "南城市", "match": [ "斎場御嶽" ], "approx": [ 26.173, 127.827 ], "note": "世界遺産「琉球王国のグスク及び関連遺産群」", "sources": [ "https://whc.unesco.org/en/list/972" ]
+  }
+ ]
+}
