@@ -66,7 +66,7 @@ export const RANGES = {
 
 export const ISO = { nativeMin: 160, nativeMax: 12800, extMin: 80, extMax: 51200 };
 export const SLOT_IDS = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7'];
-export const SOURCES = ['manual', 'analyzer', 'location', 'lesson', 'jpeg']; // jpeg = 自分の JPEG の EXIF から読み取った実際の設定
+export const SOURCES = ['manual', 'analyzer', 'location', 'lesson', 'jpeg', 'spot']; // jpeg = 自分の JPEG の EXIF から読み取った実際の設定 / spot = 撮影スポットのカテゴリのおすすめ
 export const LIMITS = { name: 60, note: 60, notes: 2000, tags: 12, tag: 20 };
 
 const byId = (list, id) => list.find((x) => x.id === id);

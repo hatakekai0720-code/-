@@ -4,7 +4,7 @@ import { slotBadges } from '../ui/recipe-ui.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
 
-const SOURCE_LABEL = { manual: '手入力', analyzer: '画像解析', location: 'ロケ地', lesson: '講座', jpeg: 'JPEG の実際の設定' };
+const SOURCE_LABEL = { manual: '手入力', analyzer: '画像解析', location: 'ロケ地', lesson: '講座', jpeg: 'JPEG の実際の設定', spot: '撮影スポット' };
 
 export function render(root, { id }) {
   const r = store.getRecipe(id);

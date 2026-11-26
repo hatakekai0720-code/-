@@ -1,0 +1,36 @@
+{
+ "version": 1,
+ "generatedAt": "2026-11-26T09:45:36.495Z",
+ "precache": true,
+ "totalBytes": 108010,
+ "osmFetched": false,
+ "attribution": [
+  "© OpenStreetMap contributors（ODbL 1.0）",
+  "文化庁「重要伝統的建造物群保存地区一覧」 https://www.bunka.go.jp/seisaku/bunkazai/shokai/hozonchiku/judenken_ichiran.html",
+  "有名な神社仏閣（手作業で選定） https://kunishitei.bunka.go.jp/",
+  "農林水産省「日本の棚田百選」（1999 年） https://www.maff.go.jp/j/nousin/tanada/"
+ ],
+ "files": [
+  {
+   "id": "shrine",
+   "file": "shrine.json",
+   "bytes": 39708,
+   "sha256": "4936379b4c3ccafa66aba49f613cd4e18a1e664e59fcf954e31c2de0b71ee82c",
+   "count": 107
+  },
+  {
+   "id": "townscape",
+   "file": "townscape.json",
+   "bytes": 55905,
+   "sha256": "93e8559e9be8d3bd47c7e72cb289f6dcd6b552cf91017fa4145c558646e30a3a",
+   "count": 124
+  },
+  {
+   "id": "tanada",
+   "file": "tanada.json",
+   "bytes": 12397,
+   "sha256": "371a61ac086b69498b118e801c303ca59a96fea5a741c17ca2ed6f6dc8acabcf",
+   "count": 35
+  }
+ ]
+}
