@@ -150,6 +150,9 @@ test('filterSpots: カテゴリ・都道府県・名前', () => {
   assert.deepEqual(filterSpots(many, { cats: [] }), []);
   assert.deepEqual(filterSpots(many, { pref: '長野県' }).map((s) => s.id), ['d']);
   assert.deepEqual(filterSpots(many, { q: '姫路' }).map((s) => s.id), ['b']);
+  assert.deepEqual(filterSpots([spot({ id: 'x', city: '日光市' }), spot({ id: 'y', city: '松本市' })], { q: '松本' }).map((s) => s.id), ['y'], '市区町村でも探せる');
+  assert.deepEqual(filterSpots(many, { q: '長野' }).map((s) => s.id), ['d'], '都道府県名でも探せる');
+  assert.deepEqual(filterSpots(many, { q: '華厳 滝' }).map((s) => s.id), ['c'], '空白は無視');
   assert.deepEqual(prefCounts(many).map((p) => p.id), ['北海道', '栃木県', '長野県', '兵庫県']);
 });
 test('nearest: 現在地から近い順（東京駅から）・件数の上限・現在地が無ければ名前順', () => {

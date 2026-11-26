@@ -38,7 +38,7 @@ const ROUTES = [
   { re: /^\/spots$/, view: spotsView, tab: 'map', title: '撮影スポットの制覇率', back: '#/map' },
   { re: /^\/spots\/([^/]+)$/, view: spotView, tab: 'map', title: '撮影スポット', back: '#/map' },
   { re: /^\/works\/([^/]+)$/, view: work, tab: 'map', title: '作品', back: '#/search' },
-  { re: /^\/search$/, view: search, tab: 'map', title: '作品・人物を探す', back: '#/map' },
+  { re: /^\/search$/, view: search, tab: 'map', title: '作品・人物・撮影スポットを探す', back: '#/map' },
   { re: /^\/names\/(.+)$/, view: names, tab: 'map', title: '作品一覧', back: '#/search' },
   { re: /^\/academy$/, view: academy, tab: 'academy', title: '撮影講座' },
   { re: /^\/academy\/(\d{1,2})$/, view: lesson, tab: 'academy', title: '撮影講座', back: '#/academy' },

@@ -211,12 +211,12 @@ export function dedupeSpots(spots, order) {
 
 /* ---- 絞り込み・近い順・表示範囲・制覇率 ---- */
 
-/** cats: 選択中のカテゴリ ID の配列 / pref: 'all' か都道府県名 / q: 名前の部分一致 */
+/** cats: 選択中のカテゴリ ID の配列 / pref: 'all' か都道府県名 / q: 名前・市区町村・都道府県の部分一致（空白・中黒は無視） */
 export function filterSpots(spots, { cats = null, pref = 'all', q = '' } = {}) {
   const set = cats ? new Set(cats) : null;
   const needle = q ? coreName(q).toLowerCase() : '';
   return spots.filter((s) => (!set || set.has(s.category)) && (pref === 'all' || s.pref === pref)
-    && (!needle || coreName(s.name).toLowerCase().includes(needle) || coreName(s.city).toLowerCase().includes(needle)));
+    && (!needle || [s.name, s.city, s.pref].some((x) => coreName(x).toLowerCase().includes(needle))));
 }
 
 /** 都道府県ごとの件数（北から順。0 件は除く） */
