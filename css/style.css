@@ -322,6 +322,8 @@ body.fullscreen .update-banner { bottom: calc(env(safe-area-inset-bottom) + 8px)
 .city-label i { width: 5px; height: 5px; border-radius: 50%; background: var(--muted); flex: none; }
 .city-label.major { color: var(--text); font-weight: 600; }
 .city-label.major i { background: var(--text); }
+.city-label.area { font-size: 10.5px; }
+.city-label.area.major { font-size: 12px; letter-spacing: .04em; }
 
 /* スイッチ（設定画面） */
 .switch { appearance: none; -webkit-appearance: none; flex: none; width: 44px; height: 26px; border-radius: 13px; background: var(--line); border: 1px solid var(--line); position: relative; cursor: pointer; transition: background .15s; margin: 0; }

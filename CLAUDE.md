@@ -21,7 +21,7 @@
 - アプリのファイルを変えたら `sw.js` の `CACHE_VERSION` を上げる。ファイルを追加・削除したら `sw.js` の `ASSETS` も更新する（`data/streets/` の街路データ・`data/photos/` の写真・`data/spots/` の撮影スポットは ASSETS に入れない）。
 - テストを全部通す：
   ```sh
-  node tests/analyzer.test.mjs && node tests/map.test.mjs && node tests/lessons.test.mjs && node tests/sw.test.mjs && node tests/streets.test.mjs && node tests/photos.test.mjs && node tests/film.test.mjs && node tests/locations.test.mjs && node tests/exif.test.mjs && node tests/similar.test.mjs && node tests/calibration.test.mjs && node tests/spots.test.mjs
+  node tests/analyzer.test.mjs && node tests/map.test.mjs && node tests/lessons.test.mjs && node tests/sw.test.mjs && node tests/streets.test.mjs && node tests/photos.test.mjs && node tests/film.test.mjs && node tests/locations.test.mjs && node tests/exif.test.mjs && node tests/similar.test.mjs && node tests/calibration.test.mjs && node tests/spots.test.mjs && node tests/japan.test.mjs
   ```
 - ロジックを足したら対応するテストも足す。
 - 作業はブランチで行い、終わったら変更内容を日本語で報告して止まる（main へのマージは私が確認してから）。
@@ -67,12 +67,20 @@
   - 生成: `.github/workflows/fetch-spots.yml`（手動 + 月 1 回）→ `scripts/fetch-spots.mjs`（Overpass で都道府県ごと。タグの判定は `scripts/spots-osm.mjs`）→ `scripts/validate-spots.mjs`。公的リスト・厳選の元は `scripts/spot-lists/`（`match` = OSM と照合する名前、`approx` = 探索の中心）。照合できなかったものは概略座標のまま `verified: false`（詳細画面に注記）。ネットワークなしでは `--offline`
   - 地図: 表示モード `settings.mapMode`（films / spots / all）・カテゴリの選択 `settings.spotCats`（未設定 = 全選択）。スポットのピンとクラスタは Canvas の `L.SpotMarker`（角丸の四角 + 1 文字）。カテゴリごとにクラスタ、ズームごとにキャッシュ、表示範囲の外は描かない。都道府県の絞り込みは撮影スポットだけ（ロケ地は都道府県を持たない）
   - 「行った」はロケ地と同じ `visited`（ID が重ならない形式: osm-n… / shrine-… / jyudenken-… / tanada-…）
+- 日本の詳細地図（撮影スポットモード）: `js/japan.js`（DOM 非依存の範囲・表示位置・判定 + ブラウザの読み込み）
+  - 範囲: `viewConfig(mode)`。撮影スポットは日本（`JAPAN_FIT` に合わせ、`JAPAN_MAX_BOUNDS` = 沖ノ鳥島・南鳥島・北方領土を含む日本周辺に限定、最大ズーム 12）、映画ロケ地・すべては世界（`WORLD_BOUNDS`・最大 8）。モードごとの最後の表示位置は `settings.mapViews`（`{ films, spots, all }`。`switchPlan` で切り替え。旧 `mapView` は世界のモードに引き継ぐ。インポートは `sanitizeViews`）。切り替えは「アニメーションなしで移動 → setMinZoom」の順（逆だとズームのアニメーションが後から上書きする）
+  - データ: `data/japan/japan-low.json`（objects.prefs、都道府県 47、800m 簡略化、ズーム 8 未満）・`japan-high.json`（objects.cities、市区町村、ズーム 8 以上と判定）。属性 `pref`・`city`（政令指定都市は「市名+区名」、所属未定地は ''）・`code`・`lx`/`ly`（名前の位置）・`meta`（出典）。合計 5MB 以下（`JAPAN_SIZE_LIMIT`）なので sw.js の ASSETS でプリキャッシュ。出典「国土数値情報（行政区域データ）（国土交通省）を加工して作成」を地図の帰属表示・README・`data/japan/LICENSE` に
+  - 生成: `scripts/build-japan-map.sh`（N03 → `scripts/japan-props.mjs` で属性 → mapshaper で飛び地をまとめて簡略化。5MB に収まるまで簡略化を強める。`N03_SOURCE=smri` は国土交通省に接続できない環境用）・`.github/workflows/build-japan-map.yml`（workflow_dispatch。年度・基準日）
+  - 描画: Natural Earth の日本（id 392）を透明にして、pane `jp`（陸地の上・街路の下）に塗り + 海岸線 / 都道府県境 / 市区町村境（topojson.mesh）。都道府県名はズーム 5〜8、市区町村名は 8 以上（`japanLayersAt`）。世界の県・州の境界と都市名は出さない。街路データの範囲は従来どおり 10〜18 で街路を優先
+  - 判定: `createLocator(decodeTopo(topo, 'cities'))` → `locate(lat, lng)`（偶奇規則で穴・飛び地。海岸線の外は `NEAR_KM` = 3km までは最寄り・`exact: false`）。`checkSpot`/`sameCity`（区なし・郡つき・区名だけは一致）。撮影スポットの詳細画面に判定結果と食い違いの注記。tests/japan.test.mjs がスポットのデータとの食い違いを検出（概略座標の既知分は `KNOWN_APPROX`。照合して直ったら外す）
 
 ## 作品情報の調べ方（追加・更新するとき）
 - 1 作品ずつ検索し（例:「映画.com <邦題> <年> 撮影 キャスト 役名 配給」）、出典に書いてあることだけを使う。映画.com の URL は、そのページのタイトルと製作年が一致すると確認できたときだけ（eiga.com の製作年が違う・候補が複数ならnull）
 - 写真は Commons のファイルページで撮影者とライセンスを確かめてから。GFDL のみ・NC/ND は不可（GFDL と CC BY-SA の併記は可。ワークフローがカテゴリーから判定する）
 
 ## 未確認事項
+- 同梱の日本の詳細地図（`data/japan/`）は、国土交通省のサイトに接続できない環境で、スマートニュース メディア研究所 japan-topography の N03（2021 年 1 月 1 日時点・1% 簡略化）から作った。2021 年以降の区の再編（浜松市 2024 年など）は入っていない。ワークフロー「日本の詳細地図を作成」で最新の N03 から作り直す（N03 の zip の URL・GeoJSON の有無・属性の列は年度で違う可能性があり、ワークフローでは未検証）
+- 撮影スポットの 9 件（`tests/japan.test.mjs` の `KNOWN_APPROX`）は、概略座標が地図データでは隣の市区町村・県に入る
 - 撮影スポットの元リスト（`scripts/spot-lists/`）は外部に接続できない環境で作った。重伝建の一覧（124 件。公式は約 130 件）・棚田百選（35 件のみ。全 134 地区）・神社仏閣の選定理由と出典 URL は公式の一覧で確認して直す。座標はワークフローで OSM と照合するまで概略
 - 星空スポットは、使える公的リスト（環境省）を確認できていないのでカテゴリを作っていない
 - JPEG の MakerNote の対応で【要確認】のもの（実機のサンプルで確かめたら `js/exif.js` とここを直す。`tests/fixtures/README.md` の表）:

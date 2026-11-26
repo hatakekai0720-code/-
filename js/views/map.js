@@ -1,4 +1,4 @@
-// ④ 映画ロケ地ワールドマップ。Leaflet をタイル無しで使い、同梱の Natural Earth データだけを描く（外部通信なし）。
+// ④ 映画ロケ地ワールドマップ（撮影スポットモードは日本の詳細地図。js/japan.js）。Leaflet をタイル無しで使い、同梱の Natural Earth データだけを描く（外部通信なし）。
 // ズームで描くものを切り替える: 〜4.5 国境 50m / 4〜 県・州の境界線 / 5〜 国境・海岸線 10m / 6〜 主要都市名
 // ロケ地の周辺（街路データをダウンロード済みの範囲）だけは、ズーム 10 以上で OpenStreetMap の街路を重ね、18 まで拡大できる（データはズーム 15 まで。それ以上は拡大表示）
 import { h, toast, sheet, confirmSheet, select } from '../ui/dom.js';
@@ -14,14 +14,15 @@ import * as streets from '../streets.js';
 import * as photos from '../photos.js';
 import { photoFigure } from '../ui/photo.js';
 import { clusterPoints, maxSpread, spiderOffsets, sizeTier, facetCounts, filterLocations, typeCounts, CLUSTER_RADIUS, CLUSTER_SIZES } from '../cluster.js';
+import { viewConfig, regionOf, rememberView, switchPlan, WORLD_DEFAULT, loadJapanTopo, japanLayersAt, prefLabels, cityLabels, JAPAN_ATTRIBUTION } from '../japan.js';
 import { loadSpots, loadCategories, MODES, normalizeMode, modeShows, normalizeSelection, toggleCategory, filterSpots, prefCounts, inBounds, nearest, events as spotEvents } from '../spots.js';
 
 const OSM_ATTRIBUTION = '撮影スポット © OpenStreetMap contributors（ODbL）';
+const JAPAN_ISO = '392'; // Natural Earth（world-atlas）の日本。撮影スポットモードでは国土数値情報の日本で置き換える
 const LIST_LIMIT = 100; // 「近い順」に並べる件数の上限（数千件を DOM にしない）
 const VIEW_PAD = 0.3;   // 表示範囲の外側この割合までのピンだけ描く
 
 const CONF_LABEL = { high: '確度 高', medium: '確度 中' };
-const MIN_ZOOM = 1, MAX_ZOOM = 8; // 通常の最大ズーム（県・都市が分かる程度まで）
 export const LAYER_ZOOM = { admin1: 4, detail: 5, places: 6 }; // このズーム以上で表示
 
 /* ---- ライブラリとデータの読み込み（一度だけ） ---- */
@@ -66,7 +67,6 @@ function loadStreetLibs() {
   streetLibs.catch(() => { streetLibs = null; });
   return streetLibs;
 }
-const WORLD_BOUNDS = [[-85, -400], [85, 400]];
 
 // 撮影スポットのピン: Canvas に角丸の四角 + カテゴリの 1 文字（映画ロケ地の丸いピンと形で区別する）。
 // DOM の要素を作らないので数千件でも軽い。当たり判定は CircleMarker と同じ円
@@ -181,9 +181,18 @@ export function render(root, { id: focusId } = {}) {
   function style() {
     const c = themeColors();
     mapEl.style.background = c.bg;
-    const landStyle = { fillColor: c.card, fillOpacity: 1, color: c.line, weight: 1 };
-    landLayer?.setStyle(landStyle);
-    land10Layer?.setStyle(landStyle);
+    const landStyle = { fillColor: c.card, fillOpacity: 1, color: c.line, weight: 1, opacity: 1 };
+    // 撮影スポットモードでは Natural Earth の日本を描かない（国土数値情報の日本の詳細地図を描く）
+    const worldStyle = (f) => (region === 'japan' && String(f?.id) === JAPAN_ISO ? { ...landStyle, fillOpacity: 0, opacity: 0 } : landStyle);
+    landLayer?.setStyle(worldStyle);
+    land10Layer?.setStyle(worldStyle);
+    // 日本の詳細地図: 陸は世界地図と同じ色。海岸線は国境と同じ線、都道府県境は細い線、市区町村境は県・州の境界と同じ細い破線
+    for (const lv of Object.values(jp)) {
+      lv.fill?.setStyle({ fillColor: c.card, fillOpacity: 1, stroke: false });
+      lv.coast?.setStyle({ color: c.line, weight: 1, opacity: 1 });
+      lv.prefs?.setStyle({ color: c.muted, weight: 1, opacity: 0.6 });
+      lv.cities?.setStyle({ color: c.muted, opacity: 0.35, weight: 0.6, dashArray: '3 3' });
+    }
     // 県・州の境界線は国境より目立たない細い破線
     adminLayer?.setStyle({ color: c.muted, opacity: 0.35, weight: 0.6, dashArray: '3 3' });
     for (const [, m] of markers) m.setStyle(m.options.kind === 'loc'
@@ -315,15 +324,53 @@ export function render(root, { id: focusId } = {}) {
   function drawMode() {
     modeEl.replaceChildren(...MODES.map((m) => h('button', { type: 'button', 'aria-pressed': String(mode === m.id), onclick: () => {
       if (mode === m.id) return;
-      mode = m.id; store.setSetting('mapMode', mode);
-      if (!modeShows(mode).spots && filter.kind === 'spot') filter.kind = 'all';
-      drawMode(); drawAttribution(); applyGeo(false);
+      setMode(m.id);
     } }, m.label)));
   }
+  // モードを切り替える: 今の表示位置をそのモードに覚えてから、次のモードの表示範囲・ズーム・最後の表示位置に移る
+  function setMode(next) {
+    const prev = mode;
+    mode = next; store.setSetting('mapMode', mode);
+    if (!modeShows(mode).spots && filter.kind === 'spot') filter.kind = 'all';
+    drawMode(); drawAttribution();
+    if (map) applyRegion(prev);
+    applyGeo(false);
+  }
+  const baseMax = () => viewConfig(mode).maxZoom;
+  // 地図の種類（世界 / 日本）に合わせて、動かせる範囲・ズームの範囲・表示位置を設定する。from: 切り替える前のモード
+  function applyRegion(from = null) {
+    const c = map.getCenter().wrap();
+    const plan = switchPlan({ views: store.getSetting('mapViews'), from, to: mode, current: from ? { lat: c.lat, lng: c.lng, zoom: map.getZoom() } : null, legacy: store.getSetting('mapView') });
+    if (from) store.setSetting('mapViews', plan.views);
+    const cfg = plan.config;
+    switching = true;
+    map.stop();
+    map.setMaxBounds(null);
+    map.setMinZoom(1);
+    // 日本: 日本全体が入るズームより引けないようにする（大きな画面でも 5 まで引ける）
+    const minZoom = cfg.region === 'japan' ? Math.min(5, map.getBoundsZoom(cfg.fit)) : cfg.minZoom;
+    const inStreet = plan.view && streetAreas.some((a) => streets.bboxContains(a.bbox, plan.view.lat, plan.view.lng));
+    map.setMaxZoom(inStreet ? streets.STREET_MAX_ZOOM : cfg.maxZoom);
+    // 先にアニメーションなしで移動してから最小ズームを設定する（逆にすると setMinZoom のズームのアニメーションが後から上書きする）
+    if (plan.view) map.setView([plan.view.lat, plan.view.lng], Math.max(minZoom, Math.min(plan.view.zoom, map.getMaxZoom())), { animate: false });
+    else map.fitBounds(cfg.fit, { animate: false });
+    map.setMinZoom(minZoom);
+    boundsKey = null; // updateStreets で動かせる範囲を設定し直す
+    switching = false;
+    region = cfg.region;
+    drawAttribution(); style();
+    updateStreets(); updateLayers();
+  }
+  // Leaflet の帰属表示は add した回数を数えるので、表示中かどうかを覚えて 1 回ずつだけ add / remove する
+  const attrs = new Set();
+  const setAttr = (text, on) => {
+    if (on === attrs.has(text)) return;
+    if (on) { attrs.add(text); map.attributionControl.addAttribution(text); } else { attrs.delete(text); map.attributionControl.removeAttribution(text); }
+  };
   function drawAttribution() {
     if (!map) return;
-    if (modeShows(mode).spots && spots.some((x) => x.source === 'osm' || x.osmId)) map.attributionControl.addAttribution(OSM_ATTRIBUTION);
-    else map.attributionControl.removeAttribution(OSM_ATTRIBUTION);
+    setAttr(JAPAN_ATTRIBUTION, region === 'japan');
+    setAttr(OSM_ATTRIBUTION, modeShows(mode).spots && spots.some((x) => x.source === 'osm' || x.osmId));
   }
   // 撮影スポットのカテゴリ（複数選択・全選択・全解除）と都道府県
   function drawSpotFacets() {
@@ -387,7 +434,7 @@ export function render(root, { id: focusId } = {}) {
     if (!fit || !map) return;
     const filmFiltered = geo.type !== 'all' || geo.region !== 'all' || geo.country !== 'all' || geo.decade !== 'all';
     const vis = [...(filmFiltered ? shownFilms() : []), ...(geo.pref !== 'all' ? shownSpots() : [])];
-    if (vis.length) map.fitBounds(L.latLngBounds(vis.map((l) => [l.lat, l.lng])).pad(0.25), { maxZoom: Math.min(map.getMaxZoom(), MAX_ZOOM) });
+    if (vis.length) map.fitBounds(L.latLngBounds(vis.map((l) => [l.lat, l.lng])).pad(0.25), { maxZoom: Math.min(map.getMaxZoom(), baseMax()) });
   }
 
   async function init() {
@@ -399,18 +446,17 @@ export function render(root, { id: focusId } = {}) {
     root.querySelector('.map-loading')?.remove();
     streetAreas = await streets.cachedAreas();
     if (!alive) return;
-    const saved = store.getSetting('mapView');
-    const savedMax = saved && streetAreas.some((a) => streets.bboxContains(a.bbox, saved.lat, saved.lng)) ? streets.STREET_MAX_ZOOM : MAX_ZOOM;
+    const cfg = viewConfig(mode);
     map = L.map(mapEl, {
-      preferCanvas: true, zoomSnap: 0.5, minZoom: MIN_ZOOM, maxZoom: savedMax, worldCopyJump: true,
-      maxBounds: WORLD_BOUNDS, maxBoundsViscosity: 0.8,
-      attributionControl: true, tapHold: true,
-    }).setView(saved ? [saved.lat, saved.lng] : [30, 60], saved ? Math.min(saved.zoom, savedMax) : 1.5);
+      preferCanvas: true, zoomSnap: 0.5, minZoom: cfg.minZoom, maxZoom: cfg.maxZoom, worldCopyJump: true,
+      maxBoundsViscosity: 0.8, attributionControl: true, tapHold: true,
+    }).setView([WORLD_DEFAULT.lat, WORLD_DEFAULT.lng], WORLD_DEFAULT.zoom);
     map.attributionControl.setPrefix(false).addAttribution('Natural Earth');
     // 重なり順: 陸地（国境）→ 県・州の境界 →（街路）→ 都市名 → ピン
-    for (const [name, z] of [['ne-land', 200], ['ne-admin', 210], ['streets', 220], ['ne-labels', 390]]) map.createPane(name).style.zIndex = z;
+    // 日本の詳細地図（撮影スポットモード）は Natural Earth の陸地の上・街路の下
+    for (const [name, z] of [['ne-land', 200], ['jp', 205], ['ne-admin', 210], ['streets', 220], ['ne-labels', 390]]) map.createPane(name).style.zIndex = z;
     map.getPane('ne-labels').style.pointerEvents = 'none';
-    renderers = { land: L.canvas({ pane: 'ne-land' }), admin: L.canvas({ pane: 'ne-admin' }) };
+    renderers = { land: L.canvas({ pane: 'ne-land' }), admin: L.canvas({ pane: 'ne-admin' }), jp: L.canvas({ pane: 'jp' }) };
     landLayer = L.geoJSON(res.countries, { interactive: false, renderer: renderers.land, pane: 'ne-land' }).addTo(map);
     labelLayer = L.layerGroup([], { pane: 'ne-labels' });
     pinLayer = L.layerGroup().addTo(map);
@@ -423,12 +469,17 @@ export function render(root, { id: focusId } = {}) {
     map.on('moveend', drawPins); // ズーム・パンのたびに表示範囲のピンだけ描き直す
     map.on('zoomstart click', unspider);
     map.on('moveend', () => { drawLabels(); updateStreets(); });
-    updateLayers();
-    updateStreets();
-    map.on('moveend', () => { const c = map.getCenter(); store.setSetting('mapView', { lat: +c.lat.toFixed(4), lng: +c.lng.toFixed(4), zoom: map.getZoom() }); });
+    applyRegion(); // モードの表示範囲と最後の表示位置（無ければ世界全体／日本全体）
+    // 表示位置はモードごとに覚える（settings.mapViews）
+    map.on('moveend', () => {
+      if (switching) return;
+      const c = map.getCenter().wrap();
+      store.setSetting('mapViews', rememberView(store.getSetting('mapViews'), mode, { lat: c.lat, lng: c.lng, zoom: map.getZoom() }));
+    });
     drawList();
     // #/map/<ロケ地 ID>: そのロケ地を中心に（街路データがあれば街路が見えるズームで）表示してシートを開く
     const target = focusId && locations.find((x) => x.id === focusId);
+    if (target && !modeShows(mode).films) setMode('all'); // 撮影スポットだけのモードでは映画ロケ地が出ないので「すべて」にする
     if (focusId && !target) focusSpot(focusId);
     if (target) {
       const hasStreet = streetAreas.some((a) => a.id === target.id);
@@ -440,8 +491,44 @@ export function render(root, { id: focusId } = {}) {
 
   /* ---- ズームに応じた詳細レイヤー ---- */
   let renderers = null;
+  let region = regionOf(mode), switching = false;
+  // 日本の詳細地図のレイヤー（low = 都道府県 / high = 市区町村）。一度作ったら使い回す
+  const jp = {};
+  function buildJapan(level, topo) {
+    const T = window.topojson, opt = { interactive: false, renderer: renderers.jp, pane: 'jp' };
+    const obj = topo.objects[level === 'low' ? 'prefs' : 'cities'];
+    const geo = (g) => L.geoJSON(g, opt);
+    const lv = {
+      fill: geo(T.feature(topo, obj)),
+      coast: geo(T.mesh(topo, obj, (a, b) => a === b)),
+      prefs: geo(T.mesh(topo, obj, (a, b) => a !== b && a.properties.pref !== b.properties.pref)),
+      cities: level === 'high' ? geo(T.mesh(topo, obj, (a, b) => a !== b && a.properties.pref === b.properties.pref)) : null,
+      labels: level === 'low' ? prefLabels(topo) : cityLabels(topo),
+    };
+    lv.group = L.layerGroup([lv.fill, lv.cities, lv.prefs, lv.coast].filter(Boolean));
+    return lv;
+  }
+  function updateJapan() {
+    const z = map.getZoom();
+    if (region !== 'japan') { for (const lv of Object.values(jp)) lv.group.remove(); return; }
+    adminLayer?.remove(); // 世界の県・州の境界線は出さない
+    const want = japanLayersAt(z).detail;
+    // ズーム 8 以上でも都道府県名（ズーム 8 まで）のために都道府県のデータは読む。表示する地図は市区町村
+    for (const level of want === 'high' ? ['low', 'high'] : ['low']) {
+      loadJapanTopo(level).then((topo) => {
+        if (!alive || !map || region !== 'japan') return;
+        jp[level] ??= buildJapan(level, topo);
+        const now = japanLayersAt(map.getZoom()).detail;
+        // 市区町村の地図が読めるまでは都道府県の地図を出したままにする
+        const show = now === 'high' && jp.high ? 'high' : 'low';
+        for (const [k, lv] of Object.entries(jp)) { if (k === show) { if (!map.hasLayer(lv.group)) lv.group.addTo(map); } else lv.group.remove(); }
+        style(); drawLabels();
+      }).catch(() => {});
+    }
+  }
   function updateLayers() {
     if (!map) return;
+    updateJapan();
     const z = map.getZoom();
     // 国境・海岸線: ズーム 5 以上は 10m 版（読み込みが終わるまでは 50m 版のまま）
     if (z >= LAYER_ZOOM.detail) {
@@ -451,10 +538,10 @@ export function render(root, { id: focusId } = {}) {
         if (!map.hasLayer(land10Layer)) { land10Layer.addTo(map); landLayer.remove(); style(); }
       }).catch(() => {});
     } else if (land10Layer && map.hasLayer(land10Layer)) { landLayer.addTo(map); land10Layer.remove(); style(); }
-    // 県・州の境界線: ズーム 4 以上
-    if (z >= LAYER_ZOOM.admin1) {
+    // 県・州の境界線: ズーム 4 以上（撮影スポットモードでは出さない）
+    if (z >= LAYER_ZOOM.admin1 && region !== 'japan') {
       loadDetail('admin1').then((gj) => {
-        if (!alive || !map || map.getZoom() < LAYER_ZOOM.admin1) return;
+        if (!alive || !map || map.getZoom() < LAYER_ZOOM.admin1 || region === 'japan') return;
         adminLayer ??= L.geoJSON(gj, { interactive: false, renderer: renderers.admin, pane: 'ne-admin' });
         if (!map.hasLayer(adminLayer)) { adminLayer.addTo(map); style(); }
       }).catch(() => {});
@@ -470,15 +557,28 @@ export function render(root, { id: focusId } = {}) {
     const z = map.getZoom();
     labelLayer.clearLayers();
     // 街路レイヤーを表示しているときは、そちらの地名を使う
-    if (z < LAYER_ZOOM.places || !places || street?.shown) { labelLayer.remove(); return; }
+    if (street?.shown) { labelLayer.remove(); return; }
     const size = map.getSize();
-    const picked = pickLabels(places, (lat, lng) => map.latLngToContainerPoint([lat, lng]), {
-      zoom: z, width: size.x, height: size.y, centerLng: map.getCenter().lng, fontSize: 11,
+    let list = null, area = false;
+    if (region === 'japan') {
+      // 日本の詳細地図: 都道府県名はズーム 5〜8、市区町村名は 8 以上（重なるときは都道府県名を優先）
+      const want = japanLayersAt(z);
+      list = [...(want.prefLabels && jp.low ? jp.low.labels : []), ...(want.cityLabels && jp.high ? jp.high.labels : [])];
+      area = true;
+    } else if (z >= LAYER_ZOOM.places && places) list = places;
+    if (!list?.length) { labelLayer.remove(); return; }
+    const picked = pickLabels(list, (lat, lng) => map.latLngToContainerPoint([lat, lng]), {
+      zoom: z, width: size.x, height: size.y, centerLng: map.getCenter().lng, fontSize: 11, max: area ? 250 : 150,
     });
     for (const p of picked) {
       const el = document.createElement('div');
-      el.className = `city-label${p.rank <= 2 ? ' major' : ''}`;
-      el.append(document.createElement('i'), Object.assign(document.createElement('span'), { textContent: p.name }));
+      if (area) { // 都道府県・市区町村の名前（点なし。都道府県は太字）
+        el.className = `city-label area${p.rank === 0 ? ' major' : ''}`;
+        el.append(Object.assign(document.createElement('span'), { textContent: p.name }));
+      } else {
+        el.className = `city-label${p.rank <= 2 ? ' major' : ''}`;
+        el.append(document.createElement('i'), Object.assign(document.createElement('span'), { textContent: p.name }));
+      }
       el.title = p.nameEn;
       L.marker([p.lat, p.lng], { icon: L.divIcon({ html: el, className: 'city-label-icon', iconSize: null, iconAnchor: [3, 7] }), interactive: false, keyboard: false, pane: 'ne-labels' }).addTo(labelLayer);
     }
@@ -486,19 +586,20 @@ export function render(root, { id: focusId } = {}) {
   }
 
   /* ---- 街路（OpenStreetMap / PMTiles） ---- */
-  let boundsKey = 'world';
+  let boundsKey = null;
   function updateStreets() {
     if (!map) return;
     const z = map.getZoom(), b = map.getBounds(), c = map.getCenter();
     const off = c.lng - c.wrap().lng; // worldCopyJump で横にずれた分
     const area = streets.areasInView(streetAreas, [b.getWest() - off, b.getSouth(), b.getEast() - off, b.getNorth()])[0];
-    // 街路データのある範囲だけ最大ズームを 18 に。範囲から外れたら通常の 8 に戻す
-    map.setMaxZoom(area ? streets.STREET_MAX_ZOOM : MAX_ZOOM);
-    // ズーム 9 以上では、その範囲の外へ動かせないようにする（外へ行くにはズームアウト）
-    const key = area && z > MAX_ZOOM ? area.id : 'world';
+    // 街路データのある範囲だけ最大ズームを 18 に。範囲から外れたら通常（世界 8・日本 12）に戻す
+    const max = baseMax();
+    map.setMaxZoom(area ? streets.STREET_MAX_ZOOM : max);
+    // 通常の最大ズームより拡大しているときは、その範囲の外へ動かせないようにする（外へ行くにはズームアウト）
+    const key = area && z > max ? area.id : `base:${mode}`;
     if (key !== boundsKey) {
       boundsKey = key;
-      if (key === 'world') map.setMaxBounds(WORLD_BOUNDS);
+      if (key.startsWith('base:')) map.setMaxBounds(viewConfig(mode).maxBounds);
       else {
         const [w, s, e, n] = area.bbox, pad = 0.01;
         map.setMaxBounds([[s - pad + 0, w - pad + off], [n + pad, e + pad + off]]);
@@ -591,11 +692,11 @@ export function render(root, { id: focusId } = {}) {
     await spotsReady;
     const sp = alive && map && spots.find((x) => x.id === id);
     if (!sp) return;
-    if (!modeShows(mode).spots) { mode = 'all'; store.setSetting('mapMode', mode); drawMode(); }
+    if (!modeShows(mode).spots) setMode('all');
     if (!sel.includes(sp.category)) { sel = [...sel, sp.category]; store.setSetting('spotCats', sel); }
     if (geo.pref !== 'all' && geo.pref !== sp.pref) geo.pref = 'all';
     applyGeo(false);
-    map.setView([sp.lat, sp.lng], MAX_ZOOM);
+    map.setView([sp.lat, sp.lng], Math.min(baseMax(), 10));
     openSpot(sp);
   }
   function openSpot(sp) {

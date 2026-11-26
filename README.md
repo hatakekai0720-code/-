@@ -76,6 +76,7 @@ node tests/exif.test.mjs       # JPEG の EXIF / 富士フイルム MakerNote �
 node tests/similar.test.mjs    # この写真に近い映画
 node tests/calibration.test.mjs # 較正データ（保存データ v4）・分布・RULES の更新案
 node tests/spots.test.mjs      # 撮影スポット（カテゴリ・データの検証・重複・表示モードとカテゴリ切り替え・近い順・制覇率）
+node tests/japan.test.mjs      # 日本の詳細地図（表示範囲の切り替え・表示位置の記憶・市区町村の判定・撮影スポットのデータとの食い違い）
 ```
 
 ## 自分の JPEG から実際の設定を読む
@@ -140,6 +141,16 @@ node tests/spots.test.mjs      # 撮影スポット（カテゴリ・データ�
 - 合計が 5MB 以下なら Service Worker のインストール時に保存し（`index.json` の `precache: true`）、超えるときは街路地図と同じく裏で 1 件ずつ保存します（Cache Storage `xt3cine-spots`）。
 - 手元で形式だけ作り直すとき（ネットワークなし）: `node scripts/fetch-spots.mjs --offline`（OpenStreetMap 由来の既存データはそのまま、リストの分は概略座標）→ `node scripts/validate-spots.mjs`
 
+### 日本の詳細地図（撮影スポットモード）
+
+撮影スポットモードでは、世界地図の代わりに日本の詳細地図（海岸線・都道府県境・市区町村境）を描きます。最初は日本全体（沖縄・小笠原・北方領土を含む）を表示し、地図を動かせる範囲も日本周辺に限ります。映画ロケ地／すべてに戻すと世界地図の範囲とズームに戻ります。表示位置はモードごとに端末に覚えます。
+
+- 最大ズームは 12。都道府県名はズーム 5〜8、市区町村境と市区町村名はズーム 8 以上で表示します。街路データのあるロケ地の付近は、これまでどおり街路地図を優先します（ズーム 10〜18）。
+- 撮影スポットの詳細画面に、この地図データから判定した都道府県・市区町村を表示します（スポットのデータの値と違えば注記）。
+- データ: `data/japan/japan-low.json`（都道府県、ズーム 8 未満）・`data/japan/japan-high.json`（市区町村、ズーム 8 以上と判定用）。**国土数値情報（行政区域データ）（国土交通省）を加工して作成**（`data/japan/LICENSE`）。合計 5MB 以下にしてあり、Service Worker のプリキャッシュに入れています。
+- 作り直すとき: GitHub Actions の **「日本の詳細地図を作成」**（`build-japan-map.yml`、手動実行のみ）で年度と基準日を選んで Run workflow。`scripts/build-japan-map.sh` が国土交通省の N03 をダウンロードし、mapshaper で簡略化して合計 5MB 以下に収め（収まるまで簡略化を強める）、`data/japan/` をコミットします。手元では `bash scripts/build-japan-map.sh`（国土交通省のサイトに接続できない環境では `N03_SOURCE=smri`）。
+- 同梱しているデータは、国土交通省のサイトに接続できない環境で作ったため、スマートニュース メディア研究所「japan-topography」が N03（2021 年 1 月 1 日時点）を 1% に簡略化した GeoJSON から作っています。2021 年以降の区の再編（浜松市など）は入っていないので、ワークフローで最新の N03 から作り直してください。
+
 ## データとプライバシー
 
 - **あなたの写真はどこにも保存・送信しません。** 解析はブラウザ内の Canvas で行い、結果の数値（レシピ・代表色・較正データ）だけを保存できます。JPEG の EXIF は撮影設定と撮影情報だけを読み、位置情報（GPS）は読みません。
@@ -180,16 +191,18 @@ data/streets/            ロケ地周辺の街路地図 PMTiles（scripts/extrac
 data/photos/             ロケ地写真 WebP と index.json（scripts/fetch-photos.mjs で作成。プリキャッシュしない）
 data/spots/              日本の撮影スポット <カテゴリ>.json・index.json・report.md（scripts/fetch-spots.mjs で作成）
 data/spot-categories.json 撮影スポットのカテゴリ（名前・アイコン・色・おすすめレシピ・撮影のコツ・講座）
+data/japan/              日本の詳細地図 japan-low.json（都道府県）・japan-high.json（市区町村）（scripts/build-japan-map.sh で作成）
 js/analyze-worker.js     全ピクセル解析の Web Worker
 js/bgdownload.js         同梱データを裏で 1 件ずつ Cache Storage に保存する共通部品
 js/streets.js            街路地図のダウンロードと読み出し
 js/photos.js             ロケ地写真のダウンロードとクレジット
 js/spots.js              撮影スポットの読み込み・検証・重複のまとめ・絞り込み・近い順・制覇率
+js/japan.js              日本の詳細地図（表示範囲・表示位置の記憶・市区町村の判定）
 js/film.js               作品ごとのまとめ・検索・年代・講座との対応
 js/cluster.js            地図のピンのクラスタと地域・国の絞り込み
 vendor/                  Leaflet・topojson-client・pmtiles・protomaps-leaflet
 scripts/                 データ作成用スクリプト（アプリの実行には不要）
-.github/workflows/       街路地図・写真・撮影スポットを作る GitHub Actions
+.github/workflows/       街路地図・写真・撮影スポット・日本の詳細地図を作る GitHub Actions
 icons/                   アプリアイコン
 tests/                   Node.js のテスト
 SPEC.md                  開発仕様書
@@ -220,6 +233,7 @@ SPEC.md                  開発仕様書
 | 国境・海岸線・県境・都市名 | [Natural Earth](https://www.naturalearthdata.com/)・[world-atlas](https://github.com/topojson/world-atlas) | パブリックドメイン / ISC | `data/natural-earth.LICENSE`・`data/world-atlas.LICENSE` |
 | ロケ地周辺の街路地図 | [OpenStreetMap](https://www.openstreetmap.org/copyright)（[Protomaps](https://protomaps.com/) basemap） | ODbL 1.0 | 地図に「© OpenStreetMap contributors」・`data/streets/LICENSE` |
 | ロケ地写真 | [Wikimedia Commons](https://commons.wikimedia.org/) | 写真ごとに CC0 / パブリックドメイン / CC BY / CC BY-SA | 写真の下に撮影者・ライセンス・Commons へのリンク。`data/photos/index.json` に記録 |
+| 日本の詳細地図（海岸線・都道府県境・市区町村境・市区町村名） | 国土交通省「[国土数値情報（行政区域データ）](https://nlftp.mlit.go.jp/ksj/)」（N03）。加工の途中データとしてスマートニュース メディア研究所「[japan-topography](https://github.com/smartnews-smri/japan-topography)」 | 国土数値情報の利用約款（出典の明記） | 地図に「国土数値情報（行政区域データ）（国土交通省）を加工して作成」・`data/japan/LICENSE` |
 | 撮影スポット（動物園・展望台・灯台・城・滝・海岸・温泉街など、各スポットの座標） | [OpenStreetMap](https://www.openstreetmap.org/copyright) | ODbL 1.0 | 地図に「撮影スポット © OpenStreetMap contributors（ODbL）」・`data/spots/LICENSE` |
 | 撮影スポット（古い町並み） | 文化庁「[重要伝統的建造物群保存地区一覧](https://www.bunka.go.jp/seisaku/bunkazai/shokai/hozonchiku/judenken_ichiran.html)」 | — | 各エントリの `note`・`sources` |
 | 撮影スポット（棚田） | 農林水産省「[日本の棚田百選](https://www.maff.go.jp/j/nousin/tanada/)」 | — | 各エントリの `note`・`sources` |
