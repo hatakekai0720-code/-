@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   viewConfig, regionOf, validView, restoreView, rememberView, sanitizeViews, switchPlan,
   WORLD_BOUNDS, JAPAN_MAX_BOUNDS, JAPAN_FIT, JAPAN_ZOOM, WORLD_ZOOM, WORLD_DEFAULT,
-  municipalityName, n03Props, JAPAN_DIR, JAPAN_FILES, JAPAN_ATTRIBUTION, JAPAN_SIZE_LIMIT,
+  municipalityName, n03Props, decodeTopo, createLocator, sameCity, checkSpot, japanLayersAt, prefLabels, cityLabels, NEAR_KM, JAPAN_DIR, JAPAN_FILES, JAPAN_ATTRIBUTION, JAPAN_SIZE_LIMIT,
 } from '../js/japan.js';
 import { PREFS } from '../js/spots.js';
 import { readFileSync, statSync } from 'node:fs';
@@ -169,6 +169,94 @@ await test('データ: 合計 5MB 以下（Service Worker でプリキャッシ�
   const sw = readFileSync(new URL('sw.js', root), 'utf8');
   for (const f of Object.values(JAPAN_FILES)) assert.ok(sw.includes(`'./${JAPAN_DIR}${f}'`), `${f} が ASSETS にない`);
   assert.match(readFileSync(new URL('data/japan/LICENSE', root), 'utf8'), /国土数値情報（行政区域データ）（国土交通省）を加工して作成/);
+});
+
+/* ---- 市区町村の判定 ---- */
+await test('判定: 小さな TopoJSON（穴あき・飛び地）で、中・穴・飛び地・海岸線の近く・遠くを判定する', () => {
+  // A: 0〜10 の正方形に 4〜6 の穴、飛び地 20〜22。B: 穴の中身（4〜6）
+  const topo = { type: 'Topology', arcs: [
+    [[0, 0], [10, 0], [10, 10], [0, 10], [0, 0]], [[4, 4], [4, 6], [6, 6], [6, 4], [4, 4]], [[20, 0], [22, 0], [22, 2], [20, 2], [20, 0]],
+  ], objects: { cities: { type: 'GeometryCollection', geometries: [
+    { type: 'MultiPolygon', arcs: [[[0], [1]], [[2]]], properties: { pref: '甲県', city: 'A市', code: '01001' } },
+    { type: 'Polygon', arcs: [[~1]], properties: { pref: '甲県', city: 'B町', code: '01002' } },
+  ] } } };
+  // 座標は度。赤道付近なので 1° ≒ 111km。近さの判定に使うため、緯度 0 付近で 0.01° ≒ 1.1km
+  const scaled = { ...topo, arcs: topo.arcs.map((a) => a.map(([x, y]) => [140 + x * 0.01, y * 0.01])) };
+  const locate = createLocator(decodeTopo(scaled, 'cities'));
+  assert.equal(locate(0.02, 140.02).city, 'A市');
+  assert.equal(locate(0.05, 140.05).city, 'B町', '穴の中は B町');
+  assert.equal(locate(0.01, 140.21).city, 'A市', '飛び地');
+  const near = locate(0.05, 140.12); // 東の辺から 0.02° ≒ 2.2km
+  assert.equal(near.city, 'A市'); assert.equal(near.exact, false); assert.ok(near.km > 2 && near.km < NEAR_KM, String(near.km));
+  assert.equal(locate(0.05, 140.5), null, '遠い海の上');
+  assert.equal(locate(NaN, 140), null);
+});
+const locate = createLocator(decodeTopo(high, 'cities'));
+await test('判定: 実データで代表的な地点の都道府県・市区町村', () => {
+  const cases = [
+    [35.6812, 139.7671, '東京都', '千代田区'], [34.9671, 135.7727, '京都府', '京都市伏見区'], [43.0621, 141.3544, '北海道', '札幌市中央区'],
+    [26.2124, 127.6809, '沖縄県', '那覇市'], [27.0940, 142.1910, '東京都', '小笠原村'], [24.4686, 123.0047, '沖縄県', '与那国町'],
+    [34.6937, 135.5023, '大阪府', '大阪市北区'], [33.5897, 130.4207, '福岡県', '福岡市博多区'], [36.5613, 136.6562, '石川県', '金沢市'],
+  ];
+  for (const [lat, lng, pref, city] of cases) {
+    const r = locate(lat, lng);
+    assert.ok(r, `${city} が判定できない`);
+    assert.equal(r.pref, pref, `${city}: ${r.pref}`);
+    assert.equal(r.city, city, `${lat},${lng}: ${r.city}`);
+  }
+  assert.equal(locate(37.5, 132.0), null, '日本海の真ん中');
+  assert.equal(locate(37.5665, 126.978), null, 'ソウル');
+});
+await test('判定: データの市区町村名の書き方の違い（区なし・郡つき・区名だけ）は一致とみなす', () => {
+  assert.ok(sameCity('京都市', '京都市東山区'));
+  assert.ok(sameCity('京都市東山区', '京都市東山区'));
+  assert.ok(sameCity('西村山郡朝日町', '朝日町'));
+  assert.ok(sameCity('東山区', '京都市東山区'));
+  assert.ok(sameCity('大和郡山市', '大和郡山市'));
+  assert.ok(!sameCity('郡山市', '大和郡山市'));
+  assert.ok(!sameCity('白山市', '能美市'));
+  assert.ok(!sameCity('府中市', '府中町'));
+  assert.ok(!sameCity('', '千代田区'));
+  const spot = { lat: 35.0116, lng: 135.7681, pref: '京都府', city: '京都市' };
+  assert.deepEqual(checkSpot(spot, () => ({ pref: '京都府', city: '京都市中京区', exact: true, km: 0 })).city, true);
+  assert.equal(checkSpot({ ...spot, city: null }, () => ({ pref: '京都府', city: '京都市中京区' })).city, null);
+  assert.equal(checkSpot(spot, () => null).pref, false);
+});
+await test('表示: 都道府県名はズーム 5〜8、市区町村境と市区町村名は 8 以上', () => {
+  assert.deepEqual(japanLayersAt(4.5), { detail: 'low', prefLabels: false, cityLabels: false });
+  assert.deepEqual(japanLayersAt(5), { detail: 'low', prefLabels: true, cityLabels: false });
+  assert.deepEqual(japanLayersAt(7.5), { detail: 'low', prefLabels: true, cityLabels: false });
+  assert.deepEqual(japanLayersAt(8), { detail: 'high', prefLabels: true, cityLabels: true });
+  assert.deepEqual(japanLayersAt(8.5), { detail: 'high', prefLabels: false, cityLabels: true });
+  assert.deepEqual(japanLayersAt(12), { detail: 'high', prefLabels: false, cityLabels: true });
+  assert.equal(prefLabels(low).length, 47);
+  assert.ok(cityLabels(high).every((l) => l[2] && Number.isFinite(l[0]) && Number.isFinite(l[1])));
+  // 名前を置く地点は、その市区町村の中（判定器で同じ市区町村になる）
+  const off = cityLabels(high).filter(([lng, lat, city]) => locate(lat, lng)?.city !== city);
+  assert.ok(off.length <= 5, off.map((l) => l[2]).join('・'));
+});
+
+/* ---- 撮影スポットのデータとの食い違い ---- */
+// 座標が概略（verified: false。OpenStreetMap とまだ照合していない）のために地図データの判定と食い違っているもの。
+// ワークフロー「撮影スポットを取得」で座標を照合したら、ここから外す（外せるものはテストの出力に出る）
+const KNOWN_APPROX = new Set(['shrine-026', 'shrine-030', 'shrine-045', 'jyudenken-091', 'jyudenken-099', 'tanada-009', 'tanada-012', 'tanada-016', 'tanada-032']);
+await test('撮影スポット: データの都道府県・市区町村と、地図データから判定した値が食い違わない', () => {
+  const index = readJson('data/spots/index.json');
+  const spots = index.files.flatMap((f) => readJson(`data/spots/${f.file}`).spots);
+  const bad = [], fixed = [];
+  for (const s of spots) {
+    const r = checkSpot(s, locate);
+    const ok = r.found && r.pref && r.city !== false;
+    if (!ok && !KNOWN_APPROX.has(s.id)) bad.push(`${s.id} ${s.name}: データ ${s.pref} ${s.city ?? ''} / 地図 ${r.found ? `${r.found.pref} ${r.found.city}${r.found.exact ? '' : `（${r.found.km}km）`}` : '範囲外'}`);
+    if (ok && KNOWN_APPROX.has(s.id)) fixed.push(s.id);
+  }
+  for (const id of KNOWN_APPROX) {
+    const s = spots.find((x) => x.id === id);
+    if (s) assert.equal(s.verified, false, `${id} は座標を照合済みなのに食い違っている（データを直す）`);
+  }
+  if (fixed.length) console.log(`     （食い違いが直ったので KNOWN_APPROX から外せる: ${fixed.join(', ')}）`);
+  assert.deepEqual(bad, [], `食い違い ${bad.length} 件:\n${bad.join('\n')}`);
+  console.log(`     ${spots.length} 件を照合（概略座標のため既知の食い違い ${KNOWN_APPROX.size - fixed.length} 件）`);
 });
 
 console.log(`\n${count} 件のテストに合格`);

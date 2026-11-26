@@ -4,6 +4,7 @@ import { paramSummary } from '../ui/recipe-ui.js';
 import { formatLatLng, haversine, formatKm } from '../geo.js';
 import { loadSpots, loadCategories, categoryRecipe, SOURCE_LABELS } from '../spots.js';
 import { loadLessons } from '../lessons.js';
+import { loadLocator, checkSpot, JAPAN_ATTRIBUTION } from '../japan.js';
 import { visitCard } from './location.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
@@ -50,6 +51,10 @@ export function render(root, { id }) {
     const cat = cats.find((c) => c.id === s.category);
     document.title = `${s.name}（${cat.name}） — X-T3 Cinematic Lab`;
     const also = (s.alsoIn || []).map((cid) => cats.find((c) => c.id === cid)).filter(Boolean);
+    // 地図データ（国土数値情報の行政区域）から判定した都道府県・市区町村
+    const areaEl = h('div', { class: 'small muted' }, '所在地（地図データから判定）: 判定中…');
+    loadLocator().then((locate) => { if (alive) areaEl.replaceWith(areaCard(s, checkSpot(s, locate))); })
+      .catch(() => areaEl.replaceChildren('所在地（地図データから判定）: 地図データを読み込めませんでした。'));
     const rel = cat.lessons.map((no) => lessons?.lessons.find((x) => x.no === no)).filter(Boolean);
     body.replaceChildren(...[
       h('div', null,
@@ -60,6 +65,7 @@ export function render(root, { id }) {
           h('span', { class: 'chip spot-chip', style: `--c:${cat.color}` }, cat.name),
           ...also.map((c) => h('span', { class: 'chip spot-chip', style: `--c:${c.color}` }, `${c.name}にも該当`)),
           store.getVisited(s.id) ? h('span', { class: 'chip visited' }, '✓ 行った') : null)),
+      areaEl,
       s.note ? h('p', { class: 'small', style: 'margin:0' }, s.note) : null,
       h('div', { class: 'notice small' }, '撮影可否は現地のルールを確認してください。営業時間・料金・撮影ルールは変わるため載せていません。'),
       s.verified === false ? h('div', { class: 'notice info small' }, '座標は概略です（OpenStreetMap でまだ確認していません）。現地の案内で場所を確かめてください。') : null,
@@ -82,6 +88,20 @@ export function render(root, { id }) {
     ].flat(Infinity).filter((x) => x != null && x !== ''));
   }
   return () => { alive = false; };
+}
+
+/** 地図データから判定した都道府県・市区町村（スポットのデータと違えば注記） */
+export function areaCard(s, r) {
+  const head = h('span', null, '所在地（地図データから判定）: ');
+  if (!r.found) return h('div', { class: 'small muted' }, head, '地図データの範囲外です（座標を確かめてください）。');
+  const f = r.found;
+  const same = r.pref && r.city !== false;
+  return h('div', { class: 'stack', style: 'gap:4px' },
+    h('div', { class: 'small' }, head, h('strong', null, `${f.pref}${f.city ? ` ${f.city}` : ''}`),
+      f.exact ? null : h('span', { class: 'muted' }, `（海岸線の外 約 `, h('span', { class: 'num' }, f.km), ' km。最寄りの市区町村）')),
+    same ? null : h('div', { class: 'notice info small' }, `スポットのデータでは「${s.pref}${s.city ? ` ${s.city}` : ''}」です。`,
+      s.verified === false ? '座標が概略のため、地図データの判定と違っている可能性があります。' : '座標か都道府県・市区町村のどちらかが違っている可能性があります。'),
+    h('div', { class: 'small muted' }, JAPAN_ATTRIBUTION));
 }
 
 /** 現在地からの距離の表示（シートなどで使う） */
