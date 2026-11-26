@@ -4,6 +4,7 @@ import { h, toast } from '../ui/dom.js';
 import * as X from '../xt3.js';
 import * as store from '../store.js';
 import { loadLessons, lessonRecipe } from '../lessons.js';
+import { loadCategories, categoryRecipe } from '../spots.js';
 
 const fx = (v) => ({ off: 'OFF', weak: '弱', strong: '強' }[v]);
 
@@ -67,8 +68,22 @@ export function render(root, { id }) {
     }).catch(() => alive && draw(root, null));
     return () => { alive = false; cleanup?.(); };
   }
+  // 撮影スポットのカテゴリのおすすめレシピ: これも保存しなくても開ける
+  const sp = /^spot-([a-z0-9-]+)$/.exec(id);
+  if (sp) {
+    let cleanup = null, alive = true;
+    loadCategories().then((cats) => {
+      if (!alive) return;
+      const cat = cats.find((c) => c.id === sp[1]);
+      if (cat) cleanup = draw(root, { ...categoryRecipe(cat), id }, true); else draw(root, null);
+    }).catch(() => alive && draw(root, null));
+    return () => { alive = false; cleanup?.(); };
+  }
   return draw(root, null);
 }
+
+// 保存しないで開いたレシピ（講座・撮影スポット）を閉じたときの戻り先
+const transientBack = (r) => (r.source === 'spot' ? '#/spots' : `#/academy/${r.sourceRef}`);
 
 function draw(root, r, transient = false) {
   if (!r) {
@@ -124,9 +139,9 @@ function draw(root, r, transient = false) {
   document.addEventListener('visibilitychange', onVis);
   acquire();
 
-  const close = () => (history.length > 1 ? history.back() : (location.hash = transient ? `#/academy/${r.sourceRef}` : `#/recipes/${encodeURIComponent(r.id)}`));
+  const close = () => (history.length > 1 ? history.back() : (location.hash = transient ? transientBack(r) : `#/recipes/${encodeURIComponent(r.id)}`));
   const saveBtn = () => {
-    const existing = store.findBySource('lesson', r.sourceRef);
+    const existing = store.findBySource(r.source, r.sourceRef);
     if (existing) return h('a', { class: 'btn block', style: 'margin-top:12px', href: `#/recipes/${encodeURIComponent(existing.id)}` }, 'レシピ帳に保存済み — 開く');
     return h('button', { type: 'button', class: 'btn primary block', style: 'margin-top:12px', onclick: (e) => {
       const { id: _drop, ...data } = r;

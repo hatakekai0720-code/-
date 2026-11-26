@@ -388,3 +388,23 @@ a.list-btn { text-decoration: none; color: var(--text); display: flex; align-ite
 .cal-range { position: absolute; top: 2px; bottom: 2px; border: 1px solid var(--accent); border-radius: 2px; }
 .cal-dot { position: absolute; top: 6px; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; background: var(--muted); }
 .cal-mean { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--accent-bg); }
+
+/* ---- 撮影スポット ---- */
+.spot-badge { display: inline-grid; place-items: center; flex: none; border-radius: 5px; background: var(--c); color: #fff; font-weight: 700; line-height: 1;
+  box-shadow: 0 0 0 1.5px var(--bg); }
+.chip.spot-chip { border-color: var(--c); color: var(--text); }
+.chip.spot-chip::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 2px; background: var(--c); margin-right: 6px; }
+button.chip.spot-chip:not(.on) { border-color: var(--line); color: var(--muted); }
+button.chip.spot-chip:not(.on)::before { background: transparent; box-shadow: inset 0 0 0 1.5px var(--c); }
+.tips { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; font-size: 14px; }
+.cluster.spot { border-radius: 9px; background: var(--c); color: #fff; border: 2px solid var(--bg); box-shadow: 0 0 0 3px color-mix(in srgb, var(--c) 30%, transparent); }
+.cluster.spot .cl-icon { font-size: 10px; line-height: 1; opacity: .9; }
+.cluster.spot { grid-template-rows: auto auto; align-content: center; gap: 1px; }
+.dot.spot { border-radius: 3px; background: var(--c); border: 0; }
+.seg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.seg button { min-height: 40px; background: var(--card); color: var(--muted); border: 0; border-right: 1px solid var(--line); font: inherit; font-size: 13px; cursor: pointer; }
+.seg button:last-child { border-right: 0; }
+.seg button[aria-pressed="true"] { background: var(--accent-bg); color: #0a0a0a; font-weight: 600; }
+.bar { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.bar > i { display: block; height: 100%; background: var(--c, var(--accent-bg)); }
+.rate-row { display: grid; grid-template-columns: minmax(0, 1fr) 92px; gap: 4px 10px; align-items: center; }
