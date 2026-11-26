@@ -78,3 +78,32 @@ export function switchPlan({ views, from, to, current, legacy = null }) {
   const view = restoreView(next, to, legacy);
   return { views: next, config, view: view ?? (config.region === 'world' ? { ...WORLD_DEFAULT } : null), fit: view ? null : config.fit };
 }
+
+/* ---- 行政区域データ（国土数値情報 N03）の属性 ---- */
+
+export const JAPAN_DIR = 'data/japan/';
+export const JAPAN_FILES = { low: 'japan-low.json', high: 'japan-high.json' }; // 都道府県（ズーム 8 未満）/ 市区町村（8 以上・判定）
+export const JAPAN_ATTRIBUTION = '国土数値情報（行政区域データ）（国土交通省）を加工して作成';
+export const JAPAN_SIZE_LIMIT = 5 * 1024 * 1024; // data/japan/ の合計の上限
+
+/**
+ * N03 の属性 → 市区町村名。政令指定都市の区は「市名 + 区名」（札幌市中央区）、郡・支庁・振興局は付けない。
+ * 年度で列の使い方が違っても動くように、N03_003〜N03_005 の値から組み立てる。所属未定地は ''。
+ */
+export function municipalityName(p) {
+  const vals = ['N03_003', 'N03_004', 'N03_005'].map((k) => p?.[k]).filter((v) => typeof v === 'string' && v.trim()).map((v) => v.trim());
+  if (!vals.length || vals.includes('所属未定地')) return '';
+  const ward = [...vals].reverse().find((v) => /区$/.test(v));
+  const city = vals.find((v) => /市$/.test(v) && v !== ward);
+  if (ward && city) return ward.startsWith(city) ? ward : city + ward;
+  const rest = vals.filter((v) => !/(郡|支庁|振興局)$/.test(v));
+  return rest[rest.length - 1] || '';
+}
+
+/** N03 の 1 地物 → アプリで使う属性 { key, pref, city, code } */
+export function n03Props(p) {
+  const pref = String(p?.N03_001 || '').trim();
+  const code = /^\d{5}$/.test(p?.N03_007 || '') ? p.N03_007 : '';
+  const city = municipalityName(p);
+  return { key: code || `${pref}:${city || '所属未定地'}`, pref, city, code };
+}

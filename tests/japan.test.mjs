@@ -3,7 +3,13 @@ import assert from 'node:assert/strict';
 import {
   viewConfig, regionOf, validView, restoreView, rememberView, sanitizeViews, switchPlan,
   WORLD_BOUNDS, JAPAN_MAX_BOUNDS, JAPAN_FIT, JAPAN_ZOOM, WORLD_ZOOM, WORLD_DEFAULT,
+  municipalityName, n03Props, JAPAN_DIR, JAPAN_FILES, JAPAN_ATTRIBUTION, JAPAN_SIZE_LIMIT,
 } from '../js/japan.js';
+import { PREFS } from '../js/spots.js';
+import { readFileSync, statSync } from 'node:fs';
+
+const root = new URL('../', import.meta.url);
+const readJson = (p) => JSON.parse(readFileSync(new URL(p, root), 'utf8'));
 
 let count = 0;
 const test = async (name, fn) => { await fn(); count++; console.log('ok  ', name); };
@@ -123,5 +129,46 @@ await test('インポート: mapViews は正しいモード・範囲内の値だ
     assert.equal(bad.db.settings.mapViews, undefined);
   });
 }
+
+/* ---- 地図データ（国土数値情報 N03 を加工） ---- */
+await test('N03 の属性 → 市区町村名: 政令指定都市は「市名 + 区名」、郡・支庁は付けない、所属未定地は空', () => {
+  assert.equal(municipalityName({ N03_003: '札幌市', N03_004: '中央区' }), '札幌市中央区');
+  assert.equal(municipalityName({ N03_004: '札幌市', N03_005: '中央区' }), '札幌市中央区'); // 年度によって区名が N03_005
+  assert.equal(municipalityName({ N03_003: '石狩郡', N03_004: '当別町' }), '当別町');
+  assert.equal(municipalityName({ N03_003: '大島支庁', N03_004: '新島村' }), '新島村');
+  assert.equal(municipalityName({ N03_002: '石狩振興局', N03_003: '札幌市', N03_004: '北区' }), '札幌市北区');
+  assert.equal(municipalityName({ N03_004: '千代田区' }), '千代田区');
+  assert.equal(municipalityName({ N03_004: '所属未定地' }), '');
+  assert.deepEqual(n03Props({ N03_001: '京都府', N03_003: '京都市', N03_004: '東山区', N03_007: '26105' }), { key: '26105', pref: '京都府', city: '京都市東山区', code: '26105' });
+  assert.deepEqual(n03Props({ N03_001: '千葉県', N03_004: '所属未定地', N03_007: null }), { key: '千葉県:所属未定地', pref: '千葉県', city: '', code: '' });
+});
+const low = readJson(JAPAN_DIR + JAPAN_FILES.low), high = readJson(JAPAN_DIR + JAPAN_FILES.high);
+await test('データ: 都道府県 47 件・市区町村 1,700 件以上、属性と名前の位置、出典', () => {
+  const prefs = low.objects.prefs.geometries;
+  assert.deepEqual(prefs.map((g) => g.properties.pref).sort(), [...PREFS].sort());
+  const cities = high.objects.cities.geometries;
+  assert.ok(cities.length >= 1700, `${cities.length} 件`);
+  for (const g of [...prefs, ...cities]) {
+    assert.ok(['Polygon', 'MultiPolygon'].includes(g.type), g.type);
+    assert.ok(PREFS.includes(g.properties.pref), g.properties.pref);
+    assert.ok(Number.isFinite(g.properties.lx) && Number.isFinite(g.properties.ly), `${g.properties.city} の名前の位置`);
+  }
+  for (const g of cities) {
+    assert.ok(g.properties.city === '' || /[市区町村]$/.test(g.properties.city), g.properties.city);
+    assert.ok(g.properties.city === '' ? g.properties.code === '' : /^\d{5}$/.test(g.properties.code), g.properties.city);
+    if (g.properties.code) assert.equal(Number(g.properties.code.slice(0, 2)), PREFS.indexOf(g.properties.pref) + 1, `${g.properties.city} の都道府県コード`);
+  }
+  const codes = cities.map((g) => g.properties.code).filter(Boolean);
+  assert.equal(new Set(codes).size, codes.length, '同じ市区町村が 1 件にまとまっている');
+  for (const name of ['札幌市中央区', '京都市東山区', '千代田区', '那覇市', '小笠原村', '与那国町']) assert.ok(cities.some((g) => g.properties.city === name), name);
+  for (const t of [low, high]) assert.equal(t.meta.attribution, JAPAN_ATTRIBUTION);
+});
+await test('データ: 合計 5MB 以下（Service Worker でプリキャッシュする）', () => {
+  const total = Object.values(JAPAN_FILES).reduce((s, f) => s + statSync(new URL(JAPAN_DIR + f, root)).size, 0);
+  assert.ok(total <= JAPAN_SIZE_LIMIT, `${total} バイト`);
+  const sw = readFileSync(new URL('sw.js', root), 'utf8');
+  for (const f of Object.values(JAPAN_FILES)) assert.ok(sw.includes(`'./${JAPAN_DIR}${f}'`), `${f} が ASSETS にない`);
+  assert.match(readFileSync(new URL('data/japan/LICENSE', root), 'utf8'), /国土数値情報（行政区域データ）（国土交通省）を加工して作成/);
+});
 
 console.log(`\n${count} 件のテストに合格`);

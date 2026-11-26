@@ -1,0 +1,76 @@
+# 撮影スポットモードの日本の詳細地図（data/japan/）を、国土数値情報「行政区域データ（N03）」（国土交通省）から作ってコミットする。
+# ・手動実行のみ（Actions タブ → 「日本の詳細地図を作成」→ Run workflow）。年度（N03 の公開年と基準日）を選べる
+# ・scripts/build-japan-map.sh が mapshaper で簡略化し、合計 5MB 以下に収める（収まらなければ失敗してコミットしない）
+# ・作った後に、撮影スポットの都道府県・市区町村との食い違いをテスト（tests/japan.test.mjs）で確かめる
+name: 日本の詳細地図を作成
+
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: 'N03 の年度（例: 2024）'
+        required: true
+        default: '2024'
+      date:
+        description: 'N03 の基準日（YYYYMMDD。例: 20240101）'
+        required: true
+        default: '20240101'
+      source:
+        description: 'データの取得元（mlit = 国土交通省 / smri = スマートニュース メディア研究所の 2021 年版）'
+        required: true
+        default: 'mlit'
+        type: choice
+        options: [mlit, smri]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-japan-map-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: 作成（scripts/build-japan-map.sh）
+        env:
+          N03_YEAR: ${{ inputs.year }}
+          N03_DATE: ${{ inputs.date }}
+          N03_SOURCE: ${{ inputs.source }}
+          NODE_OPTIONS: --max-old-space-size=6144
+        run: bash scripts/build-japan-map.sh
+
+      - name: サイズ
+        run: |
+          {
+            echo "### 日本の詳細地図（data/japan/）"
+            echo '| ファイル | バイト |'
+            echo '|---|---:|'
+            for f in data/japan/*.json; do echo "| $f | $(stat -c %s "$f") |"; done
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: テスト
+        run: node tests/japan.test.mjs && node tests/sw.test.mjs
+
+      - name: コミットして push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/japan
+          if git diff --cached --quiet; then echo "変更なし"; exit 0; fi
+          git commit -m "日本の詳細地図を更新（国土数値情報 N03 ${{ inputs.year }}、GitHub Actions）"
+          for i in 1 2 3 4; do
+            if git pull --rebase -X theirs origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME"; then exit 0; fi
+            git rebase --abort 2>/dev/null || true
+            sleep $((i * 15))
+          done
+          echo "push できませんでした" >&2
+          exit 1
