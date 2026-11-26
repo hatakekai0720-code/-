@@ -1,0 +1,15 @@
+撮影スポットのデータ（data/spots/*.json）について
+
+1. OpenStreetMap 由来のデータ（source: "osm" のもの、および他の出典のエントリの座標・osmId）
+   © OpenStreetMap contributors
+   Open Database License (ODbL) 1.0 — https://opendatacommons.org/licenses/odbl/1-0/
+   https://www.openstreetmap.org/copyright
+   このファイル群のうち OpenStreetMap から作った部分は、ODbL 1.0 のもとで提供します。
+
+2. 公的リストから作ったデータ（source: "jyudenken" / "tanada100"）
+   - 文化庁「重要伝統的建造物群保存地区一覧」
+   - 農林水産省「日本の棚田百選」
+   地区名・所在地は各リストの記載による事実。各エントリの note と sources に出典を記録しています。
+
+3. 手作業で選んだ神社仏閣（source: "curated"）
+   選定理由（note）と出典 URL（sources）は各エントリに記録しています。

@@ -288,4 +288,32 @@ test('神社仏閣: 約 100 件・都道府県の偏りが大きすぎない', (
   const max = Math.max(...per.values());
   assert.ok(max <= 20, `最多の都道府県が ${max} 件`);
 });
+
+/* ---- 保存（表示モード・カテゴリの選択・撮影スポットの「行った」） ---- */
+{
+  const mem = new Map();
+  globalThis.localStorage = { getItem: (k) => (mem.has(k) ? mem.get(k) : null), setItem: (k, v) => mem.set(k, String(v)), removeItem: (k) => mem.delete(k),
+    get length() { return mem.size; }, key: (i) => [...mem.keys()][i] };
+  const store = await import('../js/store.js');
+  store.init();
+  test('設定: 表示モードと選択中のカテゴリを保存し、エクスポート/インポートで保つ・不正な値は捨てる', () => {
+    store.setSetting('mapMode', 'spots');
+    store.setSetting('spotCats', ['zoo', 'castle']);
+    assert.ok(store.setVisited('shrine-001', { date: '2026-11-01', memo: '' }).visit);
+    const back = store.validateDb(JSON.parse(store.exportData()));
+    assert.ok(back.ok);
+    assert.equal(back.db.settings.mapMode, 'spots');
+    assert.deepEqual(back.db.settings.spotCats, ['zoo', 'castle']);
+    assert.equal(back.db.visited['shrine-001'].date, '2026-11-01');
+    const bad = store.validateDb({ version: 4, recipes: [], settings: { mapMode: 'xxx', spotCats: ['<script>', 1] } });
+    assert.ok(bad.ok);
+    assert.equal(bad.db.settings.mapMode, undefined);
+    assert.equal(bad.db.settings.spotCats, undefined);
+  });
+  test('撮影スポットの「行った」は制覇率に反映される', () => {
+    const spotsData = read('data/spots/shrine.json').spots;
+    const r = completion(spotsData, store.visited(), cats);
+    assert.equal(r.byCategory.find((x) => x.id === 'shrine').visited, 1);
+  });
+}
 console.log(`\n${count} 件のテストに合格`);

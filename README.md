@@ -75,6 +75,7 @@ node tests/locations.test.mjs  # locations.json のスキーマ（作品情報�
 node tests/exif.test.mjs       # JPEG の EXIF / 富士フイルム MakerNote の読み取り（tests/fixtures/README.md）
 node tests/similar.test.mjs    # この写真に近い映画
 node tests/calibration.test.mjs # 較正データ（保存データ v4）・分布・RULES の更新案
+node tests/spots.test.mjs      # 撮影スポット（カテゴリ・データの検証・重複・表示モードとカテゴリ切り替え・近い順・制覇率）
 ```
 
 ## 自分の JPEG から実際の設定を読む
@@ -118,6 +119,27 @@ node tests/calibration.test.mjs # 較正データ（保存データ v4）・分�
   Wikimedia に名乗る連絡先を付けたいときは、リポジトリの Settings → Secrets and variables → Actions → **Variables** に `WIKIMEDIA_CONTACT`（例: 連絡用の URL）を追加します（任意）。
 - `data/streets/` や `data/photos/` だけの変更ではワークフローは動きません（bot のコミットで無限に動かないように）。
 
+## 日本の撮影スポット
+
+地図の上部で **映画ロケ地 / 撮影スポット / すべて** を切り替えられます。撮影スポットは日本国内の次のカテゴリで、チップで複数選択できます（選択は端末に保存）。
+
+| カテゴリ | データの出どころ |
+|---|---|
+| 動物園・水族館・植物園・展望台・絶景・灯台・城・城跡・滝・砂浜・海岸・温泉街 | OpenStreetMap（ODbL）。都道府県ごとに Overpass API で取得 |
+| 古い町並み | 文化庁「重要伝統的建造物群保存地区一覧」。座標は OpenStreetMap と照合 |
+| 棚田 | 農林水産省「日本の棚田百選」（一部）。座標は OpenStreetMap と照合 |
+| 神社仏閣 | 手作業で選んだ約 100 件（国宝の建造物・世界遺産の構成資産・全国的に有名なもの）。選定理由と出典つき |
+
+- 星空スポットは、使える公的リスト（環境省の資料）を確認できなかったため、カテゴリを作っていません。
+- 詳細画面では、カテゴリのおすすめレシピを Qメニュー表示で開いたり、レシピ帳に取り込んだりできます。営業時間・料金・撮影ルールは変わるので載せていません（「撮影可否は現地のルールを確認」と表示）。
+- 「行った」を付けると、`#/spots`（地図の「制覇率」）にカテゴリ別・都道府県別の制覇率が出ます。
+- データは GitHub Actions の **「撮影スポットを取得」**（`fetch-spots.yml`）が作ります。手動実行（Actions → 撮影スポットを取得 → Run workflow）と毎月 1 回の定期実行（デフォルトブランチのみ）で動き、検証に通ると `data/spots/` をコミットします。件数・OpenStreetMap と照合できなかったもの・合計サイズは Summary と `data/spots/report.md` に出ます。
+  - 元のリストは `scripts/spot-lists/`（重伝建・棚田百選・神社仏閣）。追加・修正はここを直してワークフローを動かします。
+  - 温泉街は、OpenStreetMap の `place=village|town|hamlet|suburb|quarter|neighbourhood|locality` のうち名前が「〜温泉」「〜温泉郷」「〜温泉街」で終わるものです（温泉施設は数えない）。
+  - 重複（城が絶景にも入っている、重伝建の地区内の温泉街など）は、より具体的なカテゴリに 1 件にまとめます。
+- 合計が 5MB 以下なら Service Worker のインストール時に保存し（`index.json` の `precache: true`）、超えるときは街路地図と同じく裏で 1 件ずつ保存します（Cache Storage `xt3cine-spots`）。
+- 手元で形式だけ作り直すとき（ネットワークなし）: `node scripts/fetch-spots.mjs --offline`（OpenStreetMap 由来の既存データはそのまま、リストの分は概略座標）→ `node scripts/validate-spots.mjs`
+
 ## データとプライバシー
 
 - **あなたの写真はどこにも保存・送信しません。** 解析はブラウザ内の Canvas で行い、結果の数値（レシピ・代表色・較正データ）だけを保存できます。JPEG の EXIF は撮影設定と撮影情報だけを読み、位置情報（GPS）は読みません。
@@ -126,6 +148,7 @@ node tests/calibration.test.mjs # 較正データ（保存データ v4）・分�
 - Service Worker のキャッシュ名も `xt3cine-` で始まり、このアプリのキャッシュ以外は削除しません。
 - 現在地は「近い順」の計算に使うだけで、保存しません。
 - 外部サーバーへの通信はありません（Web フォント・CDN・外部の地図タイルも使っていません）。
+- 撮影スポットのデータも同じサイトから取得し、Cache Storage（`xt3cine-spots`）に保存します。出典・公式サイトのリンクは表示するだけで、タップしたときだけブラウザで開きます。
 - ロケ地周辺の街路地図（OpenStreetMap）とロケ地写真（Wikimedia Commons の自由ライセンス写真）は、このアプリと同じサイトから裏で 1 件ずつダウンロードし、Cache Storage（`xt3cine-streets`・`xt3cine-photos`）に保存します。設定画面でオフ・全削除できます。
 - ロケ地の出典・映画.com などの外部リンク・写真のクレジットは表示するだけで、アプリは通信しません。タップしたときだけブラウザで開きます。
 - 機種変更やバックアップには、設定画面の「エクスポート」で JSON ファイルを書き出し、新しい端末で「インポート」します。
@@ -155,15 +178,18 @@ data/admin1-10m.json     県・州の境界線（ズーム 4 以上）
 data/places-10m.json     主要都市名（ズーム 6 以上）
 data/streets/            ロケ地周辺の街路地図 PMTiles（scripts/extract-streets.sh で作成。プリキャッシュしない）
 data/photos/             ロケ地写真 WebP と index.json（scripts/fetch-photos.mjs で作成。プリキャッシュしない）
+data/spots/              日本の撮影スポット <カテゴリ>.json・index.json・report.md（scripts/fetch-spots.mjs で作成）
+data/spot-categories.json 撮影スポットのカテゴリ（名前・アイコン・色・おすすめレシピ・撮影のコツ・講座）
 js/analyze-worker.js     全ピクセル解析の Web Worker
 js/bgdownload.js         同梱データを裏で 1 件ずつ Cache Storage に保存する共通部品
 js/streets.js            街路地図のダウンロードと読み出し
 js/photos.js             ロケ地写真のダウンロードとクレジット
+js/spots.js              撮影スポットの読み込み・検証・重複のまとめ・絞り込み・近い順・制覇率
 js/film.js               作品ごとのまとめ・検索・年代・講座との対応
 js/cluster.js            地図のピンのクラスタと地域・国の絞り込み
 vendor/                  Leaflet・topojson-client・pmtiles・protomaps-leaflet
 scripts/                 データ作成用スクリプト（アプリの実行には不要）
-.github/workflows/       街路地図・写真を作る GitHub Actions
+.github/workflows/       街路地図・写真・撮影スポットを作る GitHub Actions
 icons/                   アプリアイコン
 tests/                   Node.js のテスト
 SPEC.md                  開発仕様書
@@ -194,6 +220,10 @@ SPEC.md                  開発仕様書
 | 国境・海岸線・県境・都市名 | [Natural Earth](https://www.naturalearthdata.com/)・[world-atlas](https://github.com/topojson/world-atlas) | パブリックドメイン / ISC | `data/natural-earth.LICENSE`・`data/world-atlas.LICENSE` |
 | ロケ地周辺の街路地図 | [OpenStreetMap](https://www.openstreetmap.org/copyright)（[Protomaps](https://protomaps.com/) basemap） | ODbL 1.0 | 地図に「© OpenStreetMap contributors」・`data/streets/LICENSE` |
 | ロケ地写真 | [Wikimedia Commons](https://commons.wikimedia.org/) | 写真ごとに CC0 / パブリックドメイン / CC BY / CC BY-SA | 写真の下に撮影者・ライセンス・Commons へのリンク。`data/photos/index.json` に記録 |
+| 撮影スポット（動物園・展望台・灯台・城・滝・海岸・温泉街など、各スポットの座標） | [OpenStreetMap](https://www.openstreetmap.org/copyright) | ODbL 1.0 | 地図に「撮影スポット © OpenStreetMap contributors（ODbL）」・`data/spots/LICENSE` |
+| 撮影スポット（古い町並み） | 文化庁「[重要伝統的建造物群保存地区一覧](https://www.bunka.go.jp/seisaku/bunkazai/shokai/hozonchiku/judenken_ichiran.html)」 | — | 各エントリの `note`・`sources` |
+| 撮影スポット（棚田） | 農林水産省「[日本の棚田百選](https://www.maff.go.jp/j/nousin/tanada/)」 | — | 各エントリの `note`・`sources` |
+| 撮影スポット（神社仏閣） | 手作業で選定。[国指定文化財等データベース](https://kunishitei.bunka.go.jp/)・[ユネスコ世界遺産センター](https://whc.unesco.org/)・各寺社の公式サイト | — | 各エントリの `note`（選定理由）・`sources` |
 | ロケ地・作品情報（`data/locations.json`） | 各ロケ地の `sources` に記した出典で確認した事実。あらすじ・撮影ガイド・レシピ・パレットはこのアプリのオリジナル | — | 出典はロケ地の詳細に表示 |
 | 講座（`data/lessons.json`）・初期レシピ | このアプリのオリジナル | — | — |
 
