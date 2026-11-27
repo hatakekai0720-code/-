@@ -135,6 +135,7 @@ node tests/japan.test.mjs      # 日本の詳細地図（表示範囲の切り�
 - 詳細画面では、カテゴリのおすすめレシピを Qメニュー表示で開いたり、レシピ帳に取り込んだりできます。営業時間・料金・撮影ルールは変わるので載せていません（「撮影可否は現地のルールを確認」と表示）。
 - 「行った」を付けると、`#/spots`（地図の「制覇率」）にカテゴリ別・都道府県別の制覇率が出ます。
 - データは GitHub Actions の **「撮影スポットを取得」**（`fetch-spots.yml`）が作ります。手動実行（Actions → 撮影スポットを取得 → Run workflow）と毎月 1 回の定期実行（デフォルトブランチのみ）で動き、検証に通ると `data/spots/` をコミットします。件数・OpenStreetMap と照合できなかったもの・合計サイズは Summary と `data/spots/report.md` に出ます。
+  - OpenStreetMap からは都道府県ごとに取得し、失敗したら待って最大 3 回やり直します。それでも取れなかった都道府県は前回のデータを残し、Summary と `report.md` に一覧で出します（全体は止めません）。ワークフローは街路地図・写真（`data/streets/`・`data/photos/`）を取得しない sparse-checkout で動きます。
   - 元のリストは `scripts/spot-lists/`（重伝建・棚田百選・神社仏閣）。追加・修正はここを直してワークフローを動かします。
   - 温泉街は、OpenStreetMap の `place=village|town|hamlet|suburb|quarter|neighbourhood|locality` のうち名前が「〜温泉」「〜温泉郷」「〜温泉街」で終わるものです（温泉施設は数えない）。
   - 重複（城が絶景にも入っている、重伝建の地区内の温泉街など）は、より具体的なカテゴリに 1 件にまとめます。

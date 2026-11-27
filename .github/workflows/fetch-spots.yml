@@ -5,6 +5,13 @@
 #   公的リスト（重要伝統的建造物群保存地区・日本の棚田百選）と厳選した神社仏閣の座標を OpenStreetMap と照合して決める
 #   （scripts/fetch-spots.mjs。元のリストは scripts/spot-lists/）
 # ・検証（scripts/validate-spots.mjs）に通らなければコミットしない。件数・照合できなかったもの・合計サイズは Summary に出る
+# ・Overpass は都道府県ごとに、失敗したら待って最大 3 回やり直す。それでも取れなかった都道府県は前回のデータを残し、Summary に一覧で出す
+# ・checkout は sparse-checkout で必要なものだけ取る（data/streets/ の街路地図 約 250MB・data/photos/ の写真は取らない。
+#   全部取ると時間がかかり「The operation was canceled.」で止まることがあった）。必要なもの:
+#     scripts/（fetch-spots.mjs・overpass.mjs・spots-osm.mjs・validate-spots.mjs・spot-lists/）
+#     js/（spots.js → xt3.js・geo.js・bgdownload.js、japan.js など。tests/sw.test.mjs は js/ 全体を見る）
+#     data/ 直下（spot-categories.json・lessons.json。cone モードなので data/ 直下のファイルは自動で入る）・data/spots/・data/japan/
+#     tests/、sw.test.mjs が照合する css/・vendor/・icons/、ルートのファイル（sw.js・index.html・manifest.webmanifest。自動で入る）
 name: 撮影スポットを取得
 
 on:
@@ -22,27 +29,67 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
+        timeout-minutes: 10
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            js
+            data/spots
+            data/japan
+            tests
+            css
+            vendor
+            icons
+          sparse-checkout-cone-mode: true
+
+      - name: 取得しなかったもの（data/streets・data/photos が無いことを確認）
+        timeout-minutes: 2
+        run: |
+          git sparse-checkout list
+          test ! -e data/streets && test ! -e data/photos
+          test -f data/spot-categories.json && test -f data/lessons.json && test -f sw.js
 
       - uses: actions/setup-node@v4
+        timeout-minutes: 5
         with:
           node-version: '22'
 
       - name: 取得・照合・重複のまとめ（scripts/fetch-spots.mjs）
+        # 都道府県ごとのやり直し（最大 3 回）を含めた上限。取得は FETCH_BUDGET_MIN（110 分）で打ち切り、残りは前回のデータのまま進むので、
+        # ここで止まるのは照合（B・C）まで長引いたときだけ
+        timeout-minutes: 150
         env:
           # 任意: Overpass API に名乗る連絡先（リポジトリの Settings → Variables で OVERPASS_CONTACT を設定。未設定でも動く）
           CONTACT: ${{ vars.OVERPASS_CONTACT }}
         run: node scripts/fetch-spots.mjs
 
       - name: 検証（日本の範囲・名前・ID の重複・件数・サイズ）
+        timeout-minutes: 5
         run: node scripts/validate-spots.mjs
 
       - name: テスト
+        timeout-minutes: 5
         run: node tests/spots.test.mjs && node tests/sw.test.mjs
 
+      # 地図データ（data/japan/）から判定した都道府県・市区町村との食い違い。OpenStreetMap の住所の書き方の違いなどで
+      # 毎月の更新が止まらないように、失敗してもコミットは続け、結果を Summary に出す
+      - name: 都道府県・市区町村の食い違い（tests/japan.test.mjs。止めない）
+        timeout-minutes: 5
+        run: |
+          if node tests/japan.test.mjs > japan-test.log 2>&1; then
+            echo "### 都道府県・市区町村の食い違い: なし" >> "$GITHUB_STEP_SUMMARY"
+          else
+            { echo "### ⚠️ 都道府県・市区町村の食い違い（tests/japan.test.mjs）"; echo '```'; tail -n 60 japan-test.log; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          fi
+          rm -f japan-test.log
+
       - name: コミットして push
+        timeout-minutes: 10
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

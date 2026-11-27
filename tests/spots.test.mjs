@@ -8,6 +8,7 @@ import {
 } from '../js/spots.js';
 import { validateRecipe } from '../js/xt3.js';
 import { classify, excluded, scoreCandidate } from '../scripts/spots-osm.mjs';
+import { withRetry, overpassOnce, overpass, failedPrefsMarkdown, OverpassError, ENDPOINTS } from '../scripts/overpass.mjs';
 
 let count = 0;
 const test = (name, fn) => { fn(); count++; console.log('ok  ', name); };
@@ -288,6 +289,50 @@ test('神社仏閣: 約 100 件・都道府県の偏りが大きすぎない', (
   const max = Math.max(...per.values());
   assert.ok(max <= 20, `最多の都道府県が ${max} 件`);
 });
+
+/* ---- Overpass の問い合わせとやり直し（scripts/overpass.mjs） ---- */
+{
+  const res = (status, body) => ({ ok: status >= 200 && status < 300, status, json: async () => body });
+  const results = [];
+  const check = async (name, fn) => { try { await fn(); results.push([name, null]); } catch (e) { results.push([name, e]); } };
+  await check('やり直し: 失敗したら待って最大 3 回やり直し、待ち時間は倍々', async () => {
+    const waits = [];
+    let calls = 0;
+    const r = await withRetry(async (attempt) => { calls++; if (attempt < 3) throw new OverpassError('混雑', true); return 'ok'; }, { retries: 3, wait: 30000, sleep: async (ms) => waits.push(ms) });
+    assert.equal(r, 'ok'); assert.equal(calls, 4); assert.deepEqual(waits, [30000, 60000, 120000]);
+  });
+  await check('やり直し: 3 回やり直しても失敗したら投げる（試した回数つき）・やり直せない失敗はすぐ投げる', async () => {
+    let calls = 0;
+    await assert.rejects(withRetry(async () => { calls++; throw new OverpassError('HTTP 504', true); }, { retries: 3, wait: 1, sleep: async () => {} }), (e) => e.attempts === 4);
+    assert.equal(calls, 4);
+    calls = 0;
+    await assert.rejects(withRetry(async () => { calls++; throw new OverpassError('HTTP 400', false); }, { retries: 3, wait: 1, sleep: async () => {} }), (e) => e.attempts === 1);
+    assert.equal(calls, 1);
+  });
+  await check('問い合わせ: 混雑・通信エラー・時間切れ・サーバー側の時間切れはやり直せる、400 はやり直さない', async () => {
+    const once = (fetchImpl) => overpassOnce('q', { fetchImpl, timeoutMs: 1000 });
+    assert.deepEqual(await once(async () => res(200, { elements: [{ id: 1 }] })), [{ id: 1 }]);
+    for (const st of [429, 502, 503, 504]) await assert.rejects(once(async () => res(st, {})), (e) => e.retryable === true && e.message.includes(String(st)));
+    await assert.rejects(once(async () => res(400, {})), (e) => e.retryable === false);
+    await assert.rejects(once(async () => { throw new TypeError('fetch failed'); }), (e) => e.retryable === true);
+    await assert.rejects(once(async () => { throw Object.assign(new Error('t'), { name: 'TimeoutError' }); }), (e) => e.retryable === true && e.message.includes('時間切れ'));
+    await assert.rejects(once(async () => res(200, { elements: [], remark: 'runtime error: Query timed out in "query" at line 3 after 601 seconds.' })), (e) => e.retryable === true);
+  });
+  await check('問い合わせ: やり直すたびに問い合わせ先を変える', async () => {
+    const used = [];
+    const fetchImpl = async (url) => { used.push(url); return used.length < 3 ? res(503, {}) : res(200, { elements: [] }); };
+    await overpass('q', { fetchImpl, wait: 1, sleep: async () => {} });
+    assert.deepEqual(used, [ENDPOINTS[0], ENDPOINTS[1], ENDPOINTS[0]]);
+  });
+  await check('Summary: 取得できなかった都道府県の一覧（無ければ「なし」）', async () => {
+    assert.match(failedPrefsMarkdown([]), /なし/);
+    const md = failedPrefsMarkdown([{ iso: 'JP-01', pref: '北海道', attempts: 4, kept: 120, error: 'overpass-api.de: HTTP 504 | x' }, { iso: 'JP-13', pref: '東京都', attempts: 4, kept: 0, error: '時間切れ' }]);
+    assert.match(md, /取得できなかった都道府県（2 件）/);
+    assert.match(md, /\| 北海道 \| JP-01 \| 4 \| 120 \| overpass-api\.de: HTTP 504 \\\| x \|/);
+    assert.match(md, /\| 東京都 \| JP-13 \| 4 \| 0 \| 時間切れ \|/);
+  });
+  for (const [name, err] of results) { if (err) throw err; test(name, () => {}); }
+}
 
 /* ---- 保存（表示モード・カテゴリの選択・撮影スポットの「行った」） ---- */
 {
